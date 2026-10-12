@@ -1,0 +1,3 @@
+# Optional only; no browser or web server is needed to open/render the HTML.
+# Install a compatible Chromium with: python -m playwright install chromium
+playwright>=1.40,<2

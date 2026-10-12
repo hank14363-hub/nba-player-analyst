@@ -1,0 +1,6 @@
+# Online NBA Stats adapter; offline analysis uses the standard library.
+# Version actually used in the 2026-10-12 official case.
+nba_api==1.11.4
+# Optional public third-party impact collector (not needed for offline recomputation).
+requests>=2.31
+beautifulsoup4>=4.12

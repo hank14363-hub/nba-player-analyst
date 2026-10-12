@@ -1,0 +1,6 @@
+interface:
+  display_name: "NBA 球员研究"
+  short_description: "官方数据核验、图文长文与球队主题研究册，明确能力边界和战术使用条件"
+  default_prompt: "使用 $nba-player-analyst 分析指定NBA球员与赛季，核验官方或导入数据，以易懂中文完成带图长文、来源与结论清单、HTML研究册和球员结论长图。"
+policy:
+  allow_implicit_invocation: true
