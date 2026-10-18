@@ -1,0 +1,165 @@
+{
+  "book_version": "0.2.0",
+  "app_version": "0.4.0",
+  "theme": {
+    "key": "DET",
+    "primary": "#BA2540",
+    "accent": "#84BAFF",
+    "on_primary": "#FFFFFF",
+    "on_accent": "#10141B",
+    "background": "#11151C",
+    "panel": "#1B2029",
+    "text": "#F3F5F8",
+    "muted": "#AAB4C2",
+    "grid": "#3D4655",
+    "selection_reason": "player_sample_or_reported_team_label",
+    "scope": "editorial_palette_only_not_a_team_membership_claim",
+    "official_brand_specification": false
+  },
+  "generated_at": "2026-10-12T02:19:13+00:00",
+  "data_kind": "nba",
+  "status": "rendered_pending_book_check",
+  "recomputed_metrics": true,
+  "report_validation": {
+    "status": "pass",
+    "chinese_characters": 2418,
+    "claim_count": 15,
+    "numeric_fact_count": 50,
+    "errors": [],
+    "warnings": [
+      "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+    ]
+  },
+  "charts": [
+    "efficiency.svg",
+    "shot_mix.svg",
+    "scoring_mix.svg",
+    "creation.svg",
+    "assisted.svg",
+    "tracking.svg",
+    "team_context.svg",
+    "onoff.svg"
+  ],
+  "chart_evidence": {
+    "efficiency": {
+      "status": "ok",
+      "metric_ids": [
+        "TS_PCT",
+        "LEAGUE_TS_PCT",
+        "RTS_PP"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "T_BASE"
+      ],
+      "note": "TS综合考虑两分、三分和罚球。rTS是球员与同赛季、同比赛类型基准的TS差，单位为百分点，不是实力分。"
+    },
+    "shot_mix": {
+      "status": "ok",
+      "metric_ids": [
+        "FG3A_RATE",
+        "V_FG2A_RATE",
+        "FG3_PCT"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "note": "占比只算投篮出手，不含罚球。三分命中率只看三分出手；这张图不表示出手位置或难度。"
+    },
+    "scoring_mix": {
+      "status": "ok",
+      "metric_ids": [
+        "V_PTS_2P_SHARE",
+        "V_PTS_3P_SHARE",
+        "V_PTS_FT_SHARE"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "note": "按总得分分成两分、三分和罚球：分别用命中数乘以对应分值。四舍五入后合计可能略有偏差；不表示单打、挡拆等打法占比。"
+    },
+    "creation": {
+      "status": "ok",
+      "metric_ids": [
+        "PTS_PER75",
+        "AST_PER75",
+        "TOV_PER75"
+      ],
+      "source_ids": [
+        "P_100"
+      ],
+      "note": "统一换算为每75回合，来自同样本的每100回合数据。得分、助攻、失误各看各的，不相加评分；助攻多也不一定代表组织能力强。"
+    },
+    "assisted": {
+      "status": "ok",
+      "metric_ids": [
+        "PCT_AST_FGM",
+        "PCT_UAST_FGM",
+        "PCT_AST_3PM",
+        "V_PCT_UAST_3PM"
+      ],
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "note": "这里只看已经投进的球。没有记助攻不等于单打；记了助攻，也不代表统计了全部接球投篮。"
+    },
+    "team_context": {
+      "status": "ok",
+      "metric_ids": [
+        "ONCOURT_OFF_RATING",
+        "ONCOURT_DEF_RATING",
+        "TEAM_OFF_RATING",
+        "TEAM_DEF_RATING"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "T_ADV"
+      ],
+      "note": "并列展示球员在场时和目标球队整体的每百回合得分、失分。两组样本不同，不能相减当成个人贡献；这里没有在场与不在场对比。"
+    },
+    "onoff": {
+      "status": "ok",
+      "metric_ids": [
+        "ONOFF_ON_OFF_RATING",
+        "ONOFF_OFF_OFF_RATING",
+        "ONOFF_ON_DEF_RATING",
+        "ONOFF_OFF_DEF_RATING"
+      ],
+      "source_ids": [
+        "P_ONOFF"
+      ],
+      "note": "在场与不在场均覆盖同赛季球队样本；进攻值高更好，防守失分值低更好。未调整队友、对手和替补配置，不是个人因果贡献或防守评分。"
+    },
+    "tracking": {
+      "status": "ok",
+      "metric_ids": [
+        "CATCH_SHOOT_EFG_PCT",
+        "PULL_UP_EFG_PCT"
+      ],
+      "source_ids": [
+        "TR_CATCH",
+        "TR_PULL"
+      ],
+      "note": "有效命中率给三分命中增加权重。使用官方追踪百分比，不用四舍五入的场均命中数反推；两类出手位置、难度和样本不同，不据此判定哪类能力更强。覆盖场次见指标表。"
+    }
+  },
+  "sha256": {
+    "data_bundle.json": "a3147b83ee6ec04433687f63d84a3ff8537297a9d614876bbb8f55a55135e05f",
+    "analysis.json": "9c38954ac6cfb3ecc1db741d1d1aa2daf7cc8475bc18b73d09ecbc7dd84a35c9",
+    "sources.json": "ad97ecd5f027625175bc4cddb051452745d1b979ddacc07289065f77103ee275",
+    "report.md": "e4c6a541a124134f8545057e2219d3604103eae9698cce10065c51040c65ec32",
+    "claims.json": "373aef4e858b9802d49fd76a8070b64689367e003dc3802716be47912525926a",
+    "book_content.json": "53bbc79e6b5bfb4fa0f2884b144b19509be72749df22f14527675f0ce23c5841",
+    "research_book.html": "7104937d99c8b2e4452063e779a75d93e49bbc3938d61161bfb8892e7ecf4818",
+    "summary.md": "0421039157a88a4131aa26d2f14ee367cb134f76d4a0248f8cc67aed9d2600e7",
+    "charts/efficiency.svg": "db6eddf4b5d273e65c353e44b8975ddff773b128f4bf9c521169495d65de83a2",
+    "charts/shot_mix.svg": "3e438e91abe80e6fd85c24f4528ce7b679ea2e82822253f112cac5d994048418",
+    "charts/scoring_mix.svg": "ff456b18e722a85306e68b7c1f0b5584e089b9bf1191132a5590f994b0c1b235",
+    "charts/creation.svg": "45476f88d432f9639758edd6af9f79a876a9c655625888a12367c75bba464b63",
+    "charts/assisted.svg": "b4542164861e8530ef53955a7454966df5138cae4a6b9b0d7d97c9c4216a6c5d",
+    "charts/tracking.svg": "00bd1f733923dea128d6ae33c595ad1f8b0ba6597527cb71fa959cd5daf16b33",
+    "charts/team_context.svg": "a766da55490b5ce69fb7c7a3c724ef78e973f4bf2ed2b804db9d9d1593a4b966",
+    "charts/onoff.svg": "961503b030f03ea2c2b0444e2233b0b8e55ef4ab4498eaaca833d58f340214e0"
+  },
+  "manual_review_required": true
+}

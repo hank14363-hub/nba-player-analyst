@@ -7,26 +7,21 @@ import re
 import sys
 from pathlib import Path
 
-JARGON = {
-    '机会转化结果': '说清是得分效率，还是某种出手的成功率。',
-    '终结负荷': '可写成承担多少得分或进攻结束任务，保留原来口径。',
-    '主控结论': '说明能否承担主要组织任务，不用抽象名词代替判断。',
-    '角色迁移': '说清换了球队或分工后，哪些表现还需要验证。',
-    '分担创造': '说明是分担持球组织，还是接球后继续处理。',
-    '无球试验': '说明具体尝试什么无球分工。',
-    '共同在场阵容': '可写成场上的整套阵容。',
-    '因果贡献': '说明这些变化有多少能归因于球员本人。',
-    '多维度赋能': '写出实际帮助了哪种进攻或防守任务。',
-    '证据边界': '明确说还缺什么资料、哪些判断暂时不能下。',
-}
-TERMS = {
-    'TS': ('真实命中率', '两分、三分和罚球'),
-    'rTS': ('相对真实命中率', '百分点'),
-    'eFG': ('有效命中率',),
-    'USG': ('使用率',),
-    'ORTG': ('进攻效率', '每百回合得分', '每100回合得分'),
-    'DRTG': ('防守效率', '每百回合失分', '每100回合失分'),
-}
+from common import SKILL_ROOT, read_json, DataError
+
+def load_rules(path=None):
+    rules=read_json(path or SKILL_ROOT/'references/language_rules.json')
+    if rules.get('schema_version')!='0.1.0':raise DataError('Unknown language rule schema')
+    if not isinstance(rules.get('rule_version'),str) or not rules['rule_version']:raise DataError('Missing language rule version')
+    if not isinstance(rules.get('jargon'),dict) or not all(isinstance(k,str) and isinstance(v,str) and k and v for k,v in rules['jargon'].items()):raise DataError('Invalid jargon rules')
+    if not isinstance(rules.get('terms'),dict) or not all(isinstance(k,str) and k and isinstance(v,list) and v and all(isinstance(h,str) and h for h in v) for k,v in rules['terms'].items()):raise DataError('Invalid term rules')
+    if not isinstance(rules.get('strong_labels'),list) or not rules['strong_labels'] or not all(isinstance(v,str) and v for v in rules['strong_labels']):raise DataError('Invalid strong-label rules')
+    return rules
+
+RULES=load_rules()
+JARGON=RULES['jargon']
+TERMS=RULES['terms']
+STRONG_LABELS='|'.join(re.escape(v) for v in RULES['strong_labels'])
 LIMITATION = '仅为规则提示，不证明表达已足够通俗或结论真实；不自动改写，不修改数据。'
 
 
@@ -55,7 +50,7 @@ def review_text(text: str, location: str='text') -> list[dict]:
         for sentence in re.split(r'(?<=[。！？!?])',line):
             if len(re.sub(r'\s','',sentence))>110:
                 add('long_sentence',number,sentence,'检查是否能拆成两句；不可为缩短而删除条件、来源或统计口径。')
-        for match in re.finditer(r'完美适配|全面碾压|毫无短板|无敌|联盟顶级',line):
+        for match in re.finditer(STRONG_LABELS,line):
             prefix=line[max(0,match.start()-10):match.start()]
             if not re.search(r'不|没有|避免|禁止|别',prefix):
                 add('strong_label',number,match.group(),'检查是否有足够比较证据，必要时改写为具体任务表现。')
@@ -70,7 +65,7 @@ def review_text(text: str, location: str='text') -> list[dict]:
 
 def prose_fields(obj, prefix=''):
     """Review editorial prose only, never IDs, numeric facts, provenance, or identity."""
-    skip={'schema_version','status','data_kind','identity','portrait','claim_ids','challenge_ids',
+    skip={'schema_version','status','data_kind','identity','portrait','commentary_research','claim_ids','challenge_ids',
           'executive_claim_ids','summary_claim_ids','dimension','id','metric_ids','source_ids'}
     if isinstance(obj,dict):
         for key,value in obj.items():
@@ -91,7 +86,7 @@ def review_run(run_dir:Path) -> dict:
         if not isinstance(obj,dict):raise ValueError(name+' must contain an object')
         for location,text in prose_fields(obj):issues.extend(review_text(text,name+':'+location))
         checked.append(name)
-    return {'review_version':'0.3.1','status':'review_suggested' if issues else 'no_heuristic_warnings',
+    return {'review_version':RULES['rule_version'],'status':'review_suggested' if issues else 'no_heuristic_warnings',
             'checked_files':checked,'issue_count':len(issues),'issues':issues,
             'manual_review_required':True,'automatic_edits':False,'limitation':LIMITATION}
 

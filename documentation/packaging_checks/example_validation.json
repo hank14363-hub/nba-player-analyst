@@ -1,0 +1,104 @@
+{
+  "demo_output": {
+    "book": {
+      "status": "pass",
+      "recomputed_metrics": true,
+      "report_validation": {
+        "status": "pass",
+        "chinese_characters": 2347,
+        "claim_count": 17,
+        "numeric_fact_count": 26,
+        "errors": [],
+        "warnings": [
+          "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+        ]
+      },
+      "section_count": 9,
+      "anchor_count": 214,
+      "svg_count": 2,
+      "embedded_metric_instances": 45,
+      "errors": [],
+      "warnings": [
+        "Passing checks verify reproducibility, IDs, registered numbers, and static output integrity, NOT semantic truth, strategy validity, or visual layout. Review desktop/mobile/print separately."
+      ]
+    },
+    "poster": {
+      "status": "pass",
+      "poster_version": "0.3.0",
+      "charts_rendered": 6,
+      "charts_missing": 0,
+      "theme": "LAL",
+      "anchor_count": 70,
+      "embedded_metric_instances": 69,
+      "recomputed_metrics": true,
+      "render_parity": true,
+      "report_validation": {
+        "status": "pass",
+        "chinese_characters": 2347,
+        "claim_count": 17,
+        "numeric_fact_count": 26,
+        "errors": [],
+        "warnings": [
+          "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+        ]
+      },
+      "errors": [],
+      "warnings": [
+        "Structural and numeric reproducibility checks do not prove player evaluation, chart interpretation or tactical fit. Visual and semantic review remain required."
+      ]
+    }
+  },
+  "cade-cunningham-2024-25": {
+    "book": {
+      "status": "pass",
+      "recomputed_metrics": true,
+      "report_validation": {
+        "status": "pass",
+        "chinese_characters": 2641,
+        "claim_count": 20,
+        "numeric_fact_count": 16,
+        "errors": [],
+        "warnings": [
+          "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+        ]
+      },
+      "section_count": 9,
+      "anchor_count": 228,
+      "svg_count": 2,
+      "embedded_metric_instances": 39,
+      "errors": [],
+      "warnings": [
+        "Passing checks verify reproducibility, IDs, registered numbers, and static output integrity, NOT semantic truth, strategy validity, or visual layout. Review desktop/mobile/print separately."
+      ]
+    },
+    "poster": {
+      "status": "pass",
+      "poster_version": "0.3.0",
+      "charts_rendered": 4,
+      "charts_missing": 2,
+      "theme": "DET",
+      "anchor_count": 80,
+      "embedded_metric_instances": 56,
+      "recomputed_metrics": true,
+      "render_parity": true,
+      "report_validation": {
+        "status": "pass",
+        "chinese_characters": 2641,
+        "claim_count": 20,
+        "numeric_fact_count": 16,
+        "errors": [],
+        "warnings": [
+          "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+        ]
+      },
+      "errors": [],
+      "warnings": [
+        "Structural and numeric reproducibility checks do not prove player evaluation, chart interpretation or tactical fit. Visual and semantic review remain required."
+      ]
+    }
+  },
+  "cade_archive_hashes": {
+    "checked": 34,
+    "mismatches": []
+  }
+}

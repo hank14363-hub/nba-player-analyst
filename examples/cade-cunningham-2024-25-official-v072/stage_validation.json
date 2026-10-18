@@ -1,0 +1,116 @@
+{
+  "status": "pass",
+  "errors": [],
+  "requests": [],
+  "viewports": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "cardOverflow": 0,
+      "canvas": "1457",
+      "svg": 10
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "cardOverflow": 0,
+      "canvas": "1457",
+      "svg": 10
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "cardOverflow": 0,
+      "canvas": "1457",
+      "svg": 10
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "cardOverflow": 0,
+      "canvas": "1457",
+      "svg": 10
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "cardOverflow": 0,
+      "canvas": "1457",
+      "svg": 10
+    }
+  ],
+  "checks": [
+    {
+      "width": 1440,
+      "motion": "no-preference",
+      "perspective_rows": true,
+      "full_court": true,
+      "backcourt_click": true,
+      "plane_sync": true,
+      "statistics_unchanged": true,
+      "pause_resume": true,
+      "light_toggle": true,
+      "empty_sample": true,
+      "raw_conflict": true,
+      "reduced_motion": false
+    },
+    {
+      "width": 1024,
+      "motion": "reduce",
+      "perspective_rows": true,
+      "full_court": true,
+      "backcourt_click": true,
+      "plane_sync": true,
+      "statistics_unchanged": true,
+      "pause_resume": true,
+      "light_toggle": true,
+      "empty_sample": true,
+      "raw_conflict": true,
+      "reduced_motion": true
+    },
+    {
+      "width": 768,
+      "motion": "reduce",
+      "perspective_rows": true,
+      "full_court": true,
+      "backcourt_click": true,
+      "plane_sync": true,
+      "statistics_unchanged": true,
+      "pause_resume": true,
+      "light_toggle": true,
+      "empty_sample": true,
+      "raw_conflict": true,
+      "reduced_motion": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "perspective_rows": true,
+      "full_court": true,
+      "backcourt_click": true,
+      "plane_sync": true,
+      "statistics_unchanged": true,
+      "pause_resume": true,
+      "light_toggle": true,
+      "empty_sample": true,
+      "raw_conflict": true,
+      "reduced_motion": false
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "perspective_rows": true,
+      "full_court": true,
+      "backcourt_click": true,
+      "plane_sync": true,
+      "statistics_unchanged": true,
+      "pause_resume": true,
+      "light_toggle": true,
+      "empty_sample": true,
+      "raw_conflict": true,
+      "reduced_motion": true
+    }
+  ],
+  "no_js": "complete_original_static_svg",
+  "unchanged_evidence": true
+}

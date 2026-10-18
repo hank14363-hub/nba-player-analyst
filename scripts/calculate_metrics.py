@@ -178,6 +178,12 @@ def analyze(bundle: dict, request: dict) -> dict:
         sourced("player_per100", field, f"{field}_PER75", "per75", 0.75)
     for field in ("PCT_AST_FGM", "PCT_UAST_FGM", "PCT_AST_3PM"):
         sourced("player_scoring", field, field, "fraction")
+    # Optional declared provider shooting-profile fields; old bundles keep their metric set.
+    for field, unit in [('PCT_AST_2PM', 'fraction'), ('AVG_SHOT_DISTANCE_FT', 'feet')] + [
+            (prefix + band, 'fraction') for band in ('0_3','3_10','10_16','16_3P','3P')
+            for prefix in ('PCT_FGA_', 'FG_PCT_')]:
+        if sources.get('P_SCORE', {}).get('adapter') in {'deocheng-v1','sumitro-v56'} and field in selected.get('player_scoring', {}):
+            sourced('player_scoring', field, field, unit)
     scoring = selected.get('player_scoring', {})
     if scoring.get('PCT_AST_FGM') is not None and scoring.get('PCT_UAST_FGM') is not None:
         valid_pair = [m for m in metrics if m['metric_id'] in {'PCT_AST_FGM','PCT_UAST_FGM'} and m['status'] == 'ok']
@@ -186,6 +192,9 @@ def analyze(bundle: dict, request: dict) -> dict:
                 m.update(value=None, display='N/A', status='missing', reason='Assisted plus unassisted made-shot shares fail sum-to-one check.')
             warnings.append('Assisted shot shares excluded: inconsistent complement.')
     tracking_metrics(selected, add, warnings)
+    if bundle.get('sumitro_import'):
+        from import_sumitro import register_pbp
+        register_pbp(bundle, add)
     official_ts = selected.get("player_advanced", {}).get("TS_PCT")
     if official_ts is not None and ts is not None:
         try:
@@ -263,9 +272,11 @@ def analyze(bundle: dict, request: dict) -> dict:
     shots, shot_reason = None, 'Matching shot events are unavailable.'
     if tables.get('player_shots'):
         try:
-            shots = shot_context(bundle, base, player_id, team_id)
+            shots = shot_context(bundle, base, player_id, team_id,allow_partial=request.get('partial_shot_locations',False))
             if shots['anomalies']:
                 warnings.append(f"P_SHOT: {len(shots['anomalies'])} provider zone/type conflicts retained in a separate unresolved bucket; raw events unchanged.")
+            if shots.get('missing_location_count') or shots.get('missing_zone_count'):
+                warnings.append(f"P_SHOT: missing coordinates {shots['missing_location_count']}; missing zone labels {shots['missing_zone_count']}. Location charts use known-coordinate events; all events remain in season and zone totals.")
         except (DataError, ValueError) as exc:
             shot_reason = str(exc)
             warnings.append('Shot locations excluded: ' + shot_reason)
@@ -283,6 +294,16 @@ def analyze(bundle: dict, request: dict) -> dict:
     from impact_metrics import impact_context, register_impact
     impact = impact_context(bundle, player_id, player_name, totals, team_id)
     register_impact(impact, add, metrics)
+    percentiles = None
+    if request.get('advanced_percentiles'):
+        from advanced_percentiles import context, register
+        percentiles = context(bundle, player_id, team_id, metrics)
+        register(percentiles, add, metrics)
+    leaders = None
+    if request.get('stat_leaders'):
+        from stat_leaders import context as leader_context, register as register_leaders
+        leaders = leader_context(bundle,player_id,team_id,metrics)
+        register_leaders(leaders,add,metrics)
     ok = {m["metric_id"] for m in metrics if m["status"] == "ok"}
     evidence_map = {
         "scoring": {"metric_ids": sorted(ok & {"PTS_PER_GAME", "PTS_PER75", "TS_PCT", "RTS_PP", "USG_PCT", "FG3A_RATE", "FT_RATE"}),
@@ -308,6 +329,12 @@ def analyze(bundle: dict, request: dict) -> dict:
             "sources": sources}
     if comparisons is not None:
         result['comparison_context'] = comparisons
+    if bundle.get('impact_collection'):
+        result['impact_collection']=bundle['impact_collection']
     if impact is not None:
         result['impact_context'] = impact
+    if percentiles is not None:
+        result['percentile_context'] = percentiles
+    if leaders is not None:
+        result['stat_leader_context'] = leaders
     return result

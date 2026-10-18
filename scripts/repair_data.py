@@ -49,7 +49,9 @@ def repair(bundle, tables, fetcher, player_id=None, onoff_team_id=0, replace_exi
             candidate['tables'][table], candidate['sources'][sid] = rows, source
             validate_bundle(candidate, season, kind, team_id)
             if table == 'player_shots':
-                shot_context(candidate, player_row(candidate['tables']['player_base'], player_id, team_id), player_id, team_id)
+                spatial=shot_context(candidate, player_row(candidate['tables']['player_base'], player_id, team_id), player_id, team_id, allow_partial=True)
+                if spatial['missing_location_count'] or spatial['missing_zone_count']:
+                    source['spatial_coverage']={k:spatial[k] for k in ('location_count','missing_location_count','missing_zone_count','location_coverage')}
             if table == 'player_onoff' and player_id:
                 onoff_context(candidate, player_row(candidate['tables']['player_base'], player_id, team_id), player_id, team_id)
             result = candidate
@@ -92,10 +94,14 @@ def main():
         if args.out.exists() and (not args.out.is_dir() or any(args.out.iterdir())):
             raise DataError('Output must be new/empty; old bundles and reports are never overwritten.')
         bundle = load_bundle(args.input)
+        from retained_raw import verify_retained, copy_retained
+        input_root = args.input.parent if args.input.is_file() else args.input
+        verify_retained(bundle, input_root)
         chosen = args.tables or [t for t in bundle['tables'] if not bundle['tables'][t]]
         updated, log = repair(bundle, chosen, Fetcher(args.cache_dir, timeout=args.timeout, retries=args.retries,
                                offline=args.offline, refresh=args.refresh), args.player_id, args.on_off_team_id, args.replace_existing)
         args.out.mkdir(parents=True, exist_ok=True)
+        copy_retained(updated, input_root, args.out)
         write_json(args.out/'data_bundle.json', updated)
         write_json(args.out/'repair_log.json', log)
         failed = any(e['status'] == 'failed' for e in log['events'])

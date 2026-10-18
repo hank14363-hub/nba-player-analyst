@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "recomputed_metrics": true,
+  "report_validation": {
+    "status": "pass",
+    "chinese_characters": 2382,
+    "claim_count": 18,
+    "numeric_fact_count": 26,
+    "errors": [],
+    "warnings": [
+      "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+    ]
+  },
+  "section_count": 9,
+  "anchor_count": 221,
+  "svg_count": 6,
+  "embedded_metric_instances": 45,
+  "errors": [],
+  "warnings": [
+    "Passing checks verify reproducibility, IDs, registered numbers, and static output integrity, NOT semantic truth, strategy validity, or visual layout. Review desktop/mobile/print separately."
+  ],
+  "tampered_film_record_rejected": true
+}

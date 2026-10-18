@@ -1,0 +1,57 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "width": 1440,
+      "content": 1440,
+      "brokenImages": 0,
+      "brokenAnchors": 0,
+      "file": "research_book.html",
+      "viewport": [
+        1440,
+        1024
+      ],
+      "requests": [],
+      "script_errors": []
+    },
+    {
+      "width": 390,
+      "content": 390,
+      "brokenImages": 0,
+      "brokenAnchors": 0,
+      "file": "research_book.html",
+      "viewport": [
+        390,
+        844
+      ],
+      "requests": [],
+      "script_errors": []
+    },
+    {
+      "width": 1440,
+      "content": 1440,
+      "brokenImages": 0,
+      "brokenAnchors": 0,
+      "file": "player_poster.html",
+      "viewport": [
+        1440,
+        1024
+      ],
+      "requests": [],
+      "script_errors": []
+    },
+    {
+      "width": 390,
+      "content": 390,
+      "brokenImages": 0,
+      "brokenAnchors": 0,
+      "file": "player_poster.html",
+      "viewport": [
+        390,
+        844
+      ],
+      "requests": [],
+      "script_errors": []
+    }
+  ]
+}

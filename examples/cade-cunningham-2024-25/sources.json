@@ -1,0 +1,201 @@
+{
+  "version": "0.1.0",
+  "data_kind": "nba",
+  "sample": {
+    "season": "2024-25",
+    "season_type": "Regular Season",
+    "GP": 70.0,
+    "MIN": 2452.0,
+    "player_team_id": 0
+  },
+  "sources": {
+    "P_BASE": {
+      "provider": "RealGM public season totals",
+      "url": "https://basketball.realgm.com/player/Cade-Cunningham/Summary/124839",
+      "retrieved_at": "2026-10-12T01:27:27.372889+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 1,
+      "sha256_rows": "d2f392053df09dbf8a204bbc23636d2bd185e05a37ce6ddb54f777e99c5a2e8d",
+      "retrieval_method": "web tool table read; explicit field transcription",
+      "sample_scope": "complete 2024-25 regular season",
+      "from_cache": false
+    },
+    "P_ADV": {
+      "provider": "RealGM advanced estimates",
+      "url": "https://basketball.realgm.com/player/Cade-Cunningham/Summary/124839",
+      "retrieved_at": "2026-10-12T01:27:27.372889+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 1,
+      "sha256_rows": "58d1a39aa09af6305a33622dbfa5a4941cef9642e60b2267c92747678c17a0aa",
+      "retrieval_method": "web tool table read; explicit field transcription",
+      "sample_scope": "complete 2024-25 regular season",
+      "from_cache": false,
+      "mapping": {
+        "USG_PCT": "USG% / 100",
+        "AST_PCT": "AST% / 100",
+        "TS_PCT": "source decimal"
+      },
+      "excluded_fields": [
+        "ORtg",
+        "DRtg",
+        "PER"
+      ],
+      "definition_url": "https://basketball.realgm.com/info/glossary"
+    },
+    "P_100": {
+      "provider": "Basketball-Reference complete indexed player row",
+      "url": "https://www.basketball-reference.com/leagues/NBA_2025_per_poss.html",
+      "retrieved_at": "2026-10-12T01:27:27.372889+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Per100Possessions",
+      "status": "ok",
+      "row_count": 1,
+      "sha256_rows": "50ec23522ed7cc3abcbd980ffe20aab8924f449fe925d826a04a2bffecbae97f",
+      "retrieval_method": "web search index: complete Cade Cunningham row with GP=70 and MP=2452; origin returned 403",
+      "sample_scope": "complete 2024-25 regular season",
+      "from_cache": false,
+      "rounding": "source per100 rounded to one decimal before multiplication by 0.75",
+      "direct_page_verified": false,
+      "usage": "supplemental visualization only"
+    },
+    "T_BASE": {
+      "provider": "RealGM full-league team totals",
+      "url": "https://basketball.realgm.com/nba/team-stats/2025/Totals/Team_Totals/Regular_Season",
+      "retrieved_at": "2026-10-12T01:27:27.372889+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 30,
+      "sha256_rows": "3aaa95edd36a91bd251b679c8f55451caf145a8b25c1cf5870dae674a1068f69",
+      "retrieval_method": "web tool table read; explicit field transcription",
+      "sample_scope": "complete 2024-25 regular season",
+      "from_cache": false,
+      "coverage": "full_league",
+      "coverage_team_count": 30,
+      "coverage_games_per_team": 82,
+      "coverage_verified_ids": [
+        1610612737,
+        1610612738,
+        1610612739,
+        1610612740,
+        1610612741,
+        1610612742,
+        1610612743,
+        1610612744,
+        1610612745,
+        1610612746,
+        1610612747,
+        1610612748,
+        1610612749,
+        1610612750,
+        1610612751,
+        1610612752,
+        1610612753,
+        1610612754,
+        1610612755,
+        1610612756,
+        1610612757,
+        1610612758,
+        1610612759,
+        1610612760,
+        1610612761,
+        1610612762,
+        1610612763,
+        1610612764,
+        1610612765,
+        1610612766
+      ]
+    },
+    "T_ADV": {
+      "provider": "RealGM team advanced estimates",
+      "url": "https://basketball.realgm.com/nba/team-stats/2025/Advanced_Stats/Team_Totals/Regular_Season",
+      "retrieved_at": "2026-10-12T01:27:27.372889+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 1,
+      "sha256_rows": "c4430bee1b1b5fa47c81d201e1f951fee297d6669fbad90fee611e6cef3a0e70",
+      "retrieval_method": "web tool table read; explicit field transcription",
+      "sample_scope": "complete 2024-25 regular season",
+      "from_cache": false,
+      "coverage": "selected_team_only",
+      "mapping": {
+        "AST_PCT": "AST% / 100",
+        "OFF_RATING": "ORtg",
+        "DEF_RATING": "DRtg",
+        "NET_RATING": "eDiff",
+        "PACE": "Pace"
+      },
+      "definition_url": "https://basketball.realgm.com/info/glossary"
+    },
+    "P_SCORE": {
+      "status": "missing",
+      "reason": "No verified matching-sample public table available during this run."
+    },
+    "TR_CATCH": {
+      "status": "missing",
+      "reason": "No verified matching-sample public table available during this run."
+    },
+    "TR_PULL": {
+      "status": "missing",
+      "reason": "No verified matching-sample public table available during this run."
+    },
+    "TR_PASS": {
+      "status": "missing",
+      "reason": "No verified matching-sample public table available during this run."
+    },
+    "TR_DRIVE": {
+      "status": "missing",
+      "reason": "No verified matching-sample public table available during this run."
+    },
+    "EXT_AWARD": {
+      "provider": "NBA / Detroit Pistons official public publication",
+      "url": "https://www.nba.com/news/2024-25-all-nba-teams-announced",
+      "retrieved_at": "2026-10-12T01:27:27.372889+00:00",
+      "status": "ok",
+      "supported_facts": [
+        "Cade Cunningham selected to the 2024-25 All-NBA Third Team."
+      ],
+      "retrieval_method": "web accessible indexed article text; no direct film observation"
+    },
+    "EXT_SEASON": {
+      "provider": "NBA / Detroit Pistons official public publication",
+      "url": "https://www.nba.com/pistons/news/cade-cunningham-named-2024-25-kia-all-nba-third-team",
+      "retrieved_at": "2026-10-12T01:27:27.372889+00:00",
+      "status": "ok",
+      "supported_facts": [
+        "Detroit finished 2024-25 regular season 44-38; NBA official team release."
+      ],
+      "retrieval_method": "web accessible indexed article text; no direct film observation"
+    },
+    "EXT_FIT": {
+      "provider": "NBA / Detroit Pistons official public publication",
+      "url": "https://www.nba.com/pistons/news/pistons-3-key-vets-keep-showing-up-and-knocking-down-triples",
+      "retrieved_at": "2026-10-12T01:27:27.372889+00:00",
+      "status": "ok",
+      "supported_facts": [
+        "Contemporaneous team reporting describes veteran shooters complementing Cunningham. Not possession-level verification."
+      ],
+      "retrieval_method": "web accessible indexed article text; no direct film observation"
+    },
+    "EXT_PREVIEW": {
+      "provider": "NBA / Detroit Pistons official public publication",
+      "url": "https://www.nba.com/news/2024-25-season-preview-det",
+      "retrieved_at": "2026-10-12T01:27:27.372889+00:00",
+      "status": "ok",
+      "supported_facts": [
+        "2024-25 roster context: Beasley, Hardaway and Harris additions; Bickerstaff named coach."
+      ],
+      "retrieval_method": "web accessible indexed article text; no direct film observation"
+    }
+  }
+}

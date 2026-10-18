@@ -1,151 +1,128 @@
-# NBA Player Analyst
+# NBA Player Analyst v0.8.14
 
-**从可追溯数据到中文分析、交互式研究册与结论长图。**
+用可追溯数据研究NBA球员单赛季表现与战术适配，生成中文图文长文、球队主题HTML研究册和结论长图。统计缺失、模型限制与来源范围在结果中明确保留。
 
-A Codex skill for evidence-based NBA player research, Chinese reports, interactive HTML research books, and team-themed visual summaries. Missing data and model limitations stay explicit.
+An evidence-based NBA player research skill for single-season analysis, tactical fit, advanced impact metrics, and interactive Chinese research books. Missing data and source limitations remain visible.
 
-[下载公开完整包 v0.8.1](https://github.com/hank14363-hub/nba-player-analyst/releases/download/v0.8.1/nba-player-analyst-v0.8.1.zip) · [Release 说明](https://github.com/hank14363-hub/nba-player-analyst/releases/tag/v0.8.1) · [Skill 执行流程](SKILL.md) · [研究方法与文档](#研究方法与文档)
+## 获取完整 Skill
 
-> **版本说明（2026-10-18）：** 当前仓库核心源码与公开完整包为 **v0.8.1**。后续本地维护已推进至 **v0.8.14**，尚未同步到当前源码及Release。下方使用命令对应公开版本；新版本的EPM导入、六轴雷达与缺失恢复等进展在文末单列。
-
-## 能研究什么
-
-围绕一名球员、一个赛季和明确的比赛类型，解释其竞争特点、使用条件与战术适配。适合球员研究、球探报告和赛季复盘；不用于即时比分或投注建议。
-
-| 研究内容 | 成果与条件 |
-|---|---|
-| 产量、效率与组织 | 基础、高阶、受助攻和追踪指标共同解读，保留各表覆盖范围 |
-| 球队在场表现 | 核验同队On/Off及分钟后作描述性比较，不将差值当个人因果贡献 |
-| 真实投篮分布 | 核验完整事件后展示点位、区域和出手频次；支持筛选、点亮回放、暂停调速与正文跳转 |
-| 同角色比较 | 用核验后的完整联盟表展示实际值、同组中位数、统计百分位与门槛敏感性 |
-| 影响力模型 | 支持BPM、VORP、Win Shares、公开LEBRON转引与带日期的DARKO历史预测，分别解释来源与范围 |
-| 图文研究成果 | 中文长文、球队主题离线HTML研究册、结论长图及来源清单；按球员特点选择四项封面指标 |
-| 外部观点与录像记录 | 实际查阅的球评文章署名引用；导入真实录像观察及比赛、双时钟、观察者与替代解释 |
-
-缺失留空并说明，不用其他球员、其他赛季或合成数据补齐；不生成任意综合实力分、个人防守评分或能力排名。模型防守分量不等于个人防守能力。
-
-## 选择下载方式
-
-| 内容 | 仓库源码 / Source code ZIP | Release完整包 |
-|---|---|---|
-| Skill、脚本、方法文档、视觉资源、代理配置 | 包含 | 包含 |
-| 完整案例`examples/` | 不包含 | 包含 |
-| 测试与夹具`tests/` | 不包含 | 包含 |
-| 验证、历史资料和打包清单 | 不包含 | 包含 |
-
-首次使用、浏览完整案例或运行回归，下载 **Release附件`nba-player-analyst-v0.8.1.zip`**。GitHub自动生成的“Source code (zip)”只有核心源码。最新维护成果尚未发布为新的下载附件。
+- 当前源码版本：**v0.8.14**，入口为根目录的 [SKILL.md](SKILL.md)。
+- [源码 ZIP](https://github.com/hank14363-hub/nba-player-analyst/archive/refs/heads/main.zip)：解压后将文件夹命名为 `nba-player-analyst`，再按下方说明安装。
+- [Release 下载](https://github.com/hank14363-hub/nba-player-analyst/releases)：下载前核对标签；旧版 Release 不会随主分支自动更新。
+- 完整目录包含脚本、资源、测试、文档和历史案例；不能只安装 `SKILL.md`。
 
 ## 快速开始
 
-### 1. 安装
+将完整`nba-player-analyst`文件夹放入Codex可发现的skills目录，确保`SKILL.md`位于文件夹根层。直接提出：
 
-解压后将完整`nba-player-analyst/`放入当前Codex环境识别的个人或项目skills目录，保持`nba-player-analyst/SKILL.md`层级。已有可识别安装时，避免重复安装同名Skill；具体目录以当前Codex配置为准。
+> 使用 $nba-player-analyst 分析斯蒂芬·库里2015–16常规赛，重点研究投射、组织与球队适配，生成图文研究册。
 
-使用Python 3.10+，在Skill根目录安装依赖，建议使用项目虚拟环境：
+需要指定球员、赛季与常规赛/季后赛；转会球队段和假设适配球队分开设置。采集结果受来源与网络可用性影响，不能保证所有数据都有值。
 
-```bash
-python -m pip install -r requirements.txt
-```
-
-离线指标计算与HTML/SVG渲染使用标准库；联网和第三方页面解析需要对应依赖。PNG/PDF导出可选安装`requirements-print.txt`并配置Chrome/Edge等兼容浏览器。**阅读生成的单文件HTML不需要Python或运行服务。**
-
-### 2. 在Codex中调用
+脚本证据包入口（将`<SKILL_DIR>`替换为本文件所在目录）：
 
 ```text
-使用 $nba-player-analyst 分析凯德·坎宁安2024–25常规赛。
-重点研究持球创造、投篮效率、失误成本和战术适配。
-使用可追溯数据，补充可核验的公开影响力指标和署名球评观点。
-按球员特点选择四项封面核心数据，生成中文图文长文、交互式研究册、结论长图及来源清单。
-明确标注缺失、转引、模型预测和分析推断，将成果写入新目录。
+python -m pip install -r <SKILL_DIR>/requirements.txt
+python <SKILL_DIR>/scripts/run_analysis.py --player-id <NBA_ID> --season <YYYY-YY> --tracking --shots --out <新目录>
 ```
 
-更换球员时明确姓名或NBA ID、赛季及常规赛/季后赛。`--team-id`表示球员实际效力段，`--target-team-id`表示拟适配球队；两者不能混用。旧案例只演示流程，不能代替新研究取数。
-
-### 3. 浏览完整包内的案例
-
-解压后用浏览器打开：
+有匹配数据包时可离线导入：
 
 ```text
-examples/cade-cunningham-2024-25-official-v081/research_book.html
+python <SKILL_DIR>/scripts/run_analysis.py --input <数据包目录>/data_bundle.json --player-id <NBA_ID> --season <YYYY-YY> --out <新目录>
 ```
 
-![坎宁安研究册：整季影响力与带日期的历史预测分开呈现](docs/images/cade-v081-impact.png)
+Python 3.10+；离线计算与HTML/SVG只用标准库，联网依赖安装到项目环境。PNG/PDF另需可选Playwright与浏览器，见`requirements-print.txt`。`--input`不联网，补抓缺表另用`repair_data.py`。
 
-该历史案例保留70场、1,457次真实出手、141个可用指标和41条登记结论。数量描述此案例，不代表其他球员能获得相同覆盖。BPM、LEBRON与DARKO分别解释，来源可跳转核对。
+## 当前功能与执行方式
 
-`research_book.html`可离线阅读；编辑正文时保留`report.md`与`charts/`；`claims.json`、`sources.json`用于核对结论和引用；`data_bundle.json`与`raw/`保留可复算输入。`examples/demo_output/`是合成样式测试，不能用于真实球员评价。
-
-## 数据与结论如何衔接
-
-**采集/导入 → 样本与指标核验 → 阅读资料并写作 → 登记结论和引用 → 渲染 → 校验与视觉检查。**
-
-`run_analysis.py`生成证据包和模板，不会自动完成文章、球评阅读或图片搜索。Codex还需完成`report.md`、`claims.json`、`book_content.json`与`poster_content.json`，解释指标的篮球意义与限制，再生成研究册。模板或取数成功不等于成稿。
-
-来源优先采用实际官方响应、合法且可核验的导出、定义明确的公开备用源；保存请求、抓取时间、原始行和摘要。网络故障有限重试，访问受限则停止该途径并记录，不绕过订阅或用其他日期读数替代。
-
-公开v0.8.1的EPM尚未导入，RAPM候选因比赛集合与覆盖待核验而未纳入案例。DARKO是带历史日期的生涯加权预测，不是整季实际贡献；LEBRON公开转引须保留来源链。模型输入可能重叠，方向一致不等于独立验证。统计百分位描述样本位置，出手频次图描述次数，都不是能力评分。
-
-## 可选：命令行工作流
-
-以下命令在公开版Skill根目录运行，输出目录需新建或为空。接口及数据覆盖决定实际可用内容。
-
-```bash
-# 官方采集；On/Off必须指定实际样本球队
-python scripts/run_analysis.py --player-id 1630595 --season 2024-25 --tracking --shots --on-off-team-id 1610612765 --out runs/cade-online
-
-# 网络故障诊断
-python scripts/diagnose_network.py --season 2024-25 --out runs/network-check/network_diagnostic.json
-
-# 完整包内案例的离线复算；比较需显式开启
-python scripts/run_analysis.py --input examples/cade-cunningham-2024-25-official-v081/data_bundle.json --player-id 1630595 --season 2024-25 --comparisons --out runs/cade-offline
-```
-
-`--input`不联网，不能与`--tracking/--shots/--on-off-team-id`同用；补抓另用`repair_data.py`。`--comparisons`复用核验后的联盟表，不自动补造样本。
-
-公开高阶补数可用`collect_impact.py`。它默认只选BREF；增加LEBRON或DARKO需显式`--providers`，DARKO需`--cutoff`历史日期，身份键与样本规则见 [影响力模型](references/impact_models.md)。公开版主流程不会自动完成后续维护版的默认高阶采集。
-
-内容完成后的渲染与检查：
-
-```bash
-python scripts/review_language.py --run-dir runs/cade-offline
-python scripts/validate_report.py --run-dir runs/cade-offline
-python scripts/render_research_book.py --run-dir runs/cade-offline --theme auto
-python scripts/validate_book.py --run-dir runs/cade-offline
-python scripts/render_player_poster.py --run-dir runs/cade-offline --theme auto
-python scripts/validate_poster.py --run-dir runs/cade-offline
-```
-
-PNG导出用`export_poster.py`，可用`--browser-path`指定浏览器；PDF按需要导出并另查分页。修改内容后用相应脚本的`--force`重建，保留原始数据。完整包可运行`python -m unittest discover -s tests -v`；核心源码仓库没有测试目录。
-
-## 后续维护进展：v0.8.14（待同步发布）
-
-下列内容已在本地维护版实现并验证，**当前仓库源码和v0.8.1下载包尚不包含这些新增能力**：
-
-| 维护方向 | 已完成的进展与限制 |
+| 功能 | 当前方式与边界 |
 |---|---|
-| 历史数据备用源 | deocheng Kaggle与Sumitro/BR独立导入，保留原始行、SHA-256、身份桥接和确定性复算 |
-| EPM接入 | 合法Actual离线导入、Kaggle Actual核验、带“口径待核验”备注的历史归档；在线访问审计不代表取得受限数值 |
-| 高阶表达 | 默认尝试同源数值百分位，六轴同源雷达；单项第一另核验完整联盟原表，并保留并列与样本人数 |
-| 分析完整性 | 默认高阶尝试、模型已采未写检查、署名球评检索记录与图片来源核验；检索阅读由代理实际执行 |
-| 配图恢复 | 单张下载失败后继续正常公开替代检索，区分拍摄/上传日期、许可与用途；手机图注排版修复 |
-| 投篮缺失恢复 | 完整事件中个别空间字段缺失时保留真实点位与覆盖率；库里案例恢复1,596/1,598次坐标，缺失两次单列 |
+| 基础、高阶、追踪与On/Off | 官方接口或核验后的导入数据；追踪和投篮用`--tracking/--shots`，On/Off需实际样本球队ID |
+| 影响力模型 | 在线默认尝试BREF、LEBRON及历史Actual EPM访问审计；DARKO需明确历史日期；拒绝访问时保留缺失 |
+| Actual EPM | 合法离线导出或已核验Kaggle Actual表独立导入；核对身份、赛季、GP、总分钟与分量 |
+| 历史EPM | 可显式导入归档表，保留原日期与“口径待核验”；不替代整季Actual或已验证预测 |
+| 同角色比较与数值百分位 | 默认尝试已有同源匹配样本；缺失不补零，不合成能力分 |
+| 雷达与单项第一特效 | 雷达须六轴同源、同一样本；第一须另核验完整联盟原表，注明并列及人数 |
+| 投篮位置、区域与交互 | 完整事件总量须匹配；空间字段部分缺失时保留真实点位、覆盖率及缺失明细 |
+| 四项封面指标 | 按球员鲜明特点选择，逐项关联登记指标与正文依据 |
+| 球评文章与配图 | 代理实际检索、阅读和核验；脚本不会自动搜索文章或图片；记录来源、许可、日期及限制 |
+| 录像观察 | 导入已观看并登记的结构化记录；不自动观看或识别录像 |
 
-本地v0.8.14维护版595项回归通过；公开v0.8.1发布时为285项。两者属于不同版本的验证记录，不能在旧源码上直接复现新测试或新功能。后续发布时需同步脚本、资源、方法文档与版本信息，不能只修改README版本号。
+用`--no-impact`、`--no-comparisons`、`--no-advanced-percentiles`按研究范围关闭相应尝试。`--offline`仅读缓存，保留实际抓取时间。默认完整研究包含文章与图片检索；纯数据、离线或窄范围任务可如实记录跳过。
 
-接下来优先核实历史EPM的估计类型与覆盖、补充同口径区域基准、增加真实录像与同角色模型样本。自动录像识别、阵容调整因果模型、校准综合评分与联盟实力排名仍未实现。
+## 从证据包到完整成果
 
-## 研究方法与文档
+脚本先生成`analysis.json`、`metrics.csv`、`sources.json`、`evidence.md`、`writing_brief.md`及模板。随后由代理完成：
 
-| 主题 | 公开版文档 |
+1. 查阅证据和所需球评/图片原页，保留实际记录。
+2. 撰写`report.md`与`claims.json`，解释已接入高阶模型、比较和百分位。
+3. 完成`book_content.json`、`poster_content.json`；采用图片时增加媒体文件、`media_content.json`与`media_research.json`。
+4. 渲染、严格校验，并实际检查桌面/手机呈现。
+
+```text
+python <SKILL_DIR>/scripts/validate_report.py --run-dir <目录>
+python <SKILL_DIR>/scripts/render_research_book.py --run-dir <目录> --theme auto
+python <SKILL_DIR>/scripts/validate_book.py --run-dir <目录> --strict-editorial
+python <SKILL_DIR>/scripts/render_player_poster.py --run-dir <目录> --theme auto
+python <SKILL_DIR>/scripts/validate_poster.py --run-dir <目录>
+```
+
+`research_book.html`为内嵌图像与交互的离线单文件；正文配图阅读需保留`report.md`及`charts/`。模板、取数成功和结构检查通过均不代表篮球判断已获证明。PDF按需要导出；修改后用`--force`重建派生文件。
+
+## 文档导航
+
+| 需要了解 | 入口 |
 |---|---|
-| 数据、导入、补抓 | [来源与访问](references/data_sources.md) · [输入契约](references/input_schema.md) · [单表恢复](references/data_repair.md) |
-| 指标与样本 | [指标定义](references/metrics.md) · [追踪和On/Off](references/advanced_data.md) · [同角色比较](references/role_comparisons.md) |
-| 投篮图与交互 | [真实位置](references/shot_locations.md) · [交互研究](references/shot_explorer.md) |
-| 模型、观点与录像 | [影响力模型](references/impact_models.md) · [球评文章](references/commentary_research.md) · [录像记录](references/film_workflow.md) |
-| 呈现与输出 | [研究册](references/research_book.md) · [影像配置](references/editorial_media.md) · [结论长图](references/player_poster.md) |
+| 代理完整执行流程 | [SKILL.md](SKILL.md) |
+| 官方取数、备用来源与网络故障 | [data_sources.md](references/data_sources.md)、[data_repair.md](references/data_repair.md) |
+| Kaggle与Sumitro导入 | [kaggle_import.md](references/kaggle_import.md)、[sumitro_import.md](references/sumitro_import.md) |
+| 影响力、Actual/历史EPM | [impact_models.md](references/impact_models.md)、[epm_import.md](references/epm_import.md)、[kaggle_epm.md](references/kaggle_epm.md) |
+| 比较、百分位和雷达 | [role_comparisons.md](references/role_comparisons.md)、[advanced_percentiles.md](references/advanced_percentiles.md) |
+| 投篮图和交互 | [shot_locations.md](references/shot_locations.md)、[shot_explorer.md](references/shot_explorer.md) |
+| 球评与图片检索 | [commentary_research.md](references/commentary_research.md)、[image_research.md](references/image_research.md) |
+| 研究册、媒体和结论长图 | [research_book.md](references/research_book.md)、[editorial_media.md](references/editorial_media.md)、[player_poster.md](references/player_poster.md) |
+| 版本、测试与后续方向 | [CHANGELOG.md](CHANGELOG.md)、[TEST_REPORT.md](TEST_REPORT.md)、[development_roadmap.md](references/development_roadmap.md) |
 
-公开完整包内`documentation/validation_v081.md`记录当时的回归和桌面/窄屏、无脚本、打印检查。离线测试不证明网站当前可访问，结构与数值校验不证明篮球判断或因果关系；语义和视觉仍需实际审阅。公开方法文档对应v0.8.1，后续维护规则以新版本发布时的文档为准。
+## 目录与案例
 
-## 许可与致谢
+```text
+nba-player-analyst/
+├── SKILL.md / README.md       执行入口与使用说明
+├── agents/                   Codex发现与界面元数据
+├── scripts/                  采集、导入、计算、渲染、检查
+├── references/               按任务选读的方法、契约与配置
+├── assets/                   HTML/CSS/JS与文字标签
+├── tests/                    回归测试
+├── examples/                 真实历史案例与明确标记的合成样式测试
+├── documentation/            版本验证、打包记录和历史快照
+└── PACKAGE_INFO.json / FILE_HASHES.json  发布信息与文件摘要
+```
 
-原创代码与模板采用 [MIT License](LICENSE)。NBA数据、第三方模型、文章与影像遵循各自提供者的条款及授权，仓库许可不替代上游许可。案例资料照保留署名、许可和改动说明，照片轮播不冒充连续比赛录像；球队配色不代表官方认可。详见 [致谢与素材说明](ACKNOWLEDGEMENTS.md)。
+| 案例 | 用途 |
+|---|---|
+| [官方高阶案例](examples/cade-cunningham-2024-25-official-v081/research_book.html) | BREF、LEBRON转引、历史DARKO；完整来源与研究册 |
+| [比较与投篮案例](examples/cade-cunningham-2024-25-official-v08/research_book.html) | 同角色比较、门槛敏感性、频次图与个性化封面 |
+| [图文与球评案例](examples/cade-cunningham-2024-25-official-v07/research_book.html) | 图文重组、真实事件筛选、署名球评回应 |
+| `examples/kaggle-*`、`examples/sumitro-*` | 备用来源的导入证据包，并非都含完成的文章 |
+| `examples/demo_output/` | 合成样式测试，不可用于真实球员评价 |
+
+较早案例保留原路径；[CHANGELOG.md](CHANGELOG.md)记录各阶段功能。最近库里配图/空间缺失修复与勒布朗雷达的现场案例位于用户项目，未随Skill打包；验证边界见 [v0.8.14记录](documentation/validation_v0814.md)。旧请求保留确定性复算，新选项不自动改写旧文稿。
+
+## 版本与验证
+
+当前发布版本为**v0.8.14**；数据/claims结构为0.1.0，研究册内容为0.2.0，长图内容为0.3.0。运行`check_release.py`核对，不能把发布版本写进旧数据结构字段。
+
+现有595项回归及最新媒体/投篮修复验证见 [TEST_REPORT.md](TEST_REPORT.md)；维护与摘要核验见 [PACKAGE_VALIDATION.md](PACKAGE_VALIDATION.md)。2026-10-18本轮仅整理文档，保留算法、脚本、资源与案例路径。
+
+`epm_value_imported=false`表示分发包没有真实EPM案例；Kaggle真实导入现场验证另有标志。官网直接导出验收、Kaggle转引验收和历史归档口径是不同状态，不能据一个标志笼统判断所有EPM都可用或不可用。
+
+## 研究册预览
+
+以下为随包保留的 v0.8.1 历史案例截图；不代表全部 v0.8.14 新功能。
+
+![坎宁安研究册历史案例预览](docs/images/cade-v081-impact.png)
+
+## 许可与来源
+
+代码采用 [MIT License](LICENSE)。图片、转引统计与其他第三方内容按各自来源和许可处理；保留案例中的署名、许可链接、日期与限制，不因仓库采用 MIT 而改变其许可。

@@ -1,0 +1,54 @@
+{
+  "status": "pass",
+  "errors": [],
+  "requests": [],
+  "cases": [
+    {
+      "width": 1440,
+      "motion": "no-preference",
+      "all_events_animate": true,
+      "sequence_matches_raw": true,
+      "pause_resume": true,
+      "filter_cancels_replay": true,
+      "empty_replay_disabled": true,
+      "statistics_unchanged": true,
+      "keyboard_selection": true,
+      "full_court_bounds": true,
+      "offscreen_pauses": true,
+      "print_restores_overview": true,
+      "no_overflow": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "all_events_animate": true,
+      "sequence_matches_raw": true,
+      "pause_resume": true,
+      "filter_cancels_replay": true,
+      "empty_replay_disabled": true,
+      "statistics_unchanged": true,
+      "keyboard_selection": true,
+      "full_court_bounds": true,
+      "offscreen_pauses": true,
+      "print_restores_overview": true,
+      "no_overflow": true
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "all_events_animate": false,
+      "sequence_matches_raw": true,
+      "pause_resume": true,
+      "filter_cancels_replay": true,
+      "empty_replay_disabled": true,
+      "statistics_unchanged": true,
+      "keyboard_selection": true,
+      "full_court_bounds": true,
+      "offscreen_pauses": true,
+      "print_restores_overview": true,
+      "no_overflow": true
+    }
+  ],
+  "no_js": "full_static_court_and_stats",
+  "raw_unchanged": true
+}

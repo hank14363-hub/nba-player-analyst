@@ -1,0 +1,29 @@
+{
+  "review_version": "0.3.1",
+  "status": "review_suggested",
+  "checked_files": [
+    "report.md",
+    "book_content.json",
+    "poster_content.json"
+  ],
+  "issue_count": 2,
+  "issues": [
+    {
+      "rule": "abstract_phrase",
+      "location": "report.md",
+      "line": 87,
+      "excerpt": "无球试验",
+      "suggestion": "说明具体尝试什么无球分工。"
+    },
+    {
+      "rule": "abstract_phrase",
+      "location": "book_content.json:next_actions[2].evidence_needed",
+      "line": 1,
+      "excerpt": "共同在场阵容",
+      "suggestion": "可写成场上的整套阵容。"
+    }
+  ],
+  "manual_review_required": true,
+  "automatic_edits": false,
+  "limitation": "仅为规则提示，不证明表达已足够通俗或结论真实；不自动改写，不修改数据。"
+}

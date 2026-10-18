@@ -58,6 +58,9 @@ PROFILES = {
 
 
 def comparison_context(bundle, player_id, team_id):
+    if bundle.get('sumitro_import'):
+        from import_sumitro import comparison_context as sumitro_context
+        return sumitro_context(bundle, player_id, team_id)
     if team_id:raise DataError('Full-season comparison cannot be mixed with a filtered team stint')
     maps=[full_table(bundle,t,s) for t,s in TABLES]
     ids=set(maps[0])
@@ -132,22 +135,24 @@ def comparison_context(bundle, player_id, team_id):
 
 
 def register_comparisons(ctx, add, metrics):
-    add('COMPARISON_RAW_N',ctx['raw_player_count'],'count',SOURCE_IDS,'Unique IDs in four fully matched league tables')
-    add('COHORT_N',ctx['cohort_count'],'count',SOURCE_IDS,'GP>=40, MIN>=1000; '+ctx['definition'])
-    add('COMPARISON_ELIGIBLE_N',ctx['eligible_count'],'count',SOURCE_IDS,'Full league eligible players before role filters')
+    source_ids = ctx.get('source_ids', SOURCE_IDS)
+    add('COMPARISON_RAW_N',ctx['raw_player_count'],'count',source_ids,'Unique BR slugs in three matched league tables' if ctx.get('adapter') == 'sumitro-v56' else 'Unique IDs in four fully matched league tables')
+    add('COHORT_N',ctx['cohort_count'],'count',source_ids,'GP>=40, MIN>=1000; '+ctx['definition'])
+    add('COMPARISON_ELIGIBLE_N',ctx['eligible_count'],'count',source_ids,'Full league eligible players before role filters')
     for axis in ctx['axes']:
         mid=axis['metric_id']
-        add('COHORT_'+mid+'_MEDIAN',axis['median'],axis['unit'],SOURCE_IDS,'Median of explicitly enumerated functional cohort')
+        add('COHORT_'+mid+'_MEDIAN',axis['median'],axis['unit'],source_ids,'Median of explicitly enumerated functional cohort')
         metrics[-1]['label']=axis['label']+' · 同角色中位数'
-        add('COHORT_'+mid+'_PERCENTILE',axis['percentile'],'percentile',SOURCE_IDS,ctx['percentile_formula'])
+        add('COHORT_'+mid+'_PERCENTILE',axis['percentile'],'percentile',source_ids,ctx['percentile_formula'])
         metrics[-1]['label']=axis['label']+' · 同角色统计百分位'
     target=next(r for r in ctx['players'] if r['player_id']==ctx['target_id'])
-    add('NBA_PIE',target['PIE'],'fraction',['P_ADV'],'NBA Advanced.PIE; box-score event share, not adjusted causal impact')
-    add('COHORT_PIE_MEDIAN',median(r['PIE'] for r in ctx['players']),'fraction',SOURCE_IDS,'Median NBA PIE of the explicit functional cohort')
+    if 'PIE' in target:
+        add('NBA_PIE',target['PIE'],'fraction',['P_ADV'],'NBA Advanced.PIE; box-score event share, not adjusted causal impact')
+        add('COHORT_PIE_MEDIAN',median(r['PIE'] for r in ctx['players']),'fraction',source_ids,'Median NBA PIE of the explicit functional cohort')
     for i,s in enumerate(ctx['sensitivity']):
-        add('COHORT_SENS_'+str(i)+'_N',s['n'],'count',SOURCE_IDS,'Sensitivity cohort: '+s['label'])
+        add('COHORT_SENS_'+str(i)+'_N',s['n'],'count',source_ids,'Sensitivity cohort: '+s['label'])
         for mid,value in s['axes'].items():
-            add('COHORT_SENS_'+str(i)+'_'+mid,value,'percentile',SOURCE_IDS,ctx['percentile_formula']+' / '+s['label'])
+            add('COHORT_SENS_'+str(i)+'_'+mid,value,'percentile',source_ids,ctx['percentile_formula']+' / '+s['label'])
 
 
 def limitations(analysis):
@@ -155,10 +160,16 @@ def limitations(analysis):
     c=analysis.get('comparison_context',{})
     if c.get('status')=='ok':out.append('已提供同角色统计画像；百分位依赖纳入规则，不能合成为能力分或联盟实力排名。')
     else:out.append('同角色比较暂缺：'+c.get('reason','尚未核验全联盟完整比较样本')+'。')
-    if analysis.get('shot_context'):out.append('已核验投篮坐标并可绘制频次热区；尚无同口径联盟区域基准，不做相对效率热区。')
+    if (analysis.get('shot_context') or {}).get('points'):
+        out.append('已核验投篮坐标并可绘制频次热区；'+('仅覆盖有坐标事件，缺失次数与覆盖率单列；' if analysis['shot_context'].get('missing_location_count') else '')+'尚无同口径联盟区域基准，不做相对效率热区。')
     else:out.append('完整投篮坐标未通过覆盖核验，不绘制投篮频次热区。')
     if analysis.get('impact_context',{}).get('status') == 'ok':
-        out.append('已接入提供者影响力模型；整季回顾与日期预测分开，防守分量不是个人防守能力评分；EPM与范围未核验的RAPM仍缺失。')
+        has_epm=any(d['family']=='EPM' for d in analysis['impact_context']['datasets'])
+        has_history=any(d['family']=='EPM_HISTORICAL' for d in analysis['impact_context']['datasets'])
+        if has_history:
+            out.append('已接入历史EPM快照（口径待核验），仅作补充读数；整季回顾、日期预测与历史快照分开，防守分量不是个人防守能力评分；'+('Actual EPM另已通过离线导入核验，范围未核验的RAPM仍缺失。' if has_epm else '整季Actual EPM与范围未核验的RAPM仍缺失。'))
+        else:
+            out.append('已接入提供者影响力模型；整季回顾与日期预测分开，防守分量不是个人防守能力评分；'+('Actual EPM已通过离线导入核验，范围未核验的RAPM仍缺失。' if has_epm else 'EPM与范围未核验的RAPM仍缺失。'))
     else:
         out.append('尚未接入同赛季可核验的 EPM；PIE 为技术统计事件份额，On/Off 为球队描述性差值，均不替代调整影响力或个人防守评分。')
     return out

@@ -1,0 +1,50 @@
+{
+  "book_version": "0.2.0",
+  "app_version": "0.3.1",
+  "theme": {
+    "key": "DET",
+    "primary": "#BA2540",
+    "accent": "#84BAFF",
+    "on_primary": "#FFFFFF",
+    "on_accent": "#10141B",
+    "background": "#11151C",
+    "panel": "#1B2029",
+    "text": "#F3F5F8",
+    "muted": "#AAB4C2",
+    "grid": "#3D4655",
+    "selection_reason": "explicit_visual_override",
+    "scope": "editorial_palette_only_not_a_team_membership_claim",
+    "official_brand_specification": false
+  },
+  "generated_at": "2026-10-12T01:30:44+00:00",
+  "data_kind": "nba",
+  "status": "rendered_pending_book_check",
+  "recomputed_metrics": true,
+  "report_validation": {
+    "status": "pass",
+    "chinese_characters": 2641,
+    "claim_count": 20,
+    "numeric_fact_count": 16,
+    "errors": [],
+    "warnings": [
+      "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+    ]
+  },
+  "charts": [
+    "efficiency.svg",
+    "shot_mix.svg"
+  ],
+  "sha256": {
+    "data_bundle.json": "b662e538c7e01ccbb0c1d5db84065b618dfa72a610a9254cfa1e45a68cc71169",
+    "analysis.json": "967792bd56fff144858251008a365d45c73c70016970b2be0bc10754198bc5a3",
+    "sources.json": "796e824e971190da054d054186d234245cf070871e46930dea7003aa38638111",
+    "report.md": "25ddc18e0bccedc6cec92bec27c19deee832f0388095f8b1403b7dd4e6bdfde5",
+    "claims.json": "621551dfba8eb6992621464ad50fa95d7b783ccfc98d1850596ac3a2f5d00f23",
+    "book_content.json": "59f288c20fc88f7b4c9e211485a6268108bc85db1470577cb0b7909196762056",
+    "research_book.html": "be261e7fdcb477d546a10374eb5d81ea879481f203bd768d2cceb79c8799b2ee",
+    "summary.md": "b0902335835b36bd7df1e0943f6fb7b00b46c9ea654c200ba56d521783958449",
+    "charts/efficiency.svg": "c3e8fd866052f243ef3e3c6ef6cefa513c18411d594753d05a78b4ca85ae70c3",
+    "charts/shot_mix.svg": "d1735f1220cdb213b9b37ad9761f5ecc6021a6add9996824fb3991462d63aaff"
+  },
+  "manual_review_required": true
+}

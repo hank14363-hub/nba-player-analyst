@@ -1,0 +1,64 @@
+{
+  "status": "ok",
+  "dataset_url": "https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats",
+  "dataset_version": 56,
+  "snapshot_date": "2026-04-13",
+  "player": {
+    "id": 1629029,
+    "name": "Luka Dončić",
+    "reported_team_id": 1610612747
+  },
+  "sample": {
+    "season": "2024-25",
+    "season_type": "Regular Season",
+    "GP": 28.0,
+    "MIN": 984.0,
+    "player_team_id": 1610612747
+  },
+  "metrics_available": 53,
+  "excluded": [
+    {
+      "domain": "EPM / shot coordinates / Playoffs / tracking / On-Off",
+      "reason": "These required raw tables are absent; no proxies or zero fill"
+    }
+  ],
+  "comparison": {},
+  "files": {
+    "Player Totals.csv": {
+      "sha256": "1c081cd7f9c694755ea2210c3426e709540afedc31c1bf781456f3df4b7582b2",
+      "acquired_at": "2026-10-14T08:10:15.810077+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    },
+    "Advanced.csv": {
+      "sha256": "e1616ffe7759c22b014cbbb7c7ce10a591615e7ef1e08cc0dba4d2a02872948d",
+      "acquired_at": "2026-10-14T08:10:15.703795+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    },
+    "Per 100 Poss.csv": {
+      "sha256": "c132dc9b958e213d05e1c93fe5cf2b656a613626479b3f3fc4a88e0037a7e175",
+      "acquired_at": "2026-10-14T08:10:15.732052+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    },
+    "Player Shooting.csv": {
+      "sha256": "3a85c8eeee4edd009cede50347dddf880da9df241195f0977dddec0914f6c827",
+      "acquired_at": "2026-10-14T08:10:15.792610+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    },
+    "Player Play By Play.csv": {
+      "sha256": "b124e5eb4d361d9cdf7d879926d0aa1cc0eea3b9023f1d441f9d7694c26fae47",
+      "acquired_at": "2026-10-14T08:10:15.777267+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    },
+    "Team Totals.csv": {
+      "sha256": "0e408f0ae6d0feee45b40b74032610ca8aff76b69d5253ed0bb45e39e945f0bf",
+      "acquired_at": "2026-10-14T08:10:15.816588+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    },
+    "Team Summaries.csv": {
+      "sha256": "0a52b3d5f68ca4e3cbdf9041a8b06f4c8ae55935d62b07e9728d0fcf2d6315c9",
+      "acquired_at": "2026-10-14T08:10:15.814586+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    }
+  },
+  "raw_note": "Selected source rows retained; full CSV hashes recorded. Identity mapping uses supplied official player rows; BR cohort keys are not NBA IDs."
+}

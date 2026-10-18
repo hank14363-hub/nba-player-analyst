@@ -75,7 +75,7 @@ def render_media(item,sources):
     animated=item['kind']!='photo'
     src=item['poster_data_url'] if animated else item['data_url']
     extra=' data-animated-src="'+item['data_url']+'" data-poster-src="'+src+'"' if animated else ''
-    badge='照片轮播 GIF' if item['kind']=='photo_slideshow' else ('比赛片段 GIF' if animated else '赛场资料照')
+    badge='照片轮播 GIF' if item['kind']=='photo_slideshow' else ('比赛片段 GIF' if animated else '影像资料')
     figure='<figure class="court-media" id="media-'+esc(item['id'])+'"><div class="media-frame"><img src="'+src+'"'+extra+' alt="'+esc(item['alt'])+'" decoding="async" loading="lazy"><span class="media-badge">'+badge+'</span></div>'
     figure+='<figcaption><div class="media-title">'+esc(item['title'])+'</div><p>'+esc(item['caption'])+'</p><div class="media-credit">'
     figure+=' · '.join(esc(sources[s]['credit'])+' / '+esc(sources[s]['license']) for s in item['source_ids'])

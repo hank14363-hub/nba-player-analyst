@@ -45,6 +45,7 @@ def make_template(analysis: dict) -> dict:
         "strategies": [],
         "next_actions": [],
         "summary_claim_ids": [],
+        **({'percentile_presentation':'radar'} if analysis.get('percentile_context') else {}),
     }
 
 
@@ -62,17 +63,24 @@ def load_context(run_dir: Path, min_chars: int = 1200) -> tuple[dict, dict, str,
         raise DataError('Comparison cohort/axes differ from deterministic recomputation.')
     if digest(fresh.get('impact_context')) != digest(saved.get('impact_context')):
         raise DataError('Impact provider/model/date/sample differs from deterministic recomputation.')
-    for source in saved['sources'].values():
-        if source.get('source_type') == 'impact_data' and source.get('raw_file'):
-            import hashlib
-            relative = Path(source['raw_file'])
-            if relative.is_absolute() or '..' in relative.parts:
-                raise DataError('Impact raw_file must be a relative path under raw/.')
-            raw = (run_dir / relative).resolve()
-            if not raw.is_relative_to((run_dir / 'raw').resolve()) or not raw.is_file():
-                raise DataError('Impact snapshot must exist under run raw/.')
-            if hashlib.sha256(raw.read_bytes()).hexdigest() != source.get('sha256_raw'):
-                raise DataError('Impact raw snapshot differs from registered hash.')
+    if digest(fresh.get('percentile_context')) != digest(saved.get('percentile_context')):
+        raise DataError('Advanced percentile population/method differs from deterministic recomputation.')
+    if digest(fresh.get('stat_leader_context')) != digest(saved.get('stat_leader_context')):
+        raise DataError('Statistic league leader scope/ties differs from deterministic recomputation.')
+    if saved.get('percentile_context') and (run_dir/'advanced_percentiles.json').exists():
+        if digest(dictionary(run_dir/'advanced_percentiles.json')) != digest(saved['percentile_context']):
+            raise DataError('advanced_percentiles.json differs from registered analysis context.')
+    if saved['request'].get('advanced_percentiles'):
+        from advanced_percentiles import verify_files
+        verify_files(bundle, run_dir)
+    from retained_raw import verify_retained
+    verify_retained(saved, run_dir, include_audit=False)
+    if bundle.get('epm_import') is not None:
+        from import_epm import validate_files
+        validate_files(bundle, run_dir)
+    if bundle.get('historical_epm_import') is not None:
+        from historical_epm import validate_files as validate_historical_files
+        validate_historical_files(bundle, run_dir)
     sources_file = dictionary(run_dir / "sources.json")
     if sources_file.get("data_kind") != saved["data_kind"] or sources_file.get("sample") != saved["sample"]:
         raise DataError("sources.json sample/data_kind differs from analysis.json")
@@ -169,7 +177,12 @@ def validate_content(content: dict, analysis: dict, claims: dict) -> list[str]:
                     errors.append('Core metric must be supported by its registered claim')
     if content.get('presentation') not in (None,'integrated'):
         errors.append('Unknown presentation mode')
+    if content.get('percentile_presentation') not in (None,'bars','radar'):
+        errors.append('Unknown percentile presentation mode')
     commentary=content.get('commentary_cards',[])
+    if 'commentary_research' in content:
+        from commentary_workflow import validate as validate_commentary
+        errors.extend(validate_commentary(content['commentary_research'],analysis['sources'],analysis))
     if not isinstance(commentary,list) or not all(isinstance(v,dict) for v in commentary):
         errors.append('commentary_cards must be a list of objects')
     else:

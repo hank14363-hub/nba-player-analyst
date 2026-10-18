@@ -1,0 +1,115 @@
+{
+  "pages": 22,
+  "checks": [
+    {
+      "page": 1,
+      "text_characters": 376,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 2,
+      "text_characters": 611,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 3,
+      "text_characters": 670,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 4,
+      "text_characters": 560,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 5,
+      "text_characters": 550,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 6,
+      "text_characters": 705,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 7,
+      "text_characters": 299,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 8,
+      "text_characters": 544,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 9,
+      "text_characters": 673,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 10,
+      "text_characters": 448,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 11,
+      "text_characters": 1147,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 12,
+      "text_characters": 1281,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 13,
+      "text_characters": 1281,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 14,
+      "text_characters": 686,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 15,
+      "text_characters": 1128,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 16,
+      "text_characters": 1196,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 17,
+      "text_characters": 1084,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 18,
+      "text_characters": 903,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 19,
+      "text_characters": 769,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 20,
+      "text_characters": 720,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 21,
+      "text_characters": 858,
+      "out_of_bounds_blocks": []
+    },
+    {
+      "page": 22,
+      "text_characters": 904,
+      "out_of_bounds_blocks": []
+    }
+  ]
+}

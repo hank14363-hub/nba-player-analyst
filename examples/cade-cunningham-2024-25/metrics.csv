@@ -1,0 +1,42 @@
+﻿metric_id,label,value,display,unit,status,source_ids,formula,reason
+GP,出场场数,70.0,70,count,ok,P_BASE,player_base.GP,
+MIN,总出场分钟,2452.0,2452.00,minutes,ok,P_BASE,player_base.MIN,
+FGA,投篮出手总数,1457.0,1457,count,ok,P_BASE,player_base.FGA,
+FG3A,三分出手总数,418.0,418,count,ok,P_BASE,player_base.FG3A,
+FTA,罚球出手总数,370.0,370,count,ok,P_BASE,player_base.FTA,
+PTS_PER_GAME,场均得分,26.142857142857142,26.14,per_game,ok,P_BASE,PTS / GP,
+MIN_PER_GAME,场均分钟,35.02857142857143,35.03,per_game,ok,P_BASE,MIN / GP,
+REB_PER_GAME,场均篮板,6.071428571428571,6.07,per_game,ok,P_BASE,REB / GP,
+AST_PER_GAME,场均助攻,9.114285714285714,9.11,per_game,ok,P_BASE,AST / GP,
+TOV_PER_GAME,场均失误,4.414285714285715,4.41,per_game,ok,P_BASE,TOV / GP,
+STL_PER_GAME,场均抢断,1.0142857142857142,1.01,per_game,ok,P_BASE,STL / GP,
+BLK_PER_GAME,场均封盖,0.7571428571428571,0.76,per_game,ok,P_BASE,BLK / GP,
+PF_PER_GAME,场均犯规,2.7857142857142856,2.79,per_game,ok,P_BASE,PF / GP,
+TS_PCT,真实命中率,0.5648845536485986,56.5%,fraction,ok,P_BASE,PTS / (2 * (FGA + 0.44 * FTA)),
+EFG_PCT,有效命中率,0.5205902539464653,52.1%,fraction,ok,P_BASE,(FGM + 0.5*FG3M) / FGA,
+FG3_PCT,三分命中率,0.35645933014354064,35.6%,fraction,ok,P_BASE,FG3M / FG3A,
+FG3A_RATE,三分出手占比,0.2868908716540837,28.7%,fraction,ok,P_BASE,FG3A / FGA,
+FT_RATE,罚球出手比（FTA/FGA）,0.2539464653397392,0.25,ratio,ok,P_BASE,FTA / FGA,
+AST_TOV,助攻失误比,2.0647249190938513,2.06,ratio,ok,P_BASE,AST / TOV,
+LEAGUE_TS_PCT,联盟整体真实命中率,0.5761895378581693,57.6%,fraction,ok,T_BASE,sum(team PTS) / (2*(sum(team FGA)+0.44*sum(team FTA))),
+RTS_PP,相对联盟TS（百分点）,-1.1304984209570712,'-1.13 pp,percentage_points,ok,P_BASE|T_BASE,100 * (TS_PCT - LEAGUE_TS_PCT),
+USG_PCT,使用率（来源值）,0.332,33.2%,fraction,ok,P_ADV,player_advanced.USG_PCT,
+AST_PCT,助攻率（来源值）,0.424,42.4%,fraction,ok,P_ADV,player_advanced.AST_PCT,
+ONCOURT_OFF_RATING,在场时球队进攻效率,,N/A,per100_team,missing,P_ADV,player_advanced.OFF_RATING,player_advanced.OFF_RATING missing or unverified; not inferred from box-score totals.
+ONCOURT_DEF_RATING,在场时球队防守效率,,N/A,per100_team,missing,P_ADV,player_advanced.DEF_RATING,player_advanced.DEF_RATING missing or unverified; not inferred from box-score totals.
+ONCOURT_NET_RATING,在场时球队净效率,,N/A,per100_team,missing,P_ADV,player_advanced.NET_RATING,player_advanced.NET_RATING missing or unverified; not inferred from box-score totals.
+PTS_PER75,每75回合得分,26.924999999999997,26.92,per75,ok,P_100,player_per100.PTS * 0.75,
+REB_PER75,每75回合篮板,6.2250000000000005,6.23,per75,ok,P_100,player_per100.REB * 0.75,
+AST_PER75,每75回合助攻,9.375,9.38,per75,ok,P_100,player_per100.AST * 0.75,
+TOV_PER75,每75回合失误,4.574999999999999,4.57,per75,ok,P_100,player_per100.TOV * 0.75,
+PCT_AST_FGM,命中球受助攻比例,,N/A,fraction,missing,P_SCORE,player_scoring.PCT_AST_FGM,player_scoring.PCT_AST_FGM missing or unverified; not inferred from box-score totals.
+PCT_UAST_FGM,命中球非受助攻比例,,N/A,fraction,missing,P_SCORE,player_scoring.PCT_UAST_FGM,player_scoring.PCT_UAST_FGM missing or unverified; not inferred from box-score totals.
+PCT_AST_3PM,三分命中球受助攻比例,,N/A,fraction,missing,P_SCORE,player_scoring.PCT_AST_3PM,player_scoring.PCT_AST_3PM missing or unverified; not inferred from box-score totals.
+TEAM_OFF_RATING,目标球队进攻效率,115.0,115.00,per100_team,ok,T_ADV,team 1610612765: OFF_RATING,
+TEAM_DEF_RATING,目标球队防守效率,113.1,113.10,per100_team,ok,T_ADV,team 1610612765: DEF_RATING,
+TEAM_NET_RATING,目标球队净效率,1.9,1.90,per100_team,ok,T_ADV,team 1610612765: NET_RATING,
+TEAM_PACE,目标球队节奏,99.8,99.80,possessions_per48,ok,T_ADV,team 1610612765: PACE,
+TEAM_AST_PCT,目标球队助攻率,0.618,61.8%,fraction,ok,T_ADV,team 1610612765: AST_PCT,
+TEAM_FG3A_RATE,目标球队三分出手占比,0.39399701208746435,39.4%,fraction,ok,T_BASE,team 1610612765: FG3A/FGA,
+ON_OFF_DIFFERENTIAL,在场减不在场：净效率差（描述性）,,N/A,not_scored,missing,,Requires validated On and Off rows,Matching reliable On and Off rows are unavailable or rejected. On-court or overall team ratings cannot substitute for Off.
+DEFENSIVE_ABILITY_SCORE,个人防守评分（不生成）,,N/A,not_scored,missing,,Not implemented,"No validated individual defensive model; never derive this from steals, blocks, or on-court defensive rating."

@@ -41,3 +41,11 @@ python <SKILL_DIR>/scripts/run_analysis.py --player-id <ID> --season <YYYY-YY> -
 NBA PIE 使用 Advanced 来源原值，是技术统计事件贡献份额；可加同角色中位数，但不能当作调整过阵容、对手的每百回合净贡献。不要称它为 EPM、个人防守分或综合能力。On/Off 的描述性限制保持不变。
 
 第三方影响力先核验提供者、实际值/预测值、历史截止日、比赛类型、模型版本、分钟与访问边界。公开页面允许读取不等于页面中的历史数值可取得。订阅或身份匿名限制时不提取受限脚本数据；当前快照或历史预测不能替代整季实际值。v0.8.0 坎宁安案例只核验 EPM 公开历史页面的访问范围，没有导入 EPM 数值，保留 impact_access_audit.json。未取得的数据按实际缺口呈现；缺失文案根据现有上下文生成，不再写死“没有坐标/没有比较样本”。
+
+## BR独立五轴
+
+Sumitro导入走独立比较契约：全联盟Totals/Advanced/Per100行按BR slug及球队键匹配，先选整季行、再应用相同轮换与角色门槛。输出BR五轴，无非受助攻总命中占比和NBA PIE；官方六轴契约不变。完整规则见 [sumitro_import.md](sumitro_import.md)。
+
+## v0.8.4执行策略
+
+run_analysis默认尝试使用已保留全联盟表计算比较；--comparisons继续兼容，--no-comparisons明确缩小范围。analyze对旧request的语义不变，旧案例不会自动加指标。核验失败保留具体原因，无额外网络请求。正文还需登记COHORT_指标与解读。

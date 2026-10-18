@@ -1,0 +1,18 @@
+{
+  "requests": [
+    {
+      "url": "https://dunksandthrees.com/epm?season=2025",
+      "status": 200,
+      "retrieved_at": "2026-10-12T06:12:51.925722+00:00",
+      "bytes": 1866518
+    },
+    {
+      "url": "https://www.nba.com/stats/help/glossary",
+      "status": 403,
+      "retrieved_at": "2026-10-12T06:12:52.842475+00:00",
+      "bytes": 392
+    }
+  ],
+  "epm_value_imported": false,
+  "interpretation": "Public historical page read once. Subscription restriction and expected-versus-actual scope prevent matched Cade EPM import. No gated scripts/data extracted. NBA glossary HTTP403; stopped. PIE is sourced only from the existing NBA Advanced table."
+}

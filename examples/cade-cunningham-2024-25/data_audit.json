@@ -1,0 +1,56 @@
+{
+  "status": "pass_for_import_calculation_and_rendering",
+  "subject": "Cade Cunningham",
+  "season": "2024-25",
+  "season_type": "Regular Season",
+  "data_kind": "nba",
+  "nba_api_live_test": "not_passed_runtime_dns_and_dependency_access_failed",
+  "data_route": "Manually transcribed and verified public full-season tables, then offline bundle import through the existing skill.",
+  "core_player_totals_match_realgm_row": true,
+  "player_points_identity": true,
+  "league_team_count": 30,
+  "league_unique_team_count": 30,
+  "all_team_points_identities": true,
+  "all_team_games_82": true,
+  "league_totals": {
+    "PTS": 280010,
+    "FGA": 219527,
+    "FTA": 53312
+  },
+  "player_ts_recalculated": 0.5648845536485986,
+  "league_ts_recalculated": 0.5761895378581693,
+  "rts_percentage_points": -1.1304984209570712,
+  "advanced_metric_provider": "RealGM estimates; not substituted as NBA Stats tracking or individual on-court data",
+  "per100_supplement": "Complete Basketball-Reference indexed row; direct origin returned 403. Rounded source values, supplemental only.",
+  "unavailable": [
+    "assisted-shot splits",
+    "catch-and-shoot and pull-up tracking",
+    "individual on-court and on-off",
+    "film observation",
+    "shot-location and playtype breakdowns"
+  ],
+  "report_han_characters": 2641,
+  "claims": 20,
+  "registered_numeric_facts": 16,
+  "rendered_poster_charts": 4,
+  "explicit_missing_chart_blocks": 2,
+  "poster_pixels": [
+    1080,
+    3662
+  ],
+  "pdf_pages": 22,
+  "regression_tests": 160,
+  "regression_result": "pass",
+  "browser_viewports": [
+    [
+      1440,
+      1024
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "visual_review": "Poster cover/chart/body and both responsive first screens reviewed; all PDF pages rendered and reviewed in contact sheets. Text bounding-box checks found no page-boundary overflow.",
+  "limits": "Validation confirms arithmetic, references, identity, reproducibility and layout checks; not causal identification or proof of tactical recommendations."
+}

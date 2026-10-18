@@ -1,0 +1,155 @@
+{
+  "schema_version": "0.3.0",
+  "data_kind": "nba",
+  "derived_metrics": [
+    {
+      "metric_id": "V_FG2A_RATE",
+      "label": "两分出手占比",
+      "value": 0.7131091283459163,
+      "display": "71.3%",
+      "unit": "fraction",
+      "status": "ok",
+      "formula": "1-FG3A_RATE",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "reason": ""
+    },
+    {
+      "metric_id": "V_PTS_2P_SHARE",
+      "label": "两分得分",
+      "value": 0.5846994535519126,
+      "display": "58.5%",
+      "unit": "fraction",
+      "status": "ok",
+      "formula": "2*(FGM-FG3M)/PTS",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "reason": ""
+    },
+    {
+      "metric_id": "V_PTS_3P_SHARE",
+      "label": "三分得分",
+      "value": 0.2442622950819672,
+      "display": "24.4%",
+      "unit": "fraction",
+      "status": "ok",
+      "formula": "3*FG3M/PTS",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "reason": ""
+    },
+    {
+      "metric_id": "V_PTS_FT_SHARE",
+      "label": "罚球得分",
+      "value": 0.17103825136612022,
+      "display": "17.1%",
+      "unit": "fraction",
+      "status": "ok",
+      "formula": "FTM/PTS",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "reason": ""
+    },
+    {
+      "metric_id": "V_PCT_UAST_3PM",
+      "label": "三分命中球非受助攻比例",
+      "value": 0.43000000000000005,
+      "display": "43.0%",
+      "unit": "fraction",
+      "status": "ok",
+      "formula": "1-PCT_AST_3PM",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "reason": ""
+    }
+  ],
+  "charts": {
+    "efficiency": {
+      "title": "得分效率与基准相比如何",
+      "metric_ids": [
+        "TS_PCT",
+        "LEAGUE_TS_PCT",
+        "RTS_PP"
+      ],
+      "status": "ok",
+      "source_ids": [
+        "P_BASE",
+        "T_BASE"
+      ],
+      "note": "TS综合考虑两分、三分和罚球。rTS是球员与同赛季、同比赛类型基准的TS差，单位为百分点，不是实力分。"
+    },
+    "shot_mix": {
+      "title": "更常投两分，还是三分",
+      "metric_ids": [
+        "FG3A_RATE",
+        "V_FG2A_RATE",
+        "FG3_PCT"
+      ],
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "note": "占比只算投篮出手，不含罚球。三分命中率只看三分出手；这张图不表示出手位置或难度。"
+    },
+    "scoring_mix": {
+      "title": "得分从哪里来",
+      "metric_ids": [
+        "V_PTS_2P_SHARE",
+        "V_PTS_3P_SHARE",
+        "V_PTS_FT_SHARE"
+      ],
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "note": "按总得分分成两分、三分和罚球：分别用命中数乘以对应分值。四舍五入后合计可能略有偏差；不表示单打、挡拆等打法占比。"
+    },
+    "creation": {
+      "title": "得分、助攻与失误",
+      "metric_ids": [
+        "PTS_PER75",
+        "AST_PER75",
+        "TOV_PER75"
+      ],
+      "status": "ok",
+      "source_ids": [
+        "P_100"
+      ],
+      "note": "统一换算为每75回合，来自同样本的每100回合数据。得分、助攻、失误各看各的，不相加评分；助攻多也不一定代表组织能力强。"
+    },
+    "assisted": {
+      "title": "投进的球，有多少来自助攻",
+      "metric_ids": [
+        "PCT_AST_FGM",
+        "PCT_UAST_FGM",
+        "PCT_AST_3PM",
+        "V_PCT_UAST_3PM"
+      ],
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "note": "这里只看已经投进的球。没有记助攻不等于单打；记了助攻，也不代表统计了全部接球投篮。"
+    },
+    "team_context": {
+      "title": "他在场时，球队表现怎样",
+      "metric_ids": [
+        "ONCOURT_OFF_RATING",
+        "ONCOURT_DEF_RATING",
+        "TEAM_OFF_RATING",
+        "TEAM_DEF_RATING"
+      ],
+      "status": "ok",
+      "source_ids": [
+        "P_ADV",
+        "T_ADV"
+      ],
+      "note": "并列展示球员在场时和目标球队整体的每百回合得分、失分。两组样本不同，不能相减当成个人贡献；这里没有在场与不在场对比。"
+    }
+  }
+}

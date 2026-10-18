@@ -1,0 +1,37 @@
+{
+  "name": "nba-player-analyst",
+  "skill_version": "0.3.1",
+  "bundle_variant": "complete-with-cade-case-and-history",
+  "bundle_date": "2026-10-12",
+  "entrypoint": "SKILL.md",
+  "start_here": "START_HERE.md",
+  "runtime_code_modified": false,
+  "original_code_and_support_files_unchanged": 39,
+  "original_sources": {
+    "skill_v0.3.1_zip_sha256": "70e1562c9103332e75cbb5db5bdc24e5841b95d0201dd8d7fcb4d3be73e5da3f",
+    "cade_results_zip_sha256": "6d239ff9f9853f928f3087aaa11f36c3a32b5f5480c34cdc2dec3e66e3262b00"
+  },
+  "examples": {
+    "synthetic": "examples/demo_output",
+    "real_historical_case": "examples/cade-cunningham-2024-25"
+  },
+  "tests": {
+    "offline_regression": 160,
+    "offline_regression_status": "pass",
+    "synthetic_report_book_poster": "pass",
+    "cade_report_book_poster": "pass",
+    "cade_original_hashes_checked": 34,
+    "cade_original_hash_mismatches": 0
+  },
+  "live_nba_api_retested": false,
+  "local_user_codex_retested": false,
+  "browser_pdf_rendering_retested_this_packaging": false,
+  "history_is_documentation_only": true,
+  "packaging_checks": {
+    "skill_structure": "pass",
+    "zip_integrity": "pass",
+    "extracted_file_hashes": "pass",
+    "extracted_offline_regression": "160 passed"
+  },
+  "bundled_file_count_including_manifest": 146
+}

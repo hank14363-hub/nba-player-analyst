@@ -74,6 +74,9 @@ def validate(report: str, claims: dict, analysis: dict, min_chars: int = 1200, f
                 errors.append(prefix + f": sources incomplete for {mid}")
         if kind in {"inference", "observation"} and not item.get("caveats"):
             errors.append(prefix + ": inference/observation requires caveats")
+        if any(mid in {'IMPACT_EPM_HIST','IMPACT_O_EPM_HIST','IMPACT_D_EPM_HIST', 'PCTL_IMPACT_EPM_HIST','PCTL_IMPACT_O_EPM_HIST','PCTL_IMPACT_D_EPM_HIST'} for mid in mids):
+            if '口径待核验' not in quote or not item.get('caveats'):
+                errors.append(prefix + ': historical EPM requires nearby 口径待核验 disclosure and caveats even for a fact')
         if kind == "observation" and not item.get("observation_reference"):
             errors.append(prefix + ": observation needs game/date/quarter/clock or a precise note locator")
         if kind == 'observation' and 'FILM' in sids:

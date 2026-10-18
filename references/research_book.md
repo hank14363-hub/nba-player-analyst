@@ -26,6 +26,14 @@ Complete this sequence:
 A generated template is not a finished book. A rendered book is not semantically verified.
 Prefer a compact evidence-limited output to padding every card with invented findings.
 
+For full player research, search and read relevant signed original articles before
+authoring. See [commentary_research.md](commentary_research.md). The optional
+`commentary_research` object stores actual queries, reading decisions and limitations;
+`commentary_cards` links adopted viewpoints to registered sources and claims. These
+additions retain schema `0.2.0`. A generated query template is not a completed search.
+Use `--strict-editorial` for new full reports; historical verified cards remain compatible
+without inventing retrospective search records.
+
 ## 2. Data and editorial responsibilities
 
 The renderer, not the language model, supplies player identity, season, sample size,
@@ -217,3 +225,15 @@ No live NBA API or local Codex execution is implied by an offline presentation t
 
 
 v0.8.0 可选 core_metrics 四项个性化封面与 --comparisons 数据扩展见 [role_comparisons.md](role_comparisons.md)。保持 schema_version=0.2.0；旧内容继续有效。完整比较、敏感性、频次热区均为离线 SVG，不增加外部资源依赖。
+
+## 内容完成度审查
+
+新研究册用validate_book.py --strict-editorial；正常检查输出editorial_audit，严格模式遇到提示返回fail。识别可算但未启用的比较、已算但未写的比较、空主题、已知套话与跨主题重复解读。它是待审提示，不是语义真伪验证，也不要求缺数据时造结论。旧案例普通检查可保持pass，但仍可能显示review_required；no_flags只表示没有触发这些规则。
+
+## v0.8.6 默认高阶流程
+
+run_analysis在线默认采集BREF和LEBRON，并检查历史实际EPM入口；无合法可验证值仍缺失。EPM当前只有访问审计，未新增数值适配器。BREF通过页面赛季标题、唯一完整姓名到slug、场次/分钟与分量校验；LEBRON通过NBA ID、姓名、赛季及分钟核验。每家族独立失败，基本分析继续。每个来源最多一次请求，使用--timeout上限。
+
+--no-impact关闭；--input/--offline只读保留数据，不自动联网。DARKO需显式--impact-cutoff，且日期通过目标赛季校验；全季公开适配器不套用球队效力段或季后赛。审计保存在impact_collection_audit.json；原始返回和摘要在raw/，导入后保留复制。
+
+editorial_audit增加impact_not_attempted和impact_unwritten：旧综合研究未保留采集尝试会提示；每个已核验家族都需正文模型解读和IMPACT_指标登记。显式关闭和离线/导入范围不误判为在线漏采；不要求为通过审查捏造数据。

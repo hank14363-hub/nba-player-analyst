@@ -12,9 +12,9 @@ def comparison_visuals(analysis,theme):
         axes=ctx['axes'];cx,cy,r=240,190,115
         p=['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 430" role="img" aria-label="同角色统计百分位画像，不是能力评分">',
            '<rect width="480" height="430" fill="#F6F4EF"/>']
-        def xy(i,value):a=-pi/2+i*2*pi/6;return cx+cos(a)*r*value/100,cy+sin(a)*r*value/100
+        def xy(i,value):a=-pi/2+i*2*pi/len(axes);return cx+cos(a)*r*value/100,cy+sin(a)*r*value/100
         for level in [25,50,75,100]:
-            points=' '.join(f'{x:.2f},{y:.2f}' for x,y in [xy(i,level) for i in range(6)])
+            points=' '.join(f'{x:.2f},{y:.2f}' for x,y in [xy(i,level) for i in range(len(axes))])
             p.append(f'<polygon points="{points}" fill="none" stroke="#d6d5ce"/>')
             p.append(f'<text x="244" y="{cy-level/100*r-3:.2f}" font-size="9" fill="#647080">{level}</text>')
         for i,a in enumerate(axes):
@@ -28,7 +28,7 @@ def comparison_visuals(analysis,theme):
         for i,a in enumerate(axes):
             x,y=xy(i,a['percentile']);p.append(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="3.5" fill="#337988"><title>{esc(a["label"])}：{fmt(a["target"],a["unit"])}；百分位 {a["percentile"]:.2f}</title></circle>')
         p+=['<text x="24" y="376" font-size="12" fill="#344454">统计画像 · 外圈 = 同角色样本内较高读数</text>',
-            '<text x="24" y="397" font-size="11" fill="#5a6573">失误轴反向；自主终结占比是职责描述，不是越高越好</text>',
+            '<text x="24" y="397" font-size="11" fill="#5a6573">'+('BR五轴；失误轴反向；不含非受助攻命中与PIE' if ctx.get('adapter') == 'sumitro-v56' else '失误轴反向；自主终结占比是职责描述，不是越高越好')+'</text>',
             f'<text x="24" y="416" font-size="10" fill="#5a6573">N={ctx["cohort_count"]} · 不连加、不算面积分、不作综合排名</text></svg>']
         entries['role_profile']=dict(title='同角色统计画像：优势与代价一起看',status='ok',
             metric_ids=['COHORT_N']+['COHORT_'+a['metric_id']+'_PERCENTILE' for a in axes],
@@ -53,7 +53,7 @@ def comparison_visuals(analysis,theme):
             '<text x="55" y="342" font-size="11">灰：稳定轮换；蓝：同角色；红：本球员</text>',
             '<text x="55" y="360" font-size="10">使用率不是持球时长；负荷不自动解释效率差</text></svg>']
         entries['usage_efficiency']=dict(title='高负荷，也要面对效率问题',status='ok',metric_ids=['USG_PCT','TS_PCT','COMPARISON_ELIGIBLE_N'],source_ids=ctx['source_ids'],note='同赛季 GP≥40、总分钟≥1000 的稳定轮换；TS由基础总量统一复算。未调整机会难度，不建立负荷与效率因果关系。',svg=''.join(p))
-    if analysis.get('shot_context'):
+    if analysis.get('shot_context',{} ) and analysis['shot_context']['points']:
         entries['shot_density']=density(analysis)
     return entries
 
@@ -65,7 +65,7 @@ def density(analysis):
         if p['y']>417.5:off+=1;continue
         key=(min(9,floor((p['x']+250)/50)),min(9,floor((p['y']+52.5)/50)))
         b=bins.setdefault(key,dict(fga=0,fgm=0));b['fga']+=1;b['fgm']+=p['made']
-    maximum=max(b['fga'] for b in bins.values())
+    maximum=max((b['fga'] for b in bins.values()),default=0)
     p=['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 530" role="img" aria-label="真实出手频次网格热区，颜色不是命中率或能力">','<rect width="480" height="530" fill="#F6F4EF"/>']
     for (ix,iy),b in bins.items():
         x=40+40*ix;y=35+40*iy
@@ -75,6 +75,6 @@ def density(analysis):
         '<text x="40" y="440" font-size="13" fill="#304553">颜色越深 = 出手次数越多；不是命中率</text>',
         f'<text x="40" y="462" font-size="12">5 × 5 英尺网格 · 最大格 {maximum} 次 · 不平滑插值</text>',
         f'<text x="40" y="482" font-size="11">近端半场 {len(ctx["points"])-off} / 全部 {len(ctx["points"])}；视窗外 {off} 次</text>',
-        '<text x="40" y="501" font-size="11">全部事件仍在交互球场；标签冲突保留原坐标</text>',
+        '<text x="40" y="501" font-size="11">'+(f'另有 {ctx["missing_location_count"]} 次缺坐标，不计入网格' if ctx.get('missing_location_count') else '全部事件仍在交互球场；标签冲突保留原坐标')+'</text>',
         '<text x="40" y="520" font-size="10">P_SHOT + P_BASE · 悬停格子查看准确出手 / 命中数</text></svg>']
-    return dict(title='真实出手频次热区：球从哪里出手',status='ok',metric_ids=['SHOT_EVENT_FGA'],source_ids=['P_SHOT','P_BASE'],note='每格精确计数，颜色线性对应频次；边界半开区间、最后一格含球场边界。半场外事件另计并保留在完整交互球场。不提供联盟相对效率或投射能力热区。',svg=''.join(p))
+    return dict(title='真实出手频次热区：球从哪里出手'+('（有坐标样本）' if ctx.get('missing_location_count') else ''),status='ok',metric_ids=['SHOT_EVENT_FGA'],source_ids=['P_SHOT','P_BASE'],note='每格精确计数，颜色线性对应频次；边界半开区间、最后一格含球场边界。半场外事件另计并保留在交互球场。'+(f'仅含{len(ctx["points"])}次有坐标事件；缺坐标{ctx["missing_location_count"]}次，赛季总数{ctx["counts"]["FGA"]}次。' if ctx.get('missing_location_count') else '')+'不提供联盟相对效率或投射能力热区。',svg=''.join(p))

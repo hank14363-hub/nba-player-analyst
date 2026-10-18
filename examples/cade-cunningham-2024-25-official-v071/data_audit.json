@@ -1,0 +1,53 @@
+{
+  "status": "pass",
+  "scope": "2024-25 Regular Season",
+  "player_id": 1630595,
+  "coverage": {
+    "FGA": 1457,
+    "FGM": 684,
+    "FG3A": 418,
+    "FG3M": 149
+  },
+  "shot_games": 70,
+  "label_conflicts": [
+    {
+      "game_id": "0022400881",
+      "event_id": 637,
+      "original_zone": "Above the Break 3",
+      "original_type": "2PT Field Goal",
+      "handling": "Preserve raw values; count in explicit unresolved zone bucket."
+    }
+  ],
+  "claims": 25,
+  "unchanged_source_ids": [
+    "P_BASE",
+    "P_ADV",
+    "P_100",
+    "T_BASE",
+    "T_ADV",
+    "TR_CATCH",
+    "TR_PULL",
+    "TR_PASS",
+    "TR_DRIVE",
+    "P_ONOFF"
+  ],
+  "film_observations": 0,
+  "limitations": [
+    "No film watched",
+    "No matching league zone baseline",
+    "On/Off descriptive, not causal"
+  ],
+  "chinese_characters": 5134,
+  "numeric_facts": 71,
+  "release_version": "0.7.1",
+  "illustrative_media": {
+    "photos": 2,
+    "photo_slideshow_frames": 3,
+    "media_year": 2022,
+    "film_evidence": false
+  },
+  "analysis_cards": 13,
+  "commentary_articles": 3,
+  "svg_instances": 10,
+  "shot_motion": "finite_entry_and_optional_chronological_spotlight"
+}

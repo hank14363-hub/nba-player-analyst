@@ -1,0 +1,446 @@
+{
+  "schema_version": "0.1.0",
+  "data_kind": "nba",
+  "claims": [
+    {
+      "id": "C01",
+      "kind": "fact",
+      "report_quote": "这一季常规赛，坎宁安出场70次，场均得到26.14分、9.11次助攻和6.07个篮板。",
+      "metric_ids": [
+        "GP",
+        "PTS_PER_GAME",
+        "AST_PER_GAME",
+        "REB_PER_GAME"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅统计2024—25赛季常规赛。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "GP",
+          "value": 70.0
+        },
+        {
+          "metric_id": "PTS_PER_GAME",
+          "value": 26.142857142857142
+        },
+        {
+          "metric_id": "AST_PER_GAME",
+          "value": 9.114285714285714
+        },
+        {
+          "metric_id": "REB_PER_GAME",
+          "value": 6.071428571428571
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "kind": "fact",
+      "report_quote": "他入选了这一季的最佳阵容第三阵容。",
+      "metric_ids": [],
+      "source_ids": [
+        "EXT_AWARD"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "荣誉反映当季评价，不等于本报告自行建立的能力排名。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C03",
+      "kind": "inference",
+      "report_quote": "坎宁安已经展现出承担主要得分与组织任务的能力；下一步更值得研究的，是怎样提高每次进攻的质量，而不是继续把任务堆给他。",
+      "metric_ids": [
+        "PTS_PER_GAME",
+        "AST_PER_GAME",
+        "USG_PCT",
+        "RTS_PP",
+        "TOV_PER_GAME"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV",
+        "T_BASE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "单赛季常规赛判断；没有对手、阵容和持球难度调整，不等于争冠上限结论。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C04",
+      "kind": "fact",
+      "report_quote": "按赛季总计重算，他的真实命中率为56.5%，联盟整体为57.6%，相差约负1.13个百分点。",
+      "metric_ids": [
+        "TS_PCT",
+        "LEAGUE_TS_PCT",
+        "RTS_PP"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "T_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "联盟基准由全联盟球队总计加权计算，不是同位置或同球权负担比较。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "TS_PCT",
+          "value": 0.5648845536485986
+        },
+        {
+          "metric_id": "LEAGUE_TS_PCT",
+          "value": 0.5761895378581693
+        },
+        {
+          "metric_id": "RTS_PP",
+          "value": -1.1304984209570712
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "kind": "fact",
+      "report_quote": "RealGM给出的使用率为33.2%。",
+      "metric_ids": [
+        "USG_PCT"
+      ],
+      "source_ids": [
+        "P_ADV"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "使用率采用RealGM估计口径，并非持球时间占比。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "USG_PCT",
+          "value": 0.332
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "kind": "inference",
+      "report_quote": "得分产量是他的价值，得分效率则还没有形成明显优势；但不能拿未经角色调整的联盟平均值，直接否定一个主要持球点。",
+      "metric_ids": [
+        "PTS_PER_GAME",
+        "USG_PCT",
+        "TS_PCT",
+        "LEAGUE_TS_PCT"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV",
+        "T_BASE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "没有同角色比较样本；不能量化高负担造成了多少效率损失。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C07",
+      "kind": "fact",
+      "report_quote": "他的三分出手占全部投篮出手的28.7%，三分命中率为35.6%。",
+      "metric_ids": [
+        "FG3A_RATE",
+        "FG3_PCT"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "没有区分接球投篮与持球投篮，也没有出手干扰程度。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "FG3A_RATE",
+          "value": 0.2868908716540837
+        },
+        {
+          "metric_id": "FG3_PCT",
+          "value": 0.35645933014354064
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "kind": "inference",
+      "report_quote": "更合理的优化方向，是先找出可以变容易的出手，而不是简单要求他多投三分。",
+      "metric_ids": [
+        "FG3A_RATE",
+        "FG3_PCT",
+        "TS_PCT"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "具体哪些出手应减少，需要投篮位置、持球与接球分类及比赛录像。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C09",
+      "kind": "fact",
+      "report_quote": "RealGM记录的助攻率为42.4%。",
+      "metric_ids": [
+        "AST_PCT"
+      ],
+      "source_ids": [
+        "P_ADV"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "这是估计的在场队友进球受其助攻比例，不是全部球队得分或进攻回合占比。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "AST_PCT",
+          "value": 0.424
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "kind": "fact",
+      "report_quote": "他场均失误4.41次，助攻失误比为2.06。",
+      "metric_ids": [
+        "TOV_PER_GAME",
+        "AST_TOV"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "失误包含传球、运球、进攻犯规等类型；没有逐类统计。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "TOV_PER_GAME",
+          "value": 4.414285714285715
+        },
+        {
+          "metric_id": "AST_TOV",
+          "value": 2.0647249190938513
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "kind": "inference",
+      "report_quote": "组织产出值得肯定，控失误仍是明确课题；不能用高球权把所有失误合理化，也不能把所有失误都算成传球判断差。",
+      "metric_ids": [
+        "AST_PER_GAME",
+        "AST_PCT",
+        "TOV_PER_GAME",
+        "USG_PCT"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "缺少潜在助攻、失误类型及对手施压信息。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C12",
+      "kind": "inference",
+      "report_quote": "减少失误不应等于减少创造：需要保留有价值的传球，优先处理接球点不清、决定太晚和无谓冒险等可能的问题。",
+      "metric_ids": [
+        "AST_PER_GAME",
+        "TOV_PER_GAME"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "列举的是待检查的失误原因，不是已由录像证实的个人习惯。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C13",
+      "kind": "inference",
+      "report_quote": "现有数据不足以认定他已经是一名成熟的无球得分手，也不足以断言他离开球权就没有价值。",
+      "metric_ids": [
+        "FG3_PCT",
+        "FG3A_RATE"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "本次没有核验接球投篮、空切、受助攻命中或无球跑动数据。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C14",
+      "kind": "inference",
+      "report_quote": "可以尝试让他在部分回合先把球交出去，再接球处理已经被带动的防守；这是一种减负方案，不是把他改造成定点射手。",
+      "metric_ids": [
+        "AST_PER_GAME",
+        "USG_PCT",
+        "TOV_PER_GAME",
+        "FG3_PCT"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "需要队友具备先发起进攻的能力；方案有效性有待分段样本验证。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C15",
+      "kind": "fact",
+      "report_quote": "按RealGM的球队口径，活塞每百回合得到115.0分、失去113.1分，净效率为正1.9。",
+      "metric_ids": [
+        "TEAM_OFF_RATING",
+        "TEAM_DEF_RATING",
+        "TEAM_NET_RATING"
+      ],
+      "source_ids": [
+        "T_ADV"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "全队整个常规赛数据；不是坎宁安在场时的数据，也不是其个人防守评分。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "TEAM_OFF_RATING",
+          "value": 115.0
+        },
+        {
+          "metric_id": "TEAM_DEF_RATING",
+          "value": 113.1
+        },
+        {
+          "metric_id": "TEAM_NET_RATING",
+          "value": 1.9
+        }
+      ]
+    },
+    {
+      "id": "C16",
+      "kind": "inference",
+      "report_quote": "本报告不为坎宁安的个人防守定级：球队表现、抢断和封盖可以提供线索，但还不能解释他能防谁、协防是否及时。",
+      "metric_ids": [
+        "TEAM_DEF_RATING",
+        "STL_PER_GAME",
+        "BLK_PER_GAME"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "T_ADV"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "没有对位、掩护防守、协防轮转录像及阵容调整数据。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C17",
+      "kind": "inference",
+      "report_quote": "围绕坎宁安搭配阵容，应优先考虑能把接球机会转化为得分的队友，同时避免让进攻空间变得拥挤。",
+      "metric_ids": [
+        "AST_PER_GAME",
+        "AST_PCT",
+        "USG_PCT"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "战术配置建议，不代表已估计某名队友的因果收益。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C18",
+      "kind": "inference",
+      "report_quote": "另一名能发起进攻的队友，价值不只是替补时段带队，更在于让坎宁安不必每次都从静止防守面前开始解题。",
+      "metric_ids": [
+        "USG_PCT",
+        "AST_PER_GAME",
+        "TOV_PER_GAME"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "队友必须兼顾无球配合；减少球权后能否提高质量需实测。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C19",
+      "kind": "inference",
+      "report_quote": "内线的选择要同时看掩护后接球终结、传球接应和防守职责，不能只按能否投三分来判断适配。",
+      "metric_ids": [
+        "AST_PER_GAME",
+        "AST_PCT",
+        "TEAM_DEF_RATING"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV",
+        "T_ADV"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "没有具体内线组合的比较数据；只给出评估维度，不直接宣布最佳搭档。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C20",
+      "kind": "inference",
+      "report_quote": "这份样本支持把他视为球队进攻的主要组织者，但还不足以证明他在任何阵容、任何防守强度下都能维持同样表现。",
+      "metric_ids": [
+        "PTS_PER_GAME",
+        "AST_PER_GAME",
+        "USG_PCT",
+        "TS_PCT",
+        "TOV_PER_GAME"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "未纳入季后赛、对手调整、跨赛季或真实在场与不在场比较。"
+      ],
+      "numeric_facts": []
+    }
+  ]
+}

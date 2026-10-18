@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1.0",
+  "BREF": {
+    "required_fields": ["provider_player_key", "name_display", "games", "mp", "bpm", "obpm", "dbpm", "vorp", "ws", "ws_per_48"]
+  },
+  "DARKO": {
+    "player_selector": "a.player-link[href]",
+    "name_selector": ".player-text > span",
+    "value_selector": ".dpm-figure",
+    "field_selectors": {"dpm": ".leaderboard-cell--dpm", "o_dpm": ".leaderboard-cell--o-dpm", "d_dpm": ".leaderboard-cell--d-dpm"},
+    "required_fields": ["nba_id", "player_name", "as_of", "season", "dpm", "o_dpm", "d_dpm"]
+  }
+}

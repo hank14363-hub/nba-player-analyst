@@ -1,6 +1,8 @@
 # 第三方影响力模型与历史预测
 
-`collect_impact.py` 可选采集公开 BRef、nbarapm 转引 LEBRON、DARKO 原站历史页面。默认只采集 BRef，不随普通 NBA 取数自动请求所有提供者。它输出补充后的新 data_bundle.json、原始快照与访问日志；每提供者一次请求，拒绝、限流、非预期结构或超时即记录并停止该来源，不切换代理或绕过订阅。离线复算与渲染不需要 requests/BeautifulSoup。
+主流程`run_analysis.py`在线默认尝试公开BREF与LEBRON转引，并审计历史Actual EPM入口；DARKO需显式历史日期。`--no-impact`关闭，导入/离线仅使用保留数据。独立补数命令`collect_impact.py`默认只选BREF，可显式增加LEBRON与DARKO；两种命令的默认范围不同。
+
+独立采集器输出补充后的新data_bundle.json、原始快照与访问日志；每提供者一次请求，拒绝、限流、非预期结构或超时即记录并停止该来源，不切换代理或绕过订阅。离线复算与渲染不需要requests/BeautifulSoup。Actual EPM和带备注的历史归档已有独立离线适配器，分别见 [epm_import.md](epm_import.md)、[kaggle_epm.md](kaggle_epm.md)；在线审计不会自动取得受限历史数值。
 
 ```text
 python <SKILL_DIR>/scripts/collect_impact.py --bundle <已有目录>/data_bundle.json --player-id <ID> --name "<英文姓名>" --bref-key <已核验BRef键> --providers BREF LEBRON DARKO --cutoff <YYYY-MM-DD> --out <新补数目录>
@@ -18,6 +20,7 @@ python <SKILL_DIR>/scripts/run_analysis.py --input <新补数目录>/data_bundle
 | WS / OWS / DWS | 提供者分配的赛季胜利份额 | 依赖球队结果与统计假设，不是个人造成胜利的因果值 |
 | WS/48 | 单位上场时间的模型胜利份额 | 与每百回合点数分开；页面精度三位小数保留 |
 | LEBRON | 技术统计先验与运气调整的阵容回归；相对平均球员的攻防点数 | 原站为BBall Index；公开转引必须显示来源链，不能冒充原始导出 |
+| Actual EPM | 提供者对指定赛季的每百回合攻防影响力估计；相对平均球员 | 仅接入通过完整身份、场次及总分钟核验的用户离线实际值；与预测EPM分开，不导入提供者排名 |
 | DARKO DPM | 历史日期的生涯加权预测，回答下一场预期表现 | 不是该赛季实际贡献；历史重建页若无版本证明，不声称原样复现当年发布模型 |
 
 方法可直接查阅时登记独立 `method_reference`；球员读数来源登记 `impact_data`。原站超时与转引说明可用是两件事，不能写成已核验原站模型全文。模型输入重叠，方向一致不等于独立验证；没有置信区间时不推导统计显著性。模型防守分量可以如实展示，但不改名为个人防守能力评分。禁止相加、平均或任意加权生成综合分/实力名次。
@@ -65,3 +68,31 @@ EPM目前区分预测与历史实际入口。历史实际页若跳转`subscribe?
 nbarapm公开RAPM返回`Latest_Year`、`Year_Interval`、模型版本、文件名和回合数，但年份一致和返回对象名rs不足以证明拟合只使用常规赛。须核实比赛集合、窗口、正则化设置与覆盖，尤其`_all_`等范围未解释且回合不匹配时，不纳入本赛季模型图。不从文件名反推模型参数，也不挑重复TimeDecay行。保存候选和排除原因供后续核验。
 
 同角色模型比较需要所有纳入球员的同源、同版本、同窗数据；单球员多个模型不构成完整比较样本。优先补原始历史导出、模型版本和不确定性，再考虑同组分布与跨季变化。
+
+## 页面结构诊断（v0.8.5）
+
+references/provider_schemas.json保存必需字段与DARKO选择器；解析日期、球员键与语义验证继续留在代码。collect_impact记录配置摘要和error_category：schema_changed、sample_unavailable、access_restricted、http_error或transport_or_data_error。解析后在采集流程检查必需字段；随后仍需模型、身份和样本核验。不能把更改选择器当作数据可信证明。历史真实HTML用于离线回放；当前网站是否仍可达需另行实际请求验证。
+
+## 默认高阶流程
+
+run_analysis在线默认采集BREF和LEBRON，并检查历史实际EPM入口；无合法可验证值仍缺失。EPM在线流程只做访问审计，数值导入使用独立离线路径。BREF通过页面赛季标题、唯一完整姓名到slug、场次/分钟与分量校验；LEBRON通过NBA ID、姓名、赛季及分钟核验。每家族独立失败，基本分析继续。每个来源最多一次请求，使用--timeout上限。
+
+--no-impact关闭；--input/--offline只读保留数据，不自动联网。DARKO需显式--impact-cutoff，且日期通过目标赛季校验；全季公开适配器不套用球队效力段或季后赛。审计保存在impact_collection_audit.json；原始返回和摘要在raw/，导入后保留复制。
+
+editorial_audit增加impact_not_attempted和impact_unwritten：旧综合研究未保留采集尝试会提示；每个已核验家族都需正文模型解读和IMPACT_指标登记。显式关闭和离线/导入范围不误判为在线漏采；不要求为通过审查捏造数据。
+
+## v0.8.8 Actual EPM 离线闭环
+
+在线审计与离线数值导入分开；离线流程见 [epm_import.md](epm_import.md)。`SPECS.EPM` 使用 `retrospective_adjusted`，注册 `IMPACT_EPM`（tot）、`IMPACT_O_EPM`（off）、`IMPACT_D_EPM`（def），另保留 `IMPACT_EPM_GP`、`IMPACT_EPM_MIN` 样本指标。缺少任一分量时拒绝导入，不填零；总值分量容差为0.15。总分钟采用明确导出精度的半个舍入单位，不改变现有BREF/LEBRON/DARKO规则。
+
+`epm_import` 保存原始行、字段映射、元数据、原始文件摘要和参考身份/总量，重建规范化行和来源。导入、`run_analysis --input`及研究册渲染均核验原文件；直接手写EPM规范化行但没有导入契约会被拒绝。`raw_artifacts` 登记原始导出和元数据伴随文件，补抓及后续研究目录一并传递。
+
+研究册以Actual标签进入整季模型图，来源注明用户离线导出；已核验后不再显示EPM缺失。每个已接入家族仍须在正文解释，样本指标不算模型分析。历史在线访问失败仅为过往记录；不会因导入成功删除该次访问审计。未获真实导出时只报告合成测试通过，不改变真实案例状态。
+
+## v0.8.9 Kaggle Actual
+
+[Kaggle EPM](kaggle_epm.md) 支持独立读取与单球员核验。Actual仍进入同一EPM模型契约，来源目录显示Kaggle转引，取得时间与官网导出时间区分；默认历史候选不登记模型指标，显式导入归档时使用下述独立历史契约。
+
+## v0.8.10 历史 EPM 归档读数
+
+按 [kaggle_epm.md](kaggle_epm.md) 显式导入历史表时，使用独立`EPM_HISTORICAL`/`historical_snapshot_unverified`，不改变Actual、DARKO或其他模型的校验规则。`IMPACT_*_EPM_HIST`读数对应原日期，GP/MIN空缺；图表与正文强制保留口径待核验备注。它不是已验证的整季回顾或预测，不纳入同角色模型排名或综合分。

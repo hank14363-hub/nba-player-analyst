@@ -1,0 +1,42 @@
+{
+  "status": "pass_for_live_capture_calculation_and_rendering",
+  "player_id": 1630595,
+  "season": "2024-25",
+  "season_type": "Regular Season",
+  "data_route": "Actual NBA Stats full-parameter responses via nba_api 1.11.4; no third-party estimated metrics merged into this official report.",
+  "table_rows": {
+    "player_base": 569,
+    "player_advanced": 569,
+    "player_per100": 569,
+    "player_scoring": 569,
+    "team_base": 30,
+    "team_advanced": 30,
+    "tracking_catchshoot": 569,
+    "tracking_pullup": 569,
+    "tracking_passing": 569,
+    "tracking_drives": 569,
+    "player_onoff": 42
+  },
+  "chinese_characters": 2418,
+  "claims": 15,
+  "registered_numeric_facts": 50,
+  "unique_book_charts": 8,
+  "article_chart_instances": 6,
+  "poster_charts": 6,
+  "missing_poster_charts": 0,
+  "base_totals_match_old_case": true,
+  "nba_min_unit_compatibility": "Raw Advanced/Scoring MIN=35.0 reconciles to Base total MIN within GP-dependent rounding tolerance.",
+  "onoff_team_id": 1610612765,
+  "onoff_identity": "Same-team On and Off plus minutes coverage verified; NET=OFF-DEF within rounding tolerance.",
+  "remaining_missing": [
+    "individual defensive ability score",
+    "shot coordinates/heatmap",
+    "film observations",
+    "lineup/opponent-adjusted causal impact",
+    "eligible cohort ranking"
+  ],
+  "regression_tests": 179,
+  "browser_validation": "1440x1024 and 390x844, 9 sections, no horizontal/SVG text overflow, source/strategy links and mobile menu checked.",
+  "manual_visual_review": "Chart contact sheet, full poster and desktop/mobile sections inspected. No new PDF was exported.",
+  "limits": "Live capture succeeds for this environment and historical sample, not a service availability guarantee. Structural and numeric checks do not prove tactical inferences."
+}

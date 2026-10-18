@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.3.0",
+  "status": "ready",
+  "data_kind": "nba",
+  "identity": {
+    "player_id": 1630595,
+    "season": "2024-25",
+    "season_type": "Regular Season"
+  },
+  "headline": "进攻发起的核心，效率仍待提高",
+  "deck": "组织产量与自主终结特征已有同角色比较支持；效率和失误仍有代价，个人防守与调整影响力待补。",
+  "verdict": {
+    "text": "核心发起职责有数据支持；角色如何调整，仍要看机会质量与执行代价。",
+    "claim_ids": [
+      "C03",
+      "C15",
+      "C27",
+      "C30"
+    ]
+  },
+  "roles": {
+    "offense": {
+      "text": "主要发起与终结，试验分担处理",
+      "claim_ids": [
+        "C03",
+        "C08"
+      ]
+    },
+    "defense": {
+      "text": "团队在场结果不代替个人评估",
+      "claim_ids": [
+        "C14"
+      ]
+    }
+  },
+  "chart_notes": {
+    "efficiency": {
+      "takeaway": "得分负荷与效率是两件事；总体基准没有按职责调整。",
+      "claim_ids": [
+        "C03",
+        "C04"
+      ]
+    },
+    "shot_mix": {
+      "takeaway": "出手以两分为主；三分仍是进攻的一部分。",
+      "claim_ids": [
+        "C05"
+      ]
+    },
+    "scoring_mix": {
+      "takeaway": "得分来源只分两分、三分和罚球，不能改叫单打或挡拆占比。",
+      "claim_ids": [
+        "C05"
+      ]
+    },
+    "creation": {
+      "takeaway": "大量组织产出需要和失误代价一起评估。",
+      "claim_ids": [
+        "C06",
+        "C08"
+      ]
+    },
+    "assisted": {
+      "takeaway": "命中球多数未记助攻，但这不能证明全部来自单打。",
+      "claim_ids": [
+        "C09"
+      ]
+    },
+    "team_context": {
+      "takeaway": "在场表现与全队均值并列作背景，真正的在场差另见研究册。",
+      "claim_ids": [
+        "C12",
+        "C14"
+      ]
+    }
+  },
+  "strength": {
+    "text": "较多得分和组织产出，适合保留主要进攻职责。",
+    "claim_ids": [
+      "C01",
+      "C03",
+      "C07"
+    ]
+  },
+  "fit": {
+    "text": "增加能创造机会的第二处理点，并试验接球后的持续进攻。",
+    "claim_ids": [
+      "C08",
+      "C11",
+      "C15"
+    ]
+  },
+  "risk": {
+    "text": "同角色比较仍暴露效率与失误代价；个人防守、调整影响力和分担后的净收益需要更强证据。",
+    "claim_ids": [
+      "C04",
+      "C06",
+      "C14",
+      "C30",
+      "C31"
+    ]
+  },
+  "portrait": null
+}

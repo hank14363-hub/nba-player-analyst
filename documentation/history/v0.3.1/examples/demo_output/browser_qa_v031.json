@@ -1,0 +1,44 @@
+{
+  "browser": "headless Chromium",
+  "method": "Playwright set_content; not physical phone QA",
+  "cases": [
+    {
+      "file": "player_poster.html",
+      "width": 1440,
+      "height": 1000,
+      "horizontal_overflow": false,
+      "svg_labels_outside_viewbox": [],
+      "script_errors": [],
+      "external_requests": []
+    },
+    {
+      "file": "player_poster.html",
+      "width": 390,
+      "height": 1000,
+      "horizontal_overflow": false,
+      "svg_labels_outside_viewbox": [],
+      "script_errors": [],
+      "external_requests": []
+    },
+    {
+      "file": "research_book.html",
+      "width": 1440,
+      "height": 1000,
+      "horizontal_overflow": false,
+      "svg_labels_outside_viewbox": [],
+      "script_errors": [],
+      "external_requests": []
+    },
+    {
+      "file": "research_book.html",
+      "width": 390,
+      "height": 1000,
+      "horizontal_overflow": false,
+      "svg_labels_outside_viewbox": [],
+      "script_errors": [],
+      "external_requests": []
+    }
+  ],
+  "python": "3.13.5",
+  "platform": "Linux"
+}

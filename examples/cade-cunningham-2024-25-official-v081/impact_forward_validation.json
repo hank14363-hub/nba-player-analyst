@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "network_requests": 0,
+  "cli_import": true,
+  "registered_raw_snapshots_copied": true,
+  "metrics_equal": true,
+  "impact_context_equal": true,
+  "raw_snapshot_tampering_rejected": "Impact raw snapshot differs from registered hash.",
+  "official_rows_and_collection_timestamps_preserved": true
+}

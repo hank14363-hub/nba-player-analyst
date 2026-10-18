@@ -1,0 +1,35 @@
+{
+  "errors": [],
+  "requests": [],
+  "widths": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "charts": 15,
+      "svgTextBounds": []
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "charts": 15,
+      "svgTextBounds": []
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "charts": 15,
+      "svgTextBounds": []
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "charts": 15,
+      "svgTextBounds": []
+    }
+  ],
+  "raw_fga": 1457,
+  "independent_density_bins": 69,
+  "cohort_n": 12,
+  "no_js": true,
+  "status": "pass"
+}

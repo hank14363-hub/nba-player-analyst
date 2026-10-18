@@ -1,0 +1,100 @@
+{
+  "status": "ok",
+  "datasets": [
+    {
+      "family": "BREF",
+      "estimate_type": "retrospective_box",
+      "model_version": "BPM 2.0; provider Win Shares method",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "cutoff": null,
+      "source_id": "EXT_IMPACT_BREF",
+      "values": {
+        "BPM": 3.9,
+        "OBPM": 3.8,
+        "DBPM": 0.1,
+        "VORP": 3.7,
+        "WS": 5.9,
+        "OWS": 3.0,
+        "DWS": 2.9,
+        "WS48": 0.115
+      },
+      "sample": {
+        "GP": 70.0,
+        "MIN": 2452.0,
+        "minutes_difference": 0.0033333333335576754,
+        "coverage": "GP and rounded total minutes matched"
+      },
+      "caveats": [
+        "整季技术统计模型；BPM零点为联盟平均，VORP使用替补基准；防守分量不能确认单防能力。",
+        "BRef助攻率、使用率定义不同，不覆盖NBA官方指标；保留页面公布精度。"
+      ],
+      "uncertainty": "Provider confidence intervals unavailable; signs do not establish statistical significance"
+    },
+    {
+      "family": "LEBRON",
+      "estimate_type": "retrospective_adjusted",
+      "model_version": "LEBRON; revision not specified in relay",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "cutoff": null,
+      "source_id": "EXT_IMPACT_LEBRON",
+      "values": {
+        "LEBRON": 1.564152346,
+        "O_LEBRON": 1.669942001,
+        "D_LEBRON": -0.105789655
+      },
+      "sample": {
+        "GP": null,
+        "MIN": 2451.94666666667,
+        "minutes_difference": -0.04999999999654392,
+        "coverage": "Season sample checked against official total; LEBRON games not supplied"
+      },
+      "caveats": [
+        "BBall Index 指标经nbarapm公开转引；未取得原站数据导出，原方法页访问超时，方法解释仅核验转引站说明。",
+        "分钟与官方相差约三秒；转引未提供场次和置信区间，不导入提供者排名。"
+      ],
+      "uncertainty": "Provider confidence intervals unavailable; signs do not establish statistical significance"
+    },
+    {
+      "family": "DARKO",
+      "estimate_type": "predictive_snapshot",
+      "model_version": "DARKO DPM; historical page model revision unspecified",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "cutoff": "2025-04-13",
+      "source_id": "EXT_IMPACT_DARKO",
+      "values": {
+        "DPM": 1.8,
+        "O_DPM": 2.3,
+        "D_DPM": -0.6
+      },
+      "sample": {
+        "GP": null,
+        "MIN": null,
+        "minutes_difference": null,
+        "coverage": "Career-weighted prediction; no single-season minute coverage"
+      },
+      "caveats": [
+        "指定日期的生涯加权预测，不是整季实际表现；历史页面如今取得，不保证模型版本等同当年发布版本。",
+        "只取历史DPM/Off/Def列，忽略Now与Since列；舍入可能导致分量之和与总值相差一位小数。"
+      ],
+      "uncertainty": "Provider confidence intervals unavailable; signs do not establish statistical significance"
+    }
+  ],
+  "excluded": [
+    {
+      "family": "EPM",
+      "reason": "历史实际入口跳转订阅页，赛季访问受限；未导入匹配EPM。"
+    },
+    {
+      "family": "RAPM",
+      "reason": "年度单年行的回合覆盖与常规赛不一致，来源文件的比赛范围尚未解释；保留原始数据，核验后再导入。"
+    },
+    {
+      "family": "DRIP/CPM/relay DARKO",
+      "reason": "未确认历史截点或模型版本；没有用当前或混合赛季值替代。"
+    }
+  ],
+  "boundary": "Provider-defined model estimates. No averaging, composite score, causal claims or ability ranking."
+}

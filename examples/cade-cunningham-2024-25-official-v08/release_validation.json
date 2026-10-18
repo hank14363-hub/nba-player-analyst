@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "release_version": "0.8.0",
+  "previous_version": "0.7.3",
+  "new_nba_requests": 0,
+  "reused_collection_timestamps": true,
+  "raw_tables_unchanged": true,
+  "analysis_recomputed": true,
+  "new_claims": 11,
+  "available_metrics": 123,
+  "complete_comparison_population": 569,
+  "qualified_population": 266,
+  "role_cohort": 12,
+  "sensitivity_cohorts": [
+    27,
+    11
+  ],
+  "independent_grid_bins": 69,
+  "grid_fga": 1453,
+  "offview_fga": 4,
+  "all_event_fga": 1457,
+  "epm_value_imported": false,
+  "game_film_observations_added": 0,
+  "regression_tests": 254,
+  "checks": [
+    "book_validation.json",
+    "poster_validation.json",
+    "browser_validation.json",
+    "interaction_validation.json",
+    "plane_motion_validation.json",
+    "comparison_browser_validation.json"
+  ],
+  "filter_combinations_checked": 225,
+  "poster_reexported": true,
+  "pdf_exported": false,
+  "manual_visual_review": [
+    "comparison-preview-1440.png",
+    "cover-preview-390.png",
+    "density-preview-390.png",
+    "player_poster-cover.png"
+  ]
+}

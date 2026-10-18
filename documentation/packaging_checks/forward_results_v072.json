@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "motion": "no-preference",
+      "initial": [
+        "1457",
+        "684",
+        "46.9%",
+        "1457"
+      ],
+      "game": [
+        "15",
+        "6",
+        "40.0%",
+        "15"
+      ],
+      "backcourtEvents": 4,
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "initial": [
+        "1457",
+        "684",
+        "46.9%",
+        "1457"
+      ],
+      "game": [
+        "15",
+        "6",
+        "40.0%",
+        "15"
+      ],
+      "backcourtEvents": 4,
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "initial": [
+        "1457",
+        "684",
+        "46.9%",
+        "1457"
+      ],
+      "game": [
+        "15",
+        "6",
+        "40.0%",
+        "15"
+      ],
+      "backcourtEvents": 4,
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "requests": []
+}

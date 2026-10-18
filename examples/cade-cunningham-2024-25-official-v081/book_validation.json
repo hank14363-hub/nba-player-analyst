@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "recomputed_metrics": true,
+  "report_validation": {
+    "status": "pass",
+    "chinese_characters": 8289,
+    "claim_count": 41,
+    "numeric_fact_count": 132,
+    "errors": [],
+    "warnings": [
+      "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+    ]
+  },
+  "section_count": 9,
+  "anchor_count": 670,
+  "svg_count": 15,
+  "embedded_metric_instances": 161,
+  "errors": [],
+  "warnings": [
+    "Passing checks verify reproducibility, IDs, registered numbers, and static output integrity, NOT semantic truth, strategy validity, or visual layout. Review desktop/mobile/print separately."
+  ]
+}

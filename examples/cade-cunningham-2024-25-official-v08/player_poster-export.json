@@ -1,0 +1,11 @@
+{
+  "status": "exported",
+  "width": 1080,
+  "poster_height": 3648,
+  "cover_height": 903,
+  "external_requests": [],
+  "script_errors": [],
+  "horizontal_overflow": false,
+  "browser": "headless Chromium",
+  "manual_visual_review_required": true
+}

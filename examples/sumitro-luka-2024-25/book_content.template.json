@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.2.0",
+  "status": "draft",
+  "data_kind": "nba",
+  "identity": {
+    "player_id": 1629029,
+    "season": "2024-25",
+    "season_type": "Regular Season"
+  },
+  "title": "球员研究册",
+  "subtitle": "统计表现、能力边界与战术使用条件",
+  "executive_claim_ids": [],
+  "dimensions": [
+    {
+      "dimension": "scoring",
+      "headline": "得分与效率",
+      "claim_ids": []
+    },
+    {
+      "dimension": "creation",
+      "headline": "组织与传球",
+      "claim_ids": []
+    },
+    {
+      "dimension": "off_ball",
+      "headline": "不持球时怎么打",
+      "claim_ids": []
+    },
+    {
+      "dimension": "defense",
+      "headline": "防守还有哪些不清楚",
+      "claim_ids": []
+    },
+    {
+      "dimension": "tactical_fit",
+      "headline": "放进球队怎么用",
+      "claim_ids": []
+    }
+  ],
+  "challenges": [],
+  "strategies": [],
+  "next_actions": [],
+  "summary_claim_ids": []
+}

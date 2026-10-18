@@ -144,7 +144,7 @@
       document.getElementById('shot-fgm').textContent=hits;
       document.getElementById('shot-pct').textContent=sample.length?(hits/sample.length*100).toFixed(1)+'%':'N/A';
       document.getElementById('shot-visible').textContent=visible.length;
-      document.getElementById('shot-scope').textContent=game.selectedOptions[0].textContent+' / '+zoneLabel()+'；命中率分母为这组样本全部出手，显示结果筛选只改变图上事件。'+(sample.length<30?' 少样本：只作描述，不判断稳定能力。':'');
+      document.getElementById('shot-scope').textContent=game.selectedOptions[0].textContent+' / '+zoneLabel()+'；命中率分母为这组样本'+(explorer.dataset.partialLocations==='true'?'有坐标的':'')+'全部出手，显示结果筛选只改变图上事件。'+(sample.length<30?' 少样本：只作描述，不判断稳定能力。':'');
       if(selected){selected.el.classList.remove('shot-selected');selected=null;}detail.textContent='请选择一个事件。';
       page=0;drawList();
       play.disabled=!visible.length;

@@ -1,0 +1,10 @@
+{
+  "schema_version": "0.1.0",
+  "data_kind": "nba",
+  "identity": {
+    "player_id": 1630595,
+    "season": "2024-25",
+    "season_type": "Regular Season"
+  },
+  "observations": []
+}

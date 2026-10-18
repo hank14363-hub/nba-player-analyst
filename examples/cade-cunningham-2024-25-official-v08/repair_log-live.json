@@ -1,0 +1,90 @@
+{
+  "created_at": "2026-10-12T02:42:42+00:00",
+  "original_bundle_sha256": "0e80f1ca69465ccc15c678cdc301352a86b3c2fc08bae4eae08dad5ccb90b695",
+  "sample": {
+    "season": "2024-25",
+    "season_type": "Regular Season",
+    "player_team_id": 0
+  },
+  "events": [
+    {
+      "table": "player_scoring",
+      "status": "repaired",
+      "before": {
+        "rows_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "source": {
+          "status": "missing",
+          "reason": "Controlled omission for selective repair validation; not a live failure."
+        }
+      },
+      "after": {
+        "rows_sha256": "480a833547128d4bd9d48f4d475ccfbb30c67ab5892ceff50de13d954162778e",
+        "source": {
+          "provider": "NBA Stats via nba_api",
+          "status": "ok",
+          "endpoint": "leaguedashplayerstats",
+          "url": "https://stats.nba.com/stats/leaguedashplayerstats?LastNGames=0&MeasureType=Scoring&Month=0&OpponentTeamID=0&PaceAdjust=N&PerMode=Totals&Period=0&PlusMinus=N&Rank=N&Season=2024-25&SeasonType=Regular+Season&College=&Conference=&Country=&DateFrom=&DateTo=&Division=&DraftPick=&DraftYear=&GameScope=&GameSegment=&Height=&LeagueID=00&Location=&Outcome=&PORound=&PlayerExperience=&PlayerPosition=&SeasonSegment=&ShotClockRange=&StarterBench=&TeamID=&TwoWay=&VsConference=&VsDivision=&Weight=",
+          "parameters": {
+            "LastNGames": "0",
+            "MeasureType": "Scoring",
+            "Month": "0",
+            "OpponentTeamID": 0,
+            "PaceAdjust": "N",
+            "PerMode": "Totals",
+            "Period": "0",
+            "PlusMinus": "N",
+            "Rank": "N",
+            "Season": "2024-25",
+            "SeasonType": "Regular Season",
+            "College": "",
+            "Conference": "",
+            "Country": "",
+            "DateFrom": "",
+            "DateTo": "",
+            "Division": "",
+            "DraftPick": "",
+            "DraftYear": "",
+            "GameScope": "",
+            "GameSegment": "",
+            "Height": "",
+            "LeagueID": "00",
+            "Location": "",
+            "Outcome": "",
+            "PORound": "",
+            "PlayerExperience": "",
+            "PlayerPosition": "",
+            "SeasonSegment": "",
+            "ShotClockRange": "",
+            "StarterBench": "",
+            "TeamID": "",
+            "TwoWay": "",
+            "VsConference": "",
+            "VsDivision": "",
+            "Weight": ""
+          },
+          "season": "2024-25",
+          "season_type": "Regular Season",
+          "per_mode": "Totals",
+          "measure": "Scoring",
+          "retrieved_at": "2026-10-12T02:42:45+00:00",
+          "row_count": 569,
+          "sha256_rows": "480a833547128d4bd9d48f4d475ccfbb30c67ab5892ceff50de13d954162778e",
+          "from_cache": false,
+          "stale": false,
+          "player_team_id": 0
+        }
+      }
+    },
+    {
+      "table": "player_shots",
+      "status": "failed",
+      "before": {
+        "rows_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "source": null
+      },
+      "reason": "Shot zone/type conflict."
+    }
+  ],
+  "next": "Re-run run_analysis.py with this bundle into a new directory, then re-audit claims and render. Existing articles were not changed.",
+  "result_bundle_sha256": "c73c1c5700b98a14c84ae9771cc761da1a3b1422f7d5edda6808cc20f8a3f9ef"
+}

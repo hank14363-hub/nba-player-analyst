@@ -27,7 +27,7 @@ def check(run_dir: Path,min_chars: int=1200) -> dict:
     custom={k:theme.get(k) for k in ('primary','accent')} if why=='explicit_custom_colors' else None
     checked=select_theme(a,name,custom)
     if checked!=theme:errors.append('Theme differs from validated palette or contains untrusted CSS values')
-    poster=Poster(a,claims,book,content,checked,portrait_data(run_dir,content['portrait']))
+    poster=Poster(a,claims,book,content,checked,portrait_data(run_dir,content['portrait']),release_version=manifest.get('renderer_version'))
     html=(run_dir/'player_poster.html').read_text(encoding='utf-8')
     if html!=poster.render():errors.append('HTML differs from deterministic rendering of the current inputs')
     metrics=dictionary(run_dir/'poster_metrics.json')

@@ -1,0 +1,90 @@
+{
+  "status": "pass",
+  "errors": [],
+  "requests": [],
+  "cases": [
+    {
+      "width": 1440,
+      "motion": "no-preference",
+      "raw_events": 1457,
+      "filter_combinations_checked": 45,
+      "region_denominators": true,
+      "focus_and_full": true,
+      "overlap_in_both_views": true,
+      "text_and_article_roundtrip": true,
+      "backcourt_auto_reveal": true,
+      "replay_and_print": true,
+      "overflow": {
+        "overflow": false,
+        "cardOverflow": 0
+      }
+    },
+    {
+      "width": 1024,
+      "motion": "reduce",
+      "raw_events": 1457,
+      "filter_combinations_checked": 45,
+      "region_denominators": true,
+      "focus_and_full": true,
+      "overlap_in_both_views": true,
+      "text_and_article_roundtrip": true,
+      "backcourt_auto_reveal": true,
+      "replay_and_print": true,
+      "overflow": {
+        "overflow": false,
+        "cardOverflow": 0
+      }
+    },
+    {
+      "width": 768,
+      "motion": "reduce",
+      "raw_events": 1457,
+      "filter_combinations_checked": 45,
+      "region_denominators": true,
+      "focus_and_full": true,
+      "overlap_in_both_views": true,
+      "text_and_article_roundtrip": true,
+      "backcourt_auto_reveal": true,
+      "replay_and_print": true,
+      "overflow": {
+        "overflow": false,
+        "cardOverflow": 0
+      }
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "raw_events": 1457,
+      "filter_combinations_checked": 45,
+      "region_denominators": true,
+      "focus_and_full": true,
+      "overlap_in_both_views": true,
+      "text_and_article_roundtrip": true,
+      "backcourt_auto_reveal": true,
+      "replay_and_print": true,
+      "overflow": {
+        "overflow": false,
+        "cardOverflow": 0
+      }
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "raw_events": 1457,
+      "filter_combinations_checked": 45,
+      "region_denominators": true,
+      "focus_and_full": true,
+      "overlap_in_both_views": true,
+      "text_and_article_roundtrip": true,
+      "backcourt_auto_reveal": true,
+      "replay_and_print": true,
+      "overflow": {
+        "overflow": false,
+        "cardOverflow": 0
+      }
+    }
+  ],
+  "no_js": "pass",
+  "no_canvas": "pass",
+  "unchanged_evidence": true
+}

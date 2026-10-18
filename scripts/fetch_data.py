@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import importlib
 import time
+import random
+from email.utils import parsedate_to_datetime
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
@@ -90,7 +92,8 @@ def nba_transport(module_name: str, class_name: str, params: dict, timeout: floa
 class Fetcher:
     def __init__(self, cache_dir: Path, timeout: float = 20, retries: int = 2,
                  ttl_hours: float = 24, offline: bool = False, refresh: bool = False,
-                 transport: Callable = nba_transport, sleep: Callable = time.sleep):
+                 transport: Callable = nba_transport, sleep: Callable = time.sleep,
+                 jitter: Callable = random.uniform):
         if timeout <= 0 or not 0 <= retries <= 5 or ttl_hours < 0:
             raise DataError("timeout must be positive; retries must be 0..5; cache TTL must be nonnegative.")
         if offline and refresh:
@@ -98,7 +101,29 @@ class Fetcher:
         self.cache_dir, self.timeout, self.retries = cache_dir, timeout, retries
         self.ttl_hours, self.offline, self.refresh = ttl_hours, offline, refresh
         self.transport, self.sleep = transport, sleep
+        self.jitter = jitter
         self.last_call = 0.0
+
+    def retry_delay(self, exc, attempt):
+        category, retryable = classify_error(exc)
+        if category == 'rate_limited':
+            response = getattr(exc, 'response', None)
+            raw = getattr(response, 'headers', {}).get('Retry-After')
+            if raw is None:return None
+            try:
+                delay = float(raw)
+            except (TypeError, ValueError):
+                try:
+                    when = parsedate_to_datetime(raw)
+                    if when.tzinfo is None:return None
+                    delay = (when - datetime.now(timezone.utc)).total_seconds()
+                except (TypeError, ValueError, OverflowError):return None
+            # Never retry earlier than the server requests, or wait unboundedly.
+            if not 0 <= delay <= 15:return None
+            return delay + self.jitter(0, .5)
+        if not retryable:return None
+        base = min(2 ** attempt * 2, 8)
+        return self.jitter(base / 2, base)
 
     def table(self, table: str, season: str, season_type: str, team_id: int = 0) -> tuple[list[dict], dict]:
         module, cls, measure, mode = SPECS[table]
@@ -159,10 +184,11 @@ class Fetcher:
             except Exception as exc:
                 error = exc
                 category, retryable = classify_error(exc)
-                if not retryable:
+                delay = self.retry_delay(exc, attempt)
+                if delay is None:
                     raise FetchError(category, attempt + 1) from exc
                 if attempt < self.retries:
-                    self.sleep(min(2 ** attempt * 2, 8))
+                    self.sleep(delay)
         raise FetchError(classify_error(error)[0], self.retries + 1) from error
 
     def onoff(self, season: str, season_type: str, team_id: int) -> tuple[list[dict], dict]:
@@ -213,9 +239,10 @@ class Fetcher:
                 raise
             except Exception as exc:
                 category, retryable = classify_error(exc)
-                if not retryable or attempt == self.retries:
+                delay = self.retry_delay(exc, attempt)
+                if delay is None or attempt == self.retries:
                     raise FetchError(category, attempt + 1) from exc
-                self.sleep(min(2 ** attempt * 2, 8))
+                self.sleep(delay)
 
     def shots(self, season: str, season_type: str, player_id: int, team_id: int = 0) -> tuple[list[dict], dict]:
         if player_id <= 0 or team_id < 0:
@@ -257,9 +284,10 @@ class Fetcher:
                 raise
             except Exception as exc:
                 category, retryable = classify_error(exc)
-                if not retryable or attempt == self.retries:
+                delay = self.retry_delay(exc, attempt)
+                if delay is None or attempt == self.retries:
                     raise FetchError(category, attempt + 1) from exc
-                self.sleep(min(2 ** attempt * 2, 8))
+                self.sleep(delay)
 
     def collect(self, season: str, season_type: str, team_id: int = 0, tracking: bool = False, onoff_team_id: int = 0) -> dict:
         bundle = {"schema_version": VERSION, "data_kind": "nba", "season": season,

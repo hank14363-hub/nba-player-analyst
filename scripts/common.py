@@ -13,8 +13,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-VERSION = "0.1.0"
+DATA_SCHEMA_VERSION = "0.1.0"
+VERSION = DATA_SCHEMA_VERSION  # Backward-compatible schema alias; never a release number.
 SKILL_ROOT = Path(__file__).resolve().parents[1]
+RELEASE_VERSION = json.loads((SKILL_ROOT / "PACKAGE_INFO.json").read_text(encoding="utf-8"))["release_version"]
 TABLES = {
     "player_base": ("P_BASE", "Totals"),
     "player_advanced": ("P_ADV", "Totals"),
@@ -191,6 +193,19 @@ def validate_bundle(bundle: dict, season: str, season_type: str, team_id: int = 
         expected_hash = source.get("sha256_rows")
         if expected_hash and digest(rows) != expected_hash:
             raise DataError(f"Source {sid} row checksum mismatch.")
+
+    if bundle.get('kaggle_import') is not None:
+        from import_kaggle import validate_import
+        validate_import(bundle)
+    if bundle.get('sumitro_import') is not None:
+        from import_sumitro import validate_import as validate_sumitro
+        validate_sumitro(bundle)
+    if bundle.get('epm_import') is not None:
+        from import_epm import validate_import as validate_epm
+        validate_epm(bundle)
+    if bundle.get('historical_epm_import') is not None:
+        from historical_epm import validate_import as validate_historical_epm
+        validate_historical_epm(bundle)
 
 
 def load_bundle(path: Path) -> dict:

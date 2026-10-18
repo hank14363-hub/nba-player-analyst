@@ -15,7 +15,7 @@ ZONES = {
 }
 
 
-def shot_context(bundle, base, player_id, team_id):
+def shot_context(bundle, base, player_id, team_id, allow_partial=False):
     rows = bundle['tables'].get('player_shots', [])
     source = bundle['sources'].get('P_SHOT', {})
     if not rows:
@@ -41,6 +41,8 @@ def shot_context(bundle, base, player_id, team_id):
             if params.get(field) not in ('', None, 0, '0'):
                 raise DataError('Shot request contains a restricted sample filter: ' + field)
     seen, games, points, zones, anomalies = set(), set(), [], defaultdict(lambda: {'fga': 0, 'fgm': 0}), []
+    event_totals=dict(FGA=0,FGM=0,FG3A=0,FG3M=0)
+    missing_locations=[];missing_zones=[]
     start_year = int(bundle['season'][:4])
     required_prefix = '002' if bundle['season_type'] == 'Regular Season' else '004'
     for r in rows:
@@ -66,24 +68,35 @@ def shot_context(bundle, base, player_id, team_id):
             raise DataError('Expected FGA events with binary made flags.')
         kind = r.get('SHOT_TYPE')
         zone = r.get('SHOT_ZONE_BASIC')
-        if kind not in {'2PT Field Goal', '3PT Field Goal'} or zone not in ZONES:
+        if kind not in {'2PT Field Goal', '3PT Field Goal'}:
             raise DataError('Unknown shot type or zone; review provider schema.')
+        if zone not in ZONES:
+            if allow_partial and zone in (None,''):
+                missing_zones.append(dict(game_id=game,event_id=event,original_zone=zone))
+                zone='Missing Zone'
+            else:raise DataError('Unknown shot type or zone; review provider schema.')
         conflict = (zone in {'Restricted Area', 'In The Paint (Non-RA)', 'Mid-Range'} and kind != '2PT Field Goal') or (zone in {'Left Corner 3', 'Right Corner 3', 'Above the Break 3'} and kind != '3PT Field Goal')
         if conflict:
             anomalies.append(dict(game_id=game, event_id=event, original_zone=zone, original_type=kind,
                                   handling='Preserve raw values; count in explicit unresolved zone bucket.'))
             zone = 'Provider Label Conflict'
-        x, y = number(r.get('LOC_X'), 'LOC_X'), number(r.get('LOC_Y'), 'LOC_Y')
-        if not -250 <= x <= 250 or not -52.5 <= y <= 887.5:
+        x, y = number(r.get('LOC_X'), 'LOC_X',optional=allow_partial), number(r.get('LOC_Y'), 'LOC_Y',optional=allow_partial)
+        missing_xy=x is None or y is None
+        if (x is not None and not -250 <= x <= 250) or (y is not None and not -52.5 <= y <= 887.5):
             raise DataError('Coordinates outside full-court bounds; do not clip them silently.')
         period = integer(r.get('PERIOD'), 'PERIOD')
         minute, second = integer(r.get('MINUTES_REMAINING'), 'MINUTES_REMAINING'), integer(r.get('SECONDS_REMAINING'), 'SECONDS_REMAINING')
         if period <= 0 or not 0 <= second < 60 or not 0 <= minute <= (12 if period <= 4 else 5):
             raise DataError('Invalid event period/clock.')
-        points.append(dict(x=x, y=y, made=made, three=kind.startswith('3PT'), game_id=game, event_id=event))
+        if missing_xy:
+            missing_locations.append(dict(game_id=game,event_id=event,game_date=r['GAME_DATE'],
+                period=period,clock=f'{minute:02d}:{second:02d}',made=made,three=kind.startswith('3PT'),
+                original_x=r.get('LOC_X'),original_y=r.get('LOC_Y'),original_zone=r.get('SHOT_ZONE_BASIC')))
+        else:points.append(dict(x=x, y=y, made=made, three=kind.startswith('3PT'), game_id=game, event_id=event))
+        event_totals['FGA']+=1;event_totals['FGM']+=made
+        event_totals['FG3A']+=int(kind.startswith('3PT'));event_totals['FG3M']+=made*int(kind.startswith('3PT'))
         zones[zone]['fga'] += 1; zones[zone]['fgm'] += made
-    observed = dict(FGA=len(points), FGM=sum(p['made'] for p in points),
-                    FG3A=sum(p['three'] for p in points), FG3M=sum(p['made'] for p in points if p['three']))
+    observed = event_totals
     for field, value in observed.items():
         if value != integer(base.get(field), 'base.' + field):
             raise DataError(f'Shot coverage differs from base {field}: {value} versus {base.get(field)}.')
@@ -94,13 +107,19 @@ def shot_context(bundle, base, player_id, team_id):
     groups = dict(ZONES)
     if anomalies:
         groups['Provider Label Conflict'] = ('UNRESOLVED', '区域/类型标签冲突')
+    if missing_zones:groups['Missing Zone']=('MISSING','区域标签缺失')
     for zone, (code, label) in groups.items():
         n, k = zones[zone]['fga'], zones[zone]['fgm']
         output.append(dict(code=code, label=label, fga=n, fgm=k, fg_pct=k/n if n else None,
-                           share=n/len(points), small_sample=n < 30))
-    return dict(status='ok', counts=observed, shot_games=len(games), appearance_games=integer(base['GP'], 'GP'),
+                           share=n/len(rows), small_sample=n < 30))
+    result=dict(status='ok', counts=observed, shot_games=len(games), appearance_games=integer(base['GP'], 'GP'),
                 zones=output, points=points, anomalies=anomalies,
                 coverage='FGA/FGM/3PA/3PM exactly match base; appearance GP may include zero-FGA games.')
+    if allow_partial:
+        result.update(location_count=len(points),missing_location_count=len(missing_locations),
+            missing_locations=missing_locations,missing_zone_count=len(missing_zones),missing_zones=missing_zones,
+            location_coverage=len(points)/len(rows),location_status='partial' if missing_locations else 'complete')
+    return result
 
 
 def register_shot_metrics(context, add, reason):
@@ -108,6 +127,12 @@ def register_shot_metrics(context, add, reason):
         'Count validated unique FGA events; exact base coverage', reason)
     if not context:
         return
+    if 'location_count' in context:
+        for mid,value,unit in [('SHOT_LOCATION_FGA',context['location_count'],'count'),
+                              ('SHOT_LOCATION_MISSING',context['missing_location_count'],'count'),
+                              ('SHOT_LOCATION_COVERAGE',context['location_coverage'],'fraction'),
+                              ('SHOT_ZONE_MISSING',context['missing_zone_count'],'count')]:
+            add(mid,value,unit,['P_SHOT','P_BASE'],'Retained complete events; valid coordinates and missing fields counted separately','')
     for mid, value in [('SHOT_EVENT_FGM', context['counts']['FGM']), ('SHOT_EVENT_GAMES', context['shot_games']),
                        ('SHOT_ZONE_CONFLICTS', len(context['anomalies']))]:
         add(mid, value, 'count', ['P_SHOT', 'P_BASE'], 'Count from coverage-validated shot events', '')
@@ -127,6 +152,11 @@ def shot_visuals(analysis, theme):
                             metric_ids=['SHOT_EVENT_FGA'], source_ids=['P_SHOT', 'P_BASE'], note=note, svg=None)
     if not ctx:
         return entries
+    missing=ctx.get('missing_location_count',0)
+    if missing:
+        entries['shot_locations']['title']='真实投篮位置：有坐标出手（部分覆盖）'
+        entries['shot_locations']['note']=f'赛季事件{ctx["counts"]["FGA"]}次齐全；图上{len(ctx["points"])}次，缺坐标{missing}次不落点。位置筛选分母仅含有坐标事件；区域表仍以赛季全部事件为分母。'
+        entries['shot_locations']['metric_ids']+=['SHOT_LOCATION_FGA','SHOT_LOCATION_MISSING','SHOT_LOCATION_COVERAGE']
     prefix = 'SYNTHETIC TEST DATA · ' if analysis['data_kind'] == 'synthetic' else ''
     title = prefix + analysis['sample']['season'] + ' / P_SHOT + P_BASE'
     # Equal scale for both axes. Full court (50 x 94 ft); basket at (0,0), baseline -5.25 ft.
@@ -144,10 +174,11 @@ def shot_visuals(analysis, theme):
             p.append(f'<circle cx="{x:.3f}" cy="{y:.3f}" r="1.9" fill="#157d55" opacity=".58"/>')
         else:
             p.append(f'<path d="M{x-1.8:.3f} {y-1.8:.3f}l3.6 3.6m0 -3.6l-3.6 3.6" stroke="#ce3d43" stroke-width=".7" opacity=".5"/>')
-    p += [f'<text x="24" y="585" font-size="14" fill="#182334">命中 {ctx["counts"]["FGM"]} / 出手 {ctx["counts"]["FGA"]} · 圆点命中 / 叉未中</text>',
-          '<text x="24" y="608" font-size="12">全场等比例；图上远距出手未被裁切</text>',
+    p += [f'<text x="24" y="585" font-size="14" fill="#182334">命中 {sum(p["made"] for p in ctx["points"])} / 出手 {len(ctx["points"])} · 圆点命中 / 叉未中</text>',
+          '<text x="24" y="608" font-size="12">'+(f'缺坐标 {missing} 次；赛季全部出手 {ctx["counts"]["FGA"]} 次' if missing else '全场等比例；图上远距出手未被裁切')+'</text>',
           '<text x="24" y="632" font-size="10">' + escape(title) + '</text></svg>']
     entries['shot_locations']['svg'] = ''.join(p)
+    if not ctx['points']:entries['shot_locations'].update(status='missing',svg=None,note='全部事件缺坐标；仍保留区域统计，不绘制位置。')
     height = 84 + len(ctx['zones']) * 53
     p = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 {height}" role="img" aria-label="真实投篮区域统计">',
          f'<rect width="480" height="{height}" fill="#F7F9FC"/>']
@@ -167,6 +198,6 @@ def shot_visuals(analysis, theme):
           f'<text x="20" y="{height-24}" font-size="11">少样本：出手少于 30 次（提示阈值，非显著性检验）</text>',
           f'<text x="20" y="{height-6}" font-size="10">' + escape(title) + '</text></svg>']
     entries['shot_zones'].update(svg=''.join(p), metric_ids=ids,
-        note='位置按官方 SHOT_ZONE_BASIC 分组；区域与投篮类型冲突的记录单列，不修正原值。数字为命中数/出手数与命中率，条长是出手份额。没有相同口径联盟区域基准，不计算相对联盟热区；少样本提示不代表统计显著性。')
+        note='按官方 SHOT_ZONE_BASIC 分组；区域标签缺失与区域/类型冲突各自单列，不修正原值。分母为完整赛季全部事件，数字为命中数/出手数与命中率，条长是出手份额。没有相同口径联盟区域基准，不计算相对联盟热区；少样本提示不代表统计显著性。')
     return entries
 

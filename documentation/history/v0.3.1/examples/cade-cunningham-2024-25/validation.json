@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "chinese_characters": 2641,
+  "claim_count": 20,
+  "numeric_fact_count": 16,
+  "errors": [],
+  "warnings": [
+    "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+  ]
+}

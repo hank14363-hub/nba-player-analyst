@@ -1,0 +1,108 @@
+{
+  "browser": "Chrome via Playwright, explicit viewport",
+  "external_requests": [],
+  "script_errors": [],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1024,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "inlineArticleCharts": 8,
+      "sections": [
+        {
+          "id": "module-01",
+          "width": 912
+        },
+        {
+          "id": "module-02",
+          "width": 912
+        },
+        {
+          "id": "module-03",
+          "width": 912
+        },
+        {
+          "id": "module-04",
+          "width": 912
+        },
+        {
+          "id": "module-05",
+          "width": 912
+        },
+        {
+          "id": "module-06",
+          "width": 912
+        },
+        {
+          "id": "module-07",
+          "width": 912
+        },
+        {
+          "id": "module-08",
+          "width": 912
+        },
+        {
+          "id": "module-09",
+          "width": 912
+        }
+      ],
+      "svgTextOverflow": [],
+      "residualImageMarkdown": 0,
+      "strategy_jump": true,
+      "source_jump": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "overflow": false,
+      "inlineArticleCharts": 8,
+      "sections": [
+        {
+          "id": "module-01",
+          "width": 342
+        },
+        {
+          "id": "module-02",
+          "width": 342
+        },
+        {
+          "id": "module-03",
+          "width": 342
+        },
+        {
+          "id": "module-04",
+          "width": 342
+        },
+        {
+          "id": "module-05",
+          "width": 342
+        },
+        {
+          "id": "module-06",
+          "width": 342
+        },
+        {
+          "id": "module-07",
+          "width": 342
+        },
+        {
+          "id": "module-08",
+          "width": 342
+        },
+        {
+          "id": "module-09",
+          "width": 342
+        }
+      ],
+      "svgTextOverflow": [],
+      "residualImageMarkdown": 0,
+      "menu_open": true,
+      "menu_closed": true,
+      "strategy_jump": true,
+      "source_jump": true
+    }
+  ],
+  "status": "pass"
+}

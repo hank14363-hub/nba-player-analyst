@@ -1,0 +1,36 @@
+{
+  "status": "pass",
+  "release_version": "0.8.1",
+  "previous_version": "0.8.0",
+  "new_nba_requests": 0,
+  "official_tables_and_collection_timestamps_preserved": true,
+  "regression_tests": 285,
+  "claims": 41,
+  "numeric_facts": 132,
+  "charts": 15,
+  "available_metrics": 141,
+  "new_impact_metrics": 18,
+  "checks": [
+    "book_validation.json",
+    "poster_validation.json",
+    "comparison_browser_validation.json",
+    "impact_browser_validation.json",
+    "interaction_validation.json",
+    "impact_forward_validation.json"
+  ],
+  "desktop_mobile_print_no_js": true,
+  "filter_combinations_checked": 225,
+  "all_shot_events": 1457,
+  "poster_reexported": true,
+  "pdf_exported": false,
+  "manual_visual_review": [
+    "impact-preview-1440.png",
+    "impact-preview-390.png",
+    "player_poster-cover.png"
+  ],
+  "inherited_checks": [
+    "browser_validation.json",
+    "plane_motion_validation.json"
+  ],
+  "note": "Inherited checks are earlier-release records; current release reran new-model browser checks and shared event interactions."
+}

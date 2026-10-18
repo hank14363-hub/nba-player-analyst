@@ -1,0 +1,64 @@
+{
+  "status": "ok",
+  "dataset_url": "https://www.kaggle.com/datasets/deocheng/nba-data-1946-2026",
+  "dataset_version": 1,
+  "snapshot_date": "2026-08-18",
+  "player": {
+    "id": 1629029,
+    "name": "Luka Dončić",
+    "reported_team_id": 0
+  },
+  "sample": {
+    "season": "2024-25",
+    "season_type": "Regular Season",
+    "GP": 50.0,
+    "MIN": 1769.0,
+    "player_team_id": 0
+  },
+  "files": {
+    "public.fact_player_season_stats.csv": {
+      "sha256": "ebbe4131ddaae555f78b55450619e76661eb8e74b1ff30d23177f2df635b0700",
+      "acquired_at": "2026-10-14T07:43:21.211659+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    },
+    "public.player_shooting.csv": {
+      "sha256": "0e191ba860293a9dc8271d28fefa0887c6ebe605dc89c73a8c2ec1b1a5adabb4",
+      "acquired_at": "2026-10-14T07:43:20.036115+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    },
+    "public.player_onoff.csv": {
+      "sha256": "923e2f51f1a4a57ddd2c50acbf3eb9bff8325b4c519bd5d777c4432c173a83b3",
+      "acquired_at": "2026-10-14T07:43:26.916862+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    },
+    "public.player_id_bridge.csv": {
+      "sha256": "f165dfc20efb1f25789659593cde300e4ddf4b4090021c89c5adecd584ae3a35",
+      "acquired_at": "2026-10-14T07:44:49.485064+00:00",
+      "acquisition_time_basis": "Local CSV mtime; not original upstream scrape time"
+    }
+  },
+  "excluded": [
+    {
+      "domain": "EPM",
+      "reason": "Estimate type/date/window not verified; 2025 actual unavailable"
+    },
+    {
+      "domain": "shot_coordinates",
+      "reason": "Coordinate system and full shot coverage not verified"
+    },
+    {
+      "domain": "team_on_off",
+      "reason": "Mislabelled opponent-vs-team fields; use player_onoff only"
+    },
+    {
+      "domain": "Playoffs",
+      "reason": "Season-table player identities incomplete; adapter is regular-season-only"
+    },
+    {
+      "domain": "player_onoff",
+      "reason": "Needs one actual sample team, matching rows and an independent official team-minute reference; never use On+Off as its own baseline"
+    }
+  ],
+  "metrics_available": 48,
+  "raw_selection_note": "Filtered original CSV rows retained; full CSV SHA256 recorded. Selected JSON is not a byte-for-byte copy of full source CSV."
+}

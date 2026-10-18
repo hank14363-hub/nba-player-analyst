@@ -1,0 +1,738 @@
+{
+  "schema_version": "0.1.0",
+  "data_kind": "nba",
+  "claims": [
+    {
+      "id": "C01",
+      "kind": "fact",
+      "report_quote": "坎宁安出场70场，场均35.03分钟，得到26.14分、9.11次助攻，同时有4.41次失误。",
+      "metric_ids": [
+        "GP",
+        "MIN_PER_GAME",
+        "PTS_PER_GAME",
+        "AST_PER_GAME",
+        "TOV_PER_GAME"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "GP",
+          "value": 70.0
+        },
+        {
+          "metric_id": "MIN_PER_GAME",
+          "value": 35.028523809523804
+        },
+        {
+          "metric_id": "PTS_PER_GAME",
+          "value": 26.142857142857142
+        },
+        {
+          "metric_id": "AST_PER_GAME",
+          "value": 9.114285714285714
+        },
+        {
+          "metric_id": "TOV_PER_GAME",
+          "value": 4.414285714285715
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "kind": "fact",
+      "report_quote": "官方使用率为32.3%，助攻率为40.9%。",
+      "metric_ids": [
+        "USG_PCT",
+        "AST_PCT"
+      ],
+      "source_ids": [
+        "P_ADV"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "USG_PCT",
+          "value": 0.323
+        },
+        {
+          "metric_id": "AST_PCT",
+          "value": 0.409
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "kind": "inference",
+      "report_quote": "最有依据的定位，是在本赛季承担主要进攻发起和终结职责；是否能在更强对手与更紧空间下保持同样质量，需要回合层面的证据。",
+      "metric_ids": [
+        "USG_PCT",
+        "AST_PCT",
+        "PTS_PER_GAME"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "负荷不等于技术能力；对手强度、队友终结与进攻空间尚未控制。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "USG_PCT",
+          "value": 0.323
+        },
+        {
+          "metric_id": "AST_PCT",
+          "value": 0.409
+        },
+        {
+          "metric_id": "PTS_PER_GAME",
+          "value": 26.142857142857142
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "kind": "fact",
+      "report_quote": "真实命中率为56.5%，同赛季联盟整体为57.6%，按未舍入数值计算低1.13个百分点。",
+      "metric_ids": [
+        "TS_PCT",
+        "LEAGUE_TS_PCT",
+        "RTS_PP"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "T_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "TS_PCT",
+          "value": 0.5648845536485986
+        },
+        {
+          "metric_id": "LEAGUE_TS_PCT",
+          "value": 0.5761895378581693
+        },
+        {
+          "metric_id": "RTS_PP",
+          "value": -1.1304984209570712
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "kind": "fact",
+      "report_quote": "三分占投篮出手的28.7%，三分命中率为35.6%。",
+      "metric_ids": [
+        "FG3A_RATE",
+        "FG3_PCT"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "FG3A_RATE",
+          "value": 0.2868908716540837
+        },
+        {
+          "metric_id": "FG3_PCT",
+          "value": 0.35645933014354064
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "kind": "fact",
+      "report_quote": "按官方每百回合数据换算，每75回合为26.40分、9.23次助攻与4.43次失误；赛季助攻失误比为2.06。",
+      "metric_ids": [
+        "PTS_PER75",
+        "AST_PER75",
+        "TOV_PER75",
+        "AST_TOV"
+      ],
+      "source_ids": [
+        "P_100",
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "PTS_PER75",
+          "value": 26.400000000000002
+        },
+        {
+          "metric_id": "AST_PER75",
+          "value": 9.225000000000001
+        },
+        {
+          "metric_id": "TOV_PER75",
+          "value": 4.425000000000001
+        },
+        {
+          "metric_id": "AST_TOV",
+          "value": 2.0647249190938513
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "kind": "fact",
+      "report_quote": "追踪数据记录场均15.00次潜在助攻和23.40次突破。",
+      "metric_ids": [
+        "POTENTIAL_AST_PER_GAME",
+        "DRIVES_PER_GAME"
+      ],
+      "source_ids": [
+        "TR_DRIVE",
+        "TR_PASS"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "POTENTIAL_AST_PER_GAME",
+          "value": 15.0
+        },
+        {
+          "metric_id": "DRIVES_PER_GAME",
+          "value": 23.4
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "kind": "inference",
+      "report_quote": "减轻部分连续发起负担、保留他的关键处理球任务，是值得尝试的分工；需要确认分担者能创造有效机会，而非只是替他运球。",
+      "metric_ids": [
+        "AST_PER75",
+        "TOV_PER75",
+        "POTENTIAL_AST_PER_GAME"
+      ],
+      "source_ids": [
+        "P_100",
+        "TR_PASS"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "尚未观察失误类型；不能预先承诺分工调整会降低多少失误。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "AST_PER75",
+          "value": 9.225000000000001
+        },
+        {
+          "metric_id": "TOV_PER75",
+          "value": 4.425000000000001
+        },
+        {
+          "metric_id": "POTENTIAL_AST_PER_GAME",
+          "value": 15.0
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "kind": "fact",
+      "report_quote": "全部投篮命中中30.3%受助攻、69.7%未记助攻；三分命中中57.0%受助攻。",
+      "metric_ids": [
+        "PCT_AST_FGM",
+        "PCT_UAST_FGM",
+        "PCT_AST_3PM"
+      ],
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "PCT_AST_FGM",
+          "value": 0.303
+        },
+        {
+          "metric_id": "PCT_UAST_FGM",
+          "value": 0.697
+        },
+        {
+          "metric_id": "PCT_AST_3PM",
+          "value": 0.57
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "kind": "fact",
+      "report_quote": "场均接球投篮出手2.20次，有效命中率56.1%；持球急停出手7.80次，有效命中率49.4%。",
+      "metric_ids": [
+        "CATCH_SHOOT_FGA_PER_GAME",
+        "CATCH_SHOOT_EFG_PCT",
+        "PULL_UP_FGA_PER_GAME",
+        "PULL_UP_EFG_PCT"
+      ],
+      "source_ids": [
+        "TR_CATCH",
+        "TR_PULL"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "CATCH_SHOOT_FGA_PER_GAME",
+          "value": 2.2
+        },
+        {
+          "metric_id": "CATCH_SHOOT_EFG_PCT",
+          "value": 0.561
+        },
+        {
+          "metric_id": "PULL_UP_FGA_PER_GAME",
+          "value": 7.8
+        },
+        {
+          "metric_id": "PULL_UP_EFG_PCT",
+          "value": 0.494
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "kind": "inference",
+      "report_quote": "较合理的无球试验，是在另一名球员发起时保留他的接球投篮与接球再处理任务，而不是仅凭受助攻数据认定他已经是成熟的跑位终结者。",
+      "metric_ids": [
+        "PCT_AST_3PM",
+        "CATCH_SHOOT_EFG_PCT",
+        "CATCH_SHOOT_FGA_PER_GAME"
+      ],
+      "source_ids": [
+        "P_SCORE",
+        "TR_CATCH"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "跑动路线、出手准备、掩护利用和空位程度缺少实际录像样本。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "PCT_AST_3PM",
+          "value": 0.57
+        },
+        {
+          "metric_id": "CATCH_SHOOT_EFG_PCT",
+          "value": 0.561
+        },
+        {
+          "metric_id": "CATCH_SHOOT_FGA_PER_GAME",
+          "value": 2.2
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "kind": "fact",
+      "report_quote": "他在场时活塞每百回合得分115.0、失分112.2、净胜2.8；不在场时对应为109.7、109.9与净负0.2。",
+      "metric_ids": [
+        "ONOFF_ON_OFF_RATING",
+        "ONOFF_ON_DEF_RATING",
+        "ONOFF_ON_NET_RATING",
+        "ONOFF_OFF_OFF_RATING",
+        "ONOFF_OFF_DEF_RATING",
+        "ONOFF_OFF_NET_RATING"
+      ],
+      "source_ids": [
+        "P_ONOFF"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "ONOFF_ON_OFF_RATING",
+          "value": 115.0
+        },
+        {
+          "metric_id": "ONOFF_ON_DEF_RATING",
+          "value": 112.2
+        },
+        {
+          "metric_id": "ONOFF_ON_NET_RATING",
+          "value": 2.8
+        },
+        {
+          "metric_id": "ONOFF_OFF_OFF_RATING",
+          "value": 109.7
+        },
+        {
+          "metric_id": "ONOFF_OFF_DEF_RATING",
+          "value": 109.9
+        },
+        {
+          "metric_id": "ONOFF_OFF_NET_RATING",
+          "value": -0.2
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "kind": "fact",
+      "report_quote": "在场减不在场的净效率差为正3.0分，其中进攻得分高5.3分，防守失分也高2.3分。",
+      "metric_ids": [
+        "ON_OFF_DIFFERENTIAL",
+        "ON_OFF_OFF_DIFFERENTIAL",
+        "ON_OFF_DEF_DIFFERENTIAL"
+      ],
+      "source_ids": [
+        "P_ONOFF"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "描述本赛季样本；不代表其他赛季或其他球队环境。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "ON_OFF_DIFFERENTIAL",
+          "value": 3.0
+        },
+        {
+          "metric_id": "ON_OFF_OFF_DIFFERENTIAL",
+          "value": 5.299999999999997
+        },
+        {
+          "metric_id": "ON_OFF_DEF_DIFFERENTIAL",
+          "value": 2.299999999999997
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "kind": "inference",
+      "report_quote": "这组在场对比支持继续研究他与球队进攻之间的关系，但不能把净效率差写成个人贡献，也不能用在场失分高证明他个人防守差。",
+      "metric_ids": [
+        "ON_OFF_DIFFERENTIAL",
+        "ON_OFF_DEF_DIFFERENTIAL"
+      ],
+      "source_ids": [
+        "P_ONOFF"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "没有调整队友、对手、主替轮换、垃圾时间与比赛状态；相关性不是因果。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "ON_OFF_DIFFERENTIAL",
+          "value": 3.0
+        },
+        {
+          "metric_id": "ON_OFF_DEF_DIFFERENTIAL",
+          "value": 2.299999999999997
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "kind": "inference",
+      "report_quote": "在本赛季环境中，保留核心发起职责，同时增加能衔接进攻的第二处理点、给予接球后继续处理的机会，是比简单削减球权更有依据的使用建议。",
+      "metric_ids": [
+        "USG_PCT",
+        "AST_PER75",
+        "TOV_PER75",
+        "CATCH_SHOOT_EFG_PCT",
+        "ON_OFF_OFF_DIFFERENTIAL"
+      ],
+      "source_ids": [
+        "P_100",
+        "P_ADV",
+        "P_ONOFF",
+        "TR_CATCH"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "需要同赛季阵容与回合观察确认；不预测新球队效率会提升多少。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "USG_PCT",
+          "value": 0.323
+        },
+        {
+          "metric_id": "AST_PER75",
+          "value": 9.225000000000001
+        },
+        {
+          "metric_id": "TOV_PER75",
+          "value": 4.425000000000001
+        },
+        {
+          "metric_id": "CATCH_SHOOT_EFG_PCT",
+          "value": 0.561
+        },
+        {
+          "metric_id": "ON_OFF_OFF_DIFFERENTIAL",
+          "value": 5.299999999999997
+        }
+      ]
+    },
+    {
+      "id": "C16",
+      "kind": "fact",
+      "report_quote": "逐次投篮数据覆盖70场、1457次出手与684次命中，出手与命中总数均匹配基础统计。",
+      "metric_ids": [
+        "SHOT_EVENT_GAMES",
+        "SHOT_EVENT_FGA",
+        "SHOT_EVENT_FGM"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_SHOT"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "SHOT_EVENT_GAMES",
+          "value": 70
+        },
+        {
+          "metric_id": "SHOT_EVENT_FGA",
+          "value": 1457
+        },
+        {
+          "metric_id": "SHOT_EVENT_FGM",
+          "value": 684
+        }
+      ]
+    },
+    {
+      "id": "C17",
+      "kind": "fact",
+      "report_quote": "合理冲撞区为207次命中、364次出手，命中率56.9%；油漆区其余位置为241次命中、483次出手，命中率49.9%；中距离为86次命中、191次出手，命中率45.0%。",
+      "metric_ids": [
+        "SHOT_RA_FGM",
+        "SHOT_RA_FGA",
+        "SHOT_RA_FG_PCT",
+        "SHOT_PAINT_FGM",
+        "SHOT_PAINT_FGA",
+        "SHOT_PAINT_FG_PCT",
+        "SHOT_MID_FGM",
+        "SHOT_MID_FGA",
+        "SHOT_MID_FG_PCT"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_SHOT"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "SHOT_RA_FGM",
+          "value": 207
+        },
+        {
+          "metric_id": "SHOT_RA_FGA",
+          "value": 364
+        },
+        {
+          "metric_id": "SHOT_RA_FG_PCT",
+          "value": 0.5686813186813187
+        },
+        {
+          "metric_id": "SHOT_PAINT_FGM",
+          "value": 241
+        },
+        {
+          "metric_id": "SHOT_PAINT_FGA",
+          "value": 483
+        },
+        {
+          "metric_id": "SHOT_PAINT_FG_PCT",
+          "value": 0.4989648033126294
+        },
+        {
+          "metric_id": "SHOT_MID_FGM",
+          "value": 86
+        },
+        {
+          "metric_id": "SHOT_MID_FGA",
+          "value": 191
+        },
+        {
+          "metric_id": "SHOT_MID_FG_PCT",
+          "value": 0.450261780104712
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "kind": "fact",
+      "report_quote": "左底角三分为4中12，右底角为4中9；弧顶及两翼三分为141中393，另有4次后场出手全部未中；还有1条区域与投篮类型标签冲突记录被单列。",
+      "metric_ids": [
+        "SHOT_LC3_FGM",
+        "SHOT_LC3_FGA",
+        "SHOT_RC3_FGM",
+        "SHOT_RC3_FGA",
+        "SHOT_ATB3_FGM",
+        "SHOT_ATB3_FGA",
+        "SHOT_BACK_FGM",
+        "SHOT_BACK_FGA",
+        "SHOT_ZONE_CONFLICTS"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_SHOT"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "SHOT_LC3_FGM",
+          "value": 4
+        },
+        {
+          "metric_id": "SHOT_LC3_FGA",
+          "value": 12
+        },
+        {
+          "metric_id": "SHOT_RC3_FGM",
+          "value": 4
+        },
+        {
+          "metric_id": "SHOT_RC3_FGA",
+          "value": 9
+        },
+        {
+          "metric_id": "SHOT_ATB3_FGM",
+          "value": 141
+        },
+        {
+          "metric_id": "SHOT_ATB3_FGA",
+          "value": 393
+        },
+        {
+          "metric_id": "SHOT_BACK_FGM",
+          "value": 0
+        },
+        {
+          "metric_id": "SHOT_BACK_FGA",
+          "value": 4
+        },
+        {
+          "metric_id": "SHOT_ZONE_CONFLICTS",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "kind": "inference",
+      "report_quote": "更适合继续验证的方向，是减少部分受压的中间距离终结、保留能创造优势的突破与传球，而非凭区域命中率直接规定所有出手的增减。",
+      "metric_ids": [
+        "SHOT_PAINT_FGA",
+        "SHOT_PAINT_FG_PCT",
+        "SHOT_MID_FGA",
+        "SHOT_MID_FG_PCT",
+        "POTENTIAL_AST_PER_GAME"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_SHOT",
+        "TR_PASS"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "区域描述没有控制防守压力、剩余时间和罚球收益；需要录像核验，不能认定出手选择已经被证明不合理。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C20",
+      "kind": "inference",
+      "report_quote": "分担发起时，可先让另一名处理点借掩护迫使防守移动，再由坎宁安接球决定投、突或传；是否减少低质量终结，需要比较相近压力下的回合。",
+      "metric_ids": [
+        "USG_PCT",
+        "AST_PER75",
+        "CATCH_SHOOT_FGA_PER_GAME",
+        "CATCH_SHOOT_EFG_PCT"
+      ],
+      "source_ids": [
+        "P_100",
+        "P_ADV",
+        "TR_CATCH"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "统计只能支持试验分工，未验证掩护配合、接球地点与对手覆盖方式。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C21",
+      "kind": "inference",
+      "report_quote": "当队友启动进攻时，可以试验让他从弱侧接球后立即继续处理，保留接球投篮与再突破的选择；不应仅凭受助攻比例把他固定成静态定点射手。",
+      "metric_ids": [
+        "PCT_AST_FGM",
+        "CATCH_SHOOT_EFG_PCT",
+        "DRIVES_PER_GAME"
+      ],
+      "source_ids": [
+        "P_SCORE",
+        "TR_CATCH",
+        "TR_DRIVE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "没有弱侧接球、跑位或防守注意力的实际录像；这是待验证的职责安排。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C22",
+      "kind": "inference",
+      "report_quote": "对回合末的困难出手，应先区分体系已经创造出的机会与被迫收尾；只有前者持续出现可替代选择，才有理由减少相应的中间距离终结。",
+      "metric_ids": [
+        "SHOT_PAINT_FGA",
+        "SHOT_MID_FGA",
+        "SHOT_MID_FG_PCT"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_SHOT"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "位置数据未记录防守距离和选择窗口；不能把所有未中球归因于个人决策。"
+      ],
+      "numeric_facts": []
+    }
+  ]
+}

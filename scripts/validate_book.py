@@ -103,9 +103,10 @@ def inspect_html(text: str, analysis: dict) -> dict:
             'anchor_count':len(parser.anchors),'svg_count':parser.svg_count,'embedded_metric_instances':len(parser.metric_values)}
 
 
-def check(run_dir: Path, min_chars: int = 1200) -> dict:
+def check(run_dir: Path, min_chars: int = 1200, strict_editorial: bool = False) -> dict:
     analysis, claims, report, report_check = load_context(run_dir,min_chars)
-    errors = validate_content(dictionary(run_dir/'book_content.json'),analysis,claims)
+    content = dictionary(run_dir/'book_content.json')
+    errors = validate_content(content,analysis,claims)
     manifest = dictionary(run_dir/'book_manifest.json')
     if manifest.get('data_kind') != analysis['data_kind']:
         errors.append('Manifest data_kind differs from analysis')
@@ -124,7 +125,15 @@ def check(run_dir: Path, min_chars: int = 1200) -> dict:
             errors.append('File changed after rendering: ' + name)
     inspection = inspect_html((run_dir/'research_book.html').read_text(encoding='utf-8'),analysis)
     errors.extend(inspection.pop('errors'))
-    return {'status':'pass' if not errors else 'fail','recomputed_metrics':True,'report_validation':report_check,
+    from editorial_audit import audit
+    editorial = audit(content, analysis, claims, dictionary(run_dir/'data_bundle.json'))
+    from media_research import audit as audit_media
+    media_review=audit_media(run_dir,analysis)
+    editorial['findings'].extend(media_review['findings'])
+    if editorial['findings']:editorial['status']='review_required'
+    if strict_editorial and editorial['findings']:
+        errors.append('Editorial completeness review required: '+', '.join(sorted({f['code'] for f in editorial['findings']})))
+    return {'status':'pass' if not errors else 'fail','recomputed_metrics':True,'report_validation':report_check,'editorial_audit':editorial,'media_research_audit':media_review,
             **inspection,'errors':errors,'warnings':['Passing checks verify reproducibility, IDs, registered numbers, and static output integrity, NOT semantic truth, strategy validity, or visual layout. Review desktop/mobile/print separately.']}
 
 
@@ -132,11 +141,12 @@ def main() -> int:
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--run-dir',type=Path,required=True)
     p.add_argument('--min-chars',type=int,default=1200)
+    p.add_argument('--strict-editorial',action='store_true',help='Fail on observable editorial omissions; does not verify semantic truth')
     args=p.parse_args()
     try:
         if args.min_chars < 0:
             raise DataError('--min-chars must be nonnegative')
-        result=check(args.run_dir,args.min_chars)
+        result=check(args.run_dir,args.min_chars,args.strict_editorial)
         write_json(args.run_dir/'book_validation.json',result)
         print(json.dumps(result,ensure_ascii=False,indent=2))
         return 0 if result['status']=='pass' else 1

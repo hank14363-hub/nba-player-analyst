@@ -6,6 +6,8 @@ from common import DataError, digest, integer, number
 SPECS = {
     'BREF': ('retrospective_box', [('BPM','bpm','per100_model'),('OBPM','obpm','per100_model'),('DBPM','dbpm','per100_model'),('VORP','vorp','replacement_value'),('WS','ws','win_shares'),('OWS','ows','win_shares'),('DWS','dws','win_shares'),('WS48','ws_per_48','ws_per48')]),
     'LEBRON': ('retrospective_adjusted', [('LEBRON','LEBRON','per100_model'),('O_LEBRON','O-LEBRON','per100_model'),('D_LEBRON','D-LEBRON','per100_model')]),
+    'EPM': ('retrospective_adjusted', [('EPM','tot','per100_model'),('O_EPM','off','per100_model'),('D_EPM','def','per100_model')]),
+    'EPM_HISTORICAL': ('historical_snapshot_unverified', [('EPM_HIST','tot','provider_epm_points'),('O_EPM_HIST','off','provider_epm_points'),('D_EPM_HIST','def','provider_epm_points')]),
     'DARKO': ('predictive_snapshot', [('DPM','dpm','per100_model'),('O_DPM','o_dpm','per100_model'),('D_DPM','d_dpm','per100_model')]),
 }
 
@@ -51,15 +53,27 @@ def impact_context(bundle, player_id, player_name, totals, team_id):
         matches=[r for r in rows if all(str(r.get(k))==str(v) for k,v in selector.items())]
         if len(matches)!=1:raise DataError('Impact selector must resolve exactly one row, never sum stints or select duplicates')
         row=matches[0]
-        name_key={'BREF':'name_display','LEBRON':'player_name','DARKO':'player_name'}[family]
-        if normalized_name(row.get(name_key)) != normalized_name(player_name):raise DataError('Impact provider name mapping mismatch')
+        name_key={'BREF':'name_display','LEBRON':'player_name','DARKO':'player_name','EPM':'player_name','EPM_HISTORICAL':'player_name'}[family]
+        if family in ('EPM','EPM_HISTORICAL'):
+            if family=='EPM':
+                from import_epm import validate_import
+            else:
+                from historical_epm import validate_import
+            from common import normalize_name
+            validate_import(bundle)
+            if normalize_name(row.get(name_key,'')) != normalize_name(player_name):raise DataError('EPM provider exact name mapping mismatch')
+        elif normalized_name(row.get(name_key)) != normalized_name(player_name):raise DataError('Impact provider name mapping mismatch')
         if family=='BREF':
             if selector.get('provider_player_key') != d.get('provider_player_key') or not d.get('provider_player_key'):raise DataError('BRef identity mapping required')
             if source.get('table_id') != ('advanced' if bundle['season_type']=='Regular Season' else 'advanced_post'):raise DataError('Wrong BRef competition table')
         else:
             if integer(row.get('nba_id'),'provider nba_id') != player_id:raise DataError('Provider NBA identity mismatch')
         cutoff=d.get('cutoff')
-        if family=='DARKO':
+        if family=='EPM_HISTORICAL':
+            if row.get('season')!=bundle['season'] or row.get('as_of')!=cutoff or row.get('sample_scope')!='unverified':
+                raise DataError('Historical EPM raw scope/date mismatch')
+            sample=dict(GP=None,MIN=None,minutes_difference=None,coverage='历史快照；场次、总分钟、估计类型和比赛范围未核验，不作为整季Actual EPM或已验证预测。')
+        elif family=='DARKO':
             try:
                 stamp=date.fromisoformat(cutoff)
                 start=int(bundle['season'][:4]);end=start+1
@@ -70,15 +84,16 @@ def impact_context(bundle, player_id, player_name, totals, team_id):
             sample=dict(GP=None,MIN=None,minutes_difference=None,coverage='Career-weighted prediction; no single-season minute coverage')
         else:
             if family=='LEBRON' and row.get('Season')!=bundle['season']:raise DataError('LEBRON raw season mismatch')
-            gp=number(row.get('games'),optional=True) if family=='BREF' else None
-            mins=number(row.get('mp') if family=='BREF' else row.get('Minutes'),'impact minutes')
-            tolerance=.51 if family=='BREF' else .1
+            if family=='EPM' and (row.get('season')!=bundle['season'] or row.get('season_type')!='Regular Season' or row.get('estimate_type')!='actual' or cutoff is not None):raise DataError('EPM must be a matching Actual full-season estimate')
+            gp=number(row.get('games'),optional=family!='EPM') if family in ('BREF','EPM') else None
+            mins=number(row.get('mp') if family=='BREF' else row.get('minutes') if family=='EPM' else row.get('Minutes'),'impact minutes')
+            tolerance=(.5*10**(-integer(d.get('minutes_decimals'),'EPM minutes precision'))+1e-9) if family=='EPM' else .51 if family=='BREF' else .1
             if gp is not None and gp!=totals['GP']:raise DataError('Impact GP mismatch')
             if abs(mins-totals['MIN'])>tolerance:raise DataError('Impact minute coverage mismatch')
-            sample=dict(GP=gp,MIN=mins,minutes_difference=mins-totals['MIN'],coverage='Season sample checked against official total; LEBRON games not supplied' if gp is None else 'GP and rounded total minutes matched')
+            sample=dict(GP=gp,MIN=mins,minutes_difference=mins-totals['MIN'],coverage='GP and reference total minutes matched at declared export precision' if family=='EPM' else 'Season sample checked against official total; LEBRON games not supplied' if gp is None else 'GP and rounded total minutes matched')
         values={mid:number(row.get(key),family+'.'+key,optional=True) for mid,key,_ in spec[1]}
         if not any(v is not None for v in values.values()):raise DataError('No impact values supplied')
-        components={'BREF':('BPM','OBPM','DBPM',.151),'LEBRON':('LEBRON','O_LEBRON','D_LEBRON',.001),'DARKO':('DPM','O_DPM','D_DPM',.151)}[family]
+        components={'BREF':('BPM','OBPM','DBPM',.151),'LEBRON':('LEBRON','O_LEBRON','D_LEBRON',.001),'DARKO':('DPM','O_DPM','D_DPM',.151),'EPM':('EPM','O_EPM','D_EPM',.15+1e-12),'EPM_HISTORICAL':('EPM_HIST','O_EPM_HIST','D_EPM_HIST',.15+1e-12)}[family]
         total,off,defense,tol=components
         if all(values[k] is not None for k in (total,off,defense)) and abs(values[total]-values[off]-values[defense])>tol:
             raise DataError('Impact components fail provider rounding tolerance')
@@ -96,8 +111,12 @@ def register_impact(ctx,add,metrics):
         for mid,key,unit in SPECS[d['family']][1]:
             add('IMPACT_'+mid,d['values'][mid],unit,[d['source_id']],d['family']+'.'+key+' / '+d['estimate_type'],'Provider field unavailable; never zero-filled')
             metrics[-1]['label']=mid+' · 提供者模型估计'
+            if d['family']=='EPM_HISTORICAL':
+                metrics[-1].update(label=mid+' · 历史 EPM 快照（口径待核验）',
+                                   verification_status='archived_reading_only_scope_unverified',
+                                   snapshot_date=d['cutoff'], caveats=list(d['caveats']))
             if d['values'][mid] is not None:
-                metrics[-1]['display'] = (f"{d['values'][mid]:+.2f}" if unit=='per100_model' else f"{d['values'][mid]:.3f}" if unit=='ws_per48' else f"{d['values'][mid]:.1f}")
+                metrics[-1]['display'] = (f"{d['values'][mid]:+.2f}" if unit in ('per100_model','provider_epm_points') else f"{d['values'][mid]:.3f}" if unit=='ws_per48' else f"{d['values'][mid]:.1f}")
         sample=d['sample']
         if d['family']=='BREF':
             add('IMPACT_BREF_GP',sample['GP'],'count',[d['source_id']],'Provider sample games')
@@ -105,3 +124,6 @@ def register_impact(ctx,add,metrics):
         if d['family']=='LEBRON':
             add('IMPACT_LEBRON_MIN',sample['MIN'],'minutes',[d['source_id']],'Provider relay minutes')
             add('IMPACT_LEBRON_MIN_GAP_SECONDS',abs(sample['minutes_difference'])*60,'seconds',[d['source_id'],'P_BASE'],'abs(provider minutes - official minutes) * 60')
+        if d['family']=='EPM':
+            add('IMPACT_EPM_GP',sample['GP'],'count',[d['source_id']],'Provider export games matched to reference totals')
+            add('IMPACT_EPM_MIN',sample['MIN'],'minutes',[d['source_id']],'Provider export total minutes at declared precision')

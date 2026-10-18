@@ -1,0 +1,113 @@
+{
+  "errors": [],
+  "requests": [],
+  "viewports": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "cards": 13,
+      "svg": 10,
+      "horizontalOverflow": 0,
+      "svgTextOverflow": 0,
+      "articleCharts": 0,
+      "articleCollapsed": true,
+      "imageLoaded": true
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "cards": 13,
+      "svg": 10,
+      "horizontalOverflow": 0,
+      "svgTextOverflow": 0,
+      "articleCharts": 0,
+      "articleCollapsed": true,
+      "imageLoaded": true
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "cards": 13,
+      "svg": 10,
+      "horizontalOverflow": 0,
+      "svgTextOverflow": 0,
+      "articleCharts": 0,
+      "articleCollapsed": true,
+      "imageLoaded": true
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "cards": 13,
+      "svg": 10,
+      "horizontalOverflow": 0,
+      "svgTextOverflow": 0,
+      "articleCharts": 0,
+      "articleCollapsed": true,
+      "imageLoaded": true
+    }
+  ],
+  "filter_checks": [
+    {
+      "width": 1440,
+      "whole_season": true,
+      "outcome_keeps_denominator": true,
+      "midrange": true,
+      "game_counts": true,
+      "conflict_preserved": true,
+      "zero_result": true,
+      "pagination": true,
+      "keyboard_event": true,
+      "article_sources": true
+    },
+    {
+      "width": 1024,
+      "whole_season": true,
+      "outcome_keeps_denominator": true,
+      "midrange": true,
+      "game_counts": true,
+      "conflict_preserved": true,
+      "zero_result": true,
+      "pagination": true,
+      "keyboard_event": true,
+      "article_sources": true
+    },
+    {
+      "width": 768,
+      "whole_season": true,
+      "outcome_keeps_denominator": true,
+      "midrange": true,
+      "game_counts": true,
+      "conflict_preserved": true,
+      "zero_result": true,
+      "pagination": true,
+      "keyboard_event": true,
+      "article_sources": true
+    },
+    {
+      "width": 390,
+      "whole_season": true,
+      "outcome_keeps_denominator": true,
+      "midrange": true,
+      "game_counts": true,
+      "conflict_preserved": true,
+      "zero_result": true,
+      "pagination": true,
+      "keyboard_event": true,
+      "article_sources": true
+    }
+  ],
+  "no_js": {
+    "points": 1457,
+    "static_stats": [
+      "1457",
+      "684",
+      "46.9%",
+      "1457"
+    ],
+    "controls_hidden": true,
+    "article_accessible": true
+  },
+  "unchanged_raw_stats": true,
+  "status": "pass"
+}

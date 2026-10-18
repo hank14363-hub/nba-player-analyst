@@ -1,0 +1,14 @@
+{
+  "review_version": "0.3.1",
+  "status": "no_heuristic_warnings",
+  "checked_files": [
+    "report.md",
+    "book_content.json",
+    "poster_content.json"
+  ],
+  "issue_count": 0,
+  "issues": [],
+  "manual_review_required": true,
+  "automatic_edits": false,
+  "limitation": "仅为规则提示，不证明表达已足够通俗或结论真实；不自动改写，不修改数据。"
+}

@@ -38,3 +38,6 @@ GP 与 MIN 总样本、FGA/FG3A/FTA 出手量和基础场均同时输出。球�
 v0.4 的 ON_OFF_DIFFERENTIAL 在匹配 On/Off 数据存在且核验通过时生成；否则为 missing。来源与公式见 advanced_data.md。DEFENSIVE_ABILITY_SCORE 仍保留为 missing，不把团队失分或抢断封盖变成个人评分。
 
 来源术语参考：https://www.nba.com/stats/help/glossary 。自定义的 rTS 命名、输出单位、质量阈值、评分限制属于本项目设计，不应称作 NBA 官方评分标准。
+## 历史EPM归档读数（v0.8.10）
+
+`IMPACT_EPM_HIST`、`IMPACT_O_EPM_HIST`、`IMPACT_D_EPM_HIST`保留历史表总值/攻防分量，单位为提供者原表点数，不声明已核验估计定义；标签、原始记录日期、来源与口径待核验备注一起阅读。场次和分钟未核验，不能替代Actual或个人防守评分。详见[kaggle_epm.md](kaggle_epm.md)。

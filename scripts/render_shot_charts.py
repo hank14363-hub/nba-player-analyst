@@ -23,11 +23,15 @@ def render(run_dir, out, theme='auto'):
     entries=shot_visuals(fresh,select_theme(fresh,theme))
     out.mkdir(parents=True,exist_ok=True)
     for key,entry in entries.items():
-        (out/(key+'.svg')).write_text(entry['svg'],encoding='utf-8')
+        if entry['status']=='ok' and entry['svg']:
+            (out/(key+'.svg')).write_text(entry['svg'],encoding='utf-8')
     manifest=dict(status='rendered',sample=fresh['sample'],player=fresh['player'],data_kind=fresh['data_kind'],
         coverage=fresh['shot_context']['counts'],anomalies=fresh['shot_context']['anomalies'],
         sources={sid:fresh['sources'][sid] for sid in ('P_SHOT','P_BASE')},
         figures={key:{k:v for k,v in e.items() if k!='svg'} for key,e in entries.items()})
+    if 'location_count' in fresh['shot_context']:
+        manifest['spatial_coverage']={k:fresh['shot_context'][k] for k in (
+            'location_count','missing_location_count','location_coverage','location_status','missing_zone_count','missing_locations')}
     write_json(out/'shot_chart_manifest.json',manifest)
     return manifest
 

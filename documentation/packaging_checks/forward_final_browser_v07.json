@@ -1,0 +1,20 @@
+[
+  {
+    "motion": "reduce",
+    "svgCount": 10,
+    "extraGraphs": 2,
+    "gifPlayPause": true,
+    "fullArticleInitiallyClosed": true,
+    "noHorizontalOverflow": true,
+    "revealsVisible": true
+  },
+  {
+    "motion": "no-preference",
+    "svgCount": 10,
+    "extraGraphs": 2,
+    "gifPlayPause": true,
+    "fullArticleInitiallyClosed": true,
+    "noHorizontalOverflow": true,
+    "revealsVisible": true
+  }
+]

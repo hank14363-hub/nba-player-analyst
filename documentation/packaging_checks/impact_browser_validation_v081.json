@@ -1,0 +1,28 @@
+{
+  "errors": [],
+  "requests": [],
+  "viewports": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "textBounds": []
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "textBounds": []
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "textBounds": []
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "textBounds": []
+    }
+  ],
+  "no_js": true,
+  "status": "pass"
+}

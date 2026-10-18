@@ -2,19 +2,30 @@
 import argparse, hashlib, json, sys
 from pathlib import Path
 from urllib.parse import quote
-from common import DataError, digest, now_iso, read_json, write_json
+from common import DataError, SKILL_ROOT, digest, now_iso, read_json, write_json
+
+class ProviderError(DataError):
+    def __init__(self,category,message):
+        self.category=category
+        super().__init__(category+': '+message)
+
+def validate_provider_rows(family,rows):
+    required=read_json(SKILL_ROOT/'references/provider_schemas.json')[family]['required_fields']
+    for row in rows:
+        absent=[k for k in required if k not in row or row[k] is None or row[k]=='']
+        if absent:raise ProviderError('schema_changed',family+' required fields absent: '+', '.join(absent))
 
 def parse_bref(payload, table_id='advanced'):
     from bs4 import BeautifulSoup
     soup=BeautifulSoup(payload,'html.parser');table=soup.find('table',id=table_id)
-    if table is None:raise DataError('BRef requested competition table absent')
+    if table is None:raise ProviderError('schema_changed','BRef requested competition table absent')
     rows=[]
     for tr in table.select('tbody tr'):
         name=tr.find(attrs={'data-stat':'name_display'})
         if name is None or not name.get('data-append-csv'):continue
         row={c.get('data-stat'):c.get_text(' ',strip=True) for c in tr.find_all(['td','th']) if c.get('data-stat')}
         row['provider_player_key']=name['data-append-csv'];rows.append(row)
-    if not rows:raise DataError('Empty BRef table')
+    if not rows:raise ProviderError('sample_unavailable','Empty BRef table')
     return rows
 
 def parse_darko(payload,cutoff,season):
@@ -23,24 +34,25 @@ def parse_darko(payload,cutoff,season):
     from datetime import date
     soup=BeautifulSoup(payload,'html.parser');text=soup.get_text(' ',strip=True)
     expected=date.fromisoformat(cutoff).strftime('%B %d, %Y').replace(' 0',' ')
-    if 'DARKO as of '+expected not in text or season+' season' not in text:raise DataError('DARKO did not return requested historical date/season')
+    if 'DARKO as of '+expected not in text or season+' season' not in text:raise ProviderError('sample_unavailable','DARKO did not return requested historical date/season')
+    config=read_json(SKILL_ROOT/'references/provider_schemas.json')['DARKO']
     rows=[];seen=set()
-    for a in soup.select('a.player-link[href]'):
+    for a in soup.select(config['player_selector']):
         match=re.fullmatch(r'/player/(\d+)\?asof='+re.escape(cutoff),a['href'])
         tr=a.find_parent('tr')
         if not match or tr is None:continue
         pid=int(match[1])
-        name=a.select_one('.player-text > span')
+        name=a.select_one(config['name_selector'])
         row=dict(nba_id=pid,player_name=name.get_text(' ',strip=True) if name else '',as_of=cutoff,season=season)
-        for key,css in [('dpm','dpm'),('o_dpm','o-dpm'),('d_dpm','d-dpm')]:
-            cell=tr.select_one('.leaderboard-cell--'+css)
-            figure=cell.select_one('.dpm-figure') if cell else None
+        for key,css in config['field_selectors'].items():
+            cell=tr.select_one(css)
+            figure=cell.select_one(config['value_selector']) if cell else None
             row[key]=(figure or cell).get_text(' ',strip=True) if cell else None
         twins=[r for r in rows if r['nba_id']==pid]
         if twins and twins[0]!=row:raise DataError('Conflicting duplicate DARKO rows')
         if not twins:rows.append(row)
         seen.add(pid)
-    if not rows:raise DataError('DARKO historical visible rows absent')
+    if not rows:raise ProviderError('schema_changed','DARKO historical visible rows absent')
     return rows
 
 def dataset(family,rows,access,player_id,name,season,key=None,cutoff=None):
@@ -82,18 +94,20 @@ def main():
         urls={'BREF':f'https://www.basketball-reference.com/leagues/NBA_{int(season[:4])+1}_advanced.html','LEBRON':'https://nbarapm.com/search/lebron?allow_empty=1&player_name='+quote(args.name),'DARKO':'https://www.darko.app/?asof='+str(args.cutoff)}
         records=[];datasets=[];excluded=[]
         for family in args.providers:
-            access=dict(family=family,url=urls[family],retrieved_at=now_iso())
+            access=dict(family=family,url=urls[family],retrieved_at=now_iso(),parser_schema_sha256=hashlib.sha256((SKILL_ROOT/'references/provider_schemas.json').read_bytes()).hexdigest())
             try:
                 r=requests.get(urls[family],timeout=args.timeout);access.update(status=r.status_code,final_url=r.url)
-                if r.status_code!=200:raise DataError('HTTP '+str(r.status_code)+'; stopped')
+                if r.status_code in (401,403) or any(x in r.url for x in ('/subscribe','/login')):raise ProviderError('access_restricted','Provider requires access; stopped')
+                if r.status_code!=200:raise ProviderError('http_error','HTTP '+str(r.status_code)+'; stopped')
                 payload=r.content;access['sha256']=hashlib.sha256(payload).hexdigest()
                 access['raw_file']='raw/impact_'+family.lower()+('.json' if family=='LEBRON' else '.html')
                 (args.out/access['raw_file']).write_bytes(payload)
                 rows=parse_bref(payload) if family=='BREF' else (json.loads(payload) if family=='LEBRON' else parse_darko(payload,args.cutoff,season))
+                if family in ('BREF','DARKO'):validate_provider_rows(family,rows)
                 d,s=dataset(family,rows,access,args.player_id,args.name,season,args.bref_key,args.cutoff if family=='DARKO' else None)
                 bundle['sources'][d['source_id']]=s;datasets.append(d)
             except (requests.RequestException,ValueError,DataError) as exc:
-                access['error']=str(exc);excluded.append(dict(family=family,reason=str(exc)))
+                access['error']=str(exc);access['error_category']=getattr(exc,'category','transport_or_data_error');excluded.append(dict(family=family,reason=str(exc),category=access['error_category']))
             records.append(access)
         write_json(args.out/'impact_access_audit.json',dict(requests=records,excluded=excluded))
         if not datasets:raise DataError('No usable impact dataset; audit saved')

@@ -1,0 +1,163 @@
+{
+  "schema_version": "0.2.0",
+  "status": "ready",
+  "data_kind": "synthetic",
+  "identity": {
+    "player_id": 999999999,
+    "season": "2024-25",
+    "season_type": "Regular Season"
+  },
+  "title": "先把得分用好，再看能否带动全队",
+  "subtitle": "从得分、组织和无球表现出发，讨论球队怎么用他，以及哪些还要再确认。",
+  "executive_claim_ids": [
+    "C02",
+    "C17"
+  ],
+  "dimensions": [
+    {
+      "dimension": "scoring",
+      "headline": "得分多不多，效率怎么样",
+      "claim_ids": [
+        "C03",
+        "C04",
+        "C05",
+        "C06"
+      ]
+    },
+    {
+      "dimension": "creation",
+      "headline": "有助攻，组织能力就够了吗",
+      "claim_ids": [
+        "C08",
+        "C09"
+      ]
+    },
+    {
+      "dimension": "off_ball",
+      "headline": "不持球时，还能怎么参与",
+      "claim_ids": [
+        "C10",
+        "C11"
+      ]
+    },
+    {
+      "dimension": "defense",
+      "headline": "防守还有哪些不清楚",
+      "claim_ids": [
+        "C12",
+        "C13"
+      ]
+    },
+    {
+      "dimension": "tactical_fit",
+      "headline": "放进球队怎么用",
+      "claim_ids": [
+        "C14",
+        "C15",
+        "C16"
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "id": "Q01",
+      "title": "得分多，能否把全队进攻带起来",
+      "claim_ids": [
+        "C09",
+        "C16"
+      ],
+      "question": "从主要得分变成主要组织，他能否持续作出合适选择？"
+    },
+    {
+      "id": "Q02",
+      "title": "投进过接球机会，能否承担更多无球任务",
+      "claim_ids": [
+        "C10",
+        "C11"
+      ],
+      "question": "接球后，他能否赶在防守到位前完成投篮、突破或传球？"
+    },
+    {
+      "id": "Q03",
+      "title": "防守表现，哪些是他的贡献",
+      "claim_ids": [
+        "C13"
+      ],
+      "question": "面对具体对手时，他能独立做好哪些任务，又需要队友提供什么帮助？"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "S01",
+      "title": "先让队友分担组织，发挥他的得分",
+      "challenge_ids": [
+        "Q01"
+      ],
+      "claim_ids": [
+        "C15",
+        "C16"
+      ],
+      "action": "尝试让他承担部分持球得分，由另一名组织者分担发起和应对复杂防守；不急于把全队进攻都交给他。",
+      "conditions": [
+        "需要另一名能处理夹击和换防的持球人，外线队友也要提供投射威胁。"
+      ],
+      "tradeoffs": [
+        "持球人增加后，需要重新分配出手和球权；原有得分效率不一定能直接保持。"
+      ],
+      "validation_plan": [
+        "分别看他自己发起、接到队友传球后处理时的出手质量与失误类型，并保留比赛及回合记录。"
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "让队友先带动防守，再看他如何接球处理",
+      "challenge_ids": [
+        "Q02"
+      ],
+      "claim_ids": [
+        "C11"
+      ],
+      "action": "尝试让其他持球人先吸引防守，他接球后再选择投篮、突破或继续传球；分别观察这些选择的效果。",
+      "conditions": [
+        "队友需要能创造机会并及时传球，不能仅凭受助攻进球的比例就认定配合一定有效。"
+      ],
+      "tradeoffs": [
+        "减少持球可能影响他的比赛节奏，现有数据还不能保证这种调整会让全队进攻更好。"
+      ],
+      "validation_plan": [
+        "补充同一时间范围的接球投篮、运球次数和防守距离，并看片确认接球后的处理速度。"
+      ]
+    }
+  ],
+  "next_actions": [
+    {
+      "question": "能不能承担更多组织任务？",
+      "challenge_ids": [
+        "Q01"
+      ],
+      "evidence_needed": "面对换防和夹击的持球录像，保留日期、对手、节次和时间点。",
+      "decision_rule": "如果面对多种防守仍能稳定带动队友，再考虑增加主要组织任务；否则继续分担。"
+    },
+    {
+      "question": "减少持球后，得分表现能不能保持？",
+      "challenge_ids": [
+        "Q02"
+      ],
+      "evidence_needed": "同一时间范围的接球投篮与接球后处理记录，同时看传球来源和对手距离。",
+      "decision_rule": "如果表现主要依赖充分空位，就不能把结论扩大到所有无球任务和阵容。"
+    },
+    {
+      "question": "防守表现有多少来自本人？",
+      "challenge_ids": [
+        "Q03"
+      ],
+      "evidence_needed": "实际对位与协防录像，记录失位、队友补防以及他承担的具体任务。",
+      "decision_rule": "有重复出现的实际表现后再下判断；如果明显依赖队友保护，就把这个条件写清。"
+    }
+  ],
+  "summary_claim_ids": [
+    "C02",
+    "C15",
+    "C13"
+  ]
+}

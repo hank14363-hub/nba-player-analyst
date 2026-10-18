@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0",
+  "identity": {
+    "player_id": 1630595,
+    "season": "2024-25",
+    "season_type": "Regular Season"
+  },
+  "items": [
+    {
+      "id": "court-cover",
+      "slot": "cover",
+      "kind": "photo",
+      "path": "media/cade-game-2022.jpg",
+      "title": "从球员到角色",
+      "alt": "坎宁安在2022年全明星技巧挑战赛的赛场照片",
+      "caption": "2022 年全明星技巧挑战赛资料。照片用于人物展示；本文统计仍为 2024–25 常规赛。",
+      "source_ids": [
+        "EXT_MEDIA_GAME"
+      ],
+      "sha256": "b773b679564c2ed831cbba2c441c478f3c0784f7ddb9c0670469d45fa4c8d01a"
+    },
+    {
+      "id": "court-shoot",
+      "slot": "scoring",
+      "kind": "photo",
+      "path": "media/cade-shooting-2022.jpg",
+      "title": "看见出手，再理解出手",
+      "alt": "坎宁安在2022年全明星技巧挑战赛投篮",
+      "caption": "2022 年全明星技巧挑战赛资料照。它呈现场上形象，不用于判断本赛季的出手选择或投篮能力。",
+      "source_ids": [
+        "EXT_MEDIA_SHOOT"
+      ],
+      "sha256": "90163c6b00a61346d17b0fe6a00873d30ea164a1048fd97654efa087d3b12dc1"
+    },
+    {
+      "id": "court-motion",
+      "slot": "creation",
+      "kind": "photo_slideshow",
+      "path": "media/court-slideshow.gif",
+      "poster_path": "media/court-slideshow-poster.jpg",
+      "title": "赛场切片 · 动态照片",
+      "alt": "坎宁安2022年技巧挑战赛的三张照片轮播",
+      "caption": "2022 年全明星技巧挑战赛的三张真实赛场照片组成的 GIF，可播放或暂停；不是连续回合录像，也不作为战术观察证据。",
+      "source_ids": [
+        "EXT_MEDIA_GIF"
+      ],
+      "sha256": "d7c90a333b097786756a39ccd373a57e76b843dc5612a0c0025ede7bd7b5fcb4",
+      "poster_sha256": "cc956a39ca23989f44aca9c377d90a61f5f93e20aff84ffadf9ff510a6de0a93"
+    }
+  ]
+}

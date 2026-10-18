@@ -1,0 +1,186 @@
+{
+  "schema_version": "0.2.0",
+  "status": "ready",
+  "data_kind": "nba",
+  "identity": {
+    "player_id": 1630595,
+    "season": "2024-25",
+    "season_type": "Regular Season"
+  },
+  "title": "核心发起者的价值与改进方向",
+  "subtitle": "从官方受助攻、追踪、真实投篮位置与在场比较，审视工作量、效率和球队分工",
+  "executive_claim_ids": [
+    "C03",
+    "C04",
+    "C14",
+    "C15"
+  ],
+  "dimensions": [
+    {
+      "dimension": "scoring",
+      "headline": "产量与效率需要一起看",
+      "claim_ids": [
+        "C04",
+        "C05",
+        "C17",
+        "C19"
+      ]
+    },
+    {
+      "dimension": "creation",
+      "headline": "机会创造伴随失误成本",
+      "claim_ids": [
+        "C06",
+        "C07",
+        "C08"
+      ]
+    },
+    {
+      "dimension": "off_ball",
+      "headline": "命中球来源与接球效率分别核验",
+      "claim_ids": [
+        "C09",
+        "C10",
+        "C11"
+      ]
+    },
+    {
+      "dimension": "defense",
+      "headline": "球队失分不能变成个人评分",
+      "claim_ids": [
+        "C12",
+        "C13",
+        "C14"
+      ]
+    },
+    {
+      "dimension": "tactical_fit",
+      "headline": "保留发起任务，试验分担方式",
+      "claim_ids": [
+        "C15"
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "id": "Q01",
+      "title": "如何降低处理球代价",
+      "claim_ids": [
+        "C06",
+        "C08"
+      ],
+      "question": "分担发起任务后，机会质量能否保持？"
+    },
+    {
+      "id": "Q02",
+      "title": "无球价值还有哪些证据",
+      "claim_ids": [
+        "C09",
+        "C10",
+        "C11"
+      ],
+      "question": "接球后的决策与跑位能否支持更多无球职责？"
+    },
+    {
+      "id": "Q03",
+      "title": "在场防守线索如何解释",
+      "claim_ids": [
+        "C13",
+        "C14"
+      ],
+      "question": "失分差来自任务、轮换还是具体回合执行？"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "S01",
+      "title": "增加第二处理点",
+      "action": "保留主要发起职责，让其他处理点先创造机会，再交回核心处理。",
+      "claim_ids": [
+        "C08",
+        "C15"
+      ],
+      "challenge_ids": [
+        "Q01"
+      ],
+      "conditions": [
+        "分担者能改变防守站位",
+        "其余队友能继续处理和终结"
+      ],
+      "tradeoffs": [
+        "可能影响原有处理球节奏",
+        "减少持球不保证机会质量改善"
+      ],
+      "validation_plan": [
+        "逐回合登记失误原因与出手质量",
+        "同时记录成功与失败，比较相近防守压力的回合"
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "试验接球后的连续进攻",
+      "action": "在其他人发起时，保留接球投篮、再突破和二次传球选择。",
+      "claim_ids": [
+        "C10",
+        "C11"
+      ],
+      "challenge_ids": [
+        "Q02"
+      ],
+      "conditions": [
+        "前置发起能让防守先移动",
+        "接球点与下一步任务清晰"
+      ],
+      "tradeoffs": [
+        "接球样本较少",
+        "可能把困难急停换成另一种困难出手"
+      ],
+      "validation_plan": [
+        "记录空位程度与接球后决策",
+        "检查是否真正形成更好的终结机会"
+      ]
+    }
+  ],
+  "next_actions": [
+    {
+      "question": "分担处理球是否降低代价",
+      "evidence_needed": "带比赛、节次和时间码的受压处理球录像与失误分类",
+      "decision_rule": "若分担后机会质量没有改善，则收回或调整分工建议",
+      "challenge_ids": [
+        "Q01"
+      ]
+    },
+    {
+      "question": "接球任务能否稳定扩大",
+      "evidence_needed": "接球后的投突传决策、跑位及出手准备样本",
+      "decision_rule": "只有持续创造合理机会，才扩大接球后的处理职责",
+      "challenge_ids": [
+        "Q02"
+      ]
+    },
+    {
+      "question": "个人防守有哪些实际问题",
+      "evidence_needed": "同类对位中的绕掩护、补位、换防和退防录像，并记录共同在场阵容",
+      "decision_rule": "先识别可重复的具体执行问题，不以团队失分差给个人评分",
+      "challenge_ids": [
+        "Q03"
+      ]
+    },
+    {
+      "question": "哪些中间距离终结值得调整",
+      "evidence_needed": "相似防守压力、进攻时钟下的终结与出球回合，保留成功与失败样本",
+      "decision_rule": "只有识别可重复的选择问题才调整，不直接按区域命中率规定出手",
+      "challenge_ids": [
+        "Q01"
+      ]
+    }
+  ],
+  "summary_claim_ids": [
+    "C03",
+    "C04",
+    "C09",
+    "C13",
+    "C14",
+    "C15"
+  ]
+}

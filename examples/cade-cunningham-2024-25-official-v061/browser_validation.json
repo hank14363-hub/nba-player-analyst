@@ -1,0 +1,58 @@
+{
+  "external_requests": [],
+  "script_errors": [],
+  "viewports": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "mediaCount": 3,
+      "loadedImages": true,
+      "inlineArticleCharts": 8,
+      "svgTextOverflow": [],
+      "metricsCollapsed": true,
+      "sourceGroups": 5
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": false,
+      "mediaCount": 3,
+      "loadedImages": true,
+      "inlineArticleCharts": 8,
+      "svgTextOverflow": [],
+      "metricsCollapsed": true,
+      "sourceGroups": 5
+    }
+  ],
+  "media_controls": {
+    "1440": {
+      "plays": true,
+      "pauses": true
+    },
+    "390": {
+      "plays": true,
+      "pauses": true
+    }
+  },
+  "source_controls": {
+    "1440": {
+      "filter_works": true,
+      "filtered_count": 3,
+      "source_opens": true,
+      "filter_resets": true
+    },
+    "390": {
+      "filter_works": true,
+      "filtered_count": 3,
+      "source_opens": true,
+      "filter_resets": true
+    }
+  },
+  "reduced_motion": {
+    "noRevealAnimation": true,
+    "gifStartsStatic": true,
+    "scrollBehavior": "auto"
+  },
+  "status": "pass"
+}

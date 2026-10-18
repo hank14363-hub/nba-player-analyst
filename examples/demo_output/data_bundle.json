@@ -1,0 +1,196 @@
+{
+  "schema_version": "0.1.0",
+  "data_kind": "synthetic",
+  "season": "2024-25",
+  "season_type": "Regular Season",
+  "player_team_id": 0,
+  "warnings": [
+    "SYNTHETIC TWO-TEAM TEST UNIVERSE. All players, teams and numbers are invented for software tests."
+  ],
+  "tables": {
+    "player_base": [
+      {
+        "PLAYER_ID": 999999999,
+        "PLAYER_NAME": "MVP Demo Guard",
+        "TEAM_ID": 9001,
+        "TEAM_ABBREVIATION": "DEMO",
+        "GP": 60,
+        "MIN": 1800,
+        "PTS": 1400,
+        "FGM": 480,
+        "FGA": 1000,
+        "FG3M": 180,
+        "FG3A": 450,
+        "FTM": 260,
+        "FTA": 300,
+        "REB": 300,
+        "AST": 300,
+        "TOV": 150,
+        "STL": 80,
+        "BLK": 30,
+        "PF": 120
+      }
+    ],
+    "player_advanced": [
+      {
+        "PLAYER_ID": 999999999,
+        "PLAYER_NAME": "MVP Demo Guard",
+        "TEAM_ID": 9001,
+        "TEAM_ABBREVIATION": "DEMO",
+        "GP": 60,
+        "MIN": 1800,
+        "USG_PCT": 0.28,
+        "AST_PCT": 0.23,
+        "TS_PCT": 0.6183745583038869,
+        "OFF_RATING": 118.0,
+        "DEF_RATING": 112.0,
+        "NET_RATING": 6.0
+      }
+    ],
+    "player_per100": [
+      {
+        "PLAYER_ID": 999999999,
+        "PLAYER_NAME": "MVP Demo Guard",
+        "TEAM_ID": 9001,
+        "TEAM_ABBREVIATION": "DEMO",
+        "GP": 60,
+        "PTS": 40.0,
+        "REB": 8.571428571428571,
+        "AST": 8.571428571428571,
+        "TOV": 4.285714285714286
+      }
+    ],
+    "player_scoring": [
+      {
+        "PLAYER_ID": 999999999,
+        "PLAYER_NAME": "MVP Demo Guard",
+        "TEAM_ID": 9001,
+        "TEAM_ABBREVIATION": "DEMO",
+        "GP": 60,
+        "MIN": 1800,
+        "PCT_AST_FGM": 0.45,
+        "PCT_UAST_FGM": 0.55,
+        "PCT_AST_3PM": 0.6
+      }
+    ],
+    "team_base": [
+      {
+        "TEAM_ID": 9001,
+        "TEAM_NAME": "Demo Owls",
+        "GP": 60,
+        "MIN": 14400,
+        "PTS": 6600,
+        "FGM": 2400,
+        "FGA": 5200,
+        "FG3M": 650,
+        "FG3A": 1900,
+        "FTM": 1150,
+        "FTA": 1450
+      },
+      {
+        "TEAM_ID": 9002,
+        "TEAM_NAME": "Demo Foxes",
+        "GP": 60,
+        "MIN": 14400,
+        "PTS": 6300,
+        "FGM": 2350,
+        "FGA": 5300,
+        "FG3M": 600,
+        "FG3A": 1850,
+        "FTM": 1000,
+        "FTA": 1300
+      }
+    ],
+    "team_advanced": [
+      {
+        "TEAM_ID": 9001,
+        "TEAM_NAME": "Demo Owls",
+        "GP": 60,
+        "OFF_RATING": 115.0,
+        "DEF_RATING": 111.0,
+        "NET_RATING": 4.0,
+        "PACE": 98.0,
+        "AST_PCT": 0.62
+      },
+      {
+        "TEAM_ID": 9002,
+        "TEAM_NAME": "Demo Foxes",
+        "GP": 60,
+        "OFF_RATING": 110.0,
+        "DEF_RATING": 114.0,
+        "NET_RATING": -4.0,
+        "PACE": 101.0,
+        "AST_PCT": 0.55
+      }
+    ]
+  },
+  "sources": {
+    "P_BASE": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/player_base",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 1
+    },
+    "P_ADV": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/player_advanced",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 1
+    },
+    "P_100": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/player_per100",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Per100Possessions",
+      "status": "ok",
+      "row_count": 1
+    },
+    "P_SCORE": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/player_scoring",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 1
+    },
+    "T_BASE": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/team_base",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 2,
+      "coverage": "full_league"
+    },
+    "T_ADV": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/team_advanced",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 2
+    }
+  }
+}

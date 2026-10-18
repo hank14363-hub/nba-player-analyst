@@ -1,0 +1,99 @@
+{
+  "network_requests": [],
+  "script_errors": [],
+  "views": [
+    {
+      "width": 1440,
+      "reduce": false,
+      "horizontalOverflow": false,
+      "figures": [
+        {
+          "id": "media-court-cover",
+          "caption": "2022 年全明星技巧挑战赛资料。照片用于人物展示；本文统计仍为 2024–25 常规赛。\n\nErik Drost / CC BY 2.0 图片出处 ↗",
+          "alt": "坎宁安在2022年全明星技巧挑战赛的赛场照片",
+          "src": "data:image/jpeg;base64,/9j/4AA",
+          "sourceAnchors": [
+            "#source-EXT_MEDIA_GAME"
+          ]
+        },
+        {
+          "id": "media-court-shoot",
+          "caption": "看见出手，再理解出手\n\n2022 年全明星技巧挑战赛资料照。它呈现场上形象，不用于判断本赛季的出手选择或投篮能力。\n\nErik Drost / CC BY 2.0 图片出处 ↗",
+          "alt": "坎宁安在2022年全明星技巧挑战赛投篮",
+          "src": "data:image/jpeg;base64,/9j/4AA",
+          "sourceAnchors": [
+            "#source-EXT_MEDIA_SHOOT"
+          ]
+        },
+        {
+          "id": "media-court-motion",
+          "caption": "赛场切片 · 动态照片\n\n三张真实赛场照片组成的 GIF，可播放或暂停；不是连续回合录像，也不作为战术观察证据。\n\nErik Drost / CC BY 2.0 图片出处 ↗\n播放动态照片",
+          "alt": "坎宁安2022年技巧挑战赛的三张照片轮播",
+          "src": "data:image/jpeg;base64,/9j/4AA",
+          "sourceAnchors": [
+            "#source-EXT_MEDIA_GIF"
+          ]
+        }
+      ],
+      "remoteResourceElements": [],
+      "motionEnabled": true,
+      "gif_play_pause": true,
+      "gif_offscreen_pause": true,
+      "source_filtered_anchor_restores": true,
+      "gif_source_date_and_three_originals": true,
+      "beforeprint_static": true
+    },
+    {
+      "width": 390,
+      "reduce": true,
+      "horizontalOverflow": false,
+      "figures": [
+        {
+          "id": "media-court-cover",
+          "caption": "从球员到角色\n\n2022 年全明星技巧挑战赛资料。照片用于人物展示；本文统计仍为 2024–25 常规赛。\n\nErik Drost / CC BY 2.0 图片出处 ↗",
+          "alt": "坎宁安在2022年全明星技巧挑战赛的赛场照片",
+          "src": "data:image/jpeg;base64,/9j/4AA",
+          "sourceAnchors": [
+            "#source-EXT_MEDIA_GAME"
+          ]
+        },
+        {
+          "id": "media-court-shoot",
+          "caption": "看见出手，再理解出手\n\n2022 年全明星技巧挑战赛资料照。它呈现场上形象，不用于判断本赛季的出手选择或投篮能力。\n\nErik Drost / CC BY 2.0 图片出处 ↗",
+          "alt": "坎宁安在2022年全明星技巧挑战赛投篮",
+          "src": "data:image/jpeg;base64,/9j/4AA",
+          "sourceAnchors": [
+            "#source-EXT_MEDIA_SHOOT"
+          ]
+        },
+        {
+          "id": "media-court-motion",
+          "caption": "赛场切片 · 动态照片\n\n三张真实赛场照片组成的 GIF，可播放或暂停；不是连续回合录像，也不作为战术观察证据。\n\nErik Drost / CC BY 2.0 图片出处 ↗\n播放动态照片",
+          "alt": "坎宁安2022年技巧挑战赛的三张照片轮播",
+          "src": "data:image/jpeg;base64,/9j/4AA",
+          "sourceAnchors": [
+            "#source-EXT_MEDIA_GIF"
+          ]
+        }
+      ],
+      "remoteResourceElements": [],
+      "motionEnabled": false,
+      "gif_play_pause": true,
+      "gif_offscreen_pause": true,
+      "source_filtered_anchor_restores": true,
+      "gif_source_date_and_three_originals": true,
+      "beforeprint_static": true
+    }
+  ],
+  "script_free_static_readable": true,
+  "status": "pass",
+  "input_hashes_preserved": {
+    "data_bundle.json": true,
+    "analysis.json": true,
+    "sources.json": true,
+    "report.md": true,
+    "claims.json": true,
+    "book_content.json": true,
+    "media_content.json": true
+  }
+}

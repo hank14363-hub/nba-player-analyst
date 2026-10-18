@@ -1,0 +1,79 @@
+{
+  "schema_version": "0.1.0",
+  "data_kind": "synthetic",
+  "season": "2024-25",
+  "season_type": "Regular Season",
+  "player_team_id": 0,
+  "warnings": [
+    "SYNTHETIC TWO-TEAM TEST UNIVERSE. All players, teams and numbers are invented for software tests."
+  ],
+  "sources": {
+    "P_BASE": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/player_base",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 1
+    },
+    "P_ADV": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/player_advanced",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 1
+    },
+    "P_100": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/player_per100",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Per100Possessions",
+      "status": "ok",
+      "row_count": 1
+    },
+    "P_SCORE": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/player_scoring",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 1
+    },
+    "T_BASE": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/team_base",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 2,
+      "coverage": "full_league"
+    },
+    "T_ADV": {
+      "provider": "SYNTHETIC UNIT-TEST FIXTURE; NOT NBA DATA",
+      "url": "synthetic://nba-player-analyst/team_advanced",
+      "retrieved_at": "2026-10-11T00:00:00+00:00",
+      "timestamp_note": "Fixed fixture generation label, not an NBA retrieval timestamp",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "row_count": 2
+    }
+  }
+}

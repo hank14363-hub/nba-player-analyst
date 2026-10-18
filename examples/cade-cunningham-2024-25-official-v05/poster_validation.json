@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "poster_version": "0.3.0",
+  "charts_rendered": 6,
+  "charts_missing": 0,
+  "theme": "DET",
+  "anchor_count": 73,
+  "embedded_metric_instances": 122,
+  "recomputed_metrics": true,
+  "render_parity": true,
+  "report_validation": {
+    "status": "pass",
+    "chinese_characters": 3153,
+    "claim_count": 19,
+    "numeric_fact_count": 71,
+    "errors": [],
+    "warnings": [
+      "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+    ]
+  },
+  "errors": [],
+  "warnings": [
+    "Structural and numeric reproducibility checks do not prove player evaluation, chart interpretation or tactical fit. Visual and semantic review remain required."
+  ]
+}

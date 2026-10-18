@@ -1,0 +1,1500 @@
+{
+  "requests": [
+    {
+      "key": "bref",
+      "url": "https://www.basketball-reference.com/leagues/NBA_2025_advanced.html",
+      "retrieved_at": "2026-10-12T06:41:43.610264+00:00",
+      "status": 200,
+      "final_url": "https://www.basketball-reference.com/leagues/NBA_2025_advanced.html",
+      "bytes": 2195137,
+      "sha256": "3bece0609a9d4280b5859cb0edbfad33c744912cfbd6907306f335f051202966",
+      "visible_excerpt": "2024-25 NBA Player Stats: Advanced | Basketball-Reference.com Sports Reference ® Hub Baseball Football (college) Basketball (college) Hockey Soccer Blog Stathead ® Immaculate Grid ® Questions or Comments? Welcome · Your Account Logout Ad-Free Login Create Account MENU Players Teams Seasons Leaders Scores WNBA Draft Hub NEW Stathead Newsletter Full Site Menu Below You are here: BBR Home Page > Leagues > 2024-25 NBA > Player Stats: Advanced Welcome · Your Account Logout Ad-Free Login Create Account via Sports Logos.net About logos 2024-25 NBA Player Stats: Advanced 2023-24 Player Stats: Advanced 2025-26 Player Stats: Advanced League Champion : Oklahoma City Thunder Most Valuable Player : Shai ",
+      "links": [
+        {
+          "text": "2024-25 NBA",
+          "href": "/leagues/NBA_2025.html"
+        },
+        {
+          "text": "2023-24 Player Stats: Advanced",
+          "href": "/leagues/NBA_2024_advanced.html"
+        },
+        {
+          "text": "2025-26 Player Stats: Advanced",
+          "href": "/leagues/NBA_2026_advanced.html"
+        },
+        {
+          "text": "Oklahoma City Thunder",
+          "href": "/teams/OKC/2025.html"
+        },
+        {
+          "text": "Become a Stathead & surf this site ad-free.",
+          "href": "https://www.sports-reference.com/stathead/?ref=bbr&utm_source=bbr&utm_medium=sr_xsite&utm_campaign=2024_04_23_adfree_callouts"
+        },
+        {
+          "text": "2024-25 NBA Season",
+          "href": "/leagues/NBA_2025.html"
+        },
+        {
+          "text": "Standings",
+          "href": "/leagues/NBA_2025_standings.html"
+        },
+        {
+          "text": "Schedule and Results",
+          "href": "/leagues/NBA_2025_games.html"
+        },
+        {
+          "text": "Leaders",
+          "href": "/leagues/NBA_2025_leaders.html"
+        },
+        {
+          "text": "Coaches",
+          "href": "/leagues/NBA_2025_coaches.html"
+        },
+        {
+          "text": "Per Game",
+          "href": "/leagues/NBA_2025_per_game.html"
+        },
+        {
+          "text": "Totals",
+          "href": "/leagues/NBA_2025_totals.html"
+        },
+        {
+          "text": "Per 36 Minutes",
+          "href": "/leagues/NBA_2025_per_minute.html"
+        },
+        {
+          "text": "Per 100 Possessions",
+          "href": "/leagues/NBA_2025_per_poss.html"
+        },
+        {
+          "text": "Adjusted Shooting",
+          "href": "/leagues/NBA_2025_adj_shooting.html"
+        },
+        {
+          "text": "Advanced",
+          "href": "/leagues/NBA_2025_advanced.html"
+        },
+        {
+          "text": "Play-by-Play",
+          "href": "/leagues/NBA_2025_play-by-play.html"
+        },
+        {
+          "text": "Shooting",
+          "href": "/leagues/NBA_2025_shooting.html"
+        },
+        {
+          "text": "Rookies",
+          "href": "/leagues/NBA_2025_rookies.html"
+        },
+        {
+          "text": "Final Season",
+          "href": "/leagues/NBA_2025_final.html"
+        },
+        {
+          "text": "Team Ratings",
+          "href": "/leagues/NBA_2025_ratings.html"
+        },
+        {
+          "text": "Uniform Numbers",
+          "href": "/leagues/NBA_2025_numbers.html"
+        },
+        {
+          "text": "Transactions",
+          "href": "/leagues/NBA_2025_transactions.html"
+        },
+        {
+          "text": "Standings by Date",
+          "href": "/leagues/NBA_2025_standings_by_date.html"
+        },
+        {
+          "text": "Preseason Odds",
+          "href": "/leagues/NBA_2025_preseason_odds.html"
+        },
+        {
+          "text": "Standings",
+          "href": "NBA_2025_standings.html"
+        },
+        {
+          "text": "Schedule and Results",
+          "href": "NBA_2025_games.html"
+        },
+        {
+          "text": "Leaders",
+          "href": "NBA_2025_leaders.html"
+        },
+        {
+          "text": "Coaches",
+          "href": "NBA_2025_coaches.html"
+        },
+        {
+          "text": "Per Game",
+          "href": "/leagues/NBA_2025_per_game.html"
+        },
+        {
+          "text": "Totals",
+          "href": "/leagues/NBA_2025_totals.html"
+        },
+        {
+          "text": "Per 36 Minutes",
+          "href": "/leagues/NBA_2025_per_minute.html"
+        },
+        {
+          "text": "Per 100 Possessions",
+          "href": "/leagues/NBA_2025_per_poss.html"
+        },
+        {
+          "text": "Adjusted Shooting",
+          "href": "/leagues/NBA_2025_adj_shooting.html"
+        },
+        {
+          "text": "Advanced",
+          "href": "/leagues/NBA_2025_advanced.html"
+        },
+        {
+          "text": "Play-by-Play",
+          "href": "/leagues/NBA_2025_play-by-play.html"
+        },
+        {
+          "text": "Shooting",
+          "href": "/leagues/NBA_2025_shooting.html"
+        },
+        {
+          "text": "Rookies",
+          "href": "/leagues/NBA_2025_rookies.html"
+        },
+        {
+          "text": "Final Season",
+          "href": "/leagues/NBA_2025_final.html"
+        },
+        {
+          "text": "Team Ratings",
+          "href": "/leagues/NBA_2025_ratings.html"
+        },
+        {
+          "text": "Uniform Numbers",
+          "href": "/leagues/NBA_2025_numbers.html"
+        },
+        {
+          "text": "Transactions",
+          "href": "/leagues/NBA_2025_transactions.html"
+        },
+        {
+          "text": "Standings by Date",
+          "href": "/leagues/NBA_2025_standings_by_date.html"
+        },
+        {
+          "text": "Preseason Odds",
+          "href": "/leagues/NBA_2025_preseason_odds.html"
+        },
+        {
+          "text": "2025 Playoffs Summary",
+          "href": "/playoffs/NBA_2025.html"
+        },
+        {
+          "text": "2025 Playoffs Summary",
+          "href": "/playoffs/NBA_2025.html"
+        },
+        {
+          "text": "More about this update",
+          "href": "https://www.sports-reference.com/blog/2025/11/in-page-navigation-redesign-on-basketball-reference/"
+        },
+        {
+          "text": "Totals",
+          "href": "/leagues/NBA_2025_totals.html"
+        },
+        {
+          "text": "Per Game",
+          "href": "/leagues/NBA_2025_per_game.html"
+        },
+        {
+          "text": "Per 36 Min",
+          "href": "/leagues/NBA_2025_per_minute.html"
+        }
+      ]
+    },
+    {
+      "key": "crafted",
+      "url": "https://craftednba.com/players/cade-cunningham",
+      "retrieved_at": "2026-10-12T06:41:43.611262+00:00",
+      "status": 200,
+      "final_url": "https://craftednba.com/players/cade-cunningham",
+      "bytes": 1535537,
+      "sha256": "a58735d168c9628d3b78aefcf18a5ecff1e7099e4d84042ad26d39ac163f050e",
+      "visible_excerpt": "Cade Cunningham Advanced Stats | Shot Chart | CraftedNBA Membership Players Teams Draft Projections Market Build More Login Home Players Cade Cunningham Cade Cunningham Detroit Pistons Birthdate: 9/25/2001 (25) Position: SG Primary Role: Primary Ball Handler Secondary Role: Movement Ball Handler Defensive Role: Versatile Stopper Height: 6'6\" Weight: 220 Wingspan: 7'0\" Positional Size: A Hometown: Arlington, TX Cade Cunningham Stats Traditional Advanced Per 36 Plus Minus Game Logs Season GP MPG FGM - FGA FG% 3PM - 3PA 3P% FTM - FTA FT% REB APG STL BLK PF TOV PTS 2022 64 32.6 6.7 - 16.1 41.6 1.8 - 5.7 31.4 2.2 - 2.6 84.5 5.5 5.6 1.2 0.7 3.1 3.7 17.4 2023 12 33.3 7.8 - 18.7 41.5 1.4 - 5.1 27.9 ",
+      "links": [
+        {
+          "text": "LeBron James",
+          "href": "/players/lebron-james"
+        },
+        {
+          "text": "",
+          "href": "/players/comparison/cade-cunningham-vs-lebron-james"
+        },
+        {
+          "text": "LeBron James",
+          "href": "/players/lebron-james"
+        },
+        {
+          "text": "",
+          "href": "/players/comparison/cade-cunningham-vs-lebron-james"
+        }
+      ]
+    },
+    {
+      "key": "lebron",
+      "url": "https://www.bball-index.com/lebron-database/",
+      "retrieved_at": "2026-10-12T06:41:43.611262+00:00",
+      "error": "HTTPSConnectionPool(host='www.bball-index.com', port=443): Read timed out. (read timeout=25)"
+    },
+    {
+      "key": "epm_about",
+      "url": "https://dunksandthrees.com/about/epm",
+      "retrieved_at": "2026-10-12T06:41:43.611262+00:00",
+      "status": 200,
+      "final_url": "https://dunksandthrees.com/about/epm",
+      "bytes": 471601,
+      "sha256": "1d4b16925968b26db50b6a96559f2ea7f35f1177ca3d65756094b5a7e59b6bf9",
+      "visible_excerpt": "About Estimated Plus-Minus (EPM) DUNKS & THREES RATINGS EPM TEAMS/PLAYERS STATS/TOOLS PREDICTIONS ABOUT Search players Command Palette Search for a command to run... Toggle theme SUBSCRIBE LOGIN Menu Updates for the upcoming season are coming soon. Estimated Plus-Minus (EPM) and Estimated Skills Estimated Plus-Minus (EPM) is an all-in-one player metric that predicts a player's contribution to the team in points per 100 possessions. Previously, EPM was retrodictive, estimating past impact using only data in individual seasons. While this version stabilized fairly quickly and had some predictive quality, there was much to be gained by using more data and optimizing it to be forward looking. EP",
+      "links": [
+        {
+          "text": "basketball reference play-by-play",
+          "href": "https://www.basketball-reference.com/leagues/NBA_2024_play-by-play.html"
+        },
+        {
+          "text": "Box Plus/Minus (BPM)",
+          "href": "https://www.basketball-reference.com/about/bpm2.html"
+        }
+      ]
+    },
+    {
+      "key": "darko",
+      "url": "https://apanalytics.shinyapps.io/DARKO/",
+      "retrieved_at": "2026-10-12T06:41:43.611262+00:00",
+      "status": 200,
+      "final_url": "https://apanalytics.shinyapps.io/DARKO/",
+      "bytes": 2605,
+      "sha256": "0ff7078fd8962b60eef91220de5feeb3609b5210d66352b68ecd736375b083eb",
+      "visible_excerpt": "End of an Era End of an Era As of June 2026, the DARKO shiny app has been taken off line. It's new home can be found at www.darko.app, where it is maintained by Kostya. --- Sincere and genuine thanks to those who supported the work over the years.",
+      "links": []
+    },
+    {
+      "key": "rapm",
+      "url": "https://www.nbarapm.com/",
+      "retrieved_at": "2026-10-12T06:41:43.612266+00:00",
+      "status": 200,
+      "final_url": "https://nbarapm.com/",
+      "bytes": 309795,
+      "sha256": "f931474618b3e41509a7dc7b60f3f17e19f072456a861844ffc013c0e7094159",
+      "visible_excerpt": "NBA RAPM Rankings & Player Impact Stats | nbarapm nba rapm NBA RAPM and player impact analytics → Enter a player name Players TIMEDECAY RAPM Impact Leaders Peak Leaderboards Featured Players Nikola Jokic LeBron James Stephen Curry Kevin Durant Giannis Luka Doncic Joel Embiid Kevin Garnett Chris Paul Michael Jordan Draymond Green Wembanyama Shai Peak Leaderboards Rolling-window RAPM RAPM Peak 5Y RAPM Best 5-year rolling window. The gold standard. RAPM Peak 4Y RAPM Best 4-year rolling window peak. RAPM Peak 3Y RAPM Best 3-year rolling window peak. RAPM Peak 2Y RAPM Best 2-year rolling window peak. Era RAPM ERA 2020s RAPM Best RAPM in the 2020s era. ERA 2010s RAPM Best RAPM in the 2010s era. ER",
+      "links": [
+        {
+          "text": "",
+          "href": "https://x.com/databallr"
+        },
+        {
+          "text": "TIMEDECAY RAPM",
+          "href": "/datasets/timedecay"
+        },
+        {
+          "text": "Impact Leaders",
+          "href": "/datasets/comp"
+        },
+        {
+          "text": "Peak Leaderboards",
+          "href": "/datasets/RAPMPeaks"
+        },
+        {
+          "text": "LeBron James",
+          "href": "/player/LeBron_James"
+        },
+        {
+          "text": "RAPM Peak 5Y RAPM Best 5-year rolling window. The gold standard.",
+          "href": "/datasets/RAPMPeaks/peak-5y-rapm"
+        },
+        {
+          "text": "RAPM Peak 4Y RAPM Best 4-year rolling window peak.",
+          "href": "/datasets/RAPMPeaks/peak-4y-rapm"
+        },
+        {
+          "text": "RAPM Peak 3Y RAPM Best 3-year rolling window peak.",
+          "href": "/datasets/RAPMPeaks/peak-3y-rapm"
+        },
+        {
+          "text": "RAPM Peak 2Y RAPM Best 2-year rolling window peak.",
+          "href": "/datasets/RAPMPeaks/peak-2y-rapm"
+        },
+        {
+          "text": "ERA 2020s RAPM Best RAPM in the 2020s era.",
+          "href": "/datasets/RAPMPeaks/2020s-rapm"
+        },
+        {
+          "text": "ERA 2010s RAPM Best RAPM in the 2010s era.",
+          "href": "/datasets/RAPMPeaks/2010s-rapm"
+        },
+        {
+          "text": "ERA 2000s RAPM Best RAPM in the 2000s era.",
+          "href": "/datasets/RAPMPeaks/2000s-rapm"
+        },
+        {
+          "text": "RAPTOR Peak RAPTOR Peak FiveThirtyEight RAPTOR season.",
+          "href": "/datasets/RAPMPeaks/peak-raptor"
+        },
+        {
+          "text": "DARKO Peak DARKO Peak DARKO Predictive Model season.",
+          "href": "/datasets/RAPMPeaks/peak-darko"
+        },
+        {
+          "text": "LEBRON Peak LEBRON Peak BBall-Index LEBRON season.",
+          "href": "/datasets/RAPMPeaks/peak-lebron"
+        },
+        {
+          "text": "LAKER Peak LAKER Formerly estimated RAPTOR. BPM-style all-in-one metric, not a p",
+          "href": "/datasets/RAPMPeaks/peak-laker"
+        },
+        {
+          "text": "databallr.com",
+          "href": "https://databallr.com"
+        },
+        {
+          "text": "Datasets",
+          "href": "/datasets"
+        }
+      ]
+    },
+    {
+      "key": "bpm_method",
+      "url": "https://www.basketball-reference.com/about/bpm2.html",
+      "retrieved_at": "2026-10-12T06:43:04.293141+00:00",
+      "status": 200,
+      "final_url": "https://www.basketball-reference.com/about/bpm2.html",
+      "sha256": "e64b9aad65675b60e8bda6e0bb1e41b2b29bd75a701cd6c3e4bd6f76344cab6c",
+      "text": "About Box Plus/Minus (BPM) | Basketball-Reference.com Sports Reference ® Hub Baseball Football (college) Basketball (college) Hockey Soccer Blog Stathead ® Immaculate Grid ® Questions or Comments? Welcome · Your Account Logout Ad-Free Login Create Account MENU Players Teams Seasons Leaders Scores WNBA Draft Hub NEW Stathead Newsletter Full Site Menu Below You are here: BBR Home Page > About > About Box Plus/Minus (BPM) Welcome · Your Account Logout Ad-Free Login Create Account About Menu About Basketball Reference Keyboard Shortcuts \\ to toggle sidebar navigation / to toggle search input More about this update About Box Plus/Minus (BPM) by Daniel Myers, developer of Box Plus/Minus, February 2020 Box Plus/Minus, Version 2.0 (BPM) is a basketball box score-based metric that estimates a basketball player’s contribution to the team when that player is on the court.  It is based only on the information in the traditional basketball box score--no play-by-play data or non-traditional box score data (like dunks or deflections) are included. BPM uses a player’s box score information, position, and the team’s overall performance to estimate the player’s contribution in points above league average per 100 possessions played .  BPM does not take into account playing time -- it is purely a rate stat! Playing time is included in Value Over Replacement Player (VORP) which is discussed below. League average is defined as 0.0 , meaning 0 points above average or below average.  Because above-average players play more minutes, there are far more below-average players than above-average players in the league at any time.  A value of +5.0 means the team is 5 points per 100 possessions better with the player on the floor than with average production from another player. (In the 2018-19 season, teams averaged around 100 possessions per 48 minute game.) To give a sense of the scale: +10.0 is an all-time season (think peak Jordan or LeBron) +8.0 is an MVP season (think peak Dirk or peak Shaq) +6.0 is an all-NBA season +4.0 is in all-star consideration +2.0 is a good starter +0.0 is a decent starter or solid 6th man -2.0 is a bench player (this is also defined as \"replacement level\") Below -2.0 are many end-of-bench players Here is a histogram of all player seasons from 1974 to 2019.  Note that, by count of player seasons, there are far more below average seasons but that when you look at minutes played it is balanced. For team scale, an elite team might have a regular-season team-level efficiency in the range of +8.0 per 100 team possessions. That elite team's best lineup of their five top players might be in the +14 range or even higher. How does Box Plus/Minus evaluate players? The basic concept is simple. BPM starts by assuming that every player on the team has contributed equally . If the team is good, all of the players are assumed to be equally good. Next, the box score information is added to revise the evaluation .  All of the box score data is measured relative to the other players on the team. Does this player get more or fewer steals than the other players on the team? If more, this player is likely better on defense than they are. Do they score more or less efficiently?  Do they have more or fewer assists? This box score information is also weighted according to what position or role the player has on the team. For instance, a block by a center is good, but a block by a guard is great.  Similarly, scoring by a low usage player has to be very efficient to mean much to the team, since they aren't putting pressure on the defense. Now, some of the box score data does not help measure a player's impact on the team, even though the stat may be obviously valuable to the team.  Defensive rebounds fall into that category.  They matter to the team, but it really doesn't matter who on the team gets them.  The credit for getting that rebound mostly gets split among the team, rather than all being credited to the player who actually pulled the rebound down. BPM was created to intentionally only use statistics that are widely available and are available historically.  Recently in the NBA far more statistics have been gathered, either from play-by-play or hand tracking, which allow more detailed metrics.  BPM does not include that data and should not be as accurate as stats that do include the additional information (assuming they are implemented rigorously!) like Player Impact Plus/Minus and Real Plus/Minus. There are limitations on all box score stats – if the box score doesn't measure a particular contribution, a box-score-based metric can only approximate that contribution. This is not a great hindrance on the offensive side, as nearly everything of importance on offense is captured by the box score (only missing things like screen-setting), but on defense the box score is quite limited. Blocks, steals, and rebounds, along with what little information offensive numbers yield about defensive performance are all that is available. Such critical components of defense as positioning, communication, and the other factors that make Kevin Garnett and Tim Duncan elite on defense can't be captured, unfortunately. What does this mean? Box Plus/Minus is good at measuring offense and solid overall, but the defensive numbers in particular should not be considered definitive. Look at the defensive values as a guide , but don't hesitate to discount them when a player is well known as a good or bad defender. Coverage From the 1985 season to the present, the BPM values presented are summed-up game level values.  Summing up the game-level calculations better handles strength of schedule.  This improvement mostly has an impact on players that missed a significant number of games. From 1974 through the 1984 season, the BPM values presented are the season-level values.  From 1974 to 1977, turnovers are estimated using an approach given in the appendix. How BPM is Calculated Data Required The following data is needed to calculate BPM: Player box score statistics per 100 possessions. (For instance this Team Per 100 Poss table.) Team Adjusted Efficiency per 100 possessions. (For instance the Team Rating table.) Player positions.  Position and offensive role are estimated from box score data, unless the player has very few minutes. Sequence of Calculation Calculate the player’s estimated position and offensive role, using the entire season’s worth of data.  The full method for doing this is found in the Appendix below. Based on their position and role estimates, generate the player’s coefficients to be used in the raw BPM calculation.  Some of the coefficients vary based on the player’s position and offensive role; some do not. Calculate the team-average points per adjusted shot attempt and compare this to the baseline points per adjusted shot attempt used by the regression. Adjust the points scored by the players on the team up or down by adding a constant points per adjusted shot attempt to all players on the team to account for this team shooting context. Calculate the raw BPM for the player. Sum up the raw BPM’s for the team (weighted by % of minutes played) and compare this to the team adjusted efficiency per 100 possessions. Add a constant (the \"team adjustment\") to the raw BPM of all of the players on the team so that the team's total sums to the team adjusted efficiency.  Note--the team adjusted efficiency is corrected for the effect of leading or trailing. The player's raw BPM plus the team adjustment equals the completed BPM. Follow along on the calculation with this Google Sheet: https://docs.google.com/spreadsheets/d/1PhD9eo3IqzpQo21-yVJPQzYjpXl_h-ZonIKqGEKBqwY/edit#gid=307166562 The Base Regression The BPM 2.0 regression works off of per-100 possession statistics.  All statistics are translated to per-100 team possessions.  While this can potentially lose a bit of nuance (for instance, not accounting for the number of opportunities for the given stat to be accrued), it does streamline everything about the calculation.  The output of the regression is in points per 100 team possessions. As mentioned above: the coefficients vary by the position and offensive role the player plays .  In other words, some statistics mean different things if the player plays point guard versus if the player is a center. To do this, every player is assigned a standard position value and also an offensive \"creation\" position value.  Both of these position spectrums vary between position 1 (PG & Creator) and position 5 (Center & Receiver).  These position scales are calculated using regressions found in the appendix. Here are the variables and coefficients used: Box Plus/Minus Regression Coefficient Variable Position 1.0 (PG) Position 5.0 (C) Pts (adjusted for team context) 0.860 3PM (3 pointer made) 0.389 AST 0.580 1.034 TO -0.964 ORB 0.613 0.181 DRB 0.116 0.181 STL 1.369 1.008 BLK 1.327 0.703 PF -0.367 Coefficient Variable Offensive Role 1.0 (Creator) Offensive Role 5.0 (Receiver) FGA -0.560 -0.780 FTA (=0.44*FGA) -0.246 -0.343 The coefficients vary linearly between position 1 and position 5.  If a player is position 1, the coefficients for position 1 in the table above are used.  If a player is position 3 (i.e. small forward), then coefficients halfway between the first column and the second column are used, since position 3 is halfway between position 1 and position 5. Discussing these values: Points are a constant value across positions. Field goal attempts are a higher \"cost\" for low-usage players--they are more frequently assisted and the values reflect this. The 3PM coefficient was set to be uniform across all positions.  This bonus accounts for the value of spacing and any other ancillary benefits of shooting more 3s. Assists are worth far more for a post player than for a point guard.  Point guards handle the ball a lot and usually generate lower value assists.  A center’s assists are usually very high value.  In addition, post players that pass well are typically better defenders. Rebounding is interesting.  For bigs, a rebound is a rebound.  For guards, offensive rebounds are worth quite a bit.  Defensive rebounds by guards mean almost nothing in this regression (in other words, the credit is split perfectly evenly to all 5 players). Steals and blocks are both worth more for the little guy than for the post players. Personal fouls are a negative for both guards and bigs. Position Adjustment Constant Position 1 (PG) Position 3 (SF) Position 5 (C) Position Constant -0.818 0.00 0.00 In addition, there is a position adjustment constant that is not linear between positions 1 and 5.  The value is 0 for positions above 3 (small forward), but drops linearly to a value of -0.818 at position 1.  In other words, for all players with a position bigger than SF, there is no adjustment, but point guards get the biggest penalty.  The justification for this is that PGs and to some extent SGs do not provide as much value that is not captured in the box score, mostly related to defense. Offensive Role Adjustment Constant 1.0 (Creator) 3.0 (Neutral) 5.0 (Receiver) Position Constant -2.774 0.00 2.774 Similarly, there is also an offensive role adjustment.  Players who do not have a large offensive role are typically penalized by a box score analysis, so they have an upward adjustment as seen above. Sample Raw GmBPM Calculation Here’s a sample calculation for this part of the metric: 2017 LeBron James The position regression estimates that he is position 2.3 (rather than the listed SF).  His offensive role is 1.0 (pure creator). Variable Coefficient Per 100 Possession Statistics (2017 LeBron) Total Pts (adjusted for team context) 0.860 34.9 adjusted to 30.4 26.1 3PM 0.389 2.2 0.9 AST 0.727 11.5 8.4 TO -0.964 5.4 -5.2 ORB 0.473 1.7 0.8 DRB 0.137 9.7 1.3 STL 1.252 1.6 2.0 BLK 1.125 0.8 0.9 PF -0.367 2.4 -0.9 FGA -0.560 24.0 -13.4 FTA -0.246 9.5 -2.3 TOTAL 18.7 Then comes the position and offensive role constants.  LeBron’s position is 2.3, so his position constant is (3-2.3)*(-0.818/2)=-0.3 .  His offensive role is 1.0, so his offensive role constant is (3.0-1.0)*(-2.774/2)= -2.8 .  Together, the constants total to -3.1.  Thus LeBron’s overall Raw BPM in 2017 is 18.7 - 3.1 = 15.6 . Team Adjustment Next comes the team adjustment, which, like the original BPM, is a CRITICAL part of the metric.  The regression was generated with the team adjustment part of the fit.  It allows the regression to assign credit to other players on the floor besides the player who actually posted the stat.  This shows up most obviously in the value for rebounds--a defensive rebound is worth quite a bit to the team, but the individual value assigned above is small (or almost nothing, for point guards!)  The unassigned remaining credit is split amongst all players that are on the floor. The team adjustment is fairly simple.  If a team is a +0.0 efficiency (in points per 100 possessions) team, then the adjusted GmBPM values, when weighted by % of pos",
+      "links": [
+        {
+          "text": "Seasons",
+          "href": "/leagues/"
+        },
+        {
+          "text": "About",
+          "href": "/about/"
+        },
+        {
+          "text": "About Basketball Reference",
+          "href": "/about/"
+        },
+        {
+          "text": "More about this update",
+          "href": "https://www.sports-reference.com/blog/2025/11/in-page-navigation-redesign-on-basketball-reference/"
+        },
+        {
+          "text": "About",
+          "href": "/about/"
+        },
+        {
+          "text": "Seasons",
+          "href": "/leagues/"
+        },
+        {
+          "text": "2025-26",
+          "href": "/leagues/NBA_2026.html"
+        },
+        {
+          "text": "2024-25",
+          "href": "/leagues/NBA_2025.html"
+        },
+        {
+          "text": "2023-24",
+          "href": "/leagues/NBA_2024.html"
+        },
+        {
+          "text": "Season Points",
+          "href": "/leaders/pts_season.html"
+        },
+        {
+          "text": "Season Field Goal Pct",
+          "href": "/trailers/fg_pct_season.html"
+        },
+        {
+          "text": "Season Finder",
+          "href": "https://www.sports-reference.com/stathead/basketball/player-season-finder.cgi?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footernav_stathead"
+        },
+        {
+          "text": "Season Finder",
+          "href": "https://www.sports-reference.com/stathead/basketball/team-season-finder.cgi?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footernav_stathead"
+        },
+        {
+          "text": "Player Season Finder",
+          "href": "https://www.sports-reference.com/stathead/basketball/cbb/player-season-finder.cgi?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footernav_stathead"
+        },
+        {
+          "text": "Team Season Finder",
+          "href": "https://www.sports-reference.com/stathead/basketball/cbb/team-season-finder.cgi?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footernav_stathead"
+        },
+        {
+          "text": "2025 NBA Playoffs",
+          "href": "/playoffs/NBA_2025.html"
+        },
+        {
+          "text": "2024 NBA Playoffs",
+          "href": "/playoffs/NBA_2024.html"
+        },
+        {
+          "text": "2025 All-Star Game",
+          "href": "/allstar/NBA_2025.html"
+        },
+        {
+          "text": "2024 All-Star Game",
+          "href": "/allstar/NBA_2024.html"
+        },
+        {
+          "text": "2025 Draft",
+          "href": "/draft/NBA_2025.html"
+        },
+        {
+          "text": "2024 Draft",
+          "href": "/draft/NBA_2024.html"
+        },
+        {
+          "text": "Seasons",
+          "href": "/gleague/years/"
+        },
+        {
+          "text": "Seasons",
+          "href": "/international/years/"
+        },
+        {
+          "text": "Seasons",
+          "href": "/wnba/years/"
+        },
+        {
+          "text": "Seasons",
+          "href": "/nbl/years/"
+        },
+        {
+          "text": "About",
+          "href": "/about/"
+        },
+        {
+          "text": "Glossary",
+          "href": "/about/glossary.html"
+        },
+        {
+          "text": "Contact and Media Information",
+          "href": "/about/contact.html"
+        },
+        {
+          "text": "Frequently Asked Questions about the NBA, WNBA and Basketball",
+          "href": "/about/nba-basketball-faqs.html"
+        },
+        {
+          "text": "NBA Data Coverage",
+          "href": "/data/stats-coverage-game.html"
+        },
+        {
+          "text": "ABA Data Coverage",
+          "href": "/data/stats-coverage-game-aba.html"
+        },
+        {
+          "text": "Subscribe to Stathead Basketball: Get your first month FREE Your All-A",
+          "href": "https://www.sports-reference.com/stathead/sport/basketball/?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footerbttn_stathead"
+        },
+        {
+          "text": "Do you have a sports website? Or write about sports? We have tools and",
+          "href": "https://www.sports-reference.com/blog/ways-sports-reference-can-help-your-website/?utm_medium=sr&utm_source=bbr&utm_campaign=site-footer-ways-help"
+        },
+        {
+          "text": "Subscribe to Stathead and get access to more data than you can imagine",
+          "href": "https://www.sports-reference.com/stathead/?ref=bbr"
+        },
+        {
+          "text": "About",
+          "href": "//www.sports-reference.com/about.html"
+        },
+        {
+          "text": "Use of Data",
+          "href": "//www.sports-reference.com/data_use.html"
+        }
+      ]
+    },
+    {
+      "key": "ws_method",
+      "url": "https://www.basketball-reference.com/about/ws.html",
+      "retrieved_at": "2026-10-12T06:43:04.293700+00:00",
+      "status": 200,
+      "final_url": "https://www.basketball-reference.com/about/ws.html",
+      "sha256": "ae9b9f5046cbf6a51b8fe3a393a7364386cccd0780e1752168ed0571a5d0a0a3",
+      "text": "NBA Win Shares | Basketball-Reference.com Sports Reference ® Hub Baseball Football (college) Basketball (college) Hockey Soccer Blog Stathead ® Immaculate Grid ® Questions or Comments? Welcome · Your Account Logout Ad-Free Login Create Account MENU Players Teams Seasons Leaders Scores WNBA Draft Hub NEW Stathead Newsletter Full Site Menu Below You are here: BBR Home Page > About > NBA Win Shares Welcome · Your Account Logout Ad-Free Login Create Account About Menu About Basketball Reference Keyboard Shortcuts \\ to toggle sidebar navigation / to toggle search input More about this update NBA Win Shares I. Introduction Win Shares is a player statistic which attempts to divvy up credit for team success to the individuals on the team. Full details are available below, but the important things to note are that it is calculated using player, team and league-wide statistics and the sum of player win shares on a given team will be roughly equal to that team’s win total for the season. Kareem Abdul-Jabbar ’s total of 25.4 Win Shares in 1971-72 is the all-time single-season record and his 273.4 career Win Shares are the all-time career record . Abdul-Jabbar played long enough to compile many such career records. The all-time leader (among retired players) in Win Shares per 48 minutes is Michael Jordan (which falls in line with the prevailing wisdom on Jordan’s G.O.A.T. status). This article will describe how I came up with the Win Shares system for basketball (stealing a page from baseball’s Bill James). If you believe that any attempt\nto attribute team success to individual players is an abomination, then\nread no further, as this article will be of no interest to you. II. What is a Win Share? Bill James developed his system such that one win is equivalent to three\nWin Shares. My system deviates from James's system in three key ways: In James's system, one win is equivalent to three\nWin Shares. In my system, one win is equivalent to one Win Share. James made team Win Shares directly proportional to\nteam wins. In his system, a baseball team that wins 80 games will have exactly 240 Win Shares, a baseball team\nthat wins 90 games will have exactly 270\nWin Shares, etc. In my system, a basketball team that wins 50 games will\nhave about 50 Win Shares, give or\ntake. James did not allow for the possibility of negative Win Shares. In his\nsystem, the fewest number of Win Shares a player can have is zero. In my\nsystem, a player can have negative Win Shares. I justify this by thinking\nabout it in the following way: a player with negative Win Shares was so\npoor that he essentially took away wins that his teammates had\ngenerated. III. Crediting Offensive Win Shares to Players A. 1977-78 to present NBA Offensive Win Shares are credited to players based on Dean Oliver's points\nproduced and offensive possessions. The formulas are quite detailed, so I\nwould point you to Oliver's book Basketball on Paper for\ncomplete details. The process for crediting Offensive Win Shares is\noutlined below (using LeBron\nJames of the 2008-09 Cleveland\nCavaliers as an example): Calculate points produced\nfor each player. In 2008-09, James had an estimated 2345.9 points\nproduced. Calculate offensive\npossessions for each player. James had an estimated 1928.1\noffensive possessions in 2008-09. Calculate marginal offense\nfor each player. Marginal offense is equal to (points produced) -\n0.92 * (league points per possession) * (offensive possessions). For James\nthis is 2345.9 - 0.92 * 1.083 * 1928.1 = 424.8. Note that this formula may\nproduce a negative result for some players. Calculate marginal points\nper win. Marginal points per win reduces to 0.32 * (league points\nper game) * ((team pace) / (league pace)). For the 2008-09 Cavaliers this\nis 0.32 * 100.0 * (88.7 / 91.7) = 30.95. Credit Offensive Win Shares to the players. Offensive Win Shares are credited using the following formula: (marginal\noffense) / (marginal points per win). James gets credit for 424.8 / 30.95\n= 13.73 Offensive Win Shares. B. 1973-74 to 1976-77 NBA The NBA did not track player turnovers until the 1977-78 season, and player\nturnovers are needed to calculate player possessions. However, the NBA did\ntrack turnovers at the team level from 1973-74 to 1976-77. Since player\nturnovers are the only thing holding us back from using the method\noutlined above, I have chosen to estimate player turnovers for this time\nperiod. Player turnovers are estimated as follows (using Kareem\nAbdul-Jabbar of the 1976-77 Los\nAngeles Lakers as an example): Obtain an initial estimate\nof the player's turnovers. To do this use the following formula: -0.0005075172 * (minutes played) * (player age)\n- 0.0873982755 * (field goals)\n+ 0.0925506598 * (field goal attempts)\n+ 0.1566322510 * (free throw attempts)\n+ 0.0449241773 * (total rebounds)\n+ 0.2321637159 * (assists)\n+ 0.2040169400 * (personal fouls) Note that if this number is less than zero, then it should be rounded up to\nzero. Plugging Abdul-Jabbar's statistics into the formula above we get an\nestimate of 280.316 turnovers. Find the sum of estimated\nturnovers for the players on the given team. The sum for the\nplayers on the 1976-77 Lakers is 1448.057. Calculate the player's\nshare of this total. Abdul-Jabbar's share of the team total is\n280.316 / 1448.057 = 0.194. Multiply the team's turnovers (adjusted for team\nturnovers) by the player's share. As mentioned, the NBA tracked\nturnovers at the team level in these seasons. However, the team totals\ninclude team turnovers (i.e., turnovers that are not attributed to an\nindividual player). Thus, we multiply the team's turnovers by 0.985, then\nmultiply this adjusted figure by the player's share. For Abdul-Jabbar this\nis 1538 * 0.985 * 0.194 = 293.9, which we round up to 294. Now that we have this estimate, the method above is used to complete the\ncalculation of Offensive Win Shares. C. 1946-47 to 1948-49 BAA and 1949-50 to 1972-73 NBA Because so many statistics are missing prior to the 1973-74 season\n(offensive rebounds, turnovers, etc.), we will not use Oliver's points\nproduced and offensive possessions for this time period, although the\nbasic framework will remain the same. Here is the process for crediting\nOffensive Win Shares prior to the 1973-74 season (using Oscar\nRobertson of the 1964-65 Cincinnati\nRoyals as an example): Calculate the player's\nmodified points. The formula is: 2.0 * (field goals) * (1 - ((team assists) / (team field goals)))\n+ 1.5 * (field goals) * ((team assists) / (team field goals))\n+ 1.0 * (free throws)\n+ 0.5 * (assists) Plugging Robertson's statistics into the formula above we get 2495.93 modified\npoints. Calculate the player's\nmodified shot attempts. The formula is: 1.00 * (field goals) * (1 - ((team assists) / (team field goals)))\n+ 0.50 * (field goals) * ((team assists) / (team field goals))\n+ 1.00 * ((field goal attempts) - (field goals))\n+ 0.44 * (free throw attempts)\n+ 0.50 * (assists) Plugging Robertson's statistics into the formula above we get 2246.85 modified\nshot attempts. Calculate league points per\nshot attempt. League points per shot attempt is equal to (league\npoints) / (league field goal attempts + 0.44 * (league free throw\nattempts)). For the 1964-65 NBA this is 79641 / (71882 + 0.44 * 25604) =\n0.9578. Calculate marginal offense\nfor each player. Marginal offense is equal to (modified points) -\n0.92 * (league points per shot attempt) * (modified shot attempts). For\nRobertson this is 2495.93 - 0.92 * 0.9578 * 2246.85 = 515.06. Note that\nthis formula may produce a negative result for some players. Calculate marginal points\nper win. Marginal points per win reduces to 0.16 * (team points per\ngame + opponent points per game). For the 1964-65 Royals this is 0.16 *\n(114.2 + 111.9) = 36.176. Credit Offensive Win Shares to the players. Offensive Win Shares are credited using the following formula: (marginal\noffense) / (marginal points per win). Robertson gets credit for 516.06 /\n36.176 = 14.27 Offensive Win Shares. IV. Crediting Defensive Win Shares to Players A. 1973-74 to present NBA Crediting Defensive Win Shares to players is based on Dean Oliver's\nDefensive Rating. Defensive Rating is an estimate of the player's points\nallowed per 100 defensive possessions (please see Oliver's book for\nfurther details). Here is a description of the process (once again using LeBron\nJames in 2008-09 as an example): Calculate the Defensive\nRating for each player. James's Defensive Rating in 2008-09 was\n99.1. Calculate marginal defense\nfor each player. Marginal defense is equal to (player minutes\nplayed / team minutes played) * (team defensive possessions) * (1.08 *\n(league points per possession) - ((Defensive Rating) / 100)). For James\nthis is (3054 / 19780) * 7341 * ((1.08 * 1.083) - (99.1 / 100)) = 202.5.\nNote that this formula may produce a negative result for some\nplayers. Calculate marginal points\nper win. Marginal points per win reduces to 0.32 * (league points\nper game) * ((team pace) / (league pace)). For the 2008-09 Cavaliers this\nis 0.32 * 100.0 * (88.7 / 91.7) = 30.95. Credit Defensive Win Shares to the players. Defensive Win Shares are credited using the following formula: (marginal\ndefense) / (marginal points per win). James gets credit for 202.5 / 30.95\n= 6.54 Defensive Win Shares. B. 1951-52 to 1972-73 NBA Prior to the 1973-74 season, the NBA did not track defensive rebounds,\nsteals, or blocks, so allocating defensive credit is a difficult task.\nNevertheless, here is the process for crediting Defensive Win Shares in\nthose seasons (once again using Robertson in 1964-65 as an example): Calculate team marginal\ndefense. Team marginal defense is equal to 1.08 * (league points\nper shot attempt) * (team field goal attempts + 0.44 * (team free throw\nattempts)) - (opponent points). If you're wondering why we're using team\nshot attempts as opposed to opponent shot attempts, the answer is (a) we\ndon't have opponent shot attempts prior to 1970-71 and (b) the system\nworks better using team shot attempts. For the 1964-65 Royals we get 1.08\n* 0.9578 * (7797 + 0.44 * 2866) - 8952 = 417.854. Calculate the player's\nshare of the team's marginal defense. The player's share of the\nteam's marginal defense is equal to 0.25 * ((minutes played) / (team\nminutes played)) + 0.5 * ((total rebounds) / (team total rebounds)) + 0.25\n* ((assists) / (team assists)). How did I get those weights?  Modern\nDefensive Win Shares are most dependent on minutes played, defensive\nrebounds, steals, and blocks. I regressed DWS on those stats and then\nfound the relative importance of each regressor (approximately 25% for\nminutes played, 35% for defensive rebounds, 25% for steals, and 15% for\nblocks). Since those defensive statistics are not available for past\nseasons, I used total rebounds as a proxy for defensive rebounds and\nblocks; and assists as a proxy for steals. A couple more notes: (1) prior\nto the 1964-65 season, team minutes played were not an official statistic,\nso for those seasons estimate the team's minutes played using the formula\n5 * 48 * (team games) + 125; and (2) prior to the 1967-68 season, team\ntotal rebounds included team rebounds, so to account for this multiply the\nteam total by 0.875. Getting back to our example, Robertson's share on the\n1964-65 Royals is equal to 0.25 * (3421 / 19325) + 0.5 * (674 / (0.875 *\n5387)) + 0.25 * (861 / 1843) = 0.2325. Calculate marginal defense\nfor each player. Marginal defense is equal to (team marginal\ndefense) * (player share). For Robertson this is 417.854 * 0.2325 =\n97.151. Note that this formula may produce a negative result for some\nplayers. Calculate marginal points\nper win. Marginal points per win reduces to 0.16 * (team points per\ngame + opponent points per game). For the 1964-65 Royals this is 0.16 *\n(114.2 + 111.9) = 36.176. Credit defensive Win Shares to the players. Defensive Win Shares are credited using the following formula: (marginal\ndefense) / (marginal points per win). Robertson gets credit for 97.151 /\n36.176 = 2.69 Defensive Win Shares. B. 1950-51 NBA Prior to the 1951-52 season, the NBA did not track minutes played, so\nallocating defensive credit is an even more difficult task. Nevertheless,\nhere is the process for crediting Defensive Win Shares in the 1950-51\nseason (using George\nMikan as an example): Calculate team marginal\ndefense. Team marginal defense is equal to 1.08 * (league points\nper shot attempt) * (team field goal attempts + 0.44 * (team free throw\nattempts)) - (opponent points). If you're wondering why we're using team\nshot attempts as opposed to opponent shot attempts, the answer is (a) we\ndon't have opponent shot attempts prior to 1970-71 and (b) the system\nworks better using team shot attempts. For the 1950-51 Minneapolis Lakers\nwe get 1.08 * 0.8553 * (5590 + 0.44 * 1989) - 5264 = 708.023. Calculate the player's\nshare of the team's marginal defense. The player's share of the\nteam's marginal defense is equal to 0.25 * ((field goal attempts) / (team\nfield goal attempts)) + 0.5 * ((total rebou",
+      "links": [
+        {
+          "text": "Seasons",
+          "href": "/leagues/"
+        },
+        {
+          "text": "About",
+          "href": "/about/"
+        },
+        {
+          "text": "About Basketball Reference",
+          "href": "/about/"
+        },
+        {
+          "text": "More about this update",
+          "href": "https://www.sports-reference.com/blog/2025/11/in-page-navigation-redesign-on-basketball-reference/"
+        },
+        {
+          "text": "single-season record",
+          "href": "https://www.basketball-reference.com/leaders/ws_season.html"
+        },
+        {
+          "text": "About",
+          "href": "/about/"
+        },
+        {
+          "text": "Seasons",
+          "href": "/leagues/"
+        },
+        {
+          "text": "2025-26",
+          "href": "/leagues/NBA_2026.html"
+        },
+        {
+          "text": "2024-25",
+          "href": "/leagues/NBA_2025.html"
+        },
+        {
+          "text": "2023-24",
+          "href": "/leagues/NBA_2024.html"
+        },
+        {
+          "text": "Season Points",
+          "href": "/leaders/pts_season.html"
+        },
+        {
+          "text": "Season Field Goal Pct",
+          "href": "/trailers/fg_pct_season.html"
+        },
+        {
+          "text": "Season Finder",
+          "href": "https://www.sports-reference.com/stathead/basketball/player-season-finder.cgi?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footernav_stathead"
+        },
+        {
+          "text": "Season Finder",
+          "href": "https://www.sports-reference.com/stathead/basketball/team-season-finder.cgi?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footernav_stathead"
+        },
+        {
+          "text": "Player Season Finder",
+          "href": "https://www.sports-reference.com/stathead/basketball/cbb/player-season-finder.cgi?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footernav_stathead"
+        },
+        {
+          "text": "Team Season Finder",
+          "href": "https://www.sports-reference.com/stathead/basketball/cbb/team-season-finder.cgi?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footernav_stathead"
+        },
+        {
+          "text": "2025 NBA Playoffs",
+          "href": "/playoffs/NBA_2025.html"
+        },
+        {
+          "text": "2024 NBA Playoffs",
+          "href": "/playoffs/NBA_2024.html"
+        },
+        {
+          "text": "2025 All-Star Game",
+          "href": "/allstar/NBA_2025.html"
+        },
+        {
+          "text": "2024 All-Star Game",
+          "href": "/allstar/NBA_2024.html"
+        },
+        {
+          "text": "2025 Draft",
+          "href": "/draft/NBA_2025.html"
+        },
+        {
+          "text": "2024 Draft",
+          "href": "/draft/NBA_2024.html"
+        },
+        {
+          "text": "Seasons",
+          "href": "/gleague/years/"
+        },
+        {
+          "text": "Seasons",
+          "href": "/international/years/"
+        },
+        {
+          "text": "Seasons",
+          "href": "/wnba/years/"
+        },
+        {
+          "text": "Seasons",
+          "href": "/nbl/years/"
+        },
+        {
+          "text": "About",
+          "href": "/about/"
+        },
+        {
+          "text": "Glossary",
+          "href": "/about/glossary.html"
+        },
+        {
+          "text": "Contact and Media Information",
+          "href": "/about/contact.html"
+        },
+        {
+          "text": "Frequently Asked Questions about the NBA, WNBA and Basketball",
+          "href": "/about/nba-basketball-faqs.html"
+        },
+        {
+          "text": "NBA Data Coverage",
+          "href": "/data/stats-coverage-game.html"
+        },
+        {
+          "text": "ABA Data Coverage",
+          "href": "/data/stats-coverage-game-aba.html"
+        },
+        {
+          "text": "Subscribe to Stathead Basketball: Get your first month FREE Your All-A",
+          "href": "https://www.sports-reference.com/stathead/sport/basketball/?utm_medium=sr_xsite&utm_source=bbr&utm_campaign=2023_01_footerbttn_stathead"
+        },
+        {
+          "text": "Do you have a sports website? Or write about sports? We have tools and",
+          "href": "https://www.sports-reference.com/blog/ways-sports-reference-can-help-your-website/?utm_medium=sr&utm_source=bbr&utm_campaign=site-footer-ways-help"
+        },
+        {
+          "text": "Subscribe to Stathead and get access to more data than you can imagine",
+          "href": "https://www.sports-reference.com/stathead/?ref=bbr"
+        },
+        {
+          "text": "About",
+          "href": "//www.sports-reference.com/about.html"
+        },
+        {
+          "text": "Use of Data",
+          "href": "//www.sports-reference.com/data_use.html"
+        }
+      ]
+    },
+    {
+      "key": "rapm_datasets",
+      "url": "https://nbarapm.com/datasets",
+      "retrieved_at": "2026-10-12T06:43:04.293700+00:00",
+      "status": 200,
+      "final_url": "https://nbarapm.com/datasets",
+      "sha256": "cb3756f6ead7bdac05924803eb91527e3f6782dba563e82cb0f7b297852e9a09",
+      "text": "NBA RAPM Datasets | nbarapm nbarapm Players Datasets Time-Decay RAPM NBA statistics Rankings and datasets Explore current player impact, career peaks, historical ratings, and the factors behind RAPM. Player rankings Time-Decay RAPM NBA Big Board Current Impact Peak Leaderboards Metric History Six Factor RAPM Peak and era leaderboards Peak 5Y Peak 4Y Peak 3Y Peak 2Y 2020s RAPM 2010s RAPM 2000s RAPM Peak RAPTOR Peak DARKO Peak LEBRON Peak LAKER Individual players Find a player’s impact ratings, season history, scoring, on/off splits, and contracts in the NBA player directory .",
+      "links": [
+        {
+          "text": "Datasets",
+          "href": "/datasets"
+        },
+        {
+          "text": "Time-Decay RAPM",
+          "href": "/datasets/timedecay"
+        },
+        {
+          "text": "",
+          "href": "https://x.com/databallr"
+        },
+        {
+          "text": "Time-Decay RAPM",
+          "href": "/datasets/timedecay"
+        },
+        {
+          "text": "NBA Big Board",
+          "href": "/datasets/nba"
+        },
+        {
+          "text": "Current Impact",
+          "href": "/datasets/comp"
+        },
+        {
+          "text": "Peak Leaderboards",
+          "href": "/datasets/RAPMPeaks"
+        },
+        {
+          "text": "Metric History",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Six Factor RAPM",
+          "href": "/datasets/six_factor"
+        },
+        {
+          "text": "Peak 5Y",
+          "href": "/datasets/RAPMPeaks/peak-5y-rapm"
+        },
+        {
+          "text": "Peak 4Y",
+          "href": "/datasets/RAPMPeaks/peak-4y-rapm"
+        },
+        {
+          "text": "Peak 3Y",
+          "href": "/datasets/RAPMPeaks/peak-3y-rapm"
+        },
+        {
+          "text": "Peak 2Y",
+          "href": "/datasets/RAPMPeaks/peak-2y-rapm"
+        },
+        {
+          "text": "2020s RAPM",
+          "href": "/datasets/RAPMPeaks/2020s-rapm"
+        },
+        {
+          "text": "2010s RAPM",
+          "href": "/datasets/RAPMPeaks/2010s-rapm"
+        },
+        {
+          "text": "2000s RAPM",
+          "href": "/datasets/RAPMPeaks/2000s-rapm"
+        },
+        {
+          "text": "Peak RAPTOR",
+          "href": "/datasets/RAPMPeaks/peak-raptor"
+        },
+        {
+          "text": "Peak DARKO",
+          "href": "/datasets/RAPMPeaks/peak-darko"
+        },
+        {
+          "text": "Peak LEBRON",
+          "href": "/datasets/RAPMPeaks/peak-lebron"
+        },
+        {
+          "text": "Peak LAKER",
+          "href": "/datasets/RAPMPeaks/peak-laker"
+        }
+      ]
+    },
+    {
+      "key": "rapm_cade",
+      "url": "https://nbarapm.com/player/Cade_Cunningham",
+      "retrieved_at": "2026-10-12T06:43:04.293700+00:00",
+      "status": 200,
+      "final_url": "https://nbarapm.com/player/Cade_Cunningham",
+      "sha256": "f5014df17a4d3d937577d1cfdd7d3159af15d906f42c8e91da3297b2bb87a2cf",
+      "text": "Cade Cunningham RAPM, ORAPM & DRAPM | nbarapm RAPM Top 100 Timedecay RAPM RAPM › RK PLAYER RAPM 01 Nikola Jokic +9.9 02 Victor Wembanyama +8.8 03 Giannis Antetokounmpo +7.3 04 Shai Gilgeous-Alexander +7.1 05 Kawhi Leonard +6.2 06 Chet Holmgren +5.9 07 Steven Adams +5.6 08 Franz Wagner +5.1 09 Stephen Curry +4.9 10 Joel Embiid +4.8 11 Donovan Mitchell +4.7 12 Bam Adebayo +4.6 13 Isaiah Hartenstein +4.6 14 Rudy Gobert +4.3 15 Kyrie Irving +4.3 16 Neemias Queta +4.2 17 Alex Caruso +4.2 18 Lauri Markkanen +4.0 19 Ajay Mitchell +4.0 20 Jayson Tatum +4.0 21 Devin Booker +3.9 22 Luka Doncic +3.9 23 Derrick White +3.8 24 Jarrett Allen +3.8 25 Ausar Thompson +3.7 26 Dylan Harper +3.7 27 Dereck Lively II +3.7 28 Jrue Holiday +3.5 29 Jimmy Butler +3.5 30 Jalen Brunson +3.4 31 Karl-Anthony Towns +3.4 32 Pascal Siakam +3.4 33 Hugo González +3.4 34 Luke Kornet +3.3 35 Tobias Harris +3.3 36 Scottie Barnes +3.3 37 De'Aaron Fox +3.2 38 Anthony Davis +3.2 39 Dyson Daniels +3.2 40 Damian Lillard +3.1 41 Cade Cunningham +3.1 42 Marcus Smart +3.1 43 LaMelo Ball +3.0 44 Clint Capela +3.0 45 Miles McBride +3.0 46 Kevin Durant +3.0 47 Jalen Smith +2.9 48 Austin Reaves +2.9 49 Kon Knueppel +2.9 50 Fred VanVleet +2.9 51 Cameron Johnson +2.8 52 Moussa Diabate +2.8 53 Donovan Clingan +2.8 54 Zach Edey +2.8 55 Sam Hauser +2.7 56 Herbert Jones +2.6 57 Myles Turner +2.6 58 Amen Thompson +2.6 59 OG Anunoby +2.6 60 Paul George +2.6 61 Draymond Green +2.5 62 Desmond Bane +2.4 63 Payton Pritchard +2.4 64 Kevon Looney +2.4 65 Aaron Gordon +2.3 66 Jakob Poeltl +2.2 67 Ivica Zubac +2.2 68 LeBron James +2.2 69 Deni Avdija +2.2 70 Obi Toppin +2.2 71 Sion James +2.2 72 Jaren Jackson Jr. +2.2 73 Mikal Bridges +2.1 74 Evan Mobley +2.1 75 Nickeil Alexander-Walker +2.1 76 Kristaps Porzingis +2.1 77 Robert Williams III +2.1 78 Day'Ron Sharpe +2.0 79 Keshad Johnson +2.0 80 Cedric Coward +2.0 81 Tyrese Haliburton +1.9 82 Jusuf Nurkic +1.9 83 Rasheer Fleming +1.9 84 Domantas Sabonis +1.8 85 VJ Edgecombe +1.8 86 Ty Jerome +1.7 87 Sam Merrill +1.7 88 Aaron Nesmith +1.7 89 Paul Reed +1.6 90 Cason Wallace +1.6 91 Brook Lopez +1.6 92 Sandro Mamukelashvili +1.6 93 Immanuel Quickley +1.6 94 Dean Wade +1.6 95 Zion Williamson +1.6 96 Brandon Clarke +1.6 97 Joan Beringer +1.5 98 Luka Garza +1.5 99 Jonas Valanciunas +1.5 100 Bogdan Bogdanovic +1.5 nba rapm Full Rankings Big Board full rankings Cade Cunningham DET - PG · TD550 RAPM +3.1 · #41 Impact Dashboard Offense Defense Contracts 6Factor Decomp On/Off Playoffs Glossary Teammates Glossary Dashboard style Current Classic · percentile bars Box-stat percentiles are relative to the player’s position group. Time-decay RAPM percentiles use the snapshot’s full player pool. Current Metrics These impact metrics attempt to measure how a player impacts the game in points per 100 relative to an average player. Full Rankings What are these metrics? Sources: @kmedved - darko , @bballindex - LEBRON , Neil Paine - Substack 4 Year Factor RAPMs How a player’s lineups gained or prevented points through shooting, turnovers, and rebounding—adjusted for the other players on the court. Values are per 100 possessions. 6 factor 8 factor ? Full history Peak Metrics Best single-season or rolling-window peak for each metric. Ranks measured against all players from 1997–2024. Metric History Choose a metric... RAPM MAMBA Raptor DARKO LEBRON LAKER 1y 2y 3y 4y 5 year Pure RAPM Rolling RAPM estimates by season window. Offense, defense, and total are points per 100 possessions. MAMBA Hybrid box score/rapm metric - methodology Credit: Timothy Wijaya - Teemohoops Full MAMBA history for all players DPM (DARKO) Hybrid box score/rapm metric  - methodology Credit: @kmedved - darko.app Full DARKO history for all players RAPTOR by season Goes back to 1977. Stopped in 2023. Credit: Nate Silver + 538 Full RAPTOR history for all players LEBRON Hybrid box score/rapm metric Luck adjustment to rapm numbers Credit: @bballindex Full LEBRON history for all players LAKER Neil Paine LAKER history by season Full LAKER history for all players RS PS What is Six-Factor RAPM? At its core, basketball is the management of possessions. Every possession begins with control of the ball and moves through a simple chain of events. The offense can only produce a scoring attempt if it avoids turning the ball over; once it reaches a shot, that attempt may produce points, miss and end with a defensive rebound, or miss and continue through an offensive rebound. The structure of the game can therefore be expressed as a branching tree: possession ├── turnover (possession ends, - oTOV / + dTOV )\n└── shot (first chance reaches a scoring attempt, + oTOV / - dTOV )\n    ├── points (possession ends, + oTS / - dTS )\n    └── miss (first shot does not score, - oTS / + dTS )\n        ├── defensive rebound (possession ends, - oREB / + dREB )\n        └── offensive rebound (possession continues)\n            ├── points (possession ends, + oREB / - dREB )\n            └── no points (possession ends, - oREB / + dREB ) Six-Factor RAPM measures how players influence each stage of this process. Offensive impact and defensive impact can each be decomposed into three mechanisms. Together they form total player impact. RAPM = oTS + oTOV + oREB + dTS + dTOV + dREB Each factor captures a different way players change the expected value of possessions while they are on the floor. oTS — Offensive Scoring Efficiency This factor measures how much a player increases the points their team generates per scoring attempt. The primary driver of offensive scoring efficiency is the combination of usage and true shooting percentage. Players who take a large share of their team's attempts and convert them efficiently have the strongest direct impact on this factor. However, scoring efficiency is not created through shooting alone. Players also influence it through playmaking, ball movement, spacing, and transition offense, all of which affect the quality of shots their teammates receive. Passers who generate open looks, movers who keep the offense flowing, and players who create advantages in transition can raise team scoring efficiency even when they are not the one finishing the play. Drawing fouls is also critical, since free throws increase the points generated per scoring attempt. oTOV — Offensive Turnover Control Before a scoring attempt can occur, the offense must maintain possession of the ball. Turnovers end possessions without producing a shot. This factor measures how a player influences the rate at which their team loses possessions before reaching the shot phase. The primary drivers of offensive turnover impact are offensive load and turnover rate. Players who carry a large share of the offense—through scoring attempts, passing volume, and time on the ball—naturally have greater influence on this factor, since turnovers can only occur when a player is directly involved in the play. Ball security, decision-making, and the ability to handle defensive pressure all contribute here. Players who maintain control of the offense under heavy responsibility allow their team to reach scoring attempts more consistently. oREB — Offensive Rebound Impact Even when a shot misses, the possession may not be finished. oREB measures how much a player helps turn missed shots into second-chance value. Offensive rebounds are the main input, but the factor is about the full value of the extra possession: keeping the ball alive, creating another scoring attempt, and converting or supporting the points that come after the rebound. Second-chance opportunities increase the total number of attempts a team has to convert possessions into points, so this factor captures possession extension after misses. dTS — Defensive Scoring Efficiency Suppression This factor measures how much a player lowers the points opponents generate per scoring attempt. Defenders influence scoring efficiency through several mechanisms. Contesting shots, navigating screens, and containing isolation attacks reduce shot quality on the perimeter. At the rim, defenders protect the basket through positioning, verticality, and shot blocking. Interior defenders also create rim deterrence, forcing offenses to avoid high-value attempts at the basket altogether. Foul discipline is also important. Because scoring efficiency includes free throws, defenders who avoid unnecessary fouls—or commit smart fouls that prevent easy layups—can reduce the points opponents generate per attempt. Together, these actions lower the efficiency of opponent scoring attempts. dTOV — Defensive Turnover Creation Turnovers immediately end possessions before a scoring attempt can occur. Defenders generate turnovers through steals, deflections, and disruptive pressure on the ball and in passing lanes. Pressure can also force rushed decisions that lead to mistakes by the offense. Another important source of defensive turnovers comes from offensive fouls drawn, including charges and moving screen violations. Players who position themselves effectively to draw these calls can end possessions without allowing a shot. By forcing turnovers, defenders prevent scoring attempts from occurring in the first place. dREB — Defensive Rebound Impact Even strong defensive possessions remain incomplete if the offense secures the rebound. dREB measures how much a player suppresses opponent second-chance value after missed shots. Defensive rebounding is the main input, but the factor is about ending the possession and preventing the extra attempts and points that follow offensive rebounds. Strong defensive second-chance prevention ensures that missed shots actually end the opponent's possession. The Full Structure of Impact The entire game can be decomposed into three mechanisms applied on both offense and defense: Shot Value: oTS · dTS Possession Survival: oTOV · dTOV Rebound Value: oREB · dREB Six-Factor RAPM estimates how much each player shifts these components relative to league average while they are on the floor. Instead of collapsing player value into a single number, the model reveals where that value is created within the lifecycle of a possession—through improving scoring efficiency, protecting or ending possessions, and controlling what happens when shots miss. RAPM DECOMP Factor History Toggle between the public 6-factor rollup and the 8-factor EFG, free-throw, turnover, and rebound decomposition. 6 factor 8 factor Shot Location RAPM Rim, mid-range, and three-point shot value. Each rolled-up field is frequency plus within-zone field-goal value. Turnover Split RAPM First-chance turnover value split into bad-pass turnovers and scoring turnovers. RAPM Decomposition Where a player's impact comes from — offense and defense mirrored across seven traits: free throws, shot diet, rim, mid, three, turnovers, and rebounds. search a player to see the rapm decomposition. 3factor Scoring Passing Playtype Clutch By Year By PlayType Regular Season Playoffs Playtype What are these playtype metrics? Regular Season Playoffs Iso Handler Spot Trans Roll Cut H-Off Screen Put Postup 3 Year Offensive Factor RAPM This estimates how a player's rolling-window ORAPM breaks down into different offensive categories. This table estimates how a player's rolling-window ORAPM breaks down into offensive shooting, turnover, and rebounding impact. These values are points per 100 possessions and show the relative value between factors, something that is not always intuitive. Interesting players to look at: Stephen Curry , Chris Paul , and Steven Adams . More Info Show graph 3 Year Offensive Shot Location RAPM Free-throw, rim, mid-range, and three-point offensive value. Scoring Metrics Hover tooltips for explanations. Overview true shooting Location Regular Season Playoffs Regular Season Playoffs Simple Expanded Regular Season Playoffs Regular Season Playoffs Passing Metrics Hover tooltips for explanations. Regular Season Playoffs Clutch Metrics Hover tooltips for explanations. These metrics show a player's performance in clutch situations, providing insight into their effectiveness when the game is on the line. Clutch stats provided by inpredictable.com . Regular Season Playoffs 3 Year Defensive Factor RAPM Click to learn more about how this table breaks down a player's defensive impact into its component parts. This table estimates how a player's rolling-window DRAPM breaks down into defensive shooting, turnover, and rebounding impact. These values are points per 100 possessions and show the relative value between factors, something that is not always intuitive. Interesting players to look at: Alex Caruso , Brook Lopez , and Nikola Jokic . More Info Show graph 3 Year Defensive Shot Location RAPM Free-throw, rim, mid-range, and three-point defensive value. Contesting metrics What are these contesting metrics? Regular Season Playoffs Defensive Playmaking What are these defensive playmaking metrics? Regular Season Playoffs Defensive Rebounding DREB rate, rim DREB rate, and contested boards p",
+      "links": [
+        {
+          "text": "",
+          "href": "https://x.com/databallr"
+        },
+        {
+          "text": "Full Rankings",
+          "href": "/datasets/comp"
+        },
+        {
+          "text": "Big Board",
+          "href": "/datasets/nba"
+        },
+        {
+          "text": "Full Rankings",
+          "href": "/datasets/comp"
+        },
+        {
+          "text": "methodology",
+          "href": "https://www.teemohoop.com/mamba/Blog%20Post%20Title%20One-mm8gk-cy9wh"
+        },
+        {
+          "text": "Full MAMBA history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "methodology",
+          "href": "https://apanalytics.shinyapps.io/DARKO/"
+        },
+        {
+          "text": "Full DARKO history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Full RAPTOR history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Full LEBRON history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Full LAKER history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Top Career RAPMs of databall era",
+          "href": "/datasets/LifetimeRAPM"
+        },
+        {
+          "text": "Top 300 Playoff Scorers of the modern era (1997+)",
+          "href": "/datasets/playoffs_two"
+        },
+        {
+          "text": "NBA Big Board",
+          "href": "/datasets/nba"
+        },
+        {
+          "text": "Current Impact",
+          "href": "/datasets/comp"
+        },
+        {
+          "text": "TimeDecay RAPM",
+          "href": "/datasets/timedecay"
+        },
+        {
+          "text": "Peak Leaderboards",
+          "href": "/datasets/RAPMPeaks"
+        },
+        {
+          "text": "Metric History",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Six Factor RAPM",
+          "href": "/datasets/six_factor"
+        },
+        {
+          "text": "Peak 5Y",
+          "href": "/datasets/RAPMPeaks/peak-5y-rapm"
+        },
+        {
+          "text": "Peak 4Y",
+          "href": "/datasets/RAPMPeaks/peak-4y-rapm"
+        },
+        {
+          "text": "Peak 3Y",
+          "href": "/datasets/RAPMPeaks/peak-3y-rapm"
+        },
+        {
+          "text": "Peak 2Y",
+          "href": "/datasets/RAPMPeaks/peak-2y-rapm"
+        },
+        {
+          "text": "Peak LAKER",
+          "href": "/datasets/RAPMPeaks/peak-laker"
+        },
+        {
+          "text": "Peak DARKO",
+          "href": "/datasets/RAPMPeaks/peak-darko"
+        },
+        {
+          "text": "Peak LEBRON",
+          "href": "/datasets/RAPMPeaks/peak-lebron"
+        },
+        {
+          "text": "Peak RAPTOR",
+          "href": "/datasets/RAPMPeaks/peak-raptor"
+        },
+        {
+          "text": "2020s RAPM",
+          "href": "/datasets/RAPMPeaks/2020s-rapm"
+        },
+        {
+          "text": "2010s RAPM",
+          "href": "/datasets/RAPMPeaks/2010s-rapm"
+        },
+        {
+          "text": "2000s RAPM",
+          "href": "/datasets/RAPMPeaks/2000s-rapm"
+        },
+        {
+          "text": "Current impact rankings",
+          "href": "/datasets/comp"
+        },
+        {
+          "text": "Time-decay RAPM",
+          "href": "/datasets/timedecay"
+        },
+        {
+          "text": "",
+          "href": "https://x.com/databallr"
+        },
+        {
+          "text": "Datasets",
+          "href": "/datasets"
+        },
+        {
+          "text": "Time-Decay RAPM",
+          "href": "/datasets/timedecay"
+        },
+        {
+          "text": "databallr.com",
+          "href": "https://databallr.com"
+        },
+        {
+          "text": "databallr@gmail.com",
+          "href": "mailto:databallr@gmail.com"
+        },
+        {
+          "text": "↗ View full peak leaderboard",
+          "href": "/datasets/RAPMPeaks"
+        }
+      ]
+    },
+    {
+      "key": "rapm_bundle",
+      "url": "https://nbarapm.com/api/player/1630595/bundle",
+      "retrieved_at": "2026-10-12T06:45:26.997388+00:00",
+      "status": 200,
+      "final_url": "https://nbarapm.com/api/player/1630595/bundle",
+      "sha256": "a17fd9860a9ffd12ecc8e8b86699bb43399b0e7848f05d6bb8e48d3269a099ae",
+      "preview": "{'offense': {'rs': [{'nba_id': '1630595', 'TeamId': 1610612765, 'Name': 'Cade Cunningham', 'ShortName': 'Cade Cunningham', 'RowId': 1630595, 'TeamAbbreviation': 'DET', 'SecondsPlayed': 147119, 'GamesPlayed': 70, 'Minutes': 2452, 'PlusMinus': 177, 'OffPoss': 5104, 'DefPoss': 5076, 'PenaltyOffPoss': 996, 'PenaltyDefPoss': 1248, 'SecondChanceOffPoss': 589, 'TotalPoss': 10180, 'AtRimFGM': 206, 'AtRimFGA': 360, 'SecondChanceAtRimFGM': 13, 'SecondChanceAtRimFGA': 36, 'PenaltyAtRimFGM': 48, 'PenaltyAtRimFGA': 77, 'ShortMidRangeFGM': 263, 'ShortMidRangeFGA': 537, 'LongMidRangeFGM': 66, 'LongMidRangeFGA': 142, 'Corner3FGM': 8, 'Corner3FGA': 21, 'SecondChanceCorner3FGM': 1, 'SecondChanceCorner3FGA': 2, 'PenaltyCorner3FGM': 2, 'PenaltyCorner3FGA': 6, 'Arc3FGM': 141, 'Arc3FGA': 397, 'SecondChanceArc3FGM': 13, 'SecondChanceArc3FGA': 37, 'PenaltyArc3FGM': 32, 'PenaltyArc3FGA': 85, 'FG2M': 535, 'FG2A': 1039, 'FG3M': 149, 'FG3A': 418, 'FtPoints': 313, 'Points': 1830, 'OpponentPoints': 5804, 'SecondChanceFG2M': 31, 'SecondChanceFG2A': 77, 'SecondChanceFG3M': 14, 'SecondChanceFG3A': 39, 'SecondChanceFtPoints': 7, 'SecondChancePoints': 111, 'PenaltyFG2M': 100, 'PenaltyFG2A': 194, 'PenaltyFG3M': 34, 'PenaltyFG3A': 91, 'PenaltyFtPoints': 100, 'PenaltyPoints': 402, 'PtsAssisted2s': 244, 'PtsUnassisted2s': 826, 'PtsAssisted3s': 255, 'PtsUnassisted3s': 192, 'PtsPutbacks': 18, 'HeaveAttempts': 4, 'NonHeaveArc3FGA': 393, 'NonHeaveArc3FGM': 141, 'Fg2aBlocked': 98, 'Fg3aBlocked': 2, 'TwoPtAssists': 403, 'ThreePtAssists': 235, 'Assists': 638, 'Arc3Assists': 175, 'Corner3Assists': 60, 'AtRimAssists': 284, 'ShortMidRangeAssists': 106, 'LongMidRangeAssists': 13, 'AssistPoints': 1511, 'OffThreePtRebounds': 18, 'OffTwoPtRebounds': 34, 'FTOffRebounds': 4, 'DefThreePtRebounds': 166, 'DefTwoPtRebounds': 186, 'FTDefRebounds': 17, 'DefRebounds': 369, 'OffRebounds': 56, 'Rebounds': 425, 'SelfOReb': 18, 'Steals': 71, 'BadPassSteals': 33, 'LostBallSteals': 38, 'LiveBallTurnovers': 229, 'BadPassOutOfBoundsTurnovers': 34, 'BadPassTurnovers': 139, 'DeadBallTurnovers': 80, 'LostBallOutOfBoundsTurnovers': 15, 'LostBallTurnovers': 90, 'Travels': 6, 'Turnovers': 309, 'SecondChanceTurnovers': 19, 'PenaltyTurnovers': 64, 'ShootingFouls': 87, 'Fouls': 195, 'Loose Ball Fouls': 5, 'Offensive Fouls': 12, 'FTA': 370, '2pt And 1 Free Throw Trips': 39, 'Technical Free Throw Trips': 24, 'TwoPtShootingFoulsDrawn': 161, 'ThreePtShootingFoulsDrawn': 4, 'NonShootingFoulsDrawn': 27, 'Blocked2s': 52, 'BlockedAtRim': 33, 'BlockedLongMidRange': 0, 'BlockedShortMidRange': 19, 'Blocks': 53, 'RecoveredBlocks': 27, 'DefensiveGoaltends': 1, 'OffensiveGoaltends': 0, 'FirstChancePoints': 1719, 'PenaltyPointsExcludingTakeFouls': 396, 'PenaltyOffPossExcludingTakeFouls': 979, 'NonShootingPenaltyNonTakeFouls': 17, 'Period1Fouls2Minutes': 16, 'Period2Fouls2Minutes': 147, 'Period2Fouls3Minutes': 13, 'Period3Fouls3Minutes': 155, 'Period3Fouls4Minutes': 26, 'Period4Fouls4Minutes': 114, 'Period4Fouls5Minutes': 18, 'PeriodOTFouls5Minutes': 0, 'OnOffRtg': 117.18260188087774, 'OnDefRtg': 114.34200157604414, 'Assisted2sPct': 0.22803738317757, 'NonPutbacksAssisted2sPct': 0.2319391634980988, 'Assisted3sPct': 0.5704697986577181, 'Fg3Pct': 0.3564593301435406, 'SecondChanceFg3Pct': 0.358974358974359, 'PenaltyFg3Pct': 0.3736263736263736, 'NonHeaveFg3Pct': 0.359903381642512, 'Fg2Pct': 0.5149181905678537, 'SecondChanceFg2Pct': 0.4025974025974026, 'PenaltyFg2Pct': 0.5154639175257731, 'EfgPct': 0.5205902539464653, 'SecondChanceEfgPct': 0.4482758620689655, 'PenaltyEfgPct': 0.5298245614035088, 'TsPct': 0.5627329192546584, 'SecondChanceTsPct': 0.4661016949152542, 'PenaltyTsPct': 0.5960960960960962, 'FG3APct': 0.2868908716540837, 'FG3APctBlocked': 0.0047846889952153, 'FG2APctBlocked': 0.0943214629451395, 'AtRimPctBlocked': 0.1138888888888888, 'ShortMidRangePctBlocked': 0.106145251396648, 'LongMidRangePctBlocked': 0, 'Arc3PctBlocked': 0.0050377833753148, 'Usage': 33.00602928509905, 'LiveBallTurnoverPct': 0.7411003236245954, 'DefFTReboundPct': 0.1338582677165354, 'OffFTReboundPct': 0.0330578512396694, 'DefTwoPtReboundPct': 0.1617391304347826, 'OffTwoPtReboundPct': 0.0272873194221508, 'DefThreePtReboundPct': 0.1390284757118928, 'OffThreePtReboundPct': 0.0171591992373689, 'DefFGReboundPct': 0.1501706484641638, 'OffFGReboundPct': 0.0226579520697167, 'OffAtRimReboundPct': 0.0288888888888888, 'OffShortMidRangeReboundPct': 0.0332278481012658, 'OffLongMidRangeReboundPct': 0, 'OffArc3ReboundPct': 0.0128534704370179, 'OffCorner3ReboundPct': 0.029520295202952, 'DefAtRimReboundPct': 0.1440443213296399, 'DefShortMidRangeReboundPct': 0.1543408360128617, 'DefLongMidRangeReboundPct': 0.2275449101796407, 'DefArc3ReboundPct': 0.1457627118644067, 'DefCorner3ReboundPct': 0.1197411003236245, 'SelfORebPct': 0.0274809160305343, 'BlocksRecoveredPct': 0.5094339622641509, 'AtRimFrequency': 0.247083047357584, 'AtRimAccuracy': 0.5722222222222222, 'UnblockedAtRimAccuracy': 0.64576802507837, 'AtRimPctAssisted': 0.2669902912621359, 'ShortMidRangeFrequency': 0.3685655456417296, 'ShortMidRangeAccuracy': 0.4897579143389199, 'UnblockedShortMidRangeAccuracy': 0.5479166666666667, 'ShortMidRangePctAssisted': 0.155893536121673, 'LongMidRangeFrequency': 0.0974605353466026, 'LongMidRangeAccuracy': 0.4647887323943662, 'UnblockedLongMidRangeAccuracy': 0.4647887323943662, 'LongMidRangePctAssisted': 0.3939393939393939, 'Corner3Frequency': 0.0144131777625257, 'Corner3Accuracy': 0.3809523809523809, 'UnblockedCorner3Accuracy': 0.3809523809523809, 'Corner3PctAssisted': 1, 'Arc3Frequency': 0.272477693891558, 'Arc3Accuracy': 0.3551637279596977, 'UnblockedArc3Accuracy': 0.3569620253164557, 'Arc3PctAssisted': 0.5460992907801419, 'SecondChanceAtRimFrequency': 0.3103448275862069, 'SecondChanceAtRimAccuracy': 0.3611111111111111, 'SecondChanceAtRimPctAssisted': 0.0769230769230769, 'SecondChanceCorner3Frequency': 0.0172413793103448, 'SecondChanceCorner3Accuracy': 0.5, 'SecondChanceCorner3PctAssisted': 1, 'SecondChanceArc3Frequency': 0.3189655172413793, 'SecondChanceArc3Accuracy': 0.3513513513513513, 'SecondChanceArc3PctAssisted': 0.7692307692307693, 'PenaltyAtRimFrequency': 0.2701754385964912, 'PenaltyAtRimAccuracy': 0.6233766233766234, 'PenaltyCorner3Frequency': 0.0210526315789473, 'PenaltyCorner3Accuracy': 0.3333333333333333, 'PenaltyArc3Frequency': 0.2982456140350877, 'PenaltyArc3Accuracy': 0.3764705882352941, 'AtRimFG3AFrequency': 0.5339739190116678, 'NonHeaveArc3Accuracy': 0.3587786259541984, 'ShotQualityAvg': 0.5075618457300275, 'SecondChanceShotQualityAvg': 0.531254938271605, 'PenaltyShotQualityAvg': 0.5002217081850534, 'ShootingFoulsDrawnPct': 0.1042324699936828, 'TwoPtShootingFoulsDrawnPct': 0.1386735572782084, 'ThreePtShootingFoulsDrawnPct': 0.0094786729857819, 'SecondChancePointsPct': 0.060655737704918, 'PenaltyPointsPct': 0.2196721311475409, 'Avg2ptShotDistance': 7.0555341674687195, 'Avg3ptShotDistance': 26.455741626794257, 'AtRimOffReboundedPct': 0.390728476821192, 'ShortMidRangeOffReboundedPct': 0.3173431734317343, 'LongMidRangeOffReboundedPct': 0.273972602739726, 'ThreePtOffReboundedPct': 0.2209302325581395, 'PenaltyOffPossPct': 0.195141065830721, 'Blocked3s': 1, 'BlockedArc3': 0, '3SecondViolations': 0, 'Defensive 3 Seconds Violations': 1, 'PeriodOTFouls4Minutes': 5, 'Clear Path Fouls': 0, 'Corner3PctBlocked': 0, '3pt And 1 Free Throw Trips': 0, 'BlockedCorner3': 1, 'HeaveMakes': 0, 'FoulsDrawn': 279, 'Offensive Fouls Drawn': 4, 'Period3Fouls5Minutes': 0, 'Period1Fouls3Minutes': 0, 'Period2Fouls4Minutes': 0, 'year': 2025, 'StepOutOfBoundsTurnovers': 3, 'Loose Ball Fouls Drawn': 4, 'NonShootingPenaltyNonTakeFoulsDrawn': 20, 'BlockingFouls': 0, 'Charge Fouls': 3, 'Charge Fouls Drawn': 2, 'BlockingFoulsDrawn': 0, 'Transition Take Fouls Drawn': 0, 'Transition Take Fouls': 1, 'TotalMisses': 773, 'TotalOffRebounds': 227.37636531711746, 'ProbabilityOffRebounded': 29.414794995746114, 'Shooting_FT_Possessions': 126, 'FT_PERC': 0.845945945945946, '2TSA': 1188, '2FTA': 337, '3TSA': 422, '3FTA': 12, '2FTPoints': 285.0837837837838, '3FTPoints': 10.151351351351352, '2_Points': 1355.083783783784, '3_Points': 457.15135135135137, '2TS_percent': 0.5703214578214579, '3TS_percent': 0.5416485205584732, 'PPG': 26.142857142857142, 'APG': 9.114285714285714, 'totalORB': 52, 'total_team_misses': 2295.0000000000077, 'FGA': 1457, 'FGM': 684, 'SelfOReb/100': 918.7199999999999, 'total_teammate_misses': 1522.0000000000077, 'teammatemissorb': 34, 'TeammateMissORebPerc': 0.02233902759526927, 'NonShooting_FT_Poss",
+      "keys": [
+        "offense",
+        "on_off",
+        "scposs",
+        "playtype",
+        "dplaytype",
+        "playoffRTS",
+        "kinds",
+        "dashboard",
+        "dashboard_configs"
+      ]
+    },
+    {
+      "key": "lebron_method",
+      "url": "https://www.bball-index.com/lebron-introduction/",
+      "retrieved_at": "2026-10-12T06:45:26.998383+00:00",
+      "error": "HTTPSConnectionPool(host='www.bball-index.com', port=443): Read timed out. (read timeout=25)"
+    },
+    {
+      "key": "darko_method",
+      "url": "https://darko.app/",
+      "retrieved_at": "2026-10-12T06:45:26.998383+00:00",
+      "status": 200,
+      "final_url": "https://www.darko.app/",
+      "sha256": "991e5fbb024e69e49f687fe6afc02c75716faec250ab98905695fdb3453eedc9",
+      "preview": "DARKO DPM — NBA Player Projections Skip to content DARKO DPM Active Leaderboard Active Leaderboard Career Trajectories Teams Standings WOWY RAPM Lineups Roster Lab Fantasy Lab More What's new 22 Rewind Longevity Scatterplot Compare Rate a Player Use DARKO in an assistant About Display View Modern Shiny Theme ⚫ ⚪ Font Inter Roboto Lato Open Sans Source Sans Nunito Sans Work Sans Raleway Outfit Jakarta Sans Space Grotesk System Ask DARKO Time Machine Time Machine Today Drag back to any week since 1996-97 Timeline Rewind What's new 22 Active Leaderboard Career Trajectories Teams Standings WOWY RAPM Lineups Roster Lab Fantasy Lab Rewind Longevity Scatterplot Compare Rate a Player Use DARKO in an assistant About Modern Shiny ⚫ ⚪ Inter Roboto Lato Open Sans Source Sans Nunito Sans Work Sans Raleway Outfit Jakarta Sans Space Grotesk System DPM Leaderboard Daily Player Metrics for every NBA player. Ratings through June 3, 2026. Top DPM +7.4 Nikola Jokic DEN 1.0 ahead of Wembanyama Top offense +5.4 Kawhi Leonard LAC 0.2 ahead of Jokic Top defense +4.0 Rudy Gobert MIN 0.5 ahead of Hartenstein Top 3PT% 40.5% Kon Knueppel CHA 0.5 pp ahead of Hachimura Top FT% 90.9% Stephen Curry GSW 0.2 pp ahead of Lillard Current 2025-26 Season 2024-25 Season 2023-24 Season 2022-23 Season 2021-22 Season 2020-21 Season 2019-20 Season 2018-19 Season 2017-18 Season 2016-17 Season 2015-16 Season 2014-15 Season 2013-14 Season 2012-13 Season 2011-12 Season 2010-11 Season 2009-10 Season 2008-09 Season 2007-08 Season 2006-07 Season 2005-06 Season 2004-05 Season 2003-04 Season 2002-03 Season 2001-02 Season 2000-01 Season 1999-00 Season 1998-99 Season 1997-98 Season 1996-97 Season All Teams ATL BKN BOS CHA CHI CLE DAL DEN DET GSW HOU IND LAC LAL MEM MIA MIL MIN NOP NYK OKC ORL PHI PHX POR SAC SAS TOR UTA WAS All positions Guards Forwards Centers All ages Under 24 24–29 30 and over Filters Watchlist Season trend Compare Share CSV Download CSV All stats Impact Box score Shooting Value Season trend Insights ↓ Impact Role Per 100 Shooting Value # ↕ Player ↕ Team ↕ DPM ↓ Off ↕ Def ↕ Box ↕ On/Off ↕ MPG ↕ Pace ↕ Pts/100 ↕ Ast/100 ↕ FG% ↕ 3P% ↕ FT% ↕ $ Value ↕ Salary ↕ Surplus ↕ # Player Team DPM Off Def Box On/Off MPG Pace Pts/100 Ast/100 FG% 3P% FT% $ Value Salary Surplus Impact Role Per 100 Shooting Value # ↕ Player ↕ Team ↕ DPM ↓ Off ↕ Def ↕ Box ↕ On/Off ↕ MPG ↕ Pace ↕ Pts/100 ↕ Ast/100 ↕ FG% ↕ 3P% ↕ FT% ↕ $ Value ↕ Salary ↕ Surplus ↕ 1 Nikola Jokic DEN · C-F · 31 DEN +7.4 +5.2 +2.1 +5.5 +7.6 31.7 95.1 31.2 11.4 53.4% 33.9% 79.1% $101.4M $55.2M +$46.2M 2 Victor Wembanyama SAS · F-C · 22 SAS +6.4 +4.0 +2.4 +6.2 +6.4 35.0 94.3 35.0 4.2 49.2% 33.9% 82.7% $82.8M $13.4M +$69.4M 3 Kawhi Leonard LAC · F · 35 LAC +6.3 +5.4 +0.8 +5.8 +6.3 31.0 94.1 34.3 4.5 47.0% 36.4% 84.3% $73.2M $50.0M +$23.2M 4 Shai Gilgeous-Alexander OKC · G · 28 OKC +5.8 +5.2 +0.6 +4.8 +6.0 30.0 94.9 35.2 8.7 49.9% 35.1% 82.9% $82.5M $38.3M +$44.2M 5 Giannis Antetokounmpo MIL · F-G · 31 MIL +5.1 +3.8 +1.3 +3.6 +5.2 25.0 94.6 35.5 7.9 55.9% 27.3% 55.4% $36.8M $54.1M -$17.3M 6 Luka Doncic LAL · G · 27 LAL +4.8 +4.7 +0.1 +2.9 +5.2 31.6 95.8 38.5 10.1 43.6% 33.0% 71.3% $43.7M $46.0M -$2.3M 7 Jayson Tatum BOS · F · 28 BOS +4.3 +4.1 +0.2 +3.9 +4.3 28.6 94.0 32.3 8.0 42.4% 33.2% 80.2% $57.0M $54.1M +$2.9M 8 Chet Holmgren OKC · C-F · 24 OKC +4.2 +1.7 +2.5 +3.8 +4.3 21.1 93.0 21.9 2.1 53.0% 33.5% 76.2% $52.9M $13.7M +$39.2M 9 Anthony Edwards MIN · G · 24 MIN +4.2 +4.3 -0.1 +3.1 +4.5 27.2 96.0 32.0 4.3 44.5% 35.0% 77.4% $65.7M $45.6M +$20.2M 10 Donovan Mitchell CLE · G · 29 CLE +4.2 +4.7 -0.6 +2.6 +4.4 25.5 95.6 33.2 5.2 43.7% 34.0% 80.6% $66.2M $46.4M +$19.8M 11 Cade Cunningham DET · G · 24 DET +3.9 +3.3 +0.7 +1.5 +4.9 27.2 94.6 29.0 10.0 42.6% 34.1% 79.8% $69.7M $46.4M +$23.3M 12 OG Anunoby NYK · F · 28 NYK +3.6 +1.8 +1.8 +3.2 +3.7 34.0 95.5 22.2 2.3 44.2% 38.2% 81.4% $54.7M $39.6M +$15.2M 13 Karl-Anthony Towns NYK · C-F · 30 NYK +3.6 +2.4 +1.2 +2.8 +3.7 31.9 94.7 26.3 6.0 47.3% 36.1% 83.2% $52.8M $53.1M -$0.3M 14 Joel Embiid PHI · C-F · 32 PHI +3.6 +2.5 +1.0 +3.1 +3.6 24.7 94.5 33.2 6.0 46.6% 32.8% 82.1% $53.4M $55.2M -$1.8M 15 Jalen Brunson NYK · G · 29 NYK +3.4 +4.3 -1.0 +1.9 +3.6 37.8 96.0 33.4 8.1 43.2% 35.4% 82.8% $59.1M $34.9M +$24.2M 16 Tyrese Haliburton IND · G · 26 IND +3.3 +3.0 +0.3 +5.2 +2.7 24.1 94.6 23.0 9.6 44.5% 34.4% 83.0% $31.3M $45.6M -$14.2M 17 Kevin Durant HOU · F-G · 37 HOU +3.3 +3.0 +0.2 +3.2 +3.3 28.4 94.5 31.9 6.8 47.2% 37.4% 84.6% $48.5M $54.7M -$6.3M 18 Aaron Gordon DEN · F · 30 DEN +3.1 +2.7 +0.4 +0.8 +3.5 23.2 94.5 23.6 4.2 47.6% 33.9% 72.8% $39.9M $22.8M +$17.0M 19 Jarrett Allen CLE · C · 28 CLE +3.1 +1.1 +1.9 +2.2 +3.3 19.9 94.8 21.7 2.3 63.0% 25.6% 65.0% $44.7M $20.0M +$24.7M 20 Isaiah Hartenstein OKC · F-C · 28 OKC +3.1 -0.4 +3.5 +3.5 +2.9 13.3 93.9 17.6 5.6 57.1% 24.1% 63.0% $32.2M $28.5M +$3.7M 21 Jamal Murray DEN · G · 29 DEN +3.0 +3.9 -0.8 +2.1 +3.2 32.2 94.2 29.1 7.3 44.1% 37.4% 87.2% $57.8M $46.4M +$11.4M 22 LaMelo Ball CHA · G · 24 CHA +3.0 +3.2 -0.2 +2.4 +3.4 27.9 93.9 33.0 10.0 39.3% 34.2% 85.7% $46.5M $38.0M +$8.5M 23 Bam Adebayo MIA · C-F · 29 MIA +3.0 +1.8 +1.2 +1.3 +3.2 27.3 95.6 29.4 5.1 43.7% 31.4% 75.2% $46.2M $37.1M +$9.1M 24 James Harden CLE · G · 36 CLE +2.9 +3.1 -0.2 +1.5 +3.0 27.4 94.1 24.4 7.9 40.6% 34.3% 83.2% $52.9M $39.2M +$13.7M 25 Ty Jerome MEM · G · 29 MEM +2.9 +3.1 -0.2 +4.3 +1.9 25.3 94.1 32.7 9.8 44.0% 36.5% 82.3% $32.6M $8.8M +$23.8M 26 Mitchell Robinson NYK · C · 28 NYK +2.9 +0.1 +2.7 +2.0 +3.0 12.8 94.9 14.1 1.1 62.7% 10.0% 46.3% $17.5M $13.0M +$4.5M 27 Scottie Barnes TOR · F · 24 TOR +2.8 +1.3 +1.5 +1.7 +3.2 25.4 94.3 25.2 8.6 47.5% 32.2% 77.0% $54.5M $38.7M +$15.8M 28 Tyrese Maxey PHI · G · 25 PHI +2.7 +2.9 -0.2 +2.1 +2.8 27.1 94.8 29.1 7.1 44.7% 34.7% 85.6% $53.1M $38.0M +$15.2M 29 Robert Williams III POR · F · 28 POR +2.6 +0.2 +2.4 +3.3 +2.1 11.0 94.6 18.1 2.9 60.1% 30.7% 61.7% $25.6M $13.3M +$12.3M 30 Alex Caruso OKC · G · 32 OKC +2.6 +0.3 +2.3 +2.1 +2.7 13.6 94.3 18.2 4.2 40.6% 34.7% 78.5% $31.3M $18.1M +$13.2M 31 Rudy Gobert MIN · C · 34 MIN +2.5 -1.5 +4.0 +1.7 +2.5 20.6 94.6 14.0 2.5 62.6% 23.1% 54.7% $39.8M $35.0M +$4.8M 32 Evan Mobley CLE · C · 25 CLE +2.4 +1.3 +1.1 +2.8 +2.3 20.8 96.1 23.7 4.9 51.2% 30.2% 60.3% $46.0M $46.4M -$0.3M 33 Devin Booker PHX · G · 29 PHX +2.4 +3.4 -1.1 +1.2 +2.5 30.0 94.2 30.4 6.9 44.1% 34.2% 84.3% $47.3M $53.1M -$5.8M 34 Jimmy Butler GSW · G-F · 36 GSW +2.3 +1.6 +0.7 +2.0 +2.3 23.7 94.5 27.0 7.2 47.0% 30.3% 82.0% $25.3M $54.1M -$28.8M 35 Jaylen Brown BOS · F · 29 BOS +2.2 +3.3 -1.0 +2.0 +2.3 29.2 94.4 34.1 5.8 44.7% 33.2% 74.5% $46.2M $53.1M -$7.0M 36 Jakob Poeltl TOR · C · 30 TOR +2.2 -0.5 +2.7 +2.0 +2.3 14.1 94.1 18.4 3.3 62.6% 15.9% 57.8% $25.6M $19.5M +$6.1M 37 Alperen Sengun HOU · C · 24 HOU +2.2 +1.0 +1.1 +0.5 +2.8 26.3 93.8 25.7 7.0 50.0% 26.7% 65.6% $44.7M $33.9M +$10.8M 38 Stephen Curry GSW · G · 38 GSW +2.2 +4.0 -1.8 +1.7 +2.2 21.8 94.4 29.4 8.4 42.9% 34.9% 90.9% $37.6M $59.6M -$22.1M 39 De'Aaron Fox SAS · G · 28 SAS +2.1 +2.0 +0.2 +0.2 +2.5 33.1 95.1 24.2 8.3 45.1% 32.8% 74.2% $40.0M $37.1M +$2.9M 40 Paul Reed DET · F · 27 DET +2.1 +0.2 +1.9 +1.6 +2.2 4.5 94.4 25.3 3.6 55.3% 30.7% 66.7% $11.4M $5.3M +$6.1M 41 Derrick White BOS · G · 32 BOS +2.0 +1.0 +1.0 -0.8 +2.7 25.8 93.7 19.7 5.6 40.1% 33.5% 85.4% $41.8M $28.1M +$13.7M 42 Steven Adams HOU · C · 33 HOU +2.0 -1.3 +3.3 +0.8 +2.1 14.9 94.0 15.1 2.8 49.3% 18.2% 51.0% $12.4M $14.1M -$1.8M 43 Jalen Duren DET · C · 22 DET +2.0 +1.0 +1.0 +0.9 +2.4 20.4 94.1 22.8 3.6 63.1% 17.8% 67.9% $33.7M $6.5M +$27.2M 44 Onyeka Okongwu ATL · F-C · 25 ATL +2.0 +0.6 +1.4 +1.8 +2.0 21.6 96.7 18.2 3.5 48.5% 34.9% 73.0% $37.5M $15.0M +$22.5M 45 Stephon Castle SAS · G · 21 SAS +2.0 +1.8 +0.2 +1.5 +2.1 33.9 94.5 25.5 9.7 44.6% 32.5% 74.7% $39.7M $9.6M +$30.2M 46 Sandro Mamukelashvili TOR · F-C · 27 TOR +1.9 +1.0 +0.9 +2.0 +1.8 9.9 94.6 21.1 3.2 47.8% 34.2% 70.3% $19.3M $2.5M +$16.8M 47 Julian Champagnie SAS · F · 24 SAS +1.8 +1.1 +0.7 +0.6 +2.5 31.0 94.6 17.7 1.9 40.8% 37.7% 82.2% $34.4M $3.0M +$31.4M 48 Cason Wallace OKC · G · 22 OKC +1.8 +0.1 +1.7 +2.1 +1.6 14.3 94.5 16.0 4.1 42.7% 35.7% 78.8% $27.3M $5.8M +$21.5M 49 Jalen Williams OKC · G-F · 25 OKC +1.8 +1.7 +0.1 +0.8 +2.1 23.3 95.3 27.4 7.6 46.7% 33.4% 77.6% $25.5M $6.6M +$18.9M 50 Jalen Suggs ORL · G · 25 ORL +1.7 -0.0 +1.7 -0.0 +2.5 22.8 94.9 18.8 7.2 40.7% 32.7% 81.4% $36.3M $35.0M +$1.3M ‹ 1–50 of 530 › $ Value is DARKO's fair-salary estimate. See how it is calculated → Distribution DPM Offense Defense Box DPM On/Off DPM MPG Pace Pts/100 Ast/100 FG% 3P% FT% i Mean -0.49 Median -0.69 Top 10% +3.05 Players 530 @kmedved | www.darko.app | @anpatt7 Top DPM by Position i Guards Forwards Centers 1st +5.8 Gilgeous-Alexander OKC · G 2nd +4.8 Doncic LAL · G 3rd +4.2 Edwards MIN · G 4 Donovan Mitchell CLE · G +4.2 5 Cade Cunningham DET · G +3.9 # Player Pos DPM 1 Shai Gilgeous-Alexander G +5.8 2 Luka Doncic G +4.8 3 Anthony Edwards G +4.2 4 Donovan Mitchell G +4.2 5 Cade Cunningham G +3.9 Regulars: 18+ MPG and 41+ games this season Top DPM by Experience i Rookies Sophomores 3rd Year 1st +1.6 Harper SAS · G 2nd +0.8 Murray-Boyles TOR · F 3rd +0.0 Knueppel CHA · F 4 Cooper Flagg DAL · F -0.1 5 Cedric Coward MEM · G -0.3 # Player Pos DPM 1 Dylan Harper G +1.6 2 Collin Murray-Boyles F +0.8 3 Kon Knueppel F +0.0 4 Cooper Flagg F -0.1 5 Cedric Coward G -0.3 Regulars: 18+ MPG and 41+ games this season",
+      "links": [
+        {
+          "text": "About",
+          "href": "/about"
+        },
+        {
+          "text": "About",
+          "href": "/about"
+        },
+        {
+          "text": "See how it is calculated →",
+          "href": "/about/fair-salary"
+        }
+      ]
+    },
+    {
+      "key": "darko_history",
+      "url": "https://www.darko.app/?asof=2025-04-13",
+      "retrieved_at": "2026-10-12T06:51:41.380371+00:00",
+      "status": 200,
+      "final_url": "https://www.darko.app/?asof=2025-04-13",
+      "bytes": 426312,
+      "sha256": "cb2d33ec768ab7cd945be05a0a2170da0da8d3b37d842b6519c0182f5d8481e1",
+      "visible_excerpt": "DARKO DPM — NBA Player Projections Skip to content DARKO DPM Active Leaderboard Active Leaderboard Career Trajectories Teams Standings WOWY RAPM Lineups Roster Lab Fantasy Lab More What's new 22 Rewind Longevity Scatterplot Compare Rate a Player Use DARKO in an assistant About Display View Modern Shiny Theme ⚫ ⚪ Font Inter Roboto Lato Open Sans Source Sans Nunito Sans Work Sans Raleway Outfit Jakarta Sans Space Grotesk System Ask DARKO Time Machine Time Machine Today Drag back to any week since 1996-97 Timeline Rewind What's new 22 Active Leaderboard Career Trajectories Teams Standings WOWY RAPM Lineups Roster Lab Fantasy Lab Rewind Longevity Scatterplot Compare Rate a Player Use DARKO in an",
+      "links": [
+        {
+          "text": "WOWY RAPM",
+          "href": "/wowy"
+        },
+        {
+          "text": "WOWY RAPM",
+          "href": "/wowy"
+        },
+        {
+          "text": "Giannis Antetokounmpo MIL",
+          "href": "/player/203507?asof=2025-04-13"
+        },
+        {
+          "text": "Shai Gilgeous-Alexander OKC",
+          "href": "/player/1628983?asof=2025-04-13"
+        },
+        {
+          "text": "Rudy Gobert MIN",
+          "href": "/player/203497?asof=2025-04-13"
+        },
+        {
+          "text": "Grayson Allen PHX",
+          "href": "/player/1628960?asof=2025-04-13"
+        },
+        {
+          "text": "Stephen Curry GSW",
+          "href": "/player/201939?asof=2025-04-13"
+        },
+        {
+          "text": "Giannis Antetokounmpo MIL · F-G · 30",
+          "href": "/player/203507?asof=2025-04-13"
+        },
+        {
+          "text": "Nikola Jokic DEN · C-F · 30",
+          "href": "/player/203999?asof=2025-04-13"
+        },
+        {
+          "text": "Shai Gilgeous-Alexander OKC · G · 26",
+          "href": "/player/1628983?asof=2025-04-13"
+        },
+        {
+          "text": "Luka Doncic LAL · G · 26",
+          "href": "/player/1629029?asof=2025-04-13"
+        },
+        {
+          "text": "Jayson Tatum BOS · F · 27",
+          "href": "/player/1628369?asof=2025-04-13"
+        },
+        {
+          "text": "Victor Wembanyama SAS · F-C · 21",
+          "href": "/player/1641705?asof=2025-04-13"
+        },
+        {
+          "text": "Kawhi Leonard LAC · F · 33",
+          "href": "/player/202695?asof=2025-04-13"
+        },
+        {
+          "text": "Donovan Mitchell CLE · G · 28",
+          "href": "/player/1628378?asof=2025-04-13"
+        },
+        {
+          "text": "James Harden LAC · G · 35",
+          "href": "/player/201935?asof=2025-04-13"
+        },
+        {
+          "text": "Stephen Curry GSW · G · 37",
+          "href": "/player/201939?asof=2025-04-13"
+        },
+        {
+          "text": "Anthony Edwards MIN · G · 23",
+          "href": "/player/1630162?asof=2025-04-13"
+        },
+        {
+          "text": "Joel Embiid PHI · C-F · 31",
+          "href": "/player/203954?asof=2025-04-13"
+        },
+        {
+          "text": "Rudy Gobert MIN · C · 32",
+          "href": "/player/203497?asof=2025-04-13"
+        },
+        {
+          "text": "Anthony Davis DAL · F-C · 32",
+          "href": "/player/203076?asof=2025-04-13"
+        },
+        {
+          "text": "Evan Mobley CLE · C · 23",
+          "href": "/player/1630596?asof=2025-04-13"
+        },
+        {
+          "text": "Ivica Zubac LAC · C · 28",
+          "href": "/player/1627826?asof=2025-04-13"
+        },
+        {
+          "text": "Chet Holmgren OKC · C-F · 22",
+          "href": "/player/1631096?asof=2025-04-13"
+        },
+        {
+          "text": "Jimmy Butler GSW · G-F · 35",
+          "href": "/player/202710?asof=2025-04-13"
+        },
+        {
+          "text": "Karl-Anthony Towns NYK · C-F · 29",
+          "href": "/player/1626157?asof=2025-04-13"
+        },
+        {
+          "text": "Jarrett Allen CLE · C · 26",
+          "href": "/player/1628386?asof=2025-04-13"
+        },
+        {
+          "text": "Jaren Jackson Jr. MEM · F · 25",
+          "href": "/player/1628991?asof=2025-04-13"
+        },
+        {
+          "text": "Jalen Brunson NYK · G · 28",
+          "href": "/player/1628973?asof=2025-04-13"
+        },
+        {
+          "text": "Ja Morant MEM · G · 25",
+          "href": "/player/1629630?asof=2025-04-13"
+        },
+        {
+          "text": "Franz Wagner ORL · F · 23",
+          "href": "/player/1630532?asof=2025-04-13"
+        },
+        {
+          "text": "Jalen Williams OKC · G-F · 23",
+          "href": "/player/1631114?asof=2025-04-13"
+        },
+        {
+          "text": "Amen Thompson HOU · G-F · 22",
+          "href": "/player/1641708?asof=2025-04-13"
+        },
+        {
+          "text": "Tyrese Haliburton IND · G · 25",
+          "href": "/player/1630169?asof=2025-04-13"
+        },
+        {
+          "text": "Kyrie Irving DAL · G · 33",
+          "href": "/player/202681?asof=2025-04-13"
+        },
+        {
+          "text": "Derrick White BOS · G · 30",
+          "href": "/player/1628401?asof=2025-04-13"
+        },
+        {
+          "text": "LeBron James LAL · F-G · 40",
+          "href": "/player/2544?asof=2025-04-13"
+        },
+        {
+          "text": "Kristaps Porzingis BOS · F-C · 29",
+          "href": "/player/204001?asof=2025-04-13"
+        },
+        {
+          "text": "Aaron Gordon DEN · F · 29",
+          "href": "/player/203932?asof=2025-04-13"
+        },
+        {
+          "text": "Isaiah Hartenstein OKC · F-C · 26",
+          "href": "/player/1628392?asof=2025-04-13"
+        },
+        {
+          "text": "Jakob Poeltl TOR · C · 29",
+          "href": "/player/1627751?asof=2025-04-13"
+        },
+        {
+          "text": "Alex Caruso OKC · G · 31",
+          "href": "/player/1627936?asof=2025-04-13"
+        },
+        {
+          "text": "Myles Turner IND · C-F · 29",
+          "href": "/player/1626167?asof=2025-04-13"
+        },
+        {
+          "text": "Kevin Durant PHX · F-G · 36",
+          "href": "/player/201142?asof=2025-04-13"
+        },
+        {
+          "text": "OG Anunoby NYK · F · 27",
+          "href": "/player/1628384?asof=2025-04-13"
+        },
+        {
+          "text": "Jaylen Brown BOS · F · 28",
+          "href": "/player/1627759?asof=2025-04-13"
+        },
+        {
+          "text": "Pascal Siakam IND · F · 31",
+          "href": "/player/1627783?asof=2025-04-13"
+        },
+        {
+          "text": "Paul George PHI · F · 34",
+          "href": "/player/202331?asof=2025-04-13"
+        },
+        {
+          "text": "Mitchell Robinson NYK · C · 27",
+          "href": "/player/1629011?asof=2025-04-13"
+        },
+        {
+          "text": "Darius Garland CLE · G · 25",
+          "href": "/player/1629636?asof=2025-04-13"
+        }
+      ]
+    },
+    {
+      "key": "darko_about",
+      "url": "https://www.darko.app/about",
+      "retrieved_at": "2026-10-12T06:51:41.380371+00:00",
+      "status": 200,
+      "final_url": "https://www.darko.app/about",
+      "bytes": 196131,
+      "sha256": "45244f5017af434d3c0ace76015b76c6c15293efd3560e6bfcea2cf4beb34fdf",
+      "visible_excerpt": "What is DARKO? — DARKO DPM Skip to content DARKO DPM About Active Leaderboard Career Trajectories Teams Standings WOWY RAPM Lineups Roster Lab Fantasy Lab More What's new 22 Rewind Longevity Scatterplot Compare Rate a Player Use DARKO in an assistant About Display View Modern Shiny Theme ⚫ ⚪ Font Inter Roboto Lato Open Sans Source Sans Nunito Sans Work Sans Raleway Outfit Jakarta Sans Space Grotesk System Ask DARKO Time Machine Time Machine Today Drag back to any week since 1996-97 Timeline Rewind What's new 22 Active Leaderboard Career Trajectories Teams Standings WOWY RAPM Lineups Roster Lab Fantasy Lab Rewind Longevity Scatterplot Compare Rate a Player Use DARKO in an assistant About Mode",
+      "links": [
+        {
+          "text": "WOWY RAPM",
+          "href": "/wowy"
+        },
+        {
+          "text": "WOWY RAPM",
+          "href": "/wowy"
+        },
+        {
+          "text": "HoopsHype's survey of NBA team staff",
+          "href": "https://www.hoopshype.com/story/sports/nba/2021/09/17/advanced-stats-nba-real-plus-minus-rapm-win-shares-analytics/75615174007/"
+        },
+        {
+          "text": "1 Every game Box scores, tracking data and play-by-play, since 1996-97.",
+          "href": "#model-inputs"
+        },
+        {
+          "text": "5 DPM The projections become Box DPM; adding on-off data makes DPM.",
+          "href": "#box-to-dpm"
+        },
+        {
+          "text": "aging studies very difficult to carry out in sports data",
+          "href": "http://blog.philbirnbaum.com/2019/11/why-you-cant-calculate-aging.html"
+        },
+        {
+          "text": "HoopsHype's survey of NBA team staff",
+          "href": "https://www.hoopshype.com/story/sports/nba/2021/09/17/advanced-stats-nba-real-plus-minus-rapm-win-shares-analytics/75615174007/"
+        },
+        {
+          "text": "Active Leaderboard Every player's DPM today, with filters, column sets, views yo",
+          "href": "/"
+        },
+        {
+          "text": "WOWY RAPM Impact from with-or-without data, built the same way back to 1956-57.",
+          "href": "/wowy"
+        },
+        {
+          "text": "LEBRON",
+          "href": "https://www.bball-index.com/lebron-introduction/"
+        },
+        {
+          "text": "BPM",
+          "href": "https://www.basketball-reference.com/about/bpm.html"
+        },
+        {
+          "text": "matchups",
+          "href": "https://fansided.com/2018/04/19/nylon-calculus-nba-matchup-data-defensive-roles/"
+        }
+      ]
+    },
+    {
+      "key": "rapm_six",
+      "url": "https://nbarapm.com/datasets/six_factor",
+      "retrieved_at": "2026-10-12T06:51:41.380371+00:00",
+      "status": 200,
+      "final_url": "https://nbarapm.com/datasets/six_factor",
+      "bytes": 589188,
+      "sha256": "5306591b59760b94e4a72b98d0525d4d61fe3827b394c6af59d3ea617d9624e5",
+      "visible_excerpt": "Six-Factor RAPM | nbarapm RAPM Top 100 Timedecay RAPM RAPM › RK PLAYER RAPM 01 Nikola Jokic +9.9 02 Victor Wembanyama +8.8 03 Giannis Antetokounmpo +7.3 04 Shai Gilgeous-Alexander +7.1 05 Kawhi Leonard +6.2 06 Chet Holmgren +5.9 07 Steven Adams +5.6 08 Franz Wagner +5.1 09 Stephen Curry +4.9 10 Joel Embiid +4.8 11 Donovan Mitchell +4.7 12 Bam Adebayo +4.6 13 Isaiah Hartenstein +4.6 14 Rudy Gobert +4.3 15 Kyrie Irving +4.3 16 Neemias Queta +4.2 17 Alex Caruso +4.2 18 Lauri Markkanen +4.0 19 Ajay Mitchell +4.0 20 Jayson Tatum +4.0 21 Devin Booker +3.9 22 Luka Doncic +3.9 23 Derrick White +3.8 24 Jarrett Allen +3.8 25 Ausar Thompson +3.7 26 Dylan Harper +3.7 27 Dereck Lively II +3.7 28 Jrue Hol",
+      "links": [
+        {
+          "text": "nba rapm",
+          "href": "https://www.nbarapm.com"
+        },
+        {
+          "text": "",
+          "href": "https://x.com/databallr"
+        },
+        {
+          "text": "Full Rankings",
+          "href": "/datasets/comp"
+        },
+        {
+          "text": "Big Board",
+          "href": "/datasets/nba"
+        },
+        {
+          "text": "Full Rankings",
+          "href": "/datasets/comp"
+        },
+        {
+          "text": "@bballindex - LEBRON",
+          "href": "https://bball-index.com"
+        },
+        {
+          "text": "methodology",
+          "href": "https://www.teemohoop.com/mamba/Blog%20Post%20Title%20One-mm8gk-cy9wh"
+        },
+        {
+          "text": "Full MAMBA history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "methodology",
+          "href": "https://apanalytics.shinyapps.io/DARKO/"
+        },
+        {
+          "text": "Full DARKO history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Full RAPTOR history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Full LEBRON history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Full LAKER history for all players",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "rapm",
+          "href": "#rapm"
+        },
+        {
+          "text": "six-factor rapm",
+          "href": "#six-factor"
+        },
+        {
+          "text": "lebron",
+          "href": "#lebron_gloss"
+        },
+        {
+          "text": "bball index LEBRON introduction",
+          "href": "https://www.bball-index.com/lebron-introduction/"
+        },
+        {
+          "text": "Top Career RAPMs of databall era",
+          "href": "/datasets/LifetimeRAPM"
+        },
+        {
+          "text": "Top 300 Playoff Scorers of the modern era (1997+)",
+          "href": "/datasets/playoffs_two"
+        },
+        {
+          "text": "NBA Big Board",
+          "href": "/datasets/nba"
+        },
+        {
+          "text": "Current Impact",
+          "href": "/datasets/comp"
+        },
+        {
+          "text": "TimeDecay RAPM",
+          "href": "/datasets/timedecay"
+        },
+        {
+          "text": "Peak Leaderboards",
+          "href": "/datasets/RAPMPeaks"
+        },
+        {
+          "text": "Metric History",
+          "href": "/datasets/MetricHistory"
+        },
+        {
+          "text": "Six Factor RAPM",
+          "href": "/datasets/six_factor"
+        },
+        {
+          "text": "LEBRON",
+          "href": "https://bball-index.com"
+        },
+        {
+          "text": "LeBron James",
+          "href": "/player/LeBron_James"
+        },
+        {
+          "text": "LEBRON by BBall-Index",
+          "href": "https://www.bball-index.com"
+        },
+        {
+          "text": "Peak 5Y",
+          "href": "/datasets/RAPMPeaks/peak-5y-rapm"
+        },
+        {
+          "text": "Peak 4Y",
+          "href": "/datasets/RAPMPeaks/peak-4y-rapm"
+        },
+        {
+          "text": "Peak 3Y",
+          "href": "/datasets/RAPMPeaks/peak-3y-rapm"
+        },
+        {
+          "text": "Peak 2Y",
+          "href": "/datasets/RAPMPeaks/peak-2y-rapm"
+        },
+        {
+          "text": "Peak LAKER",
+          "href": "/datasets/RAPMPeaks/peak-laker"
+        },
+        {
+          "text": "Peak DARKO",
+          "href": "/datasets/RAPMPeaks/peak-darko"
+        },
+        {
+          "text": "Peak LEBRON",
+          "href": "/datasets/RAPMPeaks/peak-lebron"
+        },
+        {
+          "text": "Peak RAPTOR",
+          "href": "/datasets/RAPMPeaks/peak-raptor"
+        },
+        {
+          "text": "2020s RAPM",
+          "href": "/datasets/RAPMPeaks/2020s-rapm"
+        },
+        {
+          "text": "2010s RAPM",
+          "href": "/datasets/RAPMPeaks/2010s-rapm"
+        },
+        {
+          "text": "2000s RAPM",
+          "href": "/datasets/RAPMPeaks/2000s-rapm"
+        },
+        {
+          "text": "",
+          "href": "https://x.com/databallr"
+        },
+        {
+          "text": "Datasets",
+          "href": "/datasets"
+        },
+        {
+          "text": "Time-Decay RAPM",
+          "href": "/datasets/timedecay"
+        },
+        {
+          "text": "databallr.com",
+          "href": "https://databallr.com"
+        },
+        {
+          "text": "databallr@gmail.com",
+          "href": "mailto:databallr@gmail.com"
+        },
+        {
+          "text": "↗ View full peak leaderboard",
+          "href": "/datasets/RAPMPeaks"
+        }
+      ]
+    },
+    {
+      "key": "lebron_rows",
+      "url": "https://nbarapm.com/search/lebron?allow_empty=1&player_name=Cade%20Cunningham",
+      "retrieved_at": "2026-10-12T06:44:44.813875+00:00",
+      "status": 200,
+      "final_url": "https://nbarapm.com/search/lebron?allow_empty=1&player_name=Cade%20Cunningham",
+      "sha256": "dc2f3896b98e049ed0e303bb22e8123bdfd205a9eff0cebdfe5f14623a542d58",
+      "data_preview": "[{'player_name': 'cade cunningham', 'Season': '2021-22', 'LEBRON': -2.2044582103861368, 'O-LEBRON': -1.4009096536844332, 'D-LEBRON': -0.8035485567017036, 'LEBRON_Rank': 546, 'O_LEBRON_Rank': 502, 'D_LEBRON_Rank': 503, 'year': 2022, 'Minutes': 2088.15, 'nba_id': '1630595'}, {'player_name': 'cade cunningham', 'Season': '2022-23', 'LEBRON': 0.3613010065354417, 'O-LEBRON': 0.5472986859923497, 'D-LEBRON': -0.1859976794569079, 'LEBRON_Rank': 115, 'O_LEBRON_Rank': 84, 'D_LEBRON_Rank': 282, 'year': 2023, 'Minutes': 400.2, 'nba_id': '1630595'}, {'player_name': 'cade cunningham', 'Season': '2023-24', 'LEBRON': -0.2404491024527638, 'O-LEBRON': 0.7569434766729868, 'D-LEBRON': -0.9973925791257507, 'LEBRON_Rank': 183, 'O_LEBRON_Rank': 74, 'D_LEBRON_Rank': 512, 'year': 2024, 'Minutes': 2074.18333333333, 'nba_id': '1630595'}, {'player_name': 'cade cunningham', 'Season': '2024-25', 'LEBRON': 1.564152346, 'O-LEBRON': 1.669942001, 'D-LEBRON': -0.105789655, 'LEBRON_Rank': 64, 'O_LEBRON_Rank': 39, 'D_LEBRON_Rank': 276, 'year': 2025, 'Minutes': 2451.94666666667, 'nba_id': '1630595'}, {'player_name': 'cade cunningham', 'Season': '2025-26', 'LEBRON': 5.382999422, 'O-LEBRON': 4.103547394, 'D-LEBRON': 1.279452028, 'LEBRON_Rank': 4, 'O_LEBRON_Rank': 8, 'D_LEBRON_Rank': 47, 'year': 2026, 'Minutes': 2171.45, 'nba_id': '1630595'}]"
+    },
+    {
+      "key": "darko_rows",
+      "url": "https://nbarapm.com/search/darko?allow_empty=1&player_name=Cade%20Cunningham",
+      "retrieved_at": "2026-10-12T06:44:44.813875+00:00",
+      "status": 200,
+      "final_url": "https://nbarapm.com/search/darko?allow_empty=1&player_name=Cade%20Cunningham",
+      "sha256": "dfeb78c07ee1122ef8a9f916e39201340f96b6df1b9f92ea03d72e3be5393a2c",
+      "data_preview": "[{'nba_id': '1630595', 'player_name': 'Cade Cunningham', 'season': 2022, 'age': 20.5, 'tm_id': 1610612765, 'team_name': 'Detroit Pistons', 'dpm': -0.86, 'o_dpm': -0.27, 'd_dpm': -0.59, 'box_odpm': -0.49, 'box_ddpm': -0.76, 'on_off_odpm': 0.25, 'on_off_ddpm': -0.34, 'dpm_rank': 274, 'o_dpm_rank': 187, 'd_dpm_rank': 455}, {'nba_id': '1630595', 'player_name': 'Cade Cunningham', 'season': 2023, 'age': 21.5, 'tm_id': 1610612765, 'team_name': 'Detroit Pistons', 'dpm': -0.83, 'o_dpm': -0.05, 'd_dpm': -0.77, 'box_odpm': -0.37, 'box_ddpm': -0.69, 'on_off_odpm': 0.57, 'on_off_ddpm': -0.87, 'dpm_rank': 252, 'o_dpm_rank': 145, 'd_dpm_rank': 435}, {'nba_id': '1630595', 'player_name': 'Cade Cunningham', 'season': 2024, 'age': 22.6, 'tm_id': 1610612765, 'team_name': 'Detroit Pistons', 'dpm': 0.24, 'o_dpm': 1.57, 'd_dpm': -1.33, 'box_odpm': 1.82, 'box_ddpm': -1, 'on_off_odpm': 1.29, 'on_off_ddpm': -1.53, 'dpm_rank': 152, 'o_dpm_rank': 41, 'd_dpm_rank': 566}, {'nba_id': '1630595', 'player_name': 'Cade Cunningham', 'season': 2025, 'age': 23.6, 'tm_id': 1610612765, 'team_name': 'Detroit Pistons', 'dpm': 1.41, 'o_dpm': 1.87, 'd_dpm': -0.46, 'box_odpm': 1.21, 'box_ddpm': -0.9, 'on_off_odpm': 2.31, 'on_off_ddpm': -0.28, 'dpm_rank': 72, 'o_dpm_rank': 39, 'd_dpm_rank': 377}, {'nba_id': '1630595', 'player_name': 'Cade Cunningham', 'season': 2026, 'age': 24.7, 'tm_id': -999, 'team_name': '', 'dpm': 3.64, 'o_dpm': 3.26, 'd_dpm': 0.38, 'box_odpm': 1.85, 'box_ddpm': -0.15, 'on_off_odpm': 3.94, 'on_off_ddpm': 0.53, 'dpm_rank': 8, 'o_dpm_rank': 14, 'd_dpm_rank': 189}]"
+    },
+    {
+      "url": "https://dunksandthrees.com/epm/actual?season=2025",
+      "status": 405,
+      "final_url": "https://dunksandthrees.com/subscribe?reason=locked-season",
+      "retrieved_at": "2026-10-12T06:42:19.350511+00:00",
+      "sha256": "e276f848e53d67ee5ddb00284ccd49fe82af828bac5ff921217ac358bf4b698f"
+    },
+    {
+      "key": "lebron_primary",
+      "url": "https://www.bball-index.com/lebron-introduction/",
+      "retrieved_at": "2026-10-12T06:53:46.811414+00:00",
+      "error": "HTTPSConnectionPool(host='www.bball-index.com', port=443): Read timed out. (read timeout=25)"
+    }
+  ],
+  "included_families": [
+    "BREF",
+    "LEBRON",
+    "DARKO"
+  ],
+  "excluded": [
+    {
+      "family": "EPM",
+      "reason": "Historical actual endpoint redirected to subscribe?reason=locked-season; no matched value imported."
+    },
+    {
+      "family": "RAPM",
+      "reason": "2025 1Y decomposition row has 11234 possessions; regular-season offense/defense totals do not match. Competition scope of source _all_ is unresolved; not imported."
+    },
+    {
+      "family": "DRIP/CPM/relay DARKO",
+      "reason": "Exact historical snapshot cutoff/model revision unavailable; current and mixed-season values not substituted."
+    }
+  ],
+  "epm_value_imported": false,
+  "rapm_value_imported": false,
+  "primary_lebron_verified": false,
+  "new_nba_requests": 0
+}

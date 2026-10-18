@@ -1,0 +1,1106 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2026-10-14T08:29:16+00:00",
+  "data_kind": "nba",
+  "request": {
+    "player": null,
+    "player_id": 1629029,
+    "season": "2024-25",
+    "season_type": "Regular Season",
+    "team_id": 1610612747,
+    "target_team_id": null,
+    "question": "Comprehensive player evaluation and tactical fit",
+    "words": 2500,
+    "input_mode": "import"
+  },
+  "player": {
+    "id": 1629029,
+    "name": "Luka Dončić",
+    "reported_team_id": 1610612747
+  },
+  "sample": {
+    "season": "2024-25",
+    "season_type": "Regular Season",
+    "GP": 28.0,
+    "MIN": 984.0,
+    "player_team_id": 1610612747
+  },
+  "target_team": {
+    "id": 1610612747,
+    "name": "Los Angeles Lakers",
+    "hypothetical": false
+  },
+  "quality": {
+    "mode": "core",
+    "metrics_available": 53,
+    "metrics_missing": 8,
+    "warnings": [
+      "Sumitro v56 historical BR regular-season snapshot; shares upstream with deocheng, not independent corroboration.",
+      "These required raw tables are absent; no proxies or zero fill"
+    ]
+  },
+  "metrics": [
+    {
+      "metric_id": "GP",
+      "label": "出场场数",
+      "value": 28.0,
+      "display": "28",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "player_base.GP",
+      "reason": ""
+    },
+    {
+      "metric_id": "MIN",
+      "label": "总出场分钟",
+      "value": 984.0,
+      "display": "984.00",
+      "unit": "minutes",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "player_base.MIN",
+      "reason": ""
+    },
+    {
+      "metric_id": "FGA",
+      "label": "投篮出手总数",
+      "value": 559.0,
+      "display": "559",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "player_base.FGA",
+      "reason": ""
+    },
+    {
+      "metric_id": "FG3A",
+      "label": "三分出手总数",
+      "value": 269.0,
+      "display": "269",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "player_base.FG3A",
+      "reason": ""
+    },
+    {
+      "metric_id": "FTA",
+      "label": "罚球出手总数",
+      "value": 249.0,
+      "display": "249",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "player_base.FTA",
+      "reason": ""
+    },
+    {
+      "metric_id": "PTS_PER_GAME",
+      "label": "场均得分",
+      "value": 28.178571428571427,
+      "display": "28.18",
+      "unit": "per_game",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "PTS / GP",
+      "reason": ""
+    },
+    {
+      "metric_id": "MIN_PER_GAME",
+      "label": "场均分钟",
+      "value": 35.142857142857146,
+      "display": "35.14",
+      "unit": "per_game",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "MIN / GP",
+      "reason": ""
+    },
+    {
+      "metric_id": "REB_PER_GAME",
+      "label": "场均篮板",
+      "value": 8.071428571428571,
+      "display": "8.07",
+      "unit": "per_game",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "REB / GP",
+      "reason": ""
+    },
+    {
+      "metric_id": "AST_PER_GAME",
+      "label": "场均助攻",
+      "value": 7.535714285714286,
+      "display": "7.54",
+      "unit": "per_game",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "AST / GP",
+      "reason": ""
+    },
+    {
+      "metric_id": "TOV_PER_GAME",
+      "label": "场均失误",
+      "value": 3.7142857142857144,
+      "display": "3.71",
+      "unit": "per_game",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "TOV / GP",
+      "reason": ""
+    },
+    {
+      "metric_id": "STL_PER_GAME",
+      "label": "场均抢断",
+      "value": 1.6071428571428572,
+      "display": "1.61",
+      "unit": "per_game",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "STL / GP",
+      "reason": ""
+    },
+    {
+      "metric_id": "BLK_PER_GAME",
+      "label": "场均封盖",
+      "value": 0.42857142857142855,
+      "display": "0.43",
+      "unit": "per_game",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "BLK / GP",
+      "reason": ""
+    },
+    {
+      "metric_id": "PF_PER_GAME",
+      "label": "场均犯规",
+      "value": 2.4285714285714284,
+      "display": "2.43",
+      "unit": "per_game",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "PF / GP",
+      "reason": ""
+    },
+    {
+      "metric_id": "TS_PCT",
+      "label": "真实命中率",
+      "value": 0.5900741893023813,
+      "display": "59.0%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "PTS / (2 * (FGA + 0.44 * FTA))",
+      "reason": ""
+    },
+    {
+      "metric_id": "EFG_PCT",
+      "label": "有效命中率",
+      "value": 0.5295169946332737,
+      "display": "53.0%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "(FGM + 0.5*FG3M) / FGA",
+      "reason": ""
+    },
+    {
+      "metric_id": "FG3_PCT",
+      "label": "三分命中率",
+      "value": 0.379182156133829,
+      "display": "37.9%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "FG3M / FG3A",
+      "reason": ""
+    },
+    {
+      "metric_id": "FG3A_RATE",
+      "label": "三分出手占比",
+      "value": 0.481216457960644,
+      "display": "48.1%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "FG3A / FGA",
+      "reason": ""
+    },
+    {
+      "metric_id": "FT_RATE",
+      "label": "罚球出手比（FTA/FGA）",
+      "value": 0.44543828264758495,
+      "display": "0.45",
+      "unit": "ratio",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "FTA / FGA",
+      "reason": ""
+    },
+    {
+      "metric_id": "AST_TOV",
+      "label": "助攻失误比",
+      "value": 2.0288461538461537,
+      "display": "2.03",
+      "unit": "ratio",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE"
+      ],
+      "formula": "AST / TOV",
+      "reason": ""
+    },
+    {
+      "metric_id": "LEAGUE_TS_PCT",
+      "label": "联盟整体真实命中率",
+      "value": 0.5761895378581693,
+      "display": "57.6%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "T_BASE"
+      ],
+      "formula": "sum(team PTS) / (2*(sum(team FGA)+0.44*sum(team FTA)))",
+      "reason": ""
+    },
+    {
+      "metric_id": "RTS_PP",
+      "label": "相对联盟TS（百分点）",
+      "value": 1.3884651444212026,
+      "display": "+1.39 pp",
+      "unit": "percentage_points",
+      "status": "ok",
+      "source_ids": [
+        "P_BASE",
+        "T_BASE"
+      ],
+      "formula": "100 * (TS_PCT - LEAGUE_TS_PCT)",
+      "reason": ""
+    },
+    {
+      "metric_id": "USG_PCT",
+      "label": "使用率（来源值）",
+      "value": 0.345,
+      "display": "34.5%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_ADV"
+      ],
+      "formula": "player_advanced.USG_PCT",
+      "reason": ""
+    },
+    {
+      "metric_id": "AST_PCT",
+      "label": "助攻率（来源值）",
+      "value": 0.35600000000000004,
+      "display": "35.6%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_ADV"
+      ],
+      "formula": "player_advanced.AST_PCT",
+      "reason": ""
+    },
+    {
+      "metric_id": "ONCOURT_OFF_RATING",
+      "label": "在场时球队进攻效率",
+      "value": null,
+      "display": "N/A",
+      "unit": "per100_team",
+      "status": "missing",
+      "source_ids": [
+        "P_ADV"
+      ],
+      "formula": "player_advanced.OFF_RATING",
+      "reason": "player_advanced.OFF_RATING missing or unverified; not inferred from box-score totals."
+    },
+    {
+      "metric_id": "ONCOURT_DEF_RATING",
+      "label": "在场时球队防守效率",
+      "value": null,
+      "display": "N/A",
+      "unit": "per100_team",
+      "status": "missing",
+      "source_ids": [
+        "P_ADV"
+      ],
+      "formula": "player_advanced.DEF_RATING",
+      "reason": "player_advanced.DEF_RATING missing or unverified; not inferred from box-score totals."
+    },
+    {
+      "metric_id": "ONCOURT_NET_RATING",
+      "label": "在场时球队净效率",
+      "value": null,
+      "display": "N/A",
+      "unit": "per100_team",
+      "status": "missing",
+      "source_ids": [
+        "P_ADV"
+      ],
+      "formula": "player_advanced.NET_RATING",
+      "reason": "player_advanced.NET_RATING missing or unverified; not inferred from box-score totals."
+    },
+    {
+      "metric_id": "PTS_PER75",
+      "label": "每75回合得分",
+      "value": 29.549999999999997,
+      "display": "29.55",
+      "unit": "per75",
+      "status": "ok",
+      "source_ids": [
+        "P_100"
+      ],
+      "formula": "player_per100.PTS * 0.75",
+      "reason": ""
+    },
+    {
+      "metric_id": "REB_PER75",
+      "label": "每75回合篮板",
+      "value": 8.475000000000001,
+      "display": "8.48",
+      "unit": "per75",
+      "status": "ok",
+      "source_ids": [
+        "P_100"
+      ],
+      "formula": "player_per100.REB * 0.75",
+      "reason": ""
+    },
+    {
+      "metric_id": "AST_PER75",
+      "label": "每75回合助攻",
+      "value": 7.875,
+      "display": "7.88",
+      "unit": "per75",
+      "status": "ok",
+      "source_ids": [
+        "P_100"
+      ],
+      "formula": "player_per100.AST * 0.75",
+      "reason": ""
+    },
+    {
+      "metric_id": "TOV_PER75",
+      "label": "每75回合失误",
+      "value": 3.9000000000000004,
+      "display": "3.90",
+      "unit": "per75",
+      "status": "ok",
+      "source_ids": [
+        "P_100"
+      ],
+      "formula": "player_per100.TOV * 0.75",
+      "reason": ""
+    },
+    {
+      "metric_id": "PCT_AST_FGM",
+      "label": "命中球受助攻比例",
+      "value": null,
+      "display": "N/A",
+      "unit": "fraction",
+      "status": "missing",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.PCT_AST_FGM",
+      "reason": "player_scoring.PCT_AST_FGM missing or unverified; not inferred from box-score totals."
+    },
+    {
+      "metric_id": "PCT_UAST_FGM",
+      "label": "命中球非受助攻比例",
+      "value": null,
+      "display": "N/A",
+      "unit": "fraction",
+      "status": "missing",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.PCT_UAST_FGM",
+      "reason": "player_scoring.PCT_UAST_FGM missing or unverified; not inferred from box-score totals."
+    },
+    {
+      "metric_id": "PCT_AST_3PM",
+      "label": "三分命中球受助攻比例",
+      "value": 0.412,
+      "display": "41.2%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.PCT_AST_3PM",
+      "reason": ""
+    },
+    {
+      "metric_id": "PCT_AST_2PM",
+      "label": "两分命中受助攻占比",
+      "value": 0.245,
+      "display": "24.5%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.PCT_AST_2PM",
+      "reason": ""
+    },
+    {
+      "metric_id": "AVG_SHOT_DISTANCE_FT",
+      "label": "平均出手距离（英尺）",
+      "value": 17.7,
+      "display": "17.70",
+      "unit": "feet",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.AVG_SHOT_DISTANCE_FT",
+      "reason": ""
+    },
+    {
+      "metric_id": "PCT_FGA_0_3",
+      "label": "0—3英尺出手占比",
+      "value": 0.109,
+      "display": "10.9%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.PCT_FGA_0_3",
+      "reason": ""
+    },
+    {
+      "metric_id": "FG_PCT_0_3",
+      "label": "0—3英尺命中率",
+      "value": 0.721,
+      "display": "72.1%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.FG_PCT_0_3",
+      "reason": ""
+    },
+    {
+      "metric_id": "PCT_FGA_3_10",
+      "label": "3—10英尺出手占比",
+      "value": 0.191,
+      "display": "19.1%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.PCT_FGA_3_10",
+      "reason": ""
+    },
+    {
+      "metric_id": "FG_PCT_3_10",
+      "label": "3—10英尺命中率",
+      "value": 0.514,
+      "display": "51.4%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.FG_PCT_3_10",
+      "reason": ""
+    },
+    {
+      "metric_id": "PCT_FGA_10_16",
+      "label": "10—16英尺出手占比",
+      "value": 0.152,
+      "display": "15.2%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.PCT_FGA_10_16",
+      "reason": ""
+    },
+    {
+      "metric_id": "FG_PCT_10_16",
+      "label": "10—16英尺命中率",
+      "value": 0.4,
+      "display": "40.0%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.FG_PCT_10_16",
+      "reason": ""
+    },
+    {
+      "metric_id": "PCT_FGA_16_3P",
+      "label": "16英尺至三分线出手占比",
+      "value": 0.066,
+      "display": "6.6%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.PCT_FGA_16_3P",
+      "reason": ""
+    },
+    {
+      "metric_id": "FG_PCT_16_3P",
+      "label": "16英尺至三分线命中率",
+      "value": 0.27,
+      "display": "27.0%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.FG_PCT_16_3P",
+      "reason": ""
+    },
+    {
+      "metric_id": "PCT_FGA_3P",
+      "label": "三分出手占比",
+      "value": 0.481,
+      "display": "48.1%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.PCT_FGA_3P",
+      "reason": ""
+    },
+    {
+      "metric_id": "FG_PCT_3P",
+      "label": "三分命中率",
+      "value": 0.379,
+      "display": "37.9%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "formula": "player_scoring.FG_PCT_3P",
+      "reason": ""
+    },
+    {
+      "metric_id": "BR_BAD_PASS_TOV",
+      "label": "传球失误（BR汇总）",
+      "value": 68.0,
+      "display": "68",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "EXT_BR_PBP"
+      ],
+      "formula": "BR provider season summary; residual = total TOV - bad pass - lost ball",
+      "reason": ""
+    },
+    {
+      "metric_id": "BR_LOST_BALL_TOV",
+      "label": "丢球失误（BR汇总）",
+      "value": 28.0,
+      "display": "28",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "EXT_BR_PBP"
+      ],
+      "formula": "BR provider season summary; residual = total TOV - bad pass - lost ball",
+      "reason": ""
+    },
+    {
+      "metric_id": "BR_SHOOTING_FOUL_DRAWN",
+      "label": "制造投篮犯规次数（BR汇总）",
+      "value": 117.0,
+      "display": "117",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "EXT_BR_PBP"
+      ],
+      "formula": "BR provider season summary; residual = total TOV - bad pass - lost ball",
+      "reason": ""
+    },
+    {
+      "metric_id": "BR_OFFENSIVE_FOUL_COMMITTED",
+      "label": "进攻犯规次数（BR汇总）",
+      "value": 3.0,
+      "display": "3",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "EXT_BR_PBP"
+      ],
+      "formula": "BR provider season summary; residual = total TOV - bad pass - lost ball",
+      "reason": ""
+    },
+    {
+      "metric_id": "BR_ASSIST_GENERATED_POINTS",
+      "label": "助攻产生得分（BR汇总）",
+      "value": 514.0,
+      "display": "514",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "EXT_BR_PBP"
+      ],
+      "formula": "BR provider season summary; residual = total TOV - bad pass - lost ball",
+      "reason": ""
+    },
+    {
+      "metric_id": "BR_AND1",
+      "label": "打成加罚次数（BR汇总）",
+      "value": 24.0,
+      "display": "24",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "EXT_BR_PBP"
+      ],
+      "formula": "BR provider season summary; residual = total TOV - bad pass - lost ball",
+      "reason": ""
+    },
+    {
+      "metric_id": "BR_FGA_BLOCKED",
+      "label": "出手被封盖次数（BR汇总）",
+      "value": 19.0,
+      "display": "19",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "EXT_BR_PBP"
+      ],
+      "formula": "BR provider season summary; residual = total TOV - bad pass - lost ball",
+      "reason": ""
+    },
+    {
+      "metric_id": "BR_TOV_TWO_TYPE_RESIDUAL",
+      "label": "总失误减传球与丢球失误（算术差额）",
+      "value": 8.0,
+      "display": "8",
+      "unit": "count",
+      "status": "ok",
+      "source_ids": [
+        "EXT_BR_PBP"
+      ],
+      "formula": "BR provider season summary; residual = total TOV - bad pass - lost ball",
+      "reason": ""
+    },
+    {
+      "metric_id": "TEAM_OFF_RATING",
+      "label": "目标球队进攻效率",
+      "value": 115.9,
+      "display": "115.90",
+      "unit": "per100_team",
+      "status": "ok",
+      "source_ids": [
+        "T_ADV"
+      ],
+      "formula": "team 1610612747: OFF_RATING",
+      "reason": ""
+    },
+    {
+      "metric_id": "TEAM_DEF_RATING",
+      "label": "目标球队防守效率",
+      "value": 114.7,
+      "display": "114.70",
+      "unit": "per100_team",
+      "status": "ok",
+      "source_ids": [
+        "T_ADV"
+      ],
+      "formula": "team 1610612747: DEF_RATING",
+      "reason": ""
+    },
+    {
+      "metric_id": "TEAM_NET_RATING",
+      "label": "目标球队净效率",
+      "value": 1.2,
+      "display": "1.20",
+      "unit": "per100_team",
+      "status": "ok",
+      "source_ids": [
+        "T_ADV"
+      ],
+      "formula": "team 1610612747: NET_RATING",
+      "reason": ""
+    },
+    {
+      "metric_id": "TEAM_PACE",
+      "label": "目标球队节奏",
+      "value": 97.6,
+      "display": "97.60",
+      "unit": "possessions_per48",
+      "status": "ok",
+      "source_ids": [
+        "T_ADV"
+      ],
+      "formula": "team 1610612747: PACE",
+      "reason": ""
+    },
+    {
+      "metric_id": "TEAM_AST_PCT",
+      "label": "目标球队助攻率",
+      "value": null,
+      "display": "N/A",
+      "unit": "fraction",
+      "status": "missing",
+      "source_ids": [
+        "T_ADV"
+      ],
+      "formula": "team 1610612747: AST_PCT",
+      "reason": "Target team advanced data missing."
+    },
+    {
+      "metric_id": "TEAM_FG3A_RATE",
+      "label": "目标球队三分出手占比",
+      "value": 0.42543171114599687,
+      "display": "42.5%",
+      "unit": "fraction",
+      "status": "ok",
+      "source_ids": [
+        "T_BASE"
+      ],
+      "formula": "team 1610612747: FG3A/FGA",
+      "reason": ""
+    },
+    {
+      "metric_id": "ON_OFF_DIFFERENTIAL",
+      "label": "在场减不在场：净效率差（描述性）",
+      "value": null,
+      "display": "N/A",
+      "unit": "not_scored",
+      "status": "missing",
+      "source_ids": [],
+      "formula": "Requires validated On and Off rows",
+      "reason": "Matching reliable On and Off rows are unavailable or rejected. On-court or overall team ratings cannot substitute for Off."
+    },
+    {
+      "metric_id": "DEFENSIVE_ABILITY_SCORE",
+      "label": "个人防守评分（不生成）",
+      "value": null,
+      "display": "N/A",
+      "unit": "not_scored",
+      "status": "missing",
+      "source_ids": [],
+      "formula": "Not implemented",
+      "reason": "No validated individual defensive model; never derive this from steals, blocks, or on-court defensive rating."
+    }
+  ],
+  "evidence_map": {
+    "scoring": {
+      "metric_ids": [
+        "FG3A_RATE",
+        "FT_RATE",
+        "PTS_PER75",
+        "PTS_PER_GAME",
+        "RTS_PP",
+        "TS_PCT",
+        "USG_PCT"
+      ],
+      "boundary": "Volume and efficiency describe performance, not isolation, difficult-shot making, or transferable talent by themselves."
+    },
+    "creation": {
+      "metric_ids": [
+        "AST_PCT",
+        "AST_PER75",
+        "AST_TOV",
+        "TOV_PER75",
+        "USG_PCT"
+      ],
+      "boundary": "Assist output does not establish advantage creation, decision speed, or passing reads; use tracking/actual observations when available."
+    },
+    "off_ball": {
+      "metric_ids": [
+        "FG3A_RATE",
+        "FG3_PCT",
+        "PCT_AST_3PM"
+      ],
+      "boundary": "Assisted made-shot share is NOT the share of all attempts, gravity, cutting quality, or catch-and-shoot efficiency."
+    },
+    "defense": {
+      "metric_ids": [
+        "BLK_PER_GAME",
+        "PF_PER_GAME",
+        "STL_PER_GAME"
+      ],
+      "boundary": "Only event/context description. Individual screen navigation, positioning, effort and matchup ability require observation or stronger data."
+    },
+    "tactical_fit": {
+      "metric_ids": [
+        "AST_PCT",
+        "FG3A_RATE",
+        "TEAM_FG3A_RATE",
+        "TEAM_PACE",
+        "USG_PCT"
+      ],
+      "boundary": "State enabling conditions and conflicts. Pace/assist rate do not prove a named offensive system or causal fit."
+    }
+  },
+  "selected_rows": {
+    "player_base": {
+      "PLAYER_ID": 1629029,
+      "PLAYER_NAME": "Luka Dončić",
+      "TEAM_ID": 1610612747,
+      "TEAM_ABBREVIATION": "LAL",
+      "GP": 28.0,
+      "MIN": 984.0,
+      "PTS": 789.0,
+      "FGM": 245.0,
+      "FGA": 559.0,
+      "FG3M": 102.0,
+      "FG3A": 269.0,
+      "FTM": 197.0,
+      "FTA": 249.0,
+      "OREB": 24.0,
+      "DREB": 202.0,
+      "REB": 226.0,
+      "AST": 211.0,
+      "TOV": 104.0,
+      "STL": 45.0,
+      "BLK": 12.0,
+      "PF": 68.0
+    },
+    "player_advanced": {
+      "PLAYER_ID": 1629029,
+      "PLAYER_NAME": "Luka Dončić",
+      "TEAM_ID": 1610612747,
+      "GP": 28.0,
+      "MIN": 984.0,
+      "USG_PCT": 0.345,
+      "AST_PCT": 0.35600000000000004,
+      "OREB_PCT": 0.027999999999999997,
+      "DREB_PCT": 0.225,
+      "TS_PCT": 0.59
+    },
+    "player_per100": {
+      "PLAYER_ID": 1629029,
+      "PLAYER_NAME": "Luka Dončić",
+      "TEAM_ID": 1610612747,
+      "GP": 28.0,
+      "PTS": 39.4,
+      "AST": 10.5,
+      "REB": 11.3,
+      "TOV": 5.2
+    },
+    "player_scoring": {
+      "PLAYER_ID": 1629029,
+      "PLAYER_NAME": "Luka Dončić",
+      "TEAM_ID": 1610612747,
+      "GP": 28.0,
+      "MIN": 984.0,
+      "FGM": 245.0,
+      "FGA": 559.0,
+      "PCT_AST_2PM": 0.245,
+      "PCT_AST_3PM": 0.412,
+      "AVG_SHOT_DISTANCE_FT": 17.7,
+      "PCT_FGA_0_3": 0.109,
+      "FG_PCT_0_3": 0.721,
+      "PCT_FGA_3_10": 0.191,
+      "FG_PCT_3_10": 0.514,
+      "PCT_FGA_10_16": 0.152,
+      "FG_PCT_10_16": 0.4,
+      "PCT_FGA_16_3P": 0.066,
+      "FG_PCT_16_3P": 0.27,
+      "PCT_FGA_3P": 0.481,
+      "FG_PCT_3P": 0.379
+    }
+  },
+  "shot_context": null,
+  "sources": {
+    "P_BASE": {
+      "provider": "Basketball Reference via Kaggle / Sumitro Datta",
+      "url": "https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats",
+      "retrieved_at": "2026-10-14T08:10:15.810077+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "source_type": "kaggle_data",
+      "adapter": "sumitro-v56",
+      "dataset_version": 56,
+      "dataset_snapshot_date": "2026-04-13",
+      "original_csv": "Player Totals.csv",
+      "sha256_csv": "1c081cd7f9c694755ea2210c3426e709540afedc31c1bf781456f3df4b7582b2",
+      "row_count": 1,
+      "sha256_rows": "0ffab34a0d309d82cf91790f6358d222d9abcab36afdce9ee14d0d51d507f9fd",
+      "upstream_url": "https://www.basketball-reference.com/",
+      "raw_file": "raw/sumitro_selection.json",
+      "sha256_raw": "2dbd60475d6a3580351d85bf01efe49afa3d4bbdfd6e6cad73afcafa3d5ecc24",
+      "usage": "BR totals; selected player sample; original source is Kaggle, not NBA Stats."
+    },
+    "P_ADV": {
+      "provider": "Basketball Reference via Kaggle / Sumitro Datta",
+      "url": "https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats",
+      "retrieved_at": "2026-10-14T08:10:15.703795+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "source_type": "kaggle_data",
+      "adapter": "sumitro-v56",
+      "dataset_version": 56,
+      "dataset_snapshot_date": "2026-04-13",
+      "original_csv": "Advanced.csv",
+      "sha256_csv": "e1616ffe7759c22b014cbbb7c7ce10a591615e7ef1e08cc0dba4d2a02872948d",
+      "row_count": 1,
+      "sha256_rows": "38ee06fe02764d2e9d702393255c60a62c43afe5c9385a4de4336f1ba943754f",
+      "upstream_url": "https://www.basketball-reference.com/",
+      "raw_file": "raw/sumitro_selection.json",
+      "sha256_raw": "2dbd60475d6a3580351d85bf01efe49afa3d4bbdfd6e6cad73afcafa3d5ecc24",
+      "usage": "BR definitions and rounding; individual ORtg/DRtg omitted; assisted shares use made 2P/3P denominators."
+    },
+    "P_100": {
+      "provider": "Basketball Reference via Kaggle / Sumitro Datta",
+      "url": "https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats",
+      "retrieved_at": "2026-10-14T08:10:15.732052+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Per100Possessions",
+      "status": "ok",
+      "source_type": "kaggle_data",
+      "adapter": "sumitro-v56",
+      "dataset_version": 56,
+      "dataset_snapshot_date": "2026-04-13",
+      "original_csv": "Per 100 Poss.csv",
+      "sha256_csv": "c132dc9b958e213d05e1c93fe5cf2b656a613626479b3f3fc4a88e0037a7e175",
+      "row_count": 1,
+      "sha256_rows": "a360965e5c8a875af2cbf4d7a87f70e3d5b1c8416850400631656d52fbab7dc1",
+      "upstream_url": "https://www.basketball-reference.com/",
+      "raw_file": "raw/sumitro_selection.json",
+      "sha256_raw": "2dbd60475d6a3580351d85bf01efe49afa3d4bbdfd6e6cad73afcafa3d5ecc24",
+      "usage": "BR definitions and rounding; individual ORtg/DRtg omitted; assisted shares use made 2P/3P denominators."
+    },
+    "P_SCORE": {
+      "provider": "Basketball Reference via Kaggle / Sumitro Datta",
+      "url": "https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats",
+      "retrieved_at": "2026-10-14T08:10:15.792610+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "source_type": "kaggle_data",
+      "adapter": "sumitro-v56",
+      "dataset_version": 56,
+      "dataset_snapshot_date": "2026-04-13",
+      "original_csv": "Player Shooting.csv",
+      "sha256_csv": "3a85c8eeee4edd009cede50347dddf880da9df241195f0977dddec0914f6c827",
+      "row_count": 1,
+      "sha256_rows": "013083e130405fdfe42eba0df4eafacd93e9baedb10e5d084aa9f28c99148760",
+      "upstream_url": "https://www.basketball-reference.com/",
+      "raw_file": "raw/sumitro_selection.json",
+      "sha256_raw": "2dbd60475d6a3580351d85bf01efe49afa3d4bbdfd6e6cad73afcafa3d5ecc24",
+      "usage": "BR definitions and rounding; individual ORtg/DRtg omitted; assisted shares use made 2P/3P denominators."
+    },
+    "T_BASE": {
+      "provider": "Basketball Reference via Kaggle / Sumitro Datta",
+      "url": "https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats",
+      "retrieved_at": "2026-10-14T08:10:15.816588+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "source_type": "kaggle_data",
+      "adapter": "sumitro-v56",
+      "dataset_version": 56,
+      "dataset_snapshot_date": "2026-04-13",
+      "original_csv": "Team Totals.csv",
+      "sha256_csv": "0e408f0ae6d0feee45b40b74032610ca8aff76b69d5253ed0bb45e39e945f0bf",
+      "row_count": 30,
+      "sha256_rows": "fe7d23bf70001f7516c2bf64ec563824bc67e96007c4d4cf6812d8a2ee96381e",
+      "upstream_url": "https://www.basketball-reference.com/",
+      "raw_file": "raw/sumitro_selection.json",
+      "sha256_raw": "2dbd60475d6a3580351d85bf01efe49afa3d4bbdfd6e6cad73afcafa3d5ecc24",
+      "usage": "30 actual teams; League Average excluded; BR five-player minute totals divided by five. playoffs column is a team label, not competition type.",
+      "coverage": "full_league",
+      "minute_conversion": "original mp / 5",
+      "league_average_rows_excluded": 1
+    },
+    "T_ADV": {
+      "provider": "Basketball Reference via Kaggle / Sumitro Datta",
+      "url": "https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats",
+      "retrieved_at": "2026-10-14T08:10:15.814586+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "source_type": "kaggle_data",
+      "adapter": "sumitro-v56",
+      "dataset_version": 56,
+      "dataset_snapshot_date": "2026-04-13",
+      "original_csv": "Team Summaries.csv",
+      "sha256_csv": "0a52b3d5f68ca4e3cbdf9041a8b06f4c8ae55935d62b07e9728d0fcf2d6315c9",
+      "row_count": 30,
+      "sha256_rows": "3027a7473dd0db45336d63afa1c5a796a9f2a638bb6d9f5e6a8757a921c0b780",
+      "upstream_url": "https://www.basketball-reference.com/",
+      "raw_file": "raw/sumitro_selection.json",
+      "sha256_raw": "2dbd60475d6a3580351d85bf01efe49afa3d4bbdfd6e6cad73afcafa3d5ecc24",
+      "usage": "BR team-level season summaries, not individual oncourt effects."
+    },
+    "EXT_BR_PBP": {
+      "provider": "Basketball Reference via Kaggle / Sumitro Datta",
+      "url": "https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats",
+      "retrieved_at": "2026-10-14T08:10:15.777267+00:00",
+      "season": "2024-25",
+      "season_type": "Regular Season",
+      "per_mode": "Totals",
+      "status": "ok",
+      "source_type": "kaggle_data",
+      "adapter": "sumitro-v56",
+      "dataset_version": 56,
+      "dataset_snapshot_date": "2026-04-13",
+      "original_csv": "Player Play By Play.csv",
+      "sha256_csv": "b124e5eb4d361d9cdf7d879926d0aa1cc0eea3b9023f1d441f9d7694c26fae47",
+      "row_count": 1,
+      "sha256_rows": "0f42b63993dcf7906f4bf3b1fcbaf33dcd6c06488f6b7a6b2f717389fc746082",
+      "upstream_url": "https://www.basketball-reference.com/",
+      "raw_file": "raw/sumitro_selection.json",
+      "sha256_raw": "2dbd60475d6a3580351d85bf01efe49afa3d4bbdfd6e6cad73afcafa3d5ecc24",
+      "usage": "Season summaries, not original event logs; turnover residual is arithmetic, not a verified third event taxonomy. No On/Off reconstructed."
+    }
+  }
+}

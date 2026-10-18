@@ -16,15 +16,37 @@ def explorer_rows(bundle, analysis):
         r=raw[key]
         zone=r['SHOT_ZONE_BASIC'];kind=r['SHOT_TYPE']
         conflict=(zone in {'Restricted Area','In The Paint (Non-RA)','Mid-Range'} and kind!='2PT Field Goal') or (zone in {'Left Corner 3','Right Corner 3','Above the Break 3'} and kind!='3PT Field Goal')
-        code,label=('UNRESOLVED','区域/类型标签冲突') if conflict else ZONES[zone]
+        code,label=('UNRESOLVED','区域/类型标签冲突') if conflict else ('MISSING','区域标签缺失') if zone in (None,'') else ZONES[zone]
         if r['LOC_X']!=point['x'] or r['LOC_Y']!=point['y'] or int(r['SHOT_MADE_FLAG'])!=point['made'] or kind.startswith('3PT')!=point['three']:
             raise DataError('Explorer data differs from validated coordinates/outcome/type')
         date=str(r['GAME_DATE']);date=date[:4]+'-'+date[4:6]+'-'+date[6:]
         rows.append(dict(point,zone=code,label=label,date=date,period=r['PERIOD'],clock=f"{int(r['MINUTES_REMAINING']):02d}:{int(r['SECONDS_REMAINING']):02d}",original_zone=zone,original_type=kind))
-    if len(raw)!=len(rows):raise DataError('Explorer raw coverage mismatch')
+    missing={(p['game_id'],p['event_id']) for p in context.get('missing_locations',[])}
+    if set(raw)!={(r['game_id'],r['event_id']) for r in rows}|missing:
+        raise DataError('Explorer raw coverage mismatch')
     return rows
 
-def render_explorer(rows, svg):
+def render_explorer(rows, svg, context=None):
+    body=_render_explorer(rows,svg)
+    if not body or not context or not context.get('missing_location_count'):return body
+    n=context['counts']['FGA'];missing=context['missing_location_count']
+    note=f'位置覆盖：{len(rows)} / {n} 次（{len(rows)/n*100:.2f}%）；缺坐标 {missing} 次。下方位置筛选、命中率与区域联动表仅统计有坐标事件；完整赛季区域图仍包含全部 {n} 次。'
+    details='<details class="shot-missing-events"><summary>查看缺坐标事件明细</summary><ul>'
+    for row in context['missing_locations']:
+        details+='<li>'+escape(str(row['game_date']))+' · 比赛 '+escape(row['game_id'])+' · 事件 '+str(row['event_id'])+' · 第'+str(row['period'])+'节 '+row['clock']+' · '+('三分' if row['three'] else '两分')+' · '+('命中' if row['made'] else '未中')+'；不补造位置。</li>'
+    details+='</ul></details>'
+    body=body.replace('id="shot-explorer"','id="shot-explorer" data-partial-locations="true"')
+    body=body.replace('</header>','<p class="note shot-location-coverage">'+note+'</p>'+details+'</header>',1)
+    body=body.replace('完整赛季全部出手；命中率不是球员能力评分。',note)
+    body=body.replace('所选比赛与区域的全部出手','所选比赛与区域中有坐标的全部出手')
+    body=body.replace('所选比赛的全部出手','所选比赛中有坐标的全部出手')
+    body=body.replace('所选比赛全部出手','所选比赛有坐标出手').replace('各区域全部出手','各区域有坐标出手')
+    body=body.replace('展示完整赛季静态位置','展示有坐标样本静态位置')
+    body=body.replace('<span>样本出手</span>','<span>有坐标出手</span>')
+    return body
+
+
+def _render_explorer(rows, svg):
     if not rows:return ''
     esc=lambda v:escape(str(v),quote=True)
     points=iter(enumerate(rows))

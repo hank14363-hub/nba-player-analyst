@@ -7,7 +7,7 @@ window.createShotResearch = function(explorer, api) {
   const context=explorer.querySelector('#shot-context'),back=explorer.querySelector('#shot-return');
   const candidates=explorer.querySelector('.shot-candidates'),candidateList=explorer.querySelector('#shot-candidate-list');
   const labels=Object.fromEntries([...explorer.querySelector('#shot-zone').options].map(o=>[o.value,o.textContent]));
-  const codes=['RA','PAINT','MID','LC3','RC3','ATB3','BACK','UNRESOLVED'].filter(code=>labels[code]);
+  const codes=['RA','PAINT','MID','LC3','RC3','ATB3','BACK','UNRESOLVED','MISSING'].filter(code=>labels[code]);
   const explanations={
     all:'位置回答从哪里终结。要解释选择是否合理，还需回到防守、传球窗口与回合时钟。',
     RA:'近筐结果不包含造犯规后的罚球收益，也没有区分接触强度和协防压力。',
@@ -18,6 +18,7 @@ window.createShotResearch = function(explorer, api) {
     ATB3:'弧顶和两翼合并统计，没有区分持球与接球、空位与受压。',
     BACK:'后场远距出手单列保留；不能据此评价常规三分能力。',
     UNRESOLVED:'官方区域与投篮类型标签冲突；保留原值，计入总体，区域表单列。',
+    MISSING:'官方区域标签缺失，按缺失单列；不凭坐标猜测原始标签。',
     '2PT':'按官方投篮类型选择两分，仍包含标签冲突记录；两分结果不等于突破能力。',
     '3PT':'按官方投篮类型选择三分；不能从位置反推持球、接球或受助攻分类。'
   };
@@ -44,7 +45,7 @@ window.createShotResearch = function(explorer, api) {
     if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button!==0)return;
     const code=link.dataset.shotZone;if(!labels[code])return;
     event.preventDefault();api.applyZone(code,true);
-    context.textContent='来自正文：'+link.dataset.shotTitle+'。已切换为完整赛季的对应样本，显示命中与未中。';
+    context.textContent='来自正文：'+link.dataset.shotTitle+'。已切换为'+(explorer.dataset.partialLocations==='true'?'有坐标事件的':'完整赛季的')+'对应样本，显示命中与未中。';
     back.href='#'+link.dataset.shotReturn;back.hidden=false;
     location.hash='shot-explorer';
     explorer.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
@@ -66,9 +67,9 @@ window.createShotResearch = function(explorer, api) {
         const leader=codes.map(zone=>({zone,n:sample.filter(r=>r.zone===zone).length})).sort((a,b)=>b.n-a.n)[0];
         summary.textContent=(code==='all'?'所选比赛样本':labels[code])+'：'+sample.length+' 次出手，'+made+' 次命中，命中率 '+(made/sample.length*100).toFixed(1)+'%。'+
           (code==='all'&&leader?.n?'出手最多的区域为'+labels[leader.zone]+'（'+leader.n+' 次，'+(leader.n/sample.length*100).toFixed(1)+'%）。':
-          '占所选比赛全部出手的 '+share.toFixed(1)+'%。');
+          '占所选比赛'+(explorer.dataset.partialLocations==='true'?'有坐标':'全部')+'出手的 '+share.toFixed(1)+'%。');
       }
-      boundary.textContent=(explanations[code]||explanations.all)+(sample.length<30?' 当前样本少于三十次，只作描述。':'')+' 当前没有同口径联盟区域基准，不据此判断区域强弱。';
+      boundary.textContent=(explanations[code]||explanations.all)+(sample.length<30?' 当前样本少于三十次，只作描述。':'')+' 当前没有同口径联盟区域基准，不据此判断区域强弱。'+(explorer.dataset.partialLocations==='true'?' 此处仅含有坐标事件；赛季完整区域图另外包含缺坐标事件。':'');
       body.replaceChildren();
       codes.forEach(zone=>{
         const group=base.filter(r=>r.zone===zone),n=group.length,fgm=group.reduce((v,r)=>v+r.made,0);

@@ -14,14 +14,14 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from book_contract import BOOK_VERSION, DIMENSION_NAMES, dictionary, load_context, make_template, validate_content
-from common import SKILL_ROOT, DataError, now_iso, write_json
+from common import SKILL_ROOT, RELEASE_VERSION, DataError, now_iso, write_json
 from team_themes import select_theme
 from book_visuals import visuals
 from book_media import load_media, render_media
 from book_sources import source_index
 from book_shot_explorer import explorer_rows, render_explorer
 
-APP_VERSION = "0.8.1"
+APP_VERSION = RELEASE_VERSION
 
 L = {'book': '球员研究册',
  'menu': '目录',
@@ -248,6 +248,9 @@ class Book:
                         self.claim_locations.setdefault(cid, ('reading-'+d['dimension']+'-'+str(n),card['title']))
         self.charts: dict[str, str] = {}
         self.visual_entries = visuals(analysis, theme or select_theme(analysis, 'auto'))
+        if content.get('percentile_presentation')=='radar':
+            from radar_visuals import radar_entries
+            self.visual_entries.update(radar_entries(analysis,theme or select_theme(analysis,'auto')))
 
     def media(self, slot: str) -> str:
         return ''.join(render_media(item, self.a['sources']) for item in self.media_items if item['slot'] == slot)
@@ -374,8 +377,8 @@ class Book:
     def scoring(self) -> str:
         if self.integrated:
             entry=self.visual_entries['shot_locations']
-            explorer=render_explorer(self.shot_rows,entry['svg']) if self.shot_rows and entry['svg'] else '<p class="empty">完整事件缺失，无法提供投篮筛选；不以部分样本替代整季。</p>'
-            return self.dimension('scoring') + '<div class="density-reading" id="density-reading">'+self.chart('shot_density')+'<p class="note"><a href="#shot-explorer">进入逐次出手，核对热区中的具体事件 &rarr;</a></p></div>' + explorer
+            explorer=render_explorer(self.shot_rows,entry['svg'],self.a.get('shot_context')) if self.shot_rows and entry['svg'] else '<p class="empty">可定位事件缺失，无法提供投篮位置筛选；不补造坐标。</p>'
+            return self.media('scoring') + self.dimension('scoring') + '<div class="density-reading" id="density-reading">'+self.chart('shot_density')+'<p class="note"><a href="#shot-explorer">进入逐次出手，核对热区中的具体事件 &rarr;</a></p></div>' + explorer
         return self.media('scoring') + '<div class="chart-grid">' + self.chart('efficiency') + self.chart('shot_mix') + self.chart('scoring_mix') + '</div><div class="spatial-grid">' + self.chart('shot_locations') + self.chart('shot_zones') + self.chart('shot_density') + '</div>' + self.dimension('scoring')
 
     def challenges(self) -> str:
@@ -428,14 +431,15 @@ class Book:
     def render(self) -> str:
         if self.integrated:
             self.charts={key+'.svg':entry['svg'] for key,entry in self.visual_entries.items() if entry['status']=='ok'}
-            contents=[self.overview(),self.scoring(),self.comparisons()+self.dimension('creation')+self.dimension('off_ball'),self.impacts()+self.dimension('defense')+self.dimension('tactical_fit'),self.challenges(),self.strategies(),self.plans()]
+            contents=[self.overview(),self.scoring(),self.media('creation')+self.comparisons()+self.dimension('creation')+self.dimension('off_ball'),self.impacts()+self.percentiles()+self.media('defense')+self.dimension('defense')+self.dimension('tactical_fit'),self.challenges(),self.strategies(),self.plans()]
             article=re.sub(r'^!\[.*\]\(charts/[a-z_]+\.svg\)\s*$', '', self.report, flags=re.M)
             contents += [self.commentary() + '<details class="full-article" id="full-article"><summary><strong>展开完整分析长文</strong><span>保留完整论证与统计引用；主题区已展示图表</span></summary><div class="article">'+self.linked_article(article)+'</div></details>',self.appendix()]
         else:
-            contents = [self.overview(), self.scoring(), self.media('creation') + '<div class="chart-grid">' + self.chart('creation') + self.chart('assisted') + self.chart('tracking') + '</div>' + self.dimension('creation') + self.dimension('off_ball'), self.impacts() + self.media('defense') + '<div class="spatial-grid">' + self.chart('team_context') + self.chart('onoff') + '</div>' + self.dimension('defense') + self.dimension('tactical_fit'), self.challenges(), self.strategies(), self.plans()]
+            contents = [self.overview(), self.scoring(), self.media('creation') + '<div class="chart-grid">' + self.chart('creation') + self.chart('assisted') + self.chart('tracking') + '</div>' + self.dimension('creation') + self.dimension('off_ball'), self.impacts() + self.percentiles() + self.media('defense') + '<div class="spatial-grid">' + self.chart('team_context') + self.chart('onoff') + '</div>' + self.dimension('defense') + self.dimension('tactical_fit'), self.challenges(), self.strategies(), self.plans()]
             if self.a.get('comparison_context'):
                 contents[2]=self.comparisons()+contents[2]
-            contents += ['<div class="article">' + markdown_body(self.report,self.a['sources'],self.charts) + '</div>', self.appendix()]
+            commentary=self.commentary() if self.c.get('commentary_cards') or self.c.get('commentary_research') else ''
+            contents += [commentary+'<div class="article">' + markdown_body(self.report,self.a['sources'],self.charts) + '</div>', self.appendix()]
         if self.theme:
             replacements = {'#1a1a1a': self.theme['primary'], '#b7b7b7': '#A7AFBC'}
             for old,new in replacements.items():
@@ -454,6 +458,7 @@ class Book:
         body += '<footer class="footer">NBA PLAYER ANALYST / ' + APP_VERSION + '<br>' + L['generated'] + ': ' + esc(now_iso()) + '</footer></div></main><a class="book-back" href="#cover">' + L['back'] + ' &uarr;</a>'
         root = SKILL_ROOT / 'assets'
         script = (root/'book_shot_stage.js').read_text(encoding='utf-8') + '\n' + (root/'book_shot_research.js').read_text(encoding='utf-8') + '\n' + (root/'research_book.js').read_text(encoding='utf-8')
+        if self.c.get('percentile_presentation')=='radar':script+='\n'+(root/'book_radar.js').read_text(encoding='utf-8')
         replacements = {'TITLE':esc(self.a['player']['name'] + ' | ' + self.c['title']), 'CSS':(root/'research_book.css').read_text(encoding='utf-8'), 'BODY':body, 'JS':script, 'SCRIPT_HASH':base64.b64encode(hashlib.sha256(script.encode()).digest()).decode()}
         if self.theme:
             theme_css = (root/'research_book_theme.css').read_text(encoding='utf-8')
@@ -462,6 +467,7 @@ class Book:
         replacements['CSS'] += (root/'research_book_editorial.css').read_text(encoding='utf-8')
         replacements['CSS'] += (root/'book_comparisons.css').read_text(encoding='utf-8')
         replacements['CSS'] += (root/'book_impact.css').read_text(encoding='utf-8')
+        if self.c.get('percentile_presentation')=='radar':replacements['CSS']+=(root/'book_radar.css').read_text(encoding='utf-8')
         template = (root/'research_book_template.html').read_text(encoding='utf-8')
         return re.sub(r'\{\{([A-Z_]+)\}\}',lambda m: replacements[m.group(1)],template)
 
@@ -469,33 +475,51 @@ class Book:
         from comparison_visuals import fmt
         c=self.a.get('comparison_context',{})
         if c.get('status')!='ok':
+            if not c:
+                return '<aside class="note">本次未启用同角色比较；现有结论见下方主题卡，这不表示球员结论或数据缺失。</aside>'
             return '<aside class="note">同角色比较尚未通过核验：'+esc(c.get('reason','未启用完整样本比较'))+'</aside>'
         body='<section class="role-comparison" id="role-comparison"><header><span class="dimension-kicker">ROLE / TRADEOFF / SENSITIVITY</span><h3>与承担类似任务的人放在一起看</h3><p>从 '+str(c['raw_player_count'])+' 名球员的整季原始表开始，先选出 '+str(c['eligible_count'])+' 名 GP≥'+str(c['minimum_gp'])+'、总分钟≥'+str(c['minimum_minutes'])+' 的稳定轮换，再按角色阈值纳入 '+str(c['cohort_count'])+' 人（包含本球员）。角色为 '+esc(c['label'])+'：'+esc(c['definition'])+'。</p><p class="note">'+esc(c['boundary'])+'</p></header><div class="comparison-charts">'+self.chart('role_profile')+self.chart('usage_efficiency')+'</div>'
         body+=self.referenced_claims([cid for cid,claim in self.claims.items() if any(mid.startswith('COHORT_') for mid in claim['metric_ids'])])
         body+='<div class="table-wrap"><table class="cohort-axis-table"><thead><tr><th>维度</th><th>本球员</th><th>同角色中位数</th><th>统计百分位</th></tr></thead><tbody>'
         for a in c['axes']:
             body+='<tr><th>'+esc(a['label'])+(' ↓' if a['direction']==-1 else '')+'</th><td>'+fmt(a['target'],a['unit'])+'</td><td>'+fmt(a['median'],a['unit'])+'</td><td>P'+f'{a["percentile"]:.1f}'+'</td></tr>'
-        body+='</tbody></table></div><p class="note">'+esc(c['percentile_formula'])+'。自主终结占比仅描述职责；高值不自动表示更强。</p>'
+        br = c.get('adapter') == 'sumitro-v56'
+        body+='</tbody></table></div><p class="note">'+esc(c['percentile_formula'])+('。BR五轴不包含非受助攻总命中占比或NBA PIE。' if br else '。自主终结占比仅描述职责；高值不自动表示更强。')+'</p>'
         if c['sensitivity']:
             body+='<details class="cohort-sensitivity"><summary>换一组纳入门槛，结论是否改变？</summary><div class="table-wrap"><table><thead><tr><th>样本规则</th><th>N</th>'+''.join('<th>'+esc(a['label'])+'</th>' for a in c['axes'])+'</tr></thead><tbody>'
             for s in c['sensitivity']:
-                rule=('USG≥'+f'{s["usg"]*100:.0f}'+'%、AST%≥'+f'{s["ast"]*100:.0f}'+'%') if 'usg' in s else 'GP≥'+str(s['gp'])+'、MIN≥'+str(s['minutes'])
+                if br:
+                    rule={'宽口径':'USG≥23%、AST%≥25%','严格使用率':'USG≥28%、AST%≥30%','更高出勤门槛':'GP≥50、MIN≥1500；维持原角色门槛'}[s['label']]
+                else:
+                    rule=('USG≥'+f'{s["usg"]*100:.0f}'+'%、AST%≥'+f'{s["ast"]*100:.0f}'+'%') if 'usg' in s else 'GP≥'+str(s['gp'])+'、MIN≥'+str(s['minutes'])
                 body+='<tr><th>'+esc(s['label']+' · '+rule)+'</th><td>'+str(s['n'])+'</td>'+''.join('<td>P'+f'{s["axes"][a["metric_id"]]:.1f}'+'</td>' for a in c['axes'])+'</tr>'
             body+='</tbody></table></div><p class="note">阈值是研究规则，不是联盟官方角色分类；百分位变化由样本改变引起。</p></details>'
-        body+='<details class="cohort-roster"><summary>查看完整纳入名单与原始读数（按姓名排序）</summary><div class="table-wrap"><table><thead><tr><th>球员 / 来源球队标签</th><th>GP</th><th>分钟</th><th>USG%</th><th>AST%</th><th>PTS/75</th><th>AST/75</th><th>TS%</th><th>AST:TOV</th><th>非受助攻命中</th><th>TOV/75</th><th>PIE</th></tr></thead><tbody>'
+        body+='<details class="cohort-roster"><summary>查看完整纳入名单与原始读数（按姓名排序）</summary><div class="table-wrap"><table><thead><tr><th>球员 / 来源球队标签</th><th>GP</th><th>分钟</th><th>USG%</th><th>AST%</th><th>PTS/75</th><th>AST/75</th><th>TS%</th><th>AST:TOV</th>'+('' if br else '<th>非受助攻命中</th>')+'<th>TOV/75</th>'+('' if br else '<th>PIE</th>')+'</tr></thead><tbody>'
         for r in sorted(c['players'],key=lambda r:r['name'].casefold()):
-            highlight=' class="target-player"' if r['player_id']==self.a['player']['id'] else ''
-            body+='<tr'+highlight+'><th>'+esc(r['name'])+'<br><small>'+esc(r['team'])+' · '+str(r['team_count'])+'队</small></th><td>'+str(r['gp'])+'</td><td>'+f'{r["minutes"]:.1f}'+'</td>'
-            for mid,unit in [('USG_PCT','fraction'),('AST_PCT','fraction'),('PTS_PER75','per75'),('AST_PER75','per75'),('TS_PCT','fraction'),('AST_TOV','ratio'),('PCT_UAST_FGM','fraction'),('TOV_PER75','per75'),('PIE','fraction')]:body+='<td>'+fmt(r[mid],unit)+'</td>'
+            highlight=' class="target-player"' if r['player_id']==c['target_id'] else ''
+            team_note=' · BR整季标签' if br else ' · '+str(r['team_count'])+'队'
+            body+='<tr'+highlight+'><th>'+esc(r['name'])+'<br><small>'+esc(r['team'])+team_note+'</small></th><td>'+str(r['gp'])+'</td><td>'+f'{r["minutes"]:.1f}'+'</td>'
+            fields=[('USG_PCT','fraction'),('AST_PCT','fraction'),('PTS_PER75','per75'),('AST_PER75','per75'),('TS_PCT','fraction'),('AST_TOV','ratio')]+([] if br else [('PCT_UAST_FGM','fraction')])+[('TOV_PER75','per75')]+([] if br else [('PIE','fraction')])
+            for mid,unit in fields:body+='<td>'+fmt(r[mid],unit)+'</td>'
             body+='</tr>'
         pie=self.metrics.get('NBA_PIE');med=self.metrics.get('COHORT_PIE_MEDIAN')
+        if br:
+            return body+'</tbody></table></div></details><aside class="impact-context"><p>BR未提供NBA PIE。模型与样本解释见影响力证据区；球队On/Off不能由个人ORtg/DRtg推算。</p></aside></section>'
         body+='</tbody></table></div></details><aside class="impact-context"><h4>影响力证据：再多一条线索，仍需分清定义</h4><p>NBA PIE '+metric_value(pie)+'，同角色中位数 '+metric_value(med)+'。PIE 汇总技术统计事件贡献份额，受角色和场上环境影响，不能当作调整过队友、对手后的每百回合净贡献，也不能替代 EPM。</p><p>球队 On/Off 只作描述性背景。第三方模型按各自口径见后续影响力证据区；个人防守判断仍需专项证据。</p>'+source_links(['P_ADV'])+'</aside></section>'
         return body
 
     def impacts(self) -> str:
         ctx=self.a.get('impact_context',{})
-        if ctx.get('status')!='ok':return ''
-        body='<section class="impact-research" id="impact-research"><header><span class="dimension-kicker">IMPACT / MODEL / TIME</span><h3>高阶影响力：把模型与样本一起读</h3><p>模型估计补充角色与效率分析。整季回顾描述这一季的表现，日期快照预测当时之后的表现；即使都以每百回合点数表示，也不能相加或直接作为实力排名。</p><span class="impact-scope">整季回顾</span><span class="impact-scope predictive">历史日期预测</span></header><div class="impact-columns">'+(self.chart('impact_retrospective') if 'impact_retrospective' in self.visual_entries else '')+('<div>'+self.chart('impact_predictive')+'<aside class="impact-reading-note"><h4>日期快照怎样补充整季回顾</h4><p>预测使用截至历史日期的信息，回答下一场的预期表现。整季回顾回答这一季的表现估计，二者方向相近也不等于完全独立的验证。</p><p>复核时先确认日期与模型版本，再看分歧来自时间、角色变化还是方法；防守符号需要结合不确定性与回合证据解释。</p></aside></div>' if 'impact_predictive' in self.visual_entries else '')+'</div>'
+        if ctx.get('status')!='ok':
+            audit=self.a.get('impact_collection',{})
+            if audit:
+                reasons=[r['family']+'：'+r.get('reason','未取得可核验模型') for r in audit.get('requests',[]) if r.get('status')!='validated']
+                return '<aside class="note"><h3>高阶数据采集与缺失</h3><p>'+esc(audit.get('reason',''))+'</p><ul>'+''.join('<li>'+esc(r)+'</li>' for r in reasons)+'</ul></aside>'
+            return ''
+        badges=('<span class="impact-scope">整季回顾</span>' if 'impact_retrospective' in self.visual_entries else '')+('<span class="impact-scope predictive">历史日期预测</span>' if 'impact_predictive' in self.visual_entries else '')
+        body='<section class="impact-research" id="impact-research"><header><span class="dimension-kicker">IMPACT / MODEL / TIME</span><h3>高阶影响力：把模型与样本一起读</h3><p>模型估计补充角色与效率分析。整季回顾描述这一季的表现，日期快照预测当时之后的表现；即使都以每百回合点数表示，也不能相加或直接作为实力排名。</p>'+badges+'</header><div class="impact-columns">'+(self.chart('impact_retrospective') if 'impact_retrospective' in self.visual_entries else '')+('<div>'+self.chart('impact_predictive')+'<aside class="impact-reading-note"><h4>日期快照怎样补充整季回顾</h4><p>预测使用截至历史日期的信息，回答下一场的预期表现。整季回顾回答这一季的表现估计，二者方向相近也不等于完全独立的验证。</p><p>复核时先确认日期与模型版本，再看分歧来自时间、角色变化还是方法；防守符号需要结合不确定性与回合证据解释。</p></aside></div>' if 'impact_predictive' in self.visual_entries else '')+'</div>'
+        if 'impact_historical' in self.visual_entries:
+            body+='<section class="historical-epm" id="historical-epm"><h4>历史 EPM 快照 · 口径待核验</h4><p class="historical-epm-note">来源为 Dunks &amp; Threes 经 Kaggle 转引。估计类型、比赛范围和模型版本未独立核实，缺少可核验的场次及总分钟；原始记录日期可能晚于常规赛结束。仅作补充读数，不作为整季 Actual EPM、已验证预测或能力排名。</p>'+self.chart('impact_historical')+'</section>'
         body+='<div class="impact-quantities">'
         for mid,title,note in [('IMPACT_VORP','VORP · 出勤与替补基准','将BPM与出勤结合，基准为替补水平；不是直接赢球数。'),('IMPACT_WS','Win Shares · 整季分配','提供者用技术统计与球队表现分配的胜利份额；不是实测个人创造的胜场。'),('IMPACT_WS48','WS/48 · 时间尺度','按每四十八分钟表达模型份额；不能与每百回合点数混画或合成。')]:
             m=self.metrics.get(mid)
@@ -503,17 +527,34 @@ class Book:
         body+='</div>'+self.referenced_claims([cid for cid,c in self.claims.items() if any(mid.startswith('IMPACT_') for mid in c['metric_ids'])])
         body+='<details class="impact-verification"><summary>模型定义、样本核验与不确定性</summary><div class="detail-body">'
         for d in ctx['datasets']:
-            scope=d['cutoff']+' 历史预测' if d['estimate_type']=='predictive_snapshot' else d['season']+(' 常规赛回顾' if d['season_type']=='Regular Season' else ' 季后赛回顾')
+            scope=d['cutoff']+' 历史快照（口径待核验）' if d['estimate_type']=='historical_snapshot_unverified' else d['cutoff']+' 历史预测' if d['estimate_type']=='predictive_snapshot' else d['season']+(' 常规赛回顾' if d['season_type']=='Regular Season' else ' 季后赛回顾')
             sample=d['sample'];coverage='生涯加权预测；不声称与单季分钟完全对应。'
             if sample['MIN'] is not None:coverage='提供者分钟 '+f"{sample['MIN']:.2f}"+'；与官方总分钟差 '+f"{sample['minutes_difference']:+.3f}"+' 分钟。'+('场次 '+str(int(sample['GP']))+'。' if sample['GP'] is not None else '转引未提供场次。')
+            if d['family']=='EPM_HISTORICAL':coverage=d['sample']['coverage']
+            if d['family']=='EPM':coverage=coverage.replace('官方总分钟','参考总分钟')
             body+='<h4>'+esc(d['family'])+' · '+esc(scope)+'</h4><p>'+esc(d['model_version'])+'</p><p>'+esc(coverage)+'</p><ul>'+''.join('<li>'+esc(v)+'</li>' for v in d['caveats'])+'</ul>'+source_links([d['source_id']])
-        body+='<p>BPM是技术统计与球队背景模型；LEBRON按转引站说明结合技术统计先验和运气调整的阵容回归；DARKO持续更新生涯信息，预测下一场。模型输入部分重叠，一致方向不构成完全独立的验证。均未取得置信区间，防守分量的正负不能解释为显著优劣。</p>'+source_links([sid for sid in ['EXT_METHOD_BPM_METHOD','EXT_METHOD_RAPM_CADE','EXT_METHOD_DARKO_ABOUT'] if sid in self.a['sources']])+'</div></details><aside class="impact-missing"><h4>仍未纳入的指标</h4>'
-        for e in ctx['excluded']:body+='<p><strong>'+esc(e['family'])+'</strong> · '+esc(e['reason'])+'</p>'
-        return body+'</aside></section>'
+        if any(d['family']=='EPM' for d in ctx['datasets']):
+            body+='<p>Actual EPM为提供者对该赛季的每百回合攻防影响力估计。本次读取已保留的离线文件，具体取得方式见来源；原始文件、字段映射与样本声明均保留。图中总值与攻防分量分别展示，不与其他模型加总。</p>'
+        body+='<p>BPM是技术统计与球队背景模型；LEBRON按转引站说明结合技术统计先验和运气调整的阵容回归；DARKO持续更新生涯信息，预测下一场。模型输入部分重叠，一致方向不构成完全独立的验证。均未取得置信区间，防守分量的正负不能解释为显著优劣。</p>'+source_links([sid for sid in ['EXT_METHOD_BPM_METHOD','EXT_METHOD_RAPM_CADE','EXT_METHOD_DARKO_ABOUT'] if sid in self.a['sources']])+'</div></details>'
+        if ctx['excluded']:
+            body+='<aside class="impact-missing"><h4>仍未纳入的指标</h4>'
+            for e in ctx['excluded']:body+='<p><strong>'+esc(e['family'])+'</strong> · '+esc(e['reason'])+'</p>'
+            body+='</aside>'
+        return body+'</section>'
+
+    def percentiles(self) -> str:
+        from percentile_panel import render
+        return render(self)
 
     def commentary(self) -> str:
         cards=self.c.get('commentary_cards',[])
-        if not cards:return '<p class="note">未登记可核验球评文章；以下保留完整研究长文。</p>'
+        if not cards:
+            research=self.c.get('commentary_research',{})
+            reason=research.get('reason','')
+            if research.get('status')=='limited':
+                return '<p class="note">球评研究受限：'+esc(reason)+'。'+str(len(research.get('queries',[])))+'条检索记录，'+str(len(research.get('articles',[])))+'个候选阅读记录；未采用无法核验的文章。以下保留完整研究长文。</p>'
+            if research.get('status')=='skipped':return '<p class="note">本次球评研究未纳入：'+esc(reason)+'。以下保留完整研究长文。</p>'
+            return '<p class="note">未登记已核验球评文章或完成的检索阅读记录；以下保留完整研究长文。</p>'
         body='<div class="commentary-intro"><h3>把外部观点变成可检验的问题</h3><p>下面是对署名文章的中文概括与本研究的回应，不是原文翻译或独立录像观察。作者使用的阶段样本与本册完整常规赛统计分开；多个作者来自同一媒体，也不构成独立共识。</p></div><div class="commentary-grid">'
         for card in cards:
             s=self.a['sources'][card['source_id']]
@@ -521,7 +562,7 @@ class Book:
             for field,label in [('view','作者侧重'),('response','本研究回应'),('question','下一步检验')]:
                 body+='<dt>'+label+'</dt><dd>'+esc(card[field])+'</dd>'
             body+='</dl>'+source_links([card['source_id']])+self.referenced_claims(card['claim_ids'])+'</article>'
-        return body+'</div><details class="historical-media"><summary><strong>历史赛场资料影像</strong><span>人物展示；不作为本赛季战术证据</span></summary>'+self.media('scoring')+self.media('creation')+'</details>'
+        return body+'</div>'
 
 
 def build_summary(analysis: dict, claims: dict, content: dict) -> str:
@@ -567,6 +608,8 @@ def build(run_dir: Path, force: bool = False, min_chars: int = 1200, theme: str 
         elif path.exists() and force:
             path.unlink()
     inputs = ['data_bundle.json','analysis.json','sources.json','report.md','claims.json','book_content.json'] + media_files
+    if (run_dir/'advanced_percentiles.json').exists(): inputs.append('advanced_percentiles.json')
+    if (run_dir/'media_research.json').exists(): inputs.append('media_research.json')
     generated = ['research_book.html','summary.md'] + ['charts/'+name for name in book.charts]
     hashes = {name:hashlib.sha256((run_dir/name).read_bytes()).hexdigest() for name in inputs+generated}
     manifest = {'book_version':BOOK_VERSION,'app_version':APP_VERSION,'theme':selected_theme,'generated_at':now_iso(),'data_kind':analysis['data_kind'], 'status':'rendered_pending_book_check','recomputed_metrics':True,'report_validation':report_check,'charts':list(book.charts),'chart_evidence':{k:{f:e[f] for f in ('status','metric_ids','source_ids','note')} for k,e in book.visual_entries.items()},'sha256':hashes,'manual_review_required':True}

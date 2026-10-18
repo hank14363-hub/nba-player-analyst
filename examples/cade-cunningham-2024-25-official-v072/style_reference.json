@@ -1,0 +1,20 @@
+{
+  "url": "https://www.bilibili.com/video/BV1LV411F7wb/",
+  "title": "库里三分投篮分布",
+  "page_publishing_account": "NBA篮球60帧",
+  "page_published_at": "2023-10-02 15:13:17",
+  "recorded_at": "2026-10-12T13:34:22.423001+08:00",
+  "timestamp_scope": "Record generation time; page visually inspected earlier in this session.",
+  "inspection": "Actual browser playback and paused visual samples near 18.4s and 28.4s of a 34s clip; not a complete watch.",
+  "used_as": "Visual reference only: perspective wood court, luminous points/arcs, name/count header and progress strip.",
+  "original_graphics_authorship": "Not independently verified; publishing account is not asserted to be original creator.",
+  "adaptation": "Own drawn generic court and decorative light connections based only on the current validated Cade events.",
+  "not_reused": [
+    "original frames",
+    "logos",
+    "music",
+    "Curry totals",
+    "measured trajectory claims"
+  ],
+  "evidence_unchanged": true
+}

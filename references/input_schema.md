@@ -84,3 +84,11 @@ CSV 值会按字符串导入；不要从 JSON 原样复制 sha256_rows 到 CSV �
 ## v0.4 补充表
 
 player_onoff/P_ONOFF 和登记的追踪指标见 [advanced_data.md](advanced_data.md)。缺失补充表不影响基础计算；验证不通过不生成对应图或差值。新来源需记录真实抓取日期，不用导入日期代替原抓取日期。
+
+## Kaggle原始CSV适配
+
+Kaggle数据库的public.*.csv并非标准CSV目录输入；先使用 [kaggle_import.md](kaggle_import.md) 的离线适配器。转换结果含 `kaggle_import` 原始选中行与摘要契约，复算核验转换值。保留邻接raw/快照，不手工改转换后的统计。
+
+## Sumitro导入契约
+
+sumitro_import.snapshot 保存所选赛季原始行、CSV摘要和官方身份依据；sumitro_pbp 保存提供者赛季汇总，不能放入未知的标准table。source.adapter=sumitro-v56，raw_file 指向 raw/sumitro_selection.json。校验器复算转换、来源和模型，见 [sumitro_import.md](sumitro_import.md)。

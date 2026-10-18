@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "source_url": "https://dunksandthrees.com/epm/actual",
+  "exported_at": null,
+  "estimate_type": "actual",
+  "league": "NBA",
+  "season": null,
+  "season_type": "Regular Season",
+  "sample_scope": "full_season",
+  "minutes_unit": "total",
+  "minutes_decimals": null,
+  "season_format": null,
+  "model_version": "Unknown; revision not disclosed in user export",
+  "columns": {
+    "nba_id": "nba_id",
+    "player_name": "player_name",
+    "season": "season",
+    "games": "games",
+    "minutes": "minutes",
+    "tot": "tot",
+    "off": "off",
+    "def": "def"
+  }
+}

@@ -1,0 +1,445 @@
+{
+  "schema_version": "0.1.0",
+  "data_kind": "synthetic",
+  "claims": [
+    {
+      "id": "C01",
+      "kind": "fact",
+      "report_quote": "这份样本记录了60场比赛、1800分钟：球员场均得到23.33分，换算到每75回合为30.00分。",
+      "metric_ids": [
+        "GP",
+        "MIN",
+        "PTS_PER_GAME",
+        "PTS_PER75"
+      ],
+      "source_ids": [
+        "P_100",
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "GP",
+          "value": 60.0
+        },
+        {
+          "metric_id": "MIN",
+          "value": 1800.0
+        },
+        {
+          "metric_id": "PTS_PER_GAME",
+          "value": 23.333333333333332
+        },
+        {
+          "metric_id": "PTS_PER75",
+          "value": 30.0
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "kind": "inference",
+      "report_quote": "现有数据支持先让他承担较多得分任务，但还不足以认定他能独立组织全队进攻。",
+      "metric_ids": [
+        "USG_PCT",
+        "PTS_PER75",
+        "AST_PCT",
+        "AST_TOV"
+      ],
+      "source_ids": [
+        "P_100",
+        "P_ADV",
+        "P_BASE"
+      ],
+      "confidence": "low",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C03",
+      "kind": "fact",
+      "report_quote": "他的真实命中率为61.8%，合成样本的整体水平为55.1%；按未四舍五入的数据计算，他高出基准6.76个百分点。",
+      "metric_ids": [
+        "TS_PCT",
+        "LEAGUE_TS_PCT",
+        "RTS_PP"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "T_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "TS_PCT",
+          "value": 0.6183745583038869
+        },
+        {
+          "metric_id": "LEAGUE_TS_PCT",
+          "value": 0.5508112724167379
+        },
+        {
+          "metric_id": "RTS_PP",
+          "value": 6.756328588714899
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "kind": "fact",
+      "report_quote": "他的使用率为28.0%，有效命中率为57.0%。",
+      "metric_ids": [
+        "USG_PCT",
+        "EFG_PCT"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "USG_PCT",
+          "value": 0.28
+        },
+        {
+          "metric_id": "EFG_PCT",
+          "value": 0.57
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "kind": "inference",
+      "report_quote": "把使用率和得分效率放在一起看，他在这份样本中承担了较多进攻结束任务，效率也不错；不过，这些数据还不能证明他擅长单打、破解包夹或高难度投篮。",
+      "metric_ids": [
+        "USG_PCT",
+        "TS_PCT",
+        "RTS_PP"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE",
+        "T_BASE"
+      ],
+      "confidence": "low",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C06",
+      "kind": "fact",
+      "report_quote": "他的三分出手占全部投篮的45.0%，共出手450次，三分命中率为40.0%。",
+      "metric_ids": [
+        "FG3A_RATE",
+        "FG3A",
+        "FG3_PCT"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "FG3A_RATE",
+          "value": 0.45
+        },
+        {
+          "metric_id": "FG3A",
+          "value": 450.0
+        },
+        {
+          "metric_id": "FG3_PCT",
+          "value": 0.4
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "kind": "fact",
+      "report_quote": "他的罚球出手比为0.30，也就是罚球出手数除以投篮出手数。",
+      "metric_ids": [
+        "FT_RATE"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "FT_RATE",
+          "value": 0.3
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "kind": "fact",
+      "report_quote": "他场均有5.00次助攻、2.50次失误，助攻失误比为2.00；来源给出的助攻率为23.0%。",
+      "metric_ids": [
+        "AST_PER_GAME",
+        "TOV_PER_GAME",
+        "AST_TOV",
+        "AST_PCT"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "AST_PER_GAME",
+          "value": 5.0
+        },
+        {
+          "metric_id": "TOV_PER_GAME",
+          "value": 2.5
+        },
+        {
+          "metric_id": "AST_TOV",
+          "value": 2.0
+        },
+        {
+          "metric_id": "AST_PCT",
+          "value": 0.23
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "kind": "inference",
+      "report_quote": "可以让他分担组织，但现阶段还不能认定他能独自承担主要组织任务。",
+      "metric_ids": [
+        "AST_PCT",
+        "AST_TOV"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE"
+      ],
+      "confidence": "low",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C10",
+      "kind": "fact",
+      "report_quote": "在他投进的球中，45.0%被记为队友助攻；只看投进的三分，这个比例为60.0%。",
+      "metric_ids": [
+        "PCT_AST_FGM",
+        "PCT_AST_3PM"
+      ],
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "PCT_AST_FGM",
+          "value": 0.45
+        },
+        {
+          "metric_id": "PCT_AST_3PM",
+          "value": 0.6
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "kind": "inference",
+      "report_quote": "结合投射和受助攻记录，可以尝试让他承担部分无球得分任务，不必每个回合都由他持球。",
+      "metric_ids": [
+        "FG3_PCT",
+        "PCT_AST_FGM",
+        "PCT_AST_3PM"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_SCORE"
+      ],
+      "confidence": "low",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C12",
+      "kind": "fact",
+      "report_quote": "这份样本中，他场均有1.33次抢断、0.50次封盖和2.00次犯规；他在场时，球队每100回合失112.00分。",
+      "metric_ids": [
+        "STL_PER_GAME",
+        "BLK_PER_GAME",
+        "PF_PER_GAME",
+        "ONCOURT_DEF_RATING"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "STL_PER_GAME",
+          "value": 1.3333333333333333
+        },
+        {
+          "metric_id": "BLK_PER_GAME",
+          "value": 0.5
+        },
+        {
+          "metric_id": "PF_PER_GAME",
+          "value": 2.0
+        },
+        {
+          "metric_id": "ONCOURT_DEF_RATING",
+          "value": 112.0
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "kind": "inference",
+      "report_quote": "现有资料还不能判断他绕过掩护追防、协防站位和单防是否稳定，也不能把整套阵容的防守表现全算在他头上。",
+      "metric_ids": [
+        "STL_PER_GAME",
+        "BLK_PER_GAME",
+        "ONCOURT_DEF_RATING"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE"
+      ],
+      "confidence": "low",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C14",
+      "kind": "fact",
+      "report_quote": "作为球队背景，Demo Owls的节奏为98.00，助攻率为62.0%，三分出手占比为36.5%。",
+      "metric_ids": [
+        "TEAM_PACE",
+        "TEAM_AST_PCT",
+        "TEAM_FG3A_RATE"
+      ],
+      "source_ids": [
+        "T_ADV",
+        "T_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "TEAM_PACE",
+          "value": 98.0
+        },
+        {
+          "metric_id": "TEAM_AST_PCT",
+          "value": 0.62
+        },
+        {
+          "metric_id": "TEAM_FG3A_RATE",
+          "value": 0.36538461538461536
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "kind": "inference",
+      "report_quote": "一种值得尝试的分工是：让他负责部分持球得分，也保留无球进攻的机会；队友则需要分担组织，并用外线投射拉开空间。",
+      "metric_ids": [
+        "USG_PCT",
+        "FG3_PCT",
+        "PCT_AST_FGM"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE",
+        "P_SCORE"
+      ],
+      "confidence": "low",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C16",
+      "kind": "inference",
+      "report_quote": "需要留意的是，得分任务多，不代表能把全队进攻都组织好；如果让他承担更多组织工作，原有得分表现能否保持，还要再看。",
+      "metric_ids": [
+        "USG_PCT",
+        "AST_PCT",
+        "AST_TOV"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE"
+      ],
+      "confidence": "low",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": []
+    },
+    {
+      "id": "C17",
+      "kind": "inference",
+      "report_quote": "就这份合成样本而言，他值得被当作一个能承担得分、也可尝试部分无球任务的进攻选项；至于能否担任主要组织者，以及个人防守到底怎样，目前还没有足够答案。",
+      "metric_ids": [
+        "PTS_PER75",
+        "TS_PCT",
+        "FG3_PCT",
+        "PCT_AST_FGM",
+        "AST_PCT"
+      ],
+      "source_ids": [
+        "P_100",
+        "P_ADV",
+        "P_BASE",
+        "P_SCORE"
+      ],
+      "confidence": "low",
+      "caveats": [
+        "仅基于合成测试数据。没有真实比赛录像、对手和阵容调整，不能用于评价现实球员。"
+      ],
+      "numeric_facts": []
+    }
+  ]
+}

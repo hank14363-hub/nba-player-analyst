@@ -71,7 +71,10 @@ def portrait_data(run_dir,config):
 
 
 class Poster:
-    def __init__(self,analysis,claims,book,content,theme,portrait=None):
+    def __init__(self,analysis,claims,book,content,theme,portrait=None,release_version=None):
+        self.release_version=release_version or APP_VERSION
+        if not all(v.isdigit() for v in self.release_version.split('.')) or len(self.release_version.split('.'))!=3:
+            raise DataError('Invalid declared renderer release')
         self.a,self.book,self.c,self.t=analysis,book,content,theme
         self.claims={c['id']:c for c in claims['claims']}
         self.chart=Charts(analysis,theme);self.charts=self.chart.build();self.metrics=self.chart.m
@@ -91,7 +94,7 @@ class Poster:
         else:
             aside='<div class="hero-emblem"><div class="eyebrow">RELATIVE TS</div><div class="hero-number">'+rts_text+'</div><div class="unit">'+L['pp']+'</div><div class="eyebrow">'+(L['test_rts'] if self.synthetic else L['rts'])+'</div></div><div class="portrait-credit">'+L['not_score']+'</div>'
         sample=esc(a['sample']['season'])+' / '+season_type+' / '+L['sample']+' '+metric_html(self.metrics.get('GP'))+' '+L['gp']
-        return ('<div class="masthead"><span>PLAYER LAB / EVIDENCE FIRST</span><b>'+esc(self.t['key'])+' PALETTE / v'+APP_VERSION+'</b></div>'+banner+
+        return ('<div class="masthead"><span>PLAYER LAB / EVIDENCE FIRST</span><b>'+esc(self.t['key'])+' PALETTE / v'+self.release_version+'</b></div>'+banner+
             '<header class="hero" id="cover"><div class="hero-main"><div class="eyebrow">SCOUTING VERDICT / '+esc(a['sample']['season'])+'</div><div class="player-name">'+esc(a['player']['name'])+'</div><h1>'+esc(c['headline'])+'</h1><p class="deck">'+esc(c['deck'])+'</p><div class="sample-row">'+sample+'<br>'+L['team']+' / '+esc(a['target_team'].get('name') or 'N/A')+'</div></div><div class="hero-aside">'+aside+'</div></header>')
 
     def kpis(self):
@@ -159,7 +162,7 @@ class Poster:
         script="document.addEventListener('click',function(e){const a=e.target.closest('a[href^=\"#\"]');if(a){document.getElementById('evidence').open=true;}});"
         sh=base64.b64encode(hashlib.sha256(script.encode()).digest()).decode()
         csp="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-"+sh+"'; img-src data:; base-uri 'none'; form-action 'none'"
-        return '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="'+csp+'"><meta name="generator" content="NBA Player Analyst '+APP_VERSION+'"><title>'+esc(self.a['player']['name'])+' / PLAYER POSTER</title><style>'+css_vars(self.t)+css+'</style></head><body>'+body+'<script>'+script+'</script></body></html>'
+        return '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="'+csp+'"><meta name="generator" content="NBA Player Analyst '+self.release_version+'"><title>'+esc(self.a['player']['name'])+' / PLAYER POSTER</title><style>'+css_vars(self.t)+css+'</style></head><body>'+body+'<script>'+script+'</script></body></html>'
 
 
 def build(run_dir: Path,theme: str='auto',custom: dict|None=None,force: bool=False,min_chars: int=1200):

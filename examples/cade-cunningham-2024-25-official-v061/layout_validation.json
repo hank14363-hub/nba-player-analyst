@@ -1,0 +1,67 @@
+{
+  "viewports": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "cards": 18,
+      "columns": 2,
+      "metrics": 20,
+      "cardOverflow": 0,
+      "svgOverflow": 0,
+      "claim_link_opens": true,
+      "source_link_opens": true
+    },
+    {
+      "width": 1280,
+      "overflow": false,
+      "cards": 18,
+      "columns": 2,
+      "metrics": 20,
+      "cardOverflow": 0,
+      "svgOverflow": 0
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "cards": 18,
+      "columns": 2,
+      "metrics": 20,
+      "cardOverflow": 0,
+      "svgOverflow": 0
+    },
+    {
+      "width": 820,
+      "overflow": false,
+      "cards": 18,
+      "columns": 1,
+      "metrics": 20,
+      "cardOverflow": 0,
+      "svgOverflow": 0
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "cards": 18,
+      "columns": 1,
+      "metrics": 20,
+      "cardOverflow": 0,
+      "svgOverflow": 0
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "cards": 18,
+      "columns": 1,
+      "metrics": 20,
+      "cardOverflow": 0,
+      "svgOverflow": 0,
+      "claim_link_opens": true,
+      "source_link_opens": true
+    }
+  ],
+  "requests": [],
+  "errors": [],
+  "no_js_readable": true,
+  "unchanged_evidence": true,
+  "status": "pass"
+}

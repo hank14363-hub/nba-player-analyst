@@ -53,12 +53,21 @@ def source_index(analysis):
         if article:search+=' 球评 文章 '+s.get('author','')
         status='影像素材' if image else ('官方数据' if s.get('endpoint') else '已登记')
         if impact:status='提供者模型 · 转引' if 'relay' in s.get('provider','') else '提供者模型 · 原站'
+        if impact and s.get('adapter')=='dunksandthrees-actual-offline-v1':status='提供者模型 · 用户离线导出'
+        if impact and s.get('source_kind')=='kaggle_deocheng_v1':status='提供者模型 · Kaggle转引'
+        if impact and s.get('source_kind')=='deocheng-historical-epm-v1':
+            status='历史快照 · 口径待核验'
+            scope=s.get('cutoff','日期缺失')+' · 原始记录日期 · 比赛范围待核验'
+        if impact and s.get('source_kind')=='deocheng-historical-epm-distribution-v1':
+            status='归档分布 · 口径待核验'
+            scope=s['date_min']+'—'+s['date_max']+' · 不同记录日期 · Kaggle转引'
         if article:status='署名文章'
         if method:status='口径与访问核验'
         if not ok:status='资料缺失'
         body='<details class="source source-card" id="source-'+esc(sid)+'" data-source-search="'+esc(search.lower())+'"><summary><span class="source-id">'+esc(sid)+'</span><span class="source-name">'+esc(title)+'</span><span class="source-state">'+status+'</span><span class="source-scope">'+esc(scope)+'</span></summary><div class="source-detail"><p class="source-purpose">'+esc(purpose)+'</p>'
         body+='<dl class="source-meta"><dt>提供者</dt><dd>'+esc(s.get('provider','未记录'))+'</dd><dt>查阅时间</dt><dd>'+esc(stamp.replace('T',' '))+'</dd>'
         if s.get('row_count') is not None:body+='<dt>原始行数</dt><dd>'+esc(s['row_count'])+'（来源表覆盖，非球员出场数）</dd>'
+        if s.get('acquisition_time_basis'):body+='<dt>时间依据</dt><dd>'+esc(s['acquisition_time_basis'])+'</dd>'
         if image:
             body+='<dt>摄影 / 授权</dt><dd>'+esc(s.get('credit',''))+' · '+link(s.get('license_url'),s.get('license',''))+'</dd><dt>编辑处理</dt><dd>'+esc(s.get('changes','未改动'))+'</dd>'
         if article:

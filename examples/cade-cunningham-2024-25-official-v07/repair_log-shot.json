@@ -1,0 +1,76 @@
+{
+  "created_at": "2026-10-12T02:45:54+00:00",
+  "original_bundle_sha256": "c73c1c5700b98a14c84ae9771cc761da1a3b1422f7d5edda6808cc20f8a3f9ef",
+  "sample": {
+    "season": "2024-25",
+    "season_type": "Regular Season",
+    "player_team_id": 0
+  },
+  "events": [
+    {
+      "table": "player_shots",
+      "status": "repaired",
+      "before": {
+        "rows_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "source": null
+      },
+      "after": {
+        "rows_sha256": "dd6781b8afa1e3b6577edb0817465c41a39c42ba1ac9ce430c41ad3c8c4df90d",
+        "source": {
+          "provider": "NBA Stats via nba_api",
+          "status": "ok",
+          "endpoint": "shotchartdetail",
+          "parameters": {
+            "TeamID": 0,
+            "PlayerID": 1630595,
+            "ContextMeasure": "FGA",
+            "LastNGames": "0",
+            "LeagueID": "00",
+            "Month": "0",
+            "OpponentTeamID": 0,
+            "Period": "0",
+            "SeasonType": "Regular Season",
+            "AheadBehind": "",
+            "ClutchTime": "",
+            "ContextFilter": "",
+            "DateFrom": "",
+            "DateTo": "",
+            "EndPeriod": "",
+            "EndRange": "",
+            "GameID": "",
+            "GameSegment": "",
+            "Location": "",
+            "Outcome": "",
+            "PlayerPosition": "",
+            "PointDiff": "",
+            "Position": "",
+            "RangeType": "",
+            "RookieYear": "",
+            "Season": "2024-25",
+            "SeasonSegment": "",
+            "StartPeriod": "",
+            "StartRange": "",
+            "VsConference": "",
+            "VsDivision": ""
+          },
+          "url": "https://stats.nba.com/stats/shotchartdetail?TeamID=0&PlayerID=1630595&ContextMeasure=FGA&LastNGames=0&LeagueID=00&Month=0&OpponentTeamID=0&Period=0&SeasonType=Regular+Season&AheadBehind=&ClutchTime=&ContextFilter=&DateFrom=&DateTo=&EndPeriod=&EndRange=&GameID=&GameSegment=&Location=&Outcome=&PlayerPosition=&PointDiff=&Position=&RangeType=&RookieYear=&Season=2024-25&SeasonSegment=&StartPeriod=&StartRange=&VsConference=&VsDivision=",
+          "season": "2024-25",
+          "season_type": "Regular Season",
+          "per_mode": "Events",
+          "player_id": 1630595,
+          "player_team_id": 0,
+          "coordinate_units": "tenths_of_foot",
+          "context_measure": "FGA",
+          "retrieved_at": "2026-10-12T02:43:03+00:00",
+          "row_count": 1457,
+          "sha256_rows": "dd6781b8afa1e3b6577edb0817465c41a39c42ba1ac9ce430c41ad3c8c4df90d",
+          "from_cache": true,
+          "stale": false,
+          "accessed_at": "2026-10-12T02:45:54+00:00"
+        }
+      }
+    }
+  ],
+  "next": "Re-run run_analysis.py with this bundle into a new directory, then re-audit claims and render. Existing articles were not changed.",
+  "result_bundle_sha256": "7fa10cca74fbc0be9a8eb3c4a70ffc0a5cc2a11cd4be6f6ec28576e14c624506"
+}

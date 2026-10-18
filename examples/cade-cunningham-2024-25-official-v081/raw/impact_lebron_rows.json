@@ -1,0 +1,67 @@
+[
+  {
+    "player_name": "cade cunningham",
+    "Season": "2021-22",
+    "LEBRON": -2.2044582103861368,
+    "O-LEBRON": -1.4009096536844332,
+    "D-LEBRON": -0.8035485567017036,
+    "LEBRON_Rank": 546,
+    "O_LEBRON_Rank": 502,
+    "D_LEBRON_Rank": 503,
+    "year": 2022,
+    "Minutes": 2088.15,
+    "nba_id": "1630595"
+  },
+  {
+    "player_name": "cade cunningham",
+    "Season": "2022-23",
+    "LEBRON": 0.3613010065354417,
+    "O-LEBRON": 0.5472986859923497,
+    "D-LEBRON": -0.1859976794569079,
+    "LEBRON_Rank": 115,
+    "O_LEBRON_Rank": 84,
+    "D_LEBRON_Rank": 282,
+    "year": 2023,
+    "Minutes": 400.2,
+    "nba_id": "1630595"
+  },
+  {
+    "player_name": "cade cunningham",
+    "Season": "2023-24",
+    "LEBRON": -0.2404491024527638,
+    "O-LEBRON": 0.7569434766729868,
+    "D-LEBRON": -0.9973925791257507,
+    "LEBRON_Rank": 183,
+    "O_LEBRON_Rank": 74,
+    "D_LEBRON_Rank": 512,
+    "year": 2024,
+    "Minutes": 2074.18333333333,
+    "nba_id": "1630595"
+  },
+  {
+    "player_name": "cade cunningham",
+    "Season": "2024-25",
+    "LEBRON": 1.564152346,
+    "O-LEBRON": 1.669942001,
+    "D-LEBRON": -0.105789655,
+    "LEBRON_Rank": 64,
+    "O_LEBRON_Rank": 39,
+    "D_LEBRON_Rank": 276,
+    "year": 2025,
+    "Minutes": 2451.94666666667,
+    "nba_id": "1630595"
+  },
+  {
+    "player_name": "cade cunningham",
+    "Season": "2025-26",
+    "LEBRON": 5.382999422,
+    "O-LEBRON": 4.103547394,
+    "D-LEBRON": 1.279452028,
+    "LEBRON_Rank": 4,
+    "O_LEBRON_Rank": 8,
+    "D_LEBRON_Rank": 47,
+    "year": 2026,
+    "Minutes": 2171.45,
+    "nba_id": "1630595"
+  }
+]
