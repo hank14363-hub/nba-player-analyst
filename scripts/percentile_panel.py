@@ -29,7 +29,8 @@ def render(book):
             if e['unit']=='percent':raw+='%'
             leader=next((l for l in book.a.get('stat_leader_context',{}).get('leaders',[]) if l['metric_id']==e['metric_id']),None) if radar else None
             badge='<span class="league-leader-badge" title="'+escape(leader['scope'])+'；N='+str(leader['n'])+'">★ '+escape(leader['text'])+'</span>' if leader else ''
-            body+='<article class="percentile-row'+(' is-league-leader' if leader else '')+'"><div><span class="percentile-name">'+escape(e['label'])+badge+'</span><strong class="percentile-raw">'+raw+'</strong></div>'
+            note='<small class="percentile-polarity" data-polarity="'+escape(e['polarity'])+'">'+escape(e['polarity_note'])+'</small>' if 'polarity' in e else ''
+            body+='<article class="percentile-row'+(' is-league-leader' if leader else '')+'"><div><span class="percentile-name">'+escape(e['label'])+badge+'</span><strong class="percentile-raw">'+raw+'</strong>'+note+'</div>'
             if e['status']=='ok':
                 body+='<div class="percentile-distribution"><div class="percentile-track" aria-hidden="true"><span style="width:'+f"{e['percentile']:.4f}"+'%"></span></div><span class="percentile-result">P'+metric_value(p)+'</span></div>'
             else:body+='<div class="percentile-missing">暂缺 · '+escape(e.get('reason','样本不足'))+'</div>'
@@ -38,6 +39,11 @@ def render(book):
         if 'removed_stint_count' in g:body+='去除球队分段 '+str(g['removed_stint_count'])+' 行。'
         if 'excluded_below_threshold' in g:body+='未达门槛 '+str(g['excluded_below_threshold'])+' 人。'
         if g.get('excluded'):body+='未纳入 '+str(len(g['excluded']))+' 条，逐项原因见advanced_percentiles.json。'
+        audit=g.get('population_audit')
+        if audit:
+            coverage=audit.get('reference_coverage')
+            body+='参考合格样本 '+str(audit['reference_eligible_count'])+' 人，覆盖率 '+(f'{coverage:.1%}' if coverage is not None else '暂缺')+'。'
+            body+='</p><p>分钟差阈值敏感性（仅改变背景筛选）：'+escape('；'.join(k+'分钟 → '+str(v)+'人' for k,v in audit['sensitivity'].items()))+'。目标球员导入仍按原始声明精度核验。'
         body+='</p>'+''.join('<p>'+escape(c)+'</p>' for c in g.get('caveats',[]))+source_links(g['source_ids'])+'</details></section>'
         if collapsed:body+='</details>'
     cids=[cid for cid,c in book.claims.items() if any(mid.startswith(('PCTL_','STAT_LEADER_')) for mid in c['metric_ids'])]

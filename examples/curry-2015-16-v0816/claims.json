@@ -1,0 +1,789 @@
+{
+  "schema_version": "0.1.0",
+  "data_kind": "nba",
+  "claims": [
+    {
+      "id": "C01",
+      "kind": "fact",
+      "report_quote": "库里的全票赛季是二〇一五至一六赛季。Marc Stein 当年的报道确认，他获得全部一百三十一张第一选票，勇士常规赛七十三胜九负；这是奖项与战绩背景，并不自动证明他在篮球每个方面都优于所有人。",
+      "metric_ids": [],
+      "source_ids": [
+        "EXT_STEIN"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": []
+    },
+    {
+      "id": "C02",
+      "kind": "fact",
+      "report_quote": "最值得强调的是高产与高效同时出现：库里出战79场，场均34.18分钟得到30.06分，真实命中率为66.9%，高出同季联盟整体12.82个百分点。真实命中率综合考虑两分、三分与罚球，这个差距比单看场均得分更能说明他的得分质量。",
+      "metric_ids": [
+        "GP",
+        "MIN_PER_GAME",
+        "PTS_PER_GAME",
+        "TS_PCT",
+        "RTS_PP",
+        "LEAGUE_TS_PCT"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "T_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "GP",
+          "value": 79.0
+        },
+        {
+          "metric_id": "MIN_PER_GAME",
+          "value": 34.176898734177215
+        },
+        {
+          "metric_id": "PTS_PER_GAME",
+          "value": 30.063291139240505
+        },
+        {
+          "metric_id": "TS_PCT",
+          "value": 0.669391206313416
+        },
+        {
+          "metric_id": "RTS_PP",
+          "value": 12.817019291878939
+        },
+        {
+          "metric_id": "LEAGUE_TS_PCT",
+          "value": 0.5412210133946266
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "kind": "inference",
+      "report_quote": "这组表现支持把他定位为以投射为主要武器的高负荷进攻核心。效率优势不是靠减少任务换来的，但这里比较的是联盟整体，没有消除位置、队友和出手机会难度的差异。",
+      "metric_ids": [
+        "USG_PCT",
+        "TS_PCT",
+        "RTS_PP"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "P_BASE",
+        "T_BASE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "使用率描述结束进攻机会的比例，不是持球时间；未作角色和投篮难度校正。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "USG_PCT",
+          "value": 0.314
+        },
+        {
+          "metric_id": "TS_PCT",
+          "value": 0.669391206313416
+        },
+        {
+          "metric_id": "RTS_PP",
+          "value": 12.817019291878939
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "kind": "fact",
+      "report_quote": "库里的三分出手达到886次，占全部投篮55.4%，命中率仍为45.4%；有效命中率达到63.0%。有效命中率把三分比两分多得的分计入，却不含罚球，因此它说明他的运动战投篮本身就很有效率。",
+      "metric_ids": [
+        "FG3A",
+        "FG3A_RATE",
+        "FG3_PCT",
+        "EFG_PCT"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "FG3A",
+          "value": 886.0
+        },
+        {
+          "metric_id": "FG3A_RATE",
+          "value": 0.5544430538172715
+        },
+        {
+          "metric_id": "FG3_PCT",
+          "value": 0.45372460496614
+        },
+        {
+          "metric_id": "EFG_PCT",
+          "value": 0.6295369211514393
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "kind": "fact",
+      "report_quote": "Stein 的报道还指出，库里该季投进四百零二记三分，打破自己此前保持的单季纪录。报道把投射纪录与历史性战绩联系起来；本研究接受这些背景事实，但不把纪录数量直接换算成对手被牵制的回合数。",
+      "metric_ids": [],
+      "source_ids": [
+        "EXT_STEIN"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": []
+    },
+    {
+      "id": "C06",
+      "kind": "inference",
+      "report_quote": "他的进攻价值不能缩减为站定接球投篮。追踪表覆盖79场，场均持球急停出手8.80次、有效命中率60.8%；接球投篮场均5.20次、有效命中率68.2%。两种机会都能得分，让球队有理由在持球发起和接应终结之间切换他的任务。",
+      "metric_ids": [
+        "GP",
+        "PULL_UP_FGA_PER_GAME",
+        "PULL_UP_EFG_PCT",
+        "CATCH_SHOOT_FGA_PER_GAME",
+        "CATCH_SHOOT_EFG_PCT"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "TR_PULL",
+        "TR_CATCH"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "两类机会的位置与难度不同，不能据有效命中率直接比较能力；追踪表自身GP均为79，见原表。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "GP",
+          "value": 79.0
+        },
+        {
+          "metric_id": "PULL_UP_FGA_PER_GAME",
+          "value": 8.8
+        },
+        {
+          "metric_id": "PULL_UP_EFG_PCT",
+          "value": 0.608
+        },
+        {
+          "metric_id": "CATCH_SHOOT_FGA_PER_GAME",
+          "value": 5.2
+        },
+        {
+          "metric_id": "CATCH_SHOOT_EFG_PCT",
+          "value": 0.682
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "kind": "fact",
+      "report_quote": "库里场均6.67次助攻、3.32次失误，助攻失误比2.01；追踪记录场均12.60次潜在助攻与8.00次突破。潜在助攻指传球后队友出手的机会记录，它提醒读者：实际助攻还受队友是否投进影响，但也不能把所有潜在助攻都当成他独立创造的空位。",
+      "metric_ids": [
+        "AST_PER_GAME",
+        "TOV_PER_GAME",
+        "AST_TOV",
+        "POTENTIAL_AST_PER_GAME",
+        "DRIVES_PER_GAME"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "TR_PASS",
+        "TR_DRIVE"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "AST_PER_GAME",
+          "value": 6.670886075949367
+        },
+        {
+          "metric_id": "TOV_PER_GAME",
+          "value": 3.3164556962025316
+        },
+        {
+          "metric_id": "AST_TOV",
+          "value": 2.0114503816793894
+        },
+        {
+          "metric_id": "POTENTIAL_AST_PER_GAME",
+          "value": 12.6
+        },
+        {
+          "metric_id": "DRIVES_PER_GAME",
+          "value": 8.0
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "kind": "fact",
+      "report_quote": "全部运动战命中中，46.6%被记为受助攻，53.4%没有被记为受助攻；三分命中中受助攻比例为56.0%。这支持他既能利用队友传球终结、也能完成未记助攻进球的角色描述，不能据此把每个未受助攻命中都叫单打，或把受助攻比例叫接球投篮命中率。",
+      "metric_ids": [
+        "PCT_AST_FGM",
+        "PCT_UAST_FGM",
+        "PCT_AST_3PM"
+      ],
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "PCT_AST_FGM",
+          "value": 0.466
+        },
+        {
+          "metric_id": "PCT_UAST_FGM",
+          "value": 0.534
+        },
+        {
+          "metric_id": "PCT_AST_3PM",
+          "value": 0.56
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "kind": "inference",
+      "report_quote": "从这些记录出发，更合理的使用建议是让库里在持球进攻后继续参与接应，而非要求他承担所有传球发起。若另一名队友能在他交球后及时处理球，接球投射就能成为下一轮进攻的选择；能否进一步形成持续跑动牵制，仍要核验实际防守反应。",
+      "metric_ids": [
+        "PCT_AST_3PM",
+        "CATCH_SHOOT_EFG_PCT",
+        "PULL_UP_EFG_PCT"
+      ],
+      "source_ids": [
+        "P_SCORE",
+        "TR_CATCH",
+        "TR_PULL"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "没有实际观看并登记逐回合录像；牵制强度和交球后跑位效果尚未量化。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "PCT_AST_3PM",
+          "value": 0.56
+        },
+        {
+          "metric_id": "CATCH_SHOOT_EFG_PCT",
+          "value": 0.682
+        },
+        {
+          "metric_id": "PULL_UP_EFG_PCT",
+          "value": 0.608
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "kind": "inference",
+      "report_quote": "按出场至少40场、总分钟至少1000、使用率至少25%、助攻率至少30%的统一规则，本次形成12人的高负荷组织核心样本。库里每75回合得到30.83分，组内中位数23.70分；真实命中率66.9%，组内中位数55.7%。同一回合尺度的比较更直接地支持他的得分优势。",
+      "metric_ids": [
+        "COHORT_N",
+        "PTS_PER75",
+        "COHORT_PTS_PER75_MEDIAN",
+        "TS_PCT",
+        "COHORT_TS_PCT_MEDIAN"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV",
+        "P_100",
+        "P_SCORE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "筛选是统计角色代理；未匹配队友、战术、对手和投篮难度。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "COHORT_N",
+          "value": 12
+        },
+        {
+          "metric_id": "PTS_PER75",
+          "value": 30.825000000000003
+        },
+        {
+          "metric_id": "COHORT_PTS_PER75_MEDIAN",
+          "value": 23.699999999999996
+        },
+        {
+          "metric_id": "TS_PCT",
+          "value": 0.669391206313416
+        },
+        {
+          "metric_id": "COHORT_TS_PCT_MEDIAN",
+          "value": 0.5567279186282559
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "kind": "inference",
+      "report_quote": "反向证据也应保留：库里每75回合助攻6.82次，低于组内中位数7.54次；助攻失误比2.01，也低于中位数2.18。非受助攻命中占比53.4%，低于中位数71.0%。因此，这个赛季不宜被描述为所有进攻都由他独自组织完成，更适合解释为得分主导、同时参与多人配合的核心。",
+      "metric_ids": [
+        "AST_PER75",
+        "COHORT_AST_PER75_MEDIAN",
+        "AST_TOV",
+        "COHORT_AST_TOV_MEDIAN",
+        "PCT_UAST_FGM",
+        "COHORT_PCT_UAST_FGM_MEDIAN"
+      ],
+      "source_ids": [
+        "P_100",
+        "P_BASE",
+        "P_ADV",
+        "P_SCORE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "助攻和受助攻结构不等于传球能力排名，也不能完整计量无球帮助。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "AST_PER75",
+          "value": 6.824999999999999
+        },
+        {
+          "metric_id": "COHORT_AST_PER75_MEDIAN",
+          "value": 7.5375
+        },
+        {
+          "metric_id": "AST_TOV",
+          "value": 2.0114503816793894
+        },
+        {
+          "metric_id": "COHORT_AST_TOV_MEDIAN",
+          "value": 2.181120664829062
+        },
+        {
+          "metric_id": "PCT_UAST_FGM",
+          "value": 0.534
+        },
+        {
+          "metric_id": "COHORT_PCT_UAST_FGM_MEDIAN",
+          "value": 0.7095
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "kind": "fact",
+      "report_quote": "放宽角色门槛后样本为19人，收紧后为10人，库里的真实命中率统计百分位分别为97.37和95.00，得分百分位也分别为97.37和95.00。得分与效率的突出方向没有因门槛变化而消失；这些百分位描述本次样本位置，不是综合能力分。",
+      "metric_ids": [
+        "COHORT_SENS_0_N",
+        "COHORT_SENS_1_N",
+        "COHORT_SENS_0_TS_PCT",
+        "COHORT_SENS_1_TS_PCT",
+        "COHORT_SENS_0_PTS_PER75",
+        "COHORT_SENS_1_PTS_PER75"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV",
+        "P_100",
+        "P_SCORE"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "COHORT_SENS_0_N",
+          "value": 19
+        },
+        {
+          "metric_id": "COHORT_SENS_1_N",
+          "value": 10
+        },
+        {
+          "metric_id": "COHORT_SENS_0_TS_PCT",
+          "value": 97.36842105263158
+        },
+        {
+          "metric_id": "COHORT_SENS_1_TS_PCT",
+          "value": 95.0
+        },
+        {
+          "metric_id": "COHORT_SENS_0_PTS_PER75",
+          "value": 97.36842105263158
+        },
+        {
+          "metric_id": "COHORT_SENS_1_PTS_PER75",
+          "value": 95.0
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "kind": "fact",
+      "report_quote": "真正的在场与不在场比较显示：库里在场时勇士每百回合得117.50分、失99.80分，净效率为17.70；不在场时得102.00分、失107.40分，净效率为−5.40。净效率差为23.10，进攻效率差为15.50，这说明两组阵容表现差异很大。",
+      "metric_ids": [
+        "ONOFF_ON_OFF_RATING",
+        "ONOFF_ON_DEF_RATING",
+        "ONOFF_ON_NET_RATING",
+        "ONOFF_OFF_OFF_RATING",
+        "ONOFF_OFF_DEF_RATING",
+        "ONOFF_OFF_NET_RATING",
+        "ON_OFF_DIFFERENTIAL",
+        "ON_OFF_OFF_DIFFERENTIAL"
+      ],
+      "source_ids": [
+        "P_ONOFF"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "ONOFF_ON_OFF_RATING",
+          "value": 117.5
+        },
+        {
+          "metric_id": "ONOFF_ON_DEF_RATING",
+          "value": 99.8
+        },
+        {
+          "metric_id": "ONOFF_ON_NET_RATING",
+          "value": 17.7
+        },
+        {
+          "metric_id": "ONOFF_OFF_OFF_RATING",
+          "value": 102.0
+        },
+        {
+          "metric_id": "ONOFF_OFF_DEF_RATING",
+          "value": 107.4
+        },
+        {
+          "metric_id": "ONOFF_OFF_NET_RATING",
+          "value": -5.4
+        },
+        {
+          "metric_id": "ON_OFF_DIFFERENTIAL",
+          "value": 23.1
+        },
+        {
+          "metric_id": "ON_OFF_OFF_DIFFERENTIAL",
+          "value": 15.5
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "kind": "inference",
+      "report_quote": "勇士的整体助攻率为68.0%，三分出手占比36.2%，每百回合得113.50分。这提供了传球与外线出手较多的球队背景，支持围绕库里的持球和接应安排多人分工；但球队整体数据不足以单独证明某一种具体战术造成了这些结果。",
+      "metric_ids": [
+        "TEAM_AST_PCT",
+        "TEAM_FG3A_RATE",
+        "TEAM_OFF_RATING"
+      ],
+      "source_ids": [
+        "T_ADV",
+        "T_BASE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "球队助攻率不等于传球次数或战术名称；未核验具体阵容与配合录像。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "TEAM_AST_PCT",
+          "value": 0.68
+        },
+        {
+          "metric_id": "TEAM_FG3A_RATE",
+          "value": 0.3620617404665456
+        },
+        {
+          "metric_id": "TEAM_OFF_RATING",
+          "value": 113.5
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "kind": "inference",
+      "report_quote": "在场与不在场差值不能解释成库里个人每百回合净贡献，也不能把在场防守失分直接当作他的防守能力。库里场均2.14次抢断描述了夺回球权的事件，却没有回答他面对强壮持球者、换防或弱侧协防时的全部表现。",
+      "metric_ids": [
+        "ON_OFF_DIFFERENTIAL",
+        "ONOFF_ON_DEF_RATING",
+        "STL_PER_GAME"
+      ],
+      "source_ids": [
+        "P_ONOFF",
+        "P_BASE"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "队友、对手、轮换和比赛状态未调整；缺少个人对位与录像证据。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "ON_OFF_DIFFERENTIAL",
+          "value": 23.1
+        },
+        {
+          "metric_id": "ONOFF_ON_DEF_RATING",
+          "value": 99.8
+        },
+        {
+          "metric_id": "STL_PER_GAME",
+          "value": 2.1392405063291138
+        }
+      ]
+    },
+    {
+      "id": "C16",
+      "kind": "inference",
+      "report_quote": "Basketball-Reference 的BPM为+11.9，其中进攻分量+10.3、防守分量+1.6；VORP为9.5。BPM使用技术统计和球队背景估计相对平均球员的每百回合表现，VORP再结合出勤与替补基准；二者与高效得分的方向一致，但并非两份相互独立的证明。",
+      "metric_ids": [
+        "IMPACT_BPM",
+        "IMPACT_OBPM",
+        "IMPACT_DBPM",
+        "IMPACT_VORP"
+      ],
+      "source_ids": [
+        "EXT_IMPACT_BREF"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "BPM不是纯阵容回归；DBPM不能改名为个人防守评分；VORP不是实际多赢场次。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "IMPACT_BPM",
+          "value": 11.9
+        },
+        {
+          "metric_id": "IMPACT_OBPM",
+          "value": 10.3
+        },
+        {
+          "metric_id": "IMPACT_DBPM",
+          "value": 1.6
+        },
+        {
+          "metric_id": "IMPACT_VORP",
+          "value": 9.5
+        }
+      ]
+    },
+    {
+      "id": "C17",
+      "kind": "inference",
+      "report_quote": "胜利贡献值WS为17.9，进攻份额13.8、防守份额4.1，WS/48为0.318。它们表示提供者按模型分配的赛季与单位时间胜利份额；进攻份额较大，与前面的表现相符，却不能说库里独自造成了对应数量的胜利。",
+      "metric_ids": [
+        "IMPACT_WS",
+        "IMPACT_OWS",
+        "IMPACT_DWS",
+        "IMPACT_WS48"
+      ],
+      "source_ids": [
+        "EXT_IMPACT_BREF"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "WS依赖球队结果与统计假设；模型输入重叠，不能相加为综合分。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "IMPACT_WS",
+          "value": 17.9
+        },
+        {
+          "metric_id": "IMPACT_OWS",
+          "value": 13.8
+        },
+        {
+          "metric_id": "IMPACT_DWS",
+          "value": 4.1
+        },
+        {
+          "metric_id": "IMPACT_WS48",
+          "value": 0.318
+        }
+      ]
+    },
+    {
+      "id": "C18",
+      "kind": "fact",
+      "report_quote": "数值百分位采用同值取中秩的方法，并以出场至少20场、总分钟至少500为门槛：NBA样本350人中，库里真实命中率百分位99.86；独立BR样本350人中，BPM百分位99.86。两张分布分别阅读，不比较雷达面积，也不把接近百分之百写成未经资格核验的联盟第一。",
+      "metric_ids": [
+        "PCTL_TS_PCT",
+        "PCTL_TS_PCT_N",
+        "PCTL_IMPACT_BPM",
+        "PCTL_IMPACT_BPM_N"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV",
+        "EXT_IMPACT_BREF"
+      ],
+      "confidence": "high",
+      "caveats": [],
+      "numeric_facts": [
+        {
+          "metric_id": "PCTL_TS_PCT",
+          "value": 99.85714285714286
+        },
+        {
+          "metric_id": "PCTL_TS_PCT_N",
+          "value": 350
+        },
+        {
+          "metric_id": "PCTL_IMPACT_BPM",
+          "value": 99.85714285714286
+        },
+        {
+          "metric_id": "PCTL_IMPACT_BPM_N",
+          "value": 350
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "kind": "inference",
+      "report_quote": "综合来看，这一季最有说服力的优势是：承担较多得分任务时，库里仍保持很高效率，而且持球急停与接球投射都能参与进攻。合适的配置是能处理后续传球的队友、可靠的掩护和覆盖防守对位的阵容；代价是多人配合需要时机与球权协调，不能简单复制出手量就期待复制结果。",
+      "metric_ids": [
+        "TS_PCT",
+        "USG_PCT",
+        "PULL_UP_EFG_PCT",
+        "CATCH_SHOOT_EFG_PCT"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV",
+        "TR_PULL",
+        "TR_CATCH"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "配套条件是战术使用假设，不是已验证的阵容因果结论。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "TS_PCT",
+          "value": 0.669391206313416
+        },
+        {
+          "metric_id": "USG_PCT",
+          "value": 0.314
+        },
+        {
+          "metric_id": "PULL_UP_EFG_PCT",
+          "value": 0.608
+        },
+        {
+          "metric_id": "CATCH_SHOOT_EFG_PCT",
+          "value": 0.682
+        }
+      ]
+    },
+    {
+      "id": "C20",
+      "kind": "fact",
+      "report_quote": "逐次事件表保留了完整赛季1598次出手，出手、命中及三分总数与基础表一致。其中1596次有真实坐标，位置覆盖率为99.87%；另有2次同时缺少坐标和区域标签。位置图与交互筛选只使用1596次有坐标事件，缺失两次不补点；完整赛季区域图仍以1598次为分母，将区域标签缺失的2次单列。",
+      "metric_ids": [
+        "SHOT_EVENT_FGA",
+        "SHOT_EVENT_FGM",
+        "SHOT_LOCATION_FGA",
+        "SHOT_LOCATION_MISSING",
+        "SHOT_LOCATION_COVERAGE",
+        "SHOT_ZONE_MISSING"
+      ],
+      "source_ids": [
+        "P_SHOT",
+        "P_BASE"
+      ],
+      "confidence": "high",
+      "caveats": [
+        "真实事件完整不等于空间字段完整；位置筛选分母仅含有坐标事件。未知区域单列，不推断标签或坐标。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "SHOT_EVENT_FGA",
+          "value": 1598
+        },
+        {
+          "metric_id": "SHOT_EVENT_FGM",
+          "value": 805
+        },
+        {
+          "metric_id": "SHOT_LOCATION_FGA",
+          "value": 1596
+        },
+        {
+          "metric_id": "SHOT_LOCATION_MISSING",
+          "value": 2
+        },
+        {
+          "metric_id": "SHOT_LOCATION_COVERAGE",
+          "value": 0.9987484355444305
+        },
+        {
+          "metric_id": "SHOT_ZONE_MISSING",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "C21",
+      "kind": "inference",
+      "report_quote": "在NBA同口径350人样本中，库里的使用率数值百分位为99.14；使用率高位描述终结负荷，不等于综合能力更强。在场球队失分的数值百分位为11.14；在场球队失分的高值不是优势，且该指标不是个人防守评分。这里的低失分位置与球队阵容表现相符，仍不能隔离队友、对手和轮换的作用。",
+      "metric_ids": [
+        "PCTL_USG_PCT",
+        "PCTL_USG_PCT_N",
+        "PCTL_ONCOURT_DEF_RATING",
+        "PCTL_ONCOURT_DEF_RATING_N"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV"
+      ],
+      "confidence": "moderate",
+      "caveats": [
+        "百分位仅描述该来源合格全位置样本；角色负荷不等于能力，球队失分不能解释为个人防守因果贡献。"
+      ],
+      "numeric_facts": [
+        {
+          "metric_id": "PCTL_USG_PCT",
+          "value": 99.14285714285714
+        },
+        {
+          "metric_id": "PCTL_USG_PCT_N",
+          "value": 350
+        },
+        {
+          "metric_id": "PCTL_ONCOURT_DEF_RATING",
+          "value": 11.142857142857142
+        },
+        {
+          "metric_id": "PCTL_ONCOURT_DEF_RATING_N",
+          "value": 350
+        }
+      ],
+      "percentile_interpretations": [
+        {
+          "metric_id": "PCTL_USG_PCT",
+          "polarity": "role_neutral",
+          "disclosure": "使用率高位描述终结负荷，不等于综合能力更强"
+        },
+        {
+          "metric_id": "PCTL_ONCOURT_DEF_RATING",
+          "polarity": "lower_better",
+          "disclosure": "在场球队失分的高值不是优势，且该指标不是个人防守评分"
+        }
+      ]
+    }
+  ]
+}

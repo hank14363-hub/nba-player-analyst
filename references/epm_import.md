@@ -65,3 +65,6 @@ SHA-256证明文件一致性，不能认证其一定来自提供者、证明版�
 ## v0.8.9 Kaggle 转引配置
 
 新增独立`source_kind=kaggle_deocheng_v1`配置，经`scripts/import_kaggle_epm.py`生成元数据并复用本导入器。仅接受已审查v1 Actual原始字节，使用`acquired_at`记录Kaggle下载时间，来源标为Kaggle转引；不能将转引文件冒充用户官网导出。历史候选和2025–26真实验收的边界、分钟差异及命令见 [kaggle_epm.md](kaggle_epm.md)。官网直接导出仍未现场验收，前文合成测试说明只适用于该路径。
+
+
+v0.8.16将共用行核验提取为`normalize_actual_row`，目标默认路径及精度不变。仅背景样本有名称明确的Kaggle v1规则；见[数值百分位](advanced_percentiles.md)，不能用背景规则导入目标球员。

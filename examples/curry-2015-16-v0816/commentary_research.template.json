@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pending",
+  "reason": "",
+  "identity": {
+    "player_id": 201939,
+    "season": "2015-16",
+    "season_type": "Regular Season"
+  },
+  "queries": [],
+  "articles": [],
+  "suggested_queries": [
+    "Stephen Curry 2015-16 season analysis role offense defense",
+    "Stephen Curry 2015-16 film breakdown scouting"
+  ],
+  "note": "Suggested queries are not completed searches. Record actual tool/time and original-page reading before registering a source."
+}

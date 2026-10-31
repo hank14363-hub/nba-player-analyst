@@ -11,6 +11,7 @@ from player_comparisons import full_table, percentile
 
 MIN_GP, MIN_MINUTES, MIN_N = 20, 500, 8
 METHOD = '100 × (严格更低人数 + 0.5 × 同值人数) / N；包含目标球员，保留原表精度；仅为数值分布位置，不代表能力或显著性。'
+RING_LEVELS = (5, 18, 32, 46, 60, 75, 90)
 HISTORY_NOTE = '口径待核验：同赛季、同上游来源的归档数值分布；记录日期不一致，GP/MIN、估计类型及比赛范围未核实，不是同日预测、整季Actual或联盟能力百分位。'
 # mid, provider column, label, unit. All axes describe numeric order (higher).
 NBA = [
@@ -50,6 +51,21 @@ def value(row, key, unit):
     return v
 
 
+def distribution_quantile(values, level):
+    """Deterministic linear interpolation of the retained numeric distribution.
+
+    The ring value is a descriptive reference value, separate from the player's
+    midrank percentile. It is only computed from the exact valid rows retained
+    for that metric; it never extrapolates beyond the observed distribution.
+    """
+    ordered=sorted(values)
+    if not ordered:
+        return None
+    pos=(len(ordered)-1)*level/100
+    lo=int(pos);hi=min(lo+1,len(ordered)-1);frac=pos-lo
+    return ordered[lo]+(ordered[hi]-ordered[lo])*frac
+
+
 def summarize(mid, label, unit, target, players, key, sids):
     vals = [value(r, key, unit) for r in players]
     valid = [v for v in vals if v is not None]
@@ -61,7 +77,9 @@ def summarize(mid, label, unit, target, players, key, sids):
     elif len(valid) < MIN_N: entry['reason']='有效样本少于8人，不计算百分位。'
     else:
         entry.update(status='ok', percentile=percentile(v,valid),
-                     lower_count=sum(x<v for x in valid), equal_count=sum(x==v for x in valid))
+                     lower_count=sum(x<v for x in valid), equal_count=sum(x==v for x in valid),
+                     ring_quantiles={str(level):distribution_quantile(valid,level) for level in RING_LEVELS},
+                     ring_quantile_method='linear interpolation over retained valid rows')
     return entry
 
 
@@ -72,7 +90,7 @@ def group(family, label, scope, rows, target, specs, sids, raw_n, **extra):
                 population_keys=[r.get('PLAYER_ID',r.get('provider_player_key',r.get('nba_id'))) for r in rows],**extra)
 
 
-def nba_group(bundle, pid):
+def nba_group(bundle, pid, compass=False):
     base=full_table(bundle,'player_base','P_BASE')
     adv=full_table(bundle,'player_advanced','P_ADV')
     if set(base)!=set(adv): raise DataError('NBA base/advanced ID population differs')
@@ -91,10 +109,17 @@ def nba_group(bundle, pid):
         r['EXACT_TS']=safe_ratio(c['PTS'],2*(c['FGA']+.44*c['FTA'])) if all(c[k] is not None for k in ('PTS','FGA','FTA')) else None
         r['EXACT_EFG']=safe_ratio(c['FGM']+.5*c['FG3M'],c['FGA']) if c['FGM'] is not None and c['FG3M'] is not None else None
         r['EXACT_AST_TOV']=safe_ratio(c['AST'],c['TOV'])
+        if compass:
+            r['EXACT_FTR']=safe_ratio(c['FTA'],c['FGA'])
+            turnover=value(a,'TM_TOV_PCT','percent')
+            r['BALL_SECURITY']=100-turnover if turnover is not None else None
         rows.append(r)
     specs=NBA+ [('TS_PCT','EXACT_TS','真实命中率','fraction'),
                  ('EFG_PCT','EXACT_EFG','有效命中率','fraction'),
                  ('AST_TOV','EXACT_AST_TOV','助攻失误比','ratio')]
+    if compass:
+        specs += [('FT_RATE','EXACT_FTR','罚球出手比','ratio'),
+                  ('ADV_NBA_BALL_SECURITY','BALL_SECURITY','100%减失误比率','percent')]
     target=next((r for r in rows if r['PLAYER_ID']==pid),None)
     return group('NBA','NBA · 同季合格联盟样本','GP≥20且赛季总分钟≥500；全位置，不另按角色筛选。',
                  rows,target,specs,['P_BASE','P_ADV'],len(base),
@@ -103,7 +128,7 @@ def nba_group(bundle, pid):
                           '在场效率为球队环境，不是个人攻防评分；TS/eFG和助攻失误比由同一基础总量重算。'])
 
 
-def bref_group(bundle, dataset):
+def bref_group(bundle, dataset, compass=False):
     rows=dataset['raw_rows']; by=defaultdict(list)
     for r in rows:
         key=r.get('provider_player_key')
@@ -122,6 +147,13 @@ def bref_group(bundle, dataset):
     target=next((r for r in unique if all(str(r.get(k))==str(v) for k,v in selector.items())),None)
     specs=[('IMPACT_'+mid,key,mid,unit) for mid,key,unit in SPECS['BREF'][1]]
     specs += [('ADV_BREF_'+mid,key,title,unit) for mid,key,title,unit in BREF_EXTRA]
+    if compass:
+        unique=[dict(row) for row in unique]
+        target=next((r for r in unique if all(str(r.get(k))==str(v) for k,v in selector.items())),None)
+        for row in unique:
+            turnover=value(row,'tov_pct','percent')
+            row['BALL_SECURITY']=100-turnover if turnover is not None else None
+        specs.append(('ADV_BREF_BALL_SECURITY','BALL_SECURITY','100%减失误率','percent'))
     return group('BREF','Basketball-Reference · 同季合格样本','GP≥20且提供者总分钟≥500；转会球员仅保留唯一赛季合计行。',
                  unique,target,specs,[dataset['source_id']],len(rows),unique_player_count=len(by),
                  removed_stint_count=len(rows)-len(by),excluded_below_threshold=len(by)-len(unique),
@@ -135,11 +167,10 @@ def historical_rows(rows, season, upstream):
     chosen=[r for r in rows if integer(r.get('season'),'historical season')==int(season[:4])+1 and r.get('source')==upstream]
     out=[]; seen=set()
     for r in chosen:
-        pid=integer(r.get('nba_player_id'),'historical NBA ID'); stamp=date.fromisoformat(r['game_dt'])
+        from season_windows import validate_archive_date
+        pid=integer(r.get('nba_player_id'),'historical NBA ID'); stamp=validate_archive_date(season,r['game_dt'])
         if pid<=0 or pid in seen: raise DataError('Historical population duplicate/invalid NBA ID; do not pick latest silently')
         seen.add(pid)
-        if not date(int(season[:4]),7,1)<=stamp<=date(int(season[:4])+1,6,30):
-            raise DataError('Historical population date outside season year')
         try:
             embedded=json.loads(r['raw'])
             for col,key in [('nba_player_id','player_id'),('season','season'),('epm_tot','tot'),('epm_off','off'),('epm_def','def')]:
@@ -202,8 +233,20 @@ def history_group(bundle, dataset):
                  target_date=target['as_of'],caveats=[HISTORY_NOTE,'未按场次或分钟筛选；未排除低出勤球员，不与合格联盟样本横向比较。'])
 
 
-def other_model_group(bundle,d):
+def other_model_group(bundle,d,protocol=None):
     family=d['family']; raw=d['raw_rows']; pid=d['player_id']; checked=[]; excluded=[]
+    if family=='EPM' and protocol=='0.2.0' and bundle['epm_import']['snapshot']['metadata'].get('source_kind')=='kaggle_deocheng_v1':
+        from epm_population import collect
+        audit=collect(bundle);rows=audit['rows']
+        target=next((row for row in rows if row['nba_id']==pid),None)
+        return group('EPM','Actual EPM · 核验后的提供者子样本',
+                     '同季常规赛，姓名/NBA ID/GP一致且参考与提供者MIN≥500、GP≥20；Kaggle v1背景分钟差≤2。不是完整联盟或精确分钟匹配。',
+                     rows,target,[('IMPACT_'+mid,key,mid,unit) for mid,key,unit in SPECS['EPM'][1]],
+                     [d['source_id'],'P_BASE'],audit['raw_count'],threshold=dict(gp=MIN_GP,minutes=MIN_MINUTES),
+                     population_audit={k:v for k,v in audit.items() if k!='rows'},excluded=audit['excluded'],
+                     minute_matches=[dict(player_id=row['nba_id'],**row['minute_match']) for row in rows],
+                     caveats=[audit['note'],'同源原值、原始CSV/内嵌JSON、比赛类型、scope_id及攻防分量均核对；排除情况和分钟敏感性见样本审计。',
+                              '未纳入者可能有系统性差异，百分位只指此核验子样本；不输出联盟排名，不改变目标球员模型读数。'])
     if family=='EPM':
         from import_epm import build_dataset
         snap=bundle['epm_import']['snapshot']
@@ -255,10 +298,13 @@ def other_model_group(bundle,d):
                  excluded=excluded,caveats=['模型版本及覆盖限制沿用已登记来源；不合成综合分，不将防守分量改名为个人防守能力。'])
 
 
-def context(bundle,pid,team_id,metrics):
+def context(bundle,pid,team_id,metrics,protocol=None,radar_protocol=None):
+    if radar_protocol not in (None,'1.0.0'):
+        raise DataError('Unsupported radar protocol: '+str(radar_protocol))
     groups=[]
     if team_id: return dict(status='missing',reason='球队效力段不与整季联盟分布混用。',groups=[],method=METHOD)
-    try: groups.append(nba_group(bundle,pid))
+    compass=radar_protocol=='1.0.0'
+    try: groups.append(nba_group(bundle,pid,compass))
     except DataError as exc: groups.append(dict(family='NBA',label='NBA 高阶统计',status='missing',reason=str(exc),entries=[]))
     datasets=bundle.get('impact_data',{}).get('datasets',[])
     for d in datasets:
@@ -267,7 +313,7 @@ def context(bundle,pid,team_id,metrics):
             if source.get('row_count')!=len(d['raw_rows']): raise DataError('Provider population row count differs')
             if d['family'] in ('BREF','LEBRON','DARKO') and not supported_original(d,source):
                 raise DataError('尚无支持重放的完整提供者原表；单球员读数不构成联盟样本。')
-            g=bref_group(bundle,d) if d['family']=='BREF' else history_group(bundle,d) if d['family']=='EPM_HISTORICAL' else other_model_group(bundle,d)
+            g=bref_group(bundle,d,compass) if d['family']=='BREF' else history_group(bundle,d) if d['family']=='EPM_HISTORICAL' else other_model_group(bundle,d,protocol)
             groups.append(g)
         except DataError as exc: groups.append(dict(family=d['family'],label=d['family'],status='missing',reason=str(exc),entries=[]))
     for family in ('BREF','LEBRON','EPM','DARKO'):
@@ -279,6 +325,14 @@ def context(bundle,pid,team_id,metrics):
     known={m['metric_id']:m for m in metrics}
     for g in groups:
         for e in g['entries']:
+            # Existing saved requests must replay byte-for-byte contexts. Ring
+            # references and complementary measures are opt-in by V1 protocol.
+            if not compass:
+                e.pop('ring_quantiles',None)
+                e.pop('ring_quantile_method',None)
+            if protocol=='0.2.0':
+                from metric_polarity import describe
+                e.update(describe(e['metric_id']))
             m=known.get(e['metric_id'])
             if m and e['target'] is not None and (m['status']!='ok' or abs(m['value']-e['target'])>1e-9):
                 e.update(status='missing',percentile=None,reason='目标字段与已登记指标不一致，不混用定义。')
@@ -297,6 +351,8 @@ def register(ctx,add,metrics):
                 metrics[-1]['label']=g['family']+' · '+e['label'];known.add(mid)
             add(e['percentile_metric_id'],e['percentile'],'percentile',e['source_ids'],METHOD,e.get('reason',''))
             metrics[-1].update(label=e['label']+' · 数值百分位',population_n=e['n'],population_family=g['family'])
+            if 'polarity' in e:
+                metrics[-1].update(polarity=e['polarity'],polarity_note=e['polarity_note'],direction=e['direction'])
             if g['family']=='EPM_HISTORICAL':
                 metrics[-1].update(label=e['label']+' · 归档百分位（口径待核验）',caveats=g['caveats'],
                                    snapshot_date=g['target_date'],verification_status='archived_distribution_mixed_dates_scope_unverified')

@@ -1,0 +1,285 @@
+{
+  "schema_version": "0.2.0",
+  "status": "ready",
+  "data_kind": "nba",
+  "identity": {
+    "player_id": 201939,
+    "season": "2015-16",
+    "season_type": "Regular Season"
+  },
+  "title": "库里：高产高效的投射核心",
+  "subtitle": "全票赛季的得分、组织分工与球队收益",
+  "executive_claim_ids": [
+    "C02",
+    "C06",
+    "C13"
+  ],
+  "dimensions": [
+    {
+      "dimension": "scoring",
+      "headline": "大量出手仍保持效率",
+      "claim_ids": [
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C10",
+        "C12",
+        "C18",
+        "C20"
+      ],
+      "reading_cards": [
+        {
+          "title": "大量出手仍保持效率",
+          "claim_ids": [
+            "C02",
+            "C03",
+            "C04",
+            "C05",
+            "C10",
+            "C12",
+            "C18"
+          ],
+          "chart_key": "efficiency",
+          "interpretation": "效率与产量放在一起，才能看出本季得分的分量。",
+          "application": "让外线终结继续承担主要得分任务。",
+          "boundary": "未对投篮难度作调整。"
+        },
+        {
+          "title": "区域统计完整，位置保留覆盖说明",
+          "claim_ids": [
+            "C20"
+          ],
+          "chart_key": "shot_zones",
+          "interpretation": "完整赛季事件与位置可用样本分别呈现，缺失区域单列。",
+          "application": "先看赛季区域结构，再进入逐次出手筛选。",
+          "boundary": "位置筛选仅含有坐标事件，不能用筛选命中率代替完整赛季命中率。"
+        }
+      ]
+    },
+    {
+      "dimension": "creation",
+      "headline": "得分主导，不包办所有组织",
+      "claim_ids": [
+        "C07",
+        "C11"
+      ],
+      "reading_cards": [
+        {
+          "title": "得分主导，不包办所有组织",
+          "claim_ids": [
+            "C07",
+            "C11"
+          ],
+          "chart_key": "creation",
+          "interpretation": "组织比较同时保留助攻产量和失误代价。",
+          "application": "安排队友分担发起和后续传球。",
+          "boundary": "助攻不是全部优势创造。"
+        }
+      ]
+    },
+    {
+      "dimension": "off_ball",
+      "headline": "接应与持球都能参与进攻",
+      "claim_ids": [
+        "C06",
+        "C08",
+        "C09"
+      ],
+      "reading_cards": [
+        {
+          "title": "接应与持球都能参与进攻",
+          "claim_ids": [
+            "C06",
+            "C08",
+            "C09"
+          ],
+          "chart_key": "tracking",
+          "interpretation": "多种投篮入口支持分担持球的分工建议。",
+          "application": "交球后保留接应和再进攻机会。",
+          "boundary": "未量化无球牵制强度。"
+        }
+      ]
+    },
+    {
+      "dimension": "defense",
+      "headline": "团队防守不能写成个人评分",
+      "claim_ids": [
+        "C15"
+      ],
+      "reading_cards": [
+        {
+          "title": "团队防守不能写成个人评分",
+          "claim_ids": [
+            "C15"
+          ],
+          "chart_key": "team_context",
+          "interpretation": "抢断与球队失分各自回答有限的问题。",
+          "application": "另用对位录像评价个人防守。",
+          "boundary": "在场阵容不是个人。"
+        }
+      ]
+    },
+    {
+      "dimension": "tactical_fit",
+      "headline": "球队收益与使用条件",
+      "claim_ids": [
+        "C13",
+        "C14",
+        "C16",
+        "C17",
+        "C19"
+      ],
+      "reading_cards": [
+        {
+          "title": "球队收益与使用条件",
+          "claim_ids": [
+            "C13",
+            "C14",
+            "C16",
+            "C17",
+            "C19"
+          ],
+          "chart_key": "onoff",
+          "interpretation": "在场收益与模型结论支持进攻核心定位，具体配套仍须验证。",
+          "application": "同时考察掩护、传球与防守配置。",
+          "boundary": "轮换、对手与比赛状态尚未控制。"
+        }
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "id": "Q01",
+      "title": "交球后能否继续产生进攻优势",
+      "claim_ids": [
+        "C06",
+        "C09",
+        "C11"
+      ],
+      "question": "减少持球发起后，接应机会与队友出手质量能否保持？"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "S01",
+      "title": "保留持球威胁，增加交球后的参与",
+      "challenge_ids": [
+        "Q01"
+      ],
+      "claim_ids": [
+        "C09",
+        "C19"
+      ],
+      "action": "由队友分担发起，库里交球后继续接应与二次进攻。",
+      "conditions": [
+        "队友能及时传球并处理防守变化。",
+        "掩护与接应时机可靠。"
+      ],
+      "tradeoffs": [
+        "多人配合增加传球时机失误的风险。"
+      ],
+      "validation_plan": [
+        "同时记录成功与失败回合，比较队友出手质量与失误。"
+      ]
+    }
+  ],
+  "next_actions": [
+    {
+      "question": "不同防守覆盖下，投射威胁怎样帮助队友？",
+      "challenge_ids": [
+        "Q01"
+      ],
+      "evidence_needed": "带比赛、节次与时钟的完整回合，标记夹击、换防、传球去向与结果。",
+      "decision_rule": "只有在多种对手和失败样本中重复出现优势，才提高牵制判断的置信度。"
+    }
+  ],
+  "summary_claim_ids": [
+    "C02",
+    "C04",
+    "C06",
+    "C11",
+    "C13",
+    "C19"
+  ],
+  "percentile_presentation": "radar",
+  "core_metrics": [
+    {
+      "metric_id": "PTS_PER_GAME",
+      "label": "场均得分",
+      "note": "与效率和任务负荷一起阅读。",
+      "claim_ids": [
+        "C02"
+      ]
+    },
+    {
+      "metric_id": "TS_PCT",
+      "label": "真实命中率",
+      "note": "综合两分、三分与罚球。",
+      "claim_ids": [
+        "C02"
+      ]
+    },
+    {
+      "metric_id": "FG3_PCT",
+      "label": "三分命中率",
+      "note": "同时查看完整三分出手量。",
+      "claim_ids": [
+        "C04"
+      ]
+    },
+    {
+      "metric_id": "ON_OFF_DIFFERENTIAL",
+      "label": "在场净效率差",
+      "note": "描述阵容表现差异，不是个人因果贡献。",
+      "claim_ids": [
+        "C13"
+      ]
+    }
+  ],
+  "commentary_research": {
+    "schema_version": "0.1.0",
+    "identity": {
+      "player_id": 201939,
+      "season": "2015-16",
+      "season_type": "Regular Season"
+    },
+    "status": "complete",
+    "queries": [
+      {
+        "query": "Stephen Curry 2016 MVP unanimous 131 nba",
+        "tool": "cua in-app browser / Google",
+        "searched_at": "2026-10-17T14:08:01+00:00"
+      },
+      {
+        "query": "Stephen Curry 2016 off ball gravity Zach Lowe analysis",
+        "tool": "cua in-app browser / Google",
+        "searched_at": "2026-10-17T14:08:01+00:00"
+      }
+    ],
+    "articles": [
+      {
+        "url": "https://www.espn.com/nba/story/_/id/15499690/stephen-curry-golden-state-warriors-first-unanimous-most-valuable-player",
+        "accessed_at": "2026-10-17T14:08:01+00:00",
+        "status": "read",
+        "source_id": "EXT_STEIN",
+        "reason": "直接阅读署名获奖报道；核验投票、战绩及三分纪录。"
+      }
+    ],
+    "limitations": "专项战术检索返回跨赛季分析与未观看影片，均未采用；有效文章集中于ESPN获奖报道，不构成独立战术共识。"
+  },
+  "commentary_cards": [
+    {
+      "title": "Stein：纪录与战绩构成获奖背景",
+      "source_id": "EXT_STEIN",
+      "claim_ids": [
+        "C01",
+        "C05"
+      ],
+      "view": "报道将全票结果、勇士战绩与投射纪录联系起来。",
+      "response": "本研究进一步用得分效率与角色比较解释表现，并保留个人因果贡献的限制。",
+      "question": "若控制阵容和对手，投射优势还能解释多少球队收益？"
+    }
+  ],
+  "presentation": "integrated"
+}

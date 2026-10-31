@@ -1,0 +1,150 @@
+{
+  "schema_version": "0.1.0",
+  "research_protocol": "0.2.0",
+  "status": "not_executed",
+  "generated_at": "2026-10-22T08:20:44+00:00",
+  "identity": {
+    "player_id": 201939,
+    "season": "2015-16",
+    "season_type": "Regular Season"
+  },
+  "player_name": "Stephen Curry",
+  "verified_team_hint": null,
+  "calendar_years": [
+    "2015",
+    "2016"
+  ],
+  "note": "仅生成查询建议；未联网、未搜索、未核验或下载。赛季两个自然年不等于精确比赛日期。",
+  "needs": [
+    {
+      "slot": "cover",
+      "purpose": "portrait headshot",
+      "priority": "primary"
+    },
+    {
+      "slot": "scoring",
+      "purpose": "shooting driving layup",
+      "priority": "optional"
+    },
+    {
+      "slot": "creation",
+      "purpose": "passing dribbling pick and roll",
+      "priority": "optional"
+    },
+    {
+      "slot": "defense",
+      "purpose": "defending contest rebound",
+      "priority": "optional"
+    }
+  ],
+  "suggested_queries": [
+    {
+      "id": "Q001",
+      "route": "discovery",
+      "query": "\"Stephen Curry\" 2015 regular season photo",
+      "purpose": "核对跨年赛季的身份、球队与事件日期",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q002",
+      "route": "discovery",
+      "query": "\"Stephen Curry\" 2016 regular season photo",
+      "purpose": "核对跨年赛季的身份、球队与事件日期",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q003",
+      "route": "commons",
+      "query": "site:commons.wikimedia.org \"Stephen Curry\" 2015",
+      "purpose": "先读文件页及人物分类；不是缩略图许可",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q004",
+      "route": "commons",
+      "query": "site:commons.wikimedia.org \"Stephen Curry\" 2016",
+      "purpose": "查找赛季第二自然年的原始文件页",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q005",
+      "route": "flickr",
+      "query": "site:flickr.com/photos \"Stephen Curry\" 2015-16",
+      "purpose": "寻找摄影者原作；逐项核验许可与拍摄日期",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q006",
+      "route": "purpose",
+      "query": "\"Stephen Curry\" 2015-16 portrait headshot photo",
+      "purpose": "cover用途；并非能力或回合证据",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q007",
+      "route": "purpose",
+      "query": "\"Stephen Curry\" 2015-16 shooting driving layup photo",
+      "purpose": "scoring用途；并非能力或回合证据",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q008",
+      "route": "purpose",
+      "query": "\"Stephen Curry\" 2015-16 passing dribbling pick and roll photo",
+      "purpose": "creation用途；并非能力或回合证据",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q009",
+      "route": "purpose",
+      "query": "\"Stephen Curry\" 2015-16 defending contest rebound photo",
+      "purpose": "defense用途；并非能力或回合证据",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q010",
+      "route": "creator",
+      "query": "\"Stephen Curry\" basketball photographer Creative Commons",
+      "purpose": "扩展独立摄影者及明确可复用作品",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q011",
+      "route": "official_reference",
+      "query": "\"Stephen Curry\" 2015-16 NBA team photo gallery",
+      "purpose": "官方页仅发现/身份日期核对；不视为下载许可",
+      "status": "not_executed"
+    },
+    {
+      "id": "Q012",
+      "route": "historical_fallback",
+      "query": "\"Stephen Curry\" portrait Creative Commons",
+      "purpose": "本季不足时寻找明确年份的资料照并可见披露",
+      "status": "not_executed"
+    }
+  ],
+  "discovery_routes": [
+    {
+      "id": "commons",
+      "url": "https://commons.wikimedia.org/w/index.php?title=Special%3AMediaSearch&type=image&search=Stephen+Curry",
+      "use": "公开图库入口；打开具体File页检查作者、许可与日期"
+    },
+    {
+      "id": "flickr",
+      "url": "https://www.flickr.com/search/?text=Stephen+Curry",
+      "use": "摄影者原作入口；搜索页不保证CC，必须回到单张作品页"
+    },
+    {
+      "id": "openverse",
+      "url": "https://openverse.org/search/image?q=Stephen+Curry",
+      "use": "许可素材索引，只作发现；回到原始发布者核对，不把索引声明当最终许可"
+    }
+  ],
+  "suggested_budget": {
+    "first_pass_queries": "4–6",
+    "expanded_total_queries": "8–12",
+    "original_pages": "6–12",
+    "policy": "建议上限可随范围调整；满足用途后停止，不逐条强制执行。"
+  },
+  "date_warning": "核对真实赛程；停摆、疫情或特殊赛季可能不在通常月份。不能从当前球队推定历史效力球队。"
+}

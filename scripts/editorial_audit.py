@@ -29,6 +29,21 @@ def audit(content, analysis, claims, bundle=None):
     context=analysis.get('comparison_context',{})
     percentiles=analysis.get('percentile_context',{})
     if percentiles:
+        # A full report with usable percentile groups should expose the default
+        # radar unless the author explicitly chooses the bar presentation. This
+        # catches the common failure where data is computed but the radar is
+        # silently omitted from book_content.json.
+        if (analysis.get('request',{}).get('advanced_percentiles')
+                and any(any(e.get('status')=='ok' for e in g.get('entries',[]))
+                        for g in percentiles.get('groups',[]))
+                and content.get('percentile_presentation') is None):
+            add('percentile_radar_missing','book_content.json','已有可用高阶百分位但未声明radar；补入percentile_presentation=radar，或明确选择bars。')
+        if analysis.get('request',{}).get('percentile_protocol')=='0.2.0':
+            from metric_polarity import acknowledge
+            entries={e['percentile_metric_id']:e for g in percentiles.get('groups',[]) for e in g.get('entries',[]) if e.get('status')=='ok'}
+            for claim in claims.get('claims',[]):
+                problems=acknowledge(claim,entries)
+                if problems:add('percentile_direction_review','claims.json / '+str(claim.get('id','')), '；'.join(problems)+'；程序只核对声明，仍须人工审阅语义。')
         cited={mid for c in claims.get('claims',[]) for mid in c.get('metric_ids',[])}
         missing=[g['family'] for g in percentiles.get('groups',[]) if any(e['status']=='ok' for e in g['entries']) and not any(e['percentile_metric_id'] in cited for e in g['entries'])]
         if missing:add('percentiles_unwritten','report.md / claims.json','已计算的高阶分布尚无正文解读：'+', '.join(missing)+'；需说明样本与解释边界。')

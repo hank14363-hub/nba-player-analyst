@@ -1,0 +1,360 @@
+{
+  "book_version": "0.2.0",
+  "app_version": "0.8.16",
+  "theme": {
+    "key": "GSW",
+    "primary": "#215BB9",
+    "accent": "#FFD348",
+    "on_primary": "#FFFFFF",
+    "on_accent": "#10141B",
+    "background": "#11151C",
+    "panel": "#1B2029",
+    "text": "#F3F5F8",
+    "muted": "#AAB4C2",
+    "grid": "#3D4655",
+    "selection_reason": "player_sample_or_reported_team_label",
+    "scope": "editorial_palette_only_not_a_team_membership_claim",
+    "official_brand_specification": false
+  },
+  "generated_at": "2026-10-22T08:29:10+00:00",
+  "data_kind": "nba",
+  "status": "rendered_pending_book_check",
+  "recomputed_metrics": true,
+  "report_validation": {
+    "status": "pass",
+    "chinese_characters": 2269,
+    "claim_count": 21,
+    "numeric_fact_count": 86,
+    "errors": [],
+    "warnings": [
+      "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+    ]
+  },
+  "charts": [
+    "efficiency.svg",
+    "shot_mix.svg",
+    "scoring_mix.svg",
+    "creation.svg",
+    "assisted.svg",
+    "team_context.svg",
+    "onoff.svg",
+    "tracking.svg",
+    "shot_locations.svg",
+    "shot_zones.svg",
+    "shot_density.svg",
+    "role_profile.svg",
+    "usage_efficiency.svg",
+    "impact_retrospective.svg",
+    "percentile_nba_radar.svg",
+    "percentile_bref_radar.svg"
+  ],
+  "chart_evidence": {
+    "efficiency": {
+      "status": "ok",
+      "metric_ids": [
+        "TS_PCT",
+        "LEAGUE_TS_PCT",
+        "RTS_PP"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "T_BASE"
+      ],
+      "note": "TS综合考虑两分、三分和罚球。rTS是球员与同赛季、同比赛类型基准的TS差，单位为百分点，不是实力分。"
+    },
+    "shot_mix": {
+      "status": "ok",
+      "metric_ids": [
+        "FG3A_RATE",
+        "V_FG2A_RATE",
+        "FG3_PCT"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "note": "占比只算投篮出手，不含罚球。三分命中率只看三分出手；这张图不表示出手位置或难度。"
+    },
+    "scoring_mix": {
+      "status": "ok",
+      "metric_ids": [
+        "V_PTS_2P_SHARE",
+        "V_PTS_3P_SHARE",
+        "V_PTS_FT_SHARE"
+      ],
+      "source_ids": [
+        "P_BASE"
+      ],
+      "note": "按总得分分成两分、三分和罚球：分别用命中数乘以对应分值。四舍五入后合计可能略有偏差；不表示单打、挡拆等打法占比。"
+    },
+    "creation": {
+      "status": "ok",
+      "metric_ids": [
+        "PTS_PER75",
+        "AST_PER75",
+        "TOV_PER75"
+      ],
+      "source_ids": [
+        "P_100"
+      ],
+      "note": "统一换算为每75回合，来自同样本的每100回合数据。得分、助攻、失误各看各的，不相加评分；助攻多也不一定代表组织能力强。"
+    },
+    "assisted": {
+      "status": "ok",
+      "metric_ids": [
+        "PCT_AST_FGM",
+        "PCT_UAST_FGM",
+        "PCT_AST_3PM",
+        "V_PCT_UAST_3PM"
+      ],
+      "source_ids": [
+        "P_SCORE"
+      ],
+      "note": "这里只看已经投进的球。没有记助攻不等于单打；记了助攻，也不代表统计了全部接球投篮。"
+    },
+    "team_context": {
+      "status": "ok",
+      "metric_ids": [
+        "ONCOURT_OFF_RATING",
+        "ONCOURT_DEF_RATING",
+        "TEAM_OFF_RATING",
+        "TEAM_DEF_RATING"
+      ],
+      "source_ids": [
+        "P_ADV",
+        "T_ADV"
+      ],
+      "note": "并列展示球员在场时和目标球队整体的每百回合得分、失分。两组样本不同，不能相减当成个人贡献；这里没有在场与不在场对比。"
+    },
+    "onoff": {
+      "status": "ok",
+      "metric_ids": [
+        "ONOFF_ON_OFF_RATING",
+        "ONOFF_OFF_OFF_RATING",
+        "ONOFF_ON_DEF_RATING",
+        "ONOFF_OFF_DEF_RATING"
+      ],
+      "source_ids": [
+        "P_ONOFF"
+      ],
+      "note": "在场与不在场均覆盖同赛季球队样本；进攻值高更好，防守失分值低更好。未调整队友、对手和替补配置，不是个人因果贡献或防守评分。"
+    },
+    "tracking": {
+      "status": "ok",
+      "metric_ids": [
+        "CATCH_SHOOT_EFG_PCT",
+        "PULL_UP_EFG_PCT"
+      ],
+      "source_ids": [
+        "TR_CATCH",
+        "TR_PULL"
+      ],
+      "note": "有效命中率给三分命中增加权重。使用官方追踪百分比，不用四舍五入的场均命中数反推；两类出手位置、难度和样本不同，不据此判定哪类能力更强。覆盖场次见指标表。"
+    },
+    "shot_locations": {
+      "status": "ok",
+      "metric_ids": [
+        "SHOT_EVENT_FGA",
+        "SHOT_LOCATION_FGA",
+        "SHOT_LOCATION_MISSING",
+        "SHOT_LOCATION_COVERAGE"
+      ],
+      "source_ids": [
+        "P_SHOT",
+        "P_BASE"
+      ],
+      "note": "赛季事件1598次齐全；图上1596次，缺坐标2次不落点。位置筛选分母仅含有坐标事件；区域表仍以赛季全部事件为分母。"
+    },
+    "shot_zones": {
+      "status": "ok",
+      "metric_ids": [
+        "SHOT_RA_FGA",
+        "SHOT_RA_FGM",
+        "SHOT_RA_SHARE",
+        "SHOT_RA_FG_PCT",
+        "SHOT_PAINT_FGA",
+        "SHOT_PAINT_FGM",
+        "SHOT_PAINT_SHARE",
+        "SHOT_PAINT_FG_PCT",
+        "SHOT_MID_FGA",
+        "SHOT_MID_FGM",
+        "SHOT_MID_SHARE",
+        "SHOT_MID_FG_PCT",
+        "SHOT_LC3_FGA",
+        "SHOT_LC3_FGM",
+        "SHOT_LC3_SHARE",
+        "SHOT_LC3_FG_PCT",
+        "SHOT_RC3_FGA",
+        "SHOT_RC3_FGM",
+        "SHOT_RC3_SHARE",
+        "SHOT_RC3_FG_PCT",
+        "SHOT_ATB3_FGA",
+        "SHOT_ATB3_FGM",
+        "SHOT_ATB3_SHARE",
+        "SHOT_ATB3_FG_PCT",
+        "SHOT_BACK_FGA",
+        "SHOT_BACK_FGM",
+        "SHOT_BACK_SHARE",
+        "SHOT_BACK_FG_PCT",
+        "SHOT_MISSING_FGA",
+        "SHOT_MISSING_FGM",
+        "SHOT_MISSING_SHARE",
+        "SHOT_MISSING_FG_PCT"
+      ],
+      "source_ids": [
+        "P_SHOT",
+        "P_BASE"
+      ],
+      "note": "按官方 SHOT_ZONE_BASIC 分组；区域标签缺失与区域/类型冲突各自单列，不修正原值。分母为完整赛季全部事件，数字为命中数/出手数与命中率，条长是出手份额。没有相同口径联盟区域基准，不计算相对联盟热区；少样本提示不代表统计显著性。"
+    },
+    "shot_density": {
+      "status": "ok",
+      "metric_ids": [
+        "SHOT_EVENT_FGA"
+      ],
+      "source_ids": [
+        "P_SHOT",
+        "P_BASE"
+      ],
+      "note": "每格精确计数，颜色线性对应频次；边界半开区间、最后一格含球场边界。半场外事件另计并保留在交互球场。仅含1596次有坐标事件；缺坐标2次，赛季总数1598次。不提供联盟相对效率或投射能力热区。"
+    },
+    "role_profile": {
+      "status": "ok",
+      "metric_ids": [
+        "COHORT_N",
+        "COHORT_PTS_PER75_PERCENTILE",
+        "COHORT_AST_PER75_PERCENTILE",
+        "COHORT_TS_PCT_PERCENTILE",
+        "COHORT_AST_TOV_PERCENTILE",
+        "COHORT_PCT_UAST_FGM_PERCENTILE",
+        "COHORT_TOV_PER75_PERCENTILE"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV",
+        "P_100",
+        "P_SCORE"
+      ],
+      "note": "100 × (严格更差人数 + 0.5 × 同值人数) / N；包含目标球员；失误轴反向；非能力概率或综合排名。功能型阈值样本，包含后卫、锋线与中锋；未调整职责难度、阵容或对手。最新球队标签不代表全部赛季效力段。"
+    },
+    "usage_efficiency": {
+      "status": "ok",
+      "metric_ids": [
+        "USG_PCT",
+        "TS_PCT",
+        "COMPARISON_ELIGIBLE_N"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV",
+        "P_100",
+        "P_SCORE"
+      ],
+      "note": "同赛季 GP≥40、总分钟≥1000 的稳定轮换；TS由基础总量统一复算。未调整机会难度，不建立负荷与效率因果关系。"
+    },
+    "impact_retrospective": {
+      "status": "ok",
+      "metric_ids": [
+        "IMPACT_BPM",
+        "IMPACT_OBPM",
+        "IMPACT_DBPM"
+      ],
+      "source_ids": [
+        "EXT_IMPACT_BREF"
+      ],
+      "note": "单位相同但估计对象与方法不同，不比较点数大小作为能力名次。舍入可使总值与分量和略有不同。"
+    },
+    "percentile_nba_radar": {
+      "status": "ok",
+      "metric_ids": [
+        "USG_PCT",
+        "PCTL_USG_PCT",
+        "PCTL_USG_PCT_N",
+        "AST_PCT",
+        "PCTL_AST_PCT",
+        "PCTL_AST_PCT_N",
+        "TS_PCT",
+        "PCTL_TS_PCT",
+        "PCTL_TS_PCT_N",
+        "AST_TOV",
+        "PCTL_AST_TOV",
+        "PCTL_AST_TOV_N",
+        "ADV_NBA_OREB_PCT",
+        "PCTL_ADV_NBA_OREB_PCT",
+        "PCTL_ADV_NBA_OREB_PCT_N",
+        "ADV_NBA_DREB_PCT",
+        "PCTL_ADV_NBA_DREB_PCT",
+        "PCTL_ADV_NBA_DREB_PCT_N"
+      ],
+      "source_ids": [
+        "P_BASE",
+        "P_ADV"
+      ],
+      "note": "GP≥20且赛季总分钟≥500；全位置，不另按角色筛选。 六轴分别描述职责、结果与效率；外圈是较高数值，不合成能力分。"
+    },
+    "percentile_bref_radar": {
+      "status": "ok",
+      "metric_ids": [
+        "IMPACT_BPM",
+        "PCTL_IMPACT_BPM",
+        "PCTL_IMPACT_BPM_N",
+        "IMPACT_OBPM",
+        "PCTL_IMPACT_OBPM",
+        "PCTL_IMPACT_OBPM_N",
+        "IMPACT_DBPM",
+        "PCTL_IMPACT_DBPM",
+        "PCTL_IMPACT_DBPM_N",
+        "IMPACT_VORP",
+        "PCTL_IMPACT_VORP",
+        "PCTL_IMPACT_VORP_N",
+        "IMPACT_WS",
+        "PCTL_IMPACT_WS",
+        "PCTL_IMPACT_WS_N",
+        "IMPACT_WS48",
+        "PCTL_IMPACT_WS48",
+        "PCTL_IMPACT_WS48_N",
+        "STAT_LEADER_IMPACT_VORP_RANK",
+        "STAT_LEADER_IMPACT_VORP_TIES",
+        "STAT_LEADER_IMPACT_VORP_N",
+        "STAT_LEADER_IMPACT_WS_RANK",
+        "STAT_LEADER_IMPACT_WS_TIES",
+        "STAT_LEADER_IMPACT_WS_N"
+      ],
+      "source_ids": [
+        "EXT_IMPACT_BREF"
+      ],
+      "note": "GP≥20且提供者总分钟≥500；转会球员仅保留唯一赛季合计行。 比率与累计量各自转为样本百分位；指标共享输入，图形面积没有综合分含义。"
+    }
+  },
+  "sha256": {
+    "data_bundle.json": "0eadf9b919334d7b3c0bea14905098ee06bda2cc6d19839c6394d4a97b1ed94d",
+    "analysis.json": "8ddd6b6f0c2ac3cf9b3bd72c2247b192db64bf105b9c8f822f3dbd36e19c56a5",
+    "sources.json": "1967ca68214e2001138acb854e8fb598daf4f0bd75834c7671f3b2e75ca7fb03",
+    "report.md": "7e0c0733471a0e2972f3da6f2e05c2723811a60cfc4fff1eb1a69e426186c597",
+    "claims.json": "b893c11ff41fa9b6d27527c70c184d91c7062a02b33ab5ed4199731f540cfb01",
+    "book_content.json": "8c7b5f508445e070a6b37b588dfbd75b74c1283889ce3b4f792ecb163b96550a",
+    "media_content.json": "9f7e8c13df64ec093c86808a5f107ab7e99d37c7d62cf57475edbb58423a7cd4",
+    "media/curry-cover.jpg": "28c30afbe29aa1ebbb7bf11f0cad491d0346589aeac551961068ec51d4b2ed6f",
+    "media/warriors-warmup.jpg": "a683d88f3f342f377b5877206f8e9e23a0d7c9ba05950c5539cb456962c00c31",
+    "advanced_percentiles.json": "90df3aca8ac056a03ff441a9bb57ad88fc562959ae1aab9b52fda5f708720eb2",
+    "media_research.json": "91d3c1b0c737ea7c04532faa68e344f1d0e2dc1ea950fafecd82cdf3ea55cce2",
+    "research_book.html": "fb6a6e5d769459798a08a9377fb2f2a5de5775790a9a7f6378f2e866d187f24c",
+    "summary.md": "2fcae1a988c71ed8f85d46a591deaa347a8f8d5af11b837fa647759c53d92504",
+    "charts/efficiency.svg": "44755e68a479094e7a35c6a7cf55af45316142dab4d13a12019c8d9ee8775fd0",
+    "charts/shot_mix.svg": "f7ebf6617e8d3c379b318b3435833310a23ff9caa208338e27af69503ff0f6f3",
+    "charts/scoring_mix.svg": "d5f8f179479b0b8c15e02076938f9d507442cec736d0f2eaf566e08958cd8322",
+    "charts/creation.svg": "fffd2928f1520926f4c1a146b0ffc46da9e0462b0fee0150caf9b3ce8e8785a3",
+    "charts/assisted.svg": "f6f6c75ccd6076813d22c20869a274b91e07408e6e662318dd9624dae01b819f",
+    "charts/team_context.svg": "9a3cc3b8b7279fa3592cbc9d146e4cce9abc4827e9a47be99066307b04d6462c",
+    "charts/onoff.svg": "65fdb5550cb7e5d0b83fe2bb834f91e19cbe3a12045bc41839e73d7542201b01",
+    "charts/tracking.svg": "4c468d22079234eba02fa9a2f989799d6499993a4a921f042953193cefe6d7c6",
+    "charts/shot_locations.svg": "b5e6cdf63894b7f7b9d110c9ff897dc1210486c816b43e6ef2dca3bfc527e971",
+    "charts/shot_zones.svg": "da79f47e46a90d905a29a3b45e8234fcf1c6eef6cb3a49efb5c1937eb4382a09",
+    "charts/shot_density.svg": "c09c84f0119ebde9a0e13b4e767b8edfc42e0db89d8b9a4144c94b5072173cab",
+    "charts/role_profile.svg": "73cdaacb0f833ea0050536c54717c062eddf03a393149c2de64b184d63e14bd0",
+    "charts/usage_efficiency.svg": "73b023428146961dc5f9d27313ec014e5d51aa4d164b4d0570cecd432c8bf1b9",
+    "charts/impact_retrospective.svg": "0f3ea1744d1e14df6434ebf5b20f12d8f419836a49d54a1c66f3552373c7453d",
+    "charts/percentile_nba_radar.svg": "73234e5517c224b2dc99a3905a226a90a125cee6b605e1baf132ef7e3fb514c5",
+    "charts/percentile_bref_radar.svg": "97fce551a675e945f5a019b1594da9f7abfe528210a992f0a442542f8fe4f0c0"
+  },
+  "manual_review_required": true
+}

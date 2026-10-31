@@ -1,0 +1,146 @@
+{
+  "curry": {
+    "book": {
+      "status": "pass",
+      "recomputed_metrics": true,
+      "report_validation": {
+        "status": "pass",
+        "chinese_characters": 2269,
+        "claim_count": 21,
+        "numeric_fact_count": 86,
+        "errors": [],
+        "warnings": [
+          "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+        ]
+      },
+      "editorial_audit": {
+        "status": "no_flags",
+        "semantic_truth_verified": false,
+        "findings": []
+      },
+      "media_research_audit": {
+        "status": "pass",
+        "adopted_count": 2,
+        "candidate_count": 3,
+        "findings": []
+      },
+      "section_count": 9,
+      "anchor_count": 660,
+      "svg_count": 15,
+      "embedded_metric_instances": 429,
+      "errors": [],
+      "warnings": [
+        "Passing checks verify reproducibility, IDs, registered numbers, and static output integrity, NOT semantic truth, strategy validity, or visual layout. Review desktop/mobile/print separately."
+      ]
+    },
+    "poster": {
+      "status": "pass",
+      "poster_version": "0.3.0",
+      "charts_rendered": 6,
+      "charts_missing": 0,
+      "theme": "GSW",
+      "anchor_count": 83,
+      "embedded_metric_instances": 275,
+      "recomputed_metrics": true,
+      "render_parity": true,
+      "report_validation": {
+        "status": "pass",
+        "chinese_characters": 2269,
+        "claim_count": 21,
+        "numeric_fact_count": 86,
+        "errors": [],
+        "warnings": [
+          "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+        ]
+      },
+      "errors": [],
+      "warnings": [
+        "Structural and numeric reproducibility checks do not prove player evaluation, chart interpretation or tactical fit. Visual and semantic review remain required."
+      ]
+    },
+    "metrics": 246,
+    "profiles": [
+      {
+        "key": "bref_compass",
+        "axes": 11,
+        "n": 350
+      },
+      {
+        "key": "nba_compass",
+        "axes": 10,
+        "n": 350
+      }
+    ]
+  },
+  "lebron": {
+    "book": {
+      "status": "pass",
+      "recomputed_metrics": true,
+      "report_validation": {
+        "status": "pass",
+        "chinese_characters": 3180,
+        "claim_count": 27,
+        "numeric_fact_count": 111,
+        "errors": [],
+        "warnings": [
+          "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+        ]
+      },
+      "editorial_audit": {
+        "status": "no_flags",
+        "semantic_truth_verified": false,
+        "findings": []
+      },
+      "media_research_audit": {
+        "status": "not_required",
+        "findings": []
+      },
+      "section_count": 9,
+      "anchor_count": 691,
+      "svg_count": 17,
+      "embedded_metric_instances": 426,
+      "errors": [],
+      "warnings": [
+        "Passing checks verify reproducibility, IDs, registered numbers, and static output integrity, NOT semantic truth, strategy validity, or visual layout. Review desktop/mobile/print separately."
+      ]
+    },
+    "poster": {
+      "status": "pass",
+      "poster_version": "0.3.0",
+      "charts_rendered": 6,
+      "charts_missing": 0,
+      "theme": "CLE",
+      "anchor_count": 100,
+      "embedded_metric_instances": 267,
+      "recomputed_metrics": true,
+      "render_parity": true,
+      "report_validation": {
+        "status": "pass",
+        "chinese_characters": 3180,
+        "claim_count": 27,
+        "numeric_fact_count": 111,
+        "errors": [],
+        "warnings": [
+          "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+        ]
+      },
+      "errors": [],
+      "warnings": [
+        "Structural and numeric reproducibility checks do not prove player evaluation, chart interpretation or tactical fit. Visual and semantic review remain required."
+      ]
+    },
+    "metrics": 238,
+    "profiles": [
+      {
+        "key": "bref_compass",
+        "axes": 11,
+        "n": 353
+      },
+      {
+        "key": "nba_compass",
+        "axes": 10,
+        "n": 353
+      }
+    ]
+  }
+}

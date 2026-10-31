@@ -24,6 +24,9 @@
 .percentile-row>div:first-child{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .percentile-name{font-size:13px;line-height:1.5}
 .percentile-raw{font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.percentile-row>div:first-child:has(.percentile-polarity){flex-wrap:wrap}
+.percentile-row .percentile-polarity{display:block;flex-basis:100%;text-align:left;line-height:1.65;color:#665e53;overflow-wrap:anywhere}
+.percentile-row .percentile-polarity[data-polarity="lower_better"]{border-left:2px solid #9b7255;padding-left:8px}
 .percentile-distribution{display:grid;grid-template-columns:minmax(30px,1fr) 66px;gap:10px;align-items:center}
 .percentile-track{height:8px;background:#e8e1d5;border-radius:6px;overflow:hidden}
 .percentile-track span{display:block;height:100%;background:var(--book-primary,#632d75);border-radius:6px}

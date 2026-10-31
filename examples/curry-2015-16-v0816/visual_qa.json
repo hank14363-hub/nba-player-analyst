@@ -1,0 +1,74 @@
+{
+  "checked_on": "2026-10-22",
+  "browser": "Edge / Playwright, headless",
+  "reduced_motion": true,
+  "checks": [
+    {
+      "width": 1440,
+      "state": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "images": [
+          {
+            "ok": true
+          },
+          {
+            "ok": true
+          },
+          {
+            "ok": true
+          }
+        ],
+        "notes": 35,
+        "leaders": 4,
+        "radars": 2
+      },
+      "page_errors": []
+    },
+    {
+      "width": 390,
+      "state": {
+        "width": 390,
+        "scrollWidth": 390,
+        "images": [
+          {
+            "ok": true
+          },
+          {
+            "ok": true
+          },
+          {
+            "ok": true
+          }
+        ],
+        "notes": 35,
+        "leaders": 4,
+        "radars": 2
+      },
+      "page_errors": []
+    },
+    {
+      "width": 320,
+      "state": {
+        "width": 320,
+        "scrollWidth": 320,
+        "images": [
+          {
+            "ok": true
+          },
+          {
+            "ok": true
+          },
+          {
+            "ok": true
+          }
+        ],
+        "notes": 35,
+        "leaders": 4,
+        "radars": 2
+      },
+      "page_errors": []
+    }
+  ],
+  "screenshots": "Outside package: percentile-upgrade/visual-qa"
+}

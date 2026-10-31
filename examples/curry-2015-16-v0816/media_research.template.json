@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.2.0",
+  "identity": {
+    "player_id": 201939,
+    "season": "2015-16",
+    "season_type": "Regular Season"
+  },
+  "status": "pending",
+  "reason": "",
+  "queries": [],
+  "candidates": [],
+  "needs": [
+    {
+      "slot": "cover",
+      "status": "pending",
+      "reason": "",
+      "media_ids": []
+    },
+    {
+      "slot": "scoring",
+      "status": "pending",
+      "reason": "",
+      "media_ids": []
+    },
+    {
+      "slot": "creation",
+      "status": "pending",
+      "reason": "",
+      "media_ids": []
+    },
+    {
+      "slot": "defense",
+      "status": "pending",
+      "reason": "",
+      "media_ids": []
+    }
+  ],
+  "stop_reason": ""
+}

@@ -1,9 +1,7 @@
-# 从这里开始 · v0.8.14
+# 从这里开始 · v1.0.0 · V1.00
 
-使用与安装先看 [README.md](README.md)；代理执行流程看 [SKILL.md](SKILL.md)。
+安装与使用看 [README.md](README.md)，代理执行流程看 [SKILL.md](SKILL.md)。
 
-在Codex中指定球员、赛季、常规赛/季后赛和研究重点，例如：“使用 $nba-player-analyst 分析斯蒂芬·库里2015–16常规赛，生成图文研究册。”
+在对话中指定球员、赛季、常规赛/季后赛和研究重点。浏览 [库里2015–16研究册](examples/curry-2015-16-v100/research_book.html#percentile-radar) 可查看同心分位罗盘、图片、球评与交互；这是保留证据重放，不代替新球员取数。
 
-浏览随包成果可打开 [官方高阶案例](examples/cade-cunningham-2024-25-official-v081/research_book.html)。它是历史案例，不能代替新球员取数；最新现场案例的位置与分发边界见README。
-
-配图、投篮筛选、雷达与EPM的当前能力见README功能表；版本沿革见 [CHANGELOG.md](CHANGELOG.md)，验证范围见 [TEST_REPORT.md](TEST_REPORT.md)。
+雷达方法与旧成稿升级看 [radar_compass.md](references/radar_compass.md)，验证范围看 [TEST_REPORT.md](TEST_REPORT.md)。运行版不含旧案例和tests；历史路径请从完整包获取。

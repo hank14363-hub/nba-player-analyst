@@ -128,6 +128,75 @@ def row_season(value, convention):
     return f'{end - 1}-{end % 100:02d}'
 
 
+def normalize_actual_row(snapshot, original, base, *, population_policy=None):
+    """Shared identity/scope/components; only a named source profile changes population minutes."""
+    season=snapshot['season']; meta=snapshot['metadata']; files=snapshot['files']
+    validate_metadata(meta,season)
+    columns=meta['columns']; pid=integer(base.get('PLAYER_ID'),'reference NBA ID')
+    if integer(original[columns['nba_id']],'EPM NBA ID') != pid or row_season(original[columns['season']],meta['season_format']) != season:
+        raise DataError('EPM population identity or season mismatch')
+    kaggle = meta.get('source_kind') == 'kaggle_deocheng_v1'
+    if kaggle:
+        if files[0]['sha256_raw'] != KAGGLE_ACTUAL_SHA:
+            raise DataError('Kaggle Actual export differs from reviewed v1 bytes; review a new version before import')
+        expected_columns = dict(zip(FIELDS, ('nba_player_id', 'player_name', 'season', 'gp', 'mp', 'epm_tot', 'epm_off', 'epm_def')))
+        if columns != expected_columns or str(original.get('seasontype')) != '2' or original.get('source') != 'dunksandthrees.com/epm/actual':
+            raise DataError('Kaggle Actual schema/source/type mismatch')
+        try:
+            embedded = json.loads(original['raw'])
+            for col, key in [('nba_player_id', 'player_id'), ('season', 'season'), ('gp', 'gp'), ('mp', 'mp'), ('epm_tot', 'tot'), ('epm_off', 'off'), ('epm_def', 'def')]:
+                if number(original[col]) != number(embedded[key]):
+                    raise DataError('Kaggle CSV differs from retained provider JSON: ' + col)
+            if (str(embedded['seasontype']) != '2' or number(embedded['scope_id']) != 0
+                    or normalize_name(embedded['player_name']) != normalize_name(original['player_name'])):
+                raise DataError('Kaggle embedded provider scope/name mismatch')
+        except DataError:
+            raise
+        except (KeyError, ValueError, TypeError) as exc:
+            raise DataError('Kaggle embedded Actual JSON cannot be verified') from exc
+    row = {key: original[column] for key, column in columns.items()}
+    if not isinstance(row['player_name'], str) or normalize_name(row['player_name']) != normalize_name(base['PLAYER_NAME']):
+        raise DataError('EPM exact full-name and numeric NBA-ID bridge mismatch')
+    for key, value in [('season_type', 'Regular Season'), ('estimate_type', 'actual')]:
+        if key in row and row[key] != value:
+            raise DataError('EPM raw competition/estimate type contradicts metadata')
+    games = integer(row['games'], 'EPM games')
+    minutes = number(row['minutes'], 'EPM total minutes')
+    decimals = integer(meta['minutes_decimals'], 'minutes_decimals')
+    if population_policy is None:
+        tolerance = .5 * 10 ** (-decimals)
+    elif population_policy == 'kaggle-v1-reference-concordance-2min':
+        if not kaggle or files[0]['sha256_raw'] != KAGGLE_ACTUAL_SHA:
+            raise DataError('Population minute policy only supports the reviewed Kaggle v1 export')
+        # A source-specific concordance screen, NOT an assertion of rounding error.
+        # Per-row serialized precision is not inherited from the selected target.
+        from decimal import Decimal
+        decimals = max(0, -Decimal(str(row['minutes'])).as_tuple().exponent)
+        if decimals > 5:
+            raise DataError('Population minute precision outside reviewed Kaggle v1 profile')
+        tolerance = 2.0
+    else:
+        raise DataError('Unknown Actual EPM population minute policy')
+    if games <= 0 or games != number(base.get('GP'), 'reference GP'):
+        raise DataError('EPM GP mismatch')
+    if minutes <= 0 or abs(minutes - round(minutes, decimals)) > 1e-8:
+        raise DataError('EPM minutes contradict declared total-minute precision')
+    if abs(minutes - number(base.get('MIN'), 'reference MIN')) > tolerance + 1e-9:
+        raise DataError('EPM minute coverage mismatch at declared export precision' if population_policy is None else 'EPM population minute difference exceeds reviewed 2-minute concordance limit')
+    normalized = dict(nba_id=pid, player_name=row['player_name'], season=season,
+                      season_type='Regular Season', estimate_type='actual', games=games, minutes=minutes)
+    for key in ('tot', 'off', 'def'):
+        normalized[key] = number(row[key], 'EPM.' + key)
+    if abs(normalized['tot'] - normalized['off'] - normalized['def']) > .15 + 1e-12:
+        raise DataError('EPM components fail tot == off + def tolerance 0.15')
+    if population_policy is not None:
+        normalized['minute_match'] = dict(policy=population_policy, provider_minutes=minutes,
+            reference_minutes=number(base['MIN']), absolute_difference=abs(minutes-number(base['MIN'])),
+            serialized_decimals=decimals, concordance_limit=tolerance,
+            note='提供者分钟与参考分钟接近，但不宣称完全相等或差异只是舍入。')
+    return normalized
+
+
 def build_dataset(snapshot):
     """Rebuild normalized EPM only from retained original rows and declared mapping."""
     if snapshot.get('schema_version') != '0.1.0' or snapshot.get('adapter') != ADAPTER:
@@ -163,46 +232,8 @@ def build_dataset(snapshot):
         raise DataError('EPM identity/season selector must resolve exactly one row; never sum stints or choose duplicate exports')
     original = candidates[0]
     kaggle = meta.get('source_kind') == 'kaggle_deocheng_v1'
-    if kaggle:
-        if files[0]['sha256_raw'] != KAGGLE_ACTUAL_SHA:
-            raise DataError('Kaggle Actual export differs from reviewed v1 bytes; review a new version before import')
-        expected_columns = dict(zip(FIELDS, ('nba_player_id', 'player_name', 'season', 'gp', 'mp', 'epm_tot', 'epm_off', 'epm_def')))
-        if columns != expected_columns or str(original.get('seasontype')) != '2' or original.get('source') != 'dunksandthrees.com/epm/actual':
-            raise DataError('Kaggle Actual schema/source/type mismatch')
-        try:
-            embedded = json.loads(original['raw'])
-            for col, key in [('nba_player_id', 'player_id'), ('season', 'season'), ('gp', 'gp'), ('mp', 'mp'), ('epm_tot', 'tot'), ('epm_off', 'off'), ('epm_def', 'def')]:
-                if number(original[col]) != number(embedded[key]):
-                    raise DataError('Kaggle CSV differs from retained provider JSON: ' + col)
-            if (str(embedded['seasontype']) != '2' or number(embedded['scope_id']) != 0
-                    or normalize_name(embedded['player_name']) != normalize_name(original['player_name'])):
-                raise DataError('Kaggle embedded provider scope/name mismatch')
-        except DataError:
-            raise
-        except (KeyError, ValueError, TypeError) as exc:
-            raise DataError('Kaggle embedded Actual JSON cannot be verified') from exc
-    row = {key: original[column] for key, column in columns.items()}
-    if not isinstance(row['player_name'], str) or normalize_name(row['player_name']) != normalize_name(base['PLAYER_NAME']):
-        raise DataError('EPM exact full-name and numeric NBA-ID bridge mismatch')
-    for key, value in [('season_type', 'Regular Season'), ('estimate_type', 'actual')]:
-        if key in row and row[key] != value:
-            raise DataError('EPM raw competition/estimate type contradicts metadata')
-    games = integer(row['games'], 'EPM games')
-    minutes = number(row['minutes'], 'EPM total minutes')
     decimals = integer(meta['minutes_decimals'], 'minutes_decimals')
-    tolerance = .5 * 10 ** (-decimals)
-    if games <= 0 or games != number(base.get('GP'), 'reference GP'):
-        raise DataError('EPM GP mismatch')
-    if minutes <= 0 or abs(minutes - round(minutes, decimals)) > 1e-8:
-        raise DataError('EPM minutes contradict declared total-minute precision')
-    if abs(minutes - number(base.get('MIN'), 'reference MIN')) > tolerance + 1e-9:
-        raise DataError('EPM minute coverage mismatch at declared export precision')
-    normalized = dict(nba_id=pid, player_name=row['player_name'], season=season,
-                      season_type='Regular Season', estimate_type='actual', games=games, minutes=minutes)
-    for key in ('tot', 'off', 'def'):
-        normalized[key] = number(row[key], 'EPM.' + key)
-    if abs(normalized['tot'] - normalized['off'] - normalized['def']) > .15 + 1e-12:
-        raise DataError('EPM components fail tot == off + def tolerance 0.15')
+    normalized = normalize_actual_row(snapshot, original, base)
     model = meta['model_version']
     caveats = [
         'Dunks & Threes Actual EPM 用户离线导出；不是预测EPM或本次在线抓取，导出范围与版本由保留元数据声明。',

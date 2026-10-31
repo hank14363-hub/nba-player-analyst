@@ -4,6 +4,8 @@
 
 完整图文研究先按 [image_research.md](image_research.md) 执行图片搜索与选择，再按本文登记和插入。搜索由当前代理使用实际可用工具执行，run_analysis 和渲染器不会自动搜索或下载。只读文章的权限不自动包含其配图的再利用权限。
 
+v0.8.15新证据包生成尚未执行的media_search_plan与media_research.template；实际检索日志使用0.2.0，逐用途说明覆盖/缺失/不需要，并记录采用前的身份、日期、权利和画面核验。历史/其他活动/未知日期/环境图的disclosure须原文出现在可见caption。本文media_content结构仍为0.1.0，不因日志升级而改写旧媒体契约或旧案例。
+
 加入真实赛场照片或 GIF 时，先实际查阅素材出处、日期、摄影者与授权。照片用于展示人物，不能代替录像观察。跨年份素材在可见图注中标注实际拍摄年份，不能只放在替代文本或展开来源里，也不能暗示是分析赛季的回合。照片轮播必须写明“照片轮播，非连续回合录像”；未实际观看并登记的影片不能支撑 observation。
 
 将已取得的素材放入本次研究目录，使用可复现的本地 JPEG/PNG/GIF。在 sources.json 登记 EXT_ 来源：provider、url、retrieved_at、status、source_type=illustrative_media、credit、license、license_url、media_date、changes；display_title 可给出简短中文名称，title 保留原始素材名。合成轮播可用 media_items 逐张登记原页。图像授权与文章数据来源分别保留。

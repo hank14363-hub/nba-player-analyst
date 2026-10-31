@@ -41,9 +41,8 @@ def build_dataset(snapshot):
     try:
         if datetime.fromisoformat(meta['acquired_at'].replace('Z', '+00:00')).tzinfo is None:
             raise ValueError()
-        stamp = date.fromisoformat(row['game_dt'])
-        if not date(int(season[:4]), 7, 1) <= stamp <= date(int(season[:4]) + 1, 6, 30):
-            raise ValueError()
+        from season_windows import validate_archive_date
+        stamp = validate_archive_date(season, row['game_dt'])
     except (KeyError, ValueError, TypeError) as exc:
         raise DataError('Historical EPM needs a timezone acquisition timestamp and recorded date within its season year') from exc
     files = snapshot.get('files')

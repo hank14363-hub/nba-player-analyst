@@ -297,7 +297,7 @@ def analyze(bundle: dict, request: dict) -> dict:
     percentiles = None
     if request.get('advanced_percentiles'):
         from advanced_percentiles import context, register
-        percentiles = context(bundle, player_id, team_id, metrics)
+        percentiles = context(bundle, player_id, team_id, metrics,request.get('percentile_protocol'),request.get('radar_protocol'))
         register(percentiles, add, metrics)
     leaders = None
     if request.get('stat_leaders'):

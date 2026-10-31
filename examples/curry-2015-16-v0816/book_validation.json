@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "recomputed_metrics": true,
+  "report_validation": {
+    "status": "pass",
+    "chinese_characters": 2269,
+    "claim_count": 21,
+    "numeric_fact_count": 86,
+    "errors": [],
+    "warnings": [
+      "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+    ]
+  },
+  "editorial_audit": {
+    "status": "no_flags",
+    "semantic_truth_verified": false,
+    "findings": []
+  },
+  "media_research_audit": {
+    "status": "pass",
+    "adopted_count": 2,
+    "candidate_count": 3,
+    "findings": []
+  },
+  "section_count": 9,
+  "anchor_count": 647,
+  "svg_count": 15,
+  "embedded_metric_instances": 355,
+  "errors": [],
+  "warnings": [
+    "Passing checks verify reproducibility, IDs, registered numbers, and static output integrity, NOT semantic truth, strategy validity, or visual layout. Review desktop/mobile/print separately."
+  ]
+}

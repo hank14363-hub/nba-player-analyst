@@ -36,6 +36,49 @@ class AdvancedPercentiles(unittest.TestCase):
         e=self.entry(rows,rows[1]);self.assertEqual(e['percentile'],43.75)
         self.assertEqual((e['lower_count'],e['equal_count'],e['n']),(1,5,8))
 
+    def test_ring_quantiles_are_derived_from_retained_values(self):
+        rows=[{'x':i} for i in range(10)]
+        e=self.entry(rows,rows[5])
+        self.assertEqual(e['ring_quantiles']['5'],.45)
+        self.assertEqual(e['ring_quantiles']['90'],8.1)
+        self.assertIn('retained valid rows',e['ring_quantile_method'])
+
+    def test_radar_protocol_preserves_legacy_entries(self):
+        legacy=context(self.b,self.pid,0,[],protocol='0.2.0')
+        new=context(self.b,self.pid,0,[],protocol='0.2.0',radar_protocol='1.0.0')
+        before={e['metric_id']:e for e in legacy['groups'][0]['entries']}
+        after={e['metric_id']:e for e in new['groups'][0]['entries']}
+        self.assertNotIn('ADV_NBA_BALL_SECURITY',before)
+        self.assertIn('ADV_NBA_BALL_SECURITY',after)
+        for mid,old in before.items():
+            fresh=dict(after[mid]);fresh.pop('ring_quantiles',None);fresh.pop('ring_quantile_method',None)
+            self.assertEqual(old,fresh)
+
+    def test_unknown_radar_protocol_is_rejected(self):
+        with self.assertRaises(DataError):context(self.b,self.pid,0,[],radar_protocol='future')
+
+    def test_complement_recomputes_distribution_and_keeps_input(self):
+        for i,row in enumerate(self.b['tables']['player_advanced']):row['TM_TOV_PCT']=i
+        self.b['sources']['P_ADV']['sha256_rows']=digest(self.b['tables']['player_advanced'])
+        before=deepcopy(self.b)
+        g=nba_group(self.b,self.pid,compass=True)
+        e=next(e for e in g['entries'] if e['metric_id']=='ADV_NBA_BALL_SECURITY')
+        self.assertEqual(e['target'],91)
+        self.assertEqual(e['percentile'],5)
+        self.assertAlmostEqual(e['ring_quantiles']['5'],91.45)
+        self.assertAlmostEqual(e['ring_quantiles']['90'],99.1)
+        self.assertEqual(self.b,before)
+
+    def test_bref_complement_handles_ties_and_leaves_rows_unmodified(self):
+        d=self.bref()
+        for row in d['raw_rows']:row['tov_pct']='12.5'
+        before=deepcopy(d)
+        g=bref_group(self.b,d,compass=True)
+        e=next(e for e in g['entries'] if e['metric_id']=='ADV_BREF_BALL_SECURITY')
+        self.assertEqual((e['target'],e['percentile']),(87.5,50))
+        self.assertEqual(set(e['ring_quantiles'].values()),{87.5})
+        self.assertEqual(before,d)
+
     def test_extremes_do_not_force_zero_or_hundred(self):
         rows=[{'x':i} for i in range(10)]
         self.assertEqual(self.entry(rows,rows[0])['percentile'],5)

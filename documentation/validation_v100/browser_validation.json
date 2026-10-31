@@ -1,0 +1,112 @@
+{
+  "cases": {
+    "curry": {
+      "viewports": [
+        {
+          "width": 1920,
+          "body": 1920,
+          "chart": 620,
+          "chartContent": 620
+        },
+        {
+          "width": 1440,
+          "body": 1440,
+          "chart": 620,
+          "chartContent": 620
+        },
+        {
+          "width": 390,
+          "body": 390,
+          "chart": 290,
+          "chartContent": 290
+        },
+        {
+          "width": 320,
+          "body": 320,
+          "chart": 220,
+          "chartContent": 220
+        }
+      ],
+      "profiles": [
+        {
+          "id": "radar-panel-bref_compass",
+          "n": 11,
+          "ticks": 77,
+          "outside": []
+        },
+        {
+          "id": "radar-panel-nba_compass",
+          "n": 10,
+          "ticks": 70,
+          "outside": []
+        }
+      ],
+      "downloads": [
+        "C:/Users/DELL/Documents/Codex/2026-10-31/nba-v100/qa/curry-radar-panel-bref_compass.svg",
+        "C:/Users/DELL/Documents/Codex/2026-10-31/nba-v100/qa/curry-radar-panel-nba_compass.svg"
+      ],
+      "keyboard": true,
+      "finiteMotion": true,
+      "reducedMotion": true,
+      "print": true,
+      "noScript": true,
+      "externalRequests": [],
+      "errors": []
+    },
+    "lebron": {
+      "viewports": [
+        {
+          "width": 1920,
+          "body": 1920,
+          "chart": 620,
+          "chartContent": 620
+        },
+        {
+          "width": 1440,
+          "body": 1440,
+          "chart": 620,
+          "chartContent": 620
+        },
+        {
+          "width": 390,
+          "body": 390,
+          "chart": 290,
+          "chartContent": 290
+        },
+        {
+          "width": 320,
+          "body": 320,
+          "chart": 220,
+          "chartContent": 220
+        }
+      ],
+      "profiles": [
+        {
+          "id": "radar-panel-bref_compass",
+          "n": 11,
+          "ticks": 77,
+          "outside": []
+        },
+        {
+          "id": "radar-panel-nba_compass",
+          "n": 10,
+          "ticks": 70,
+          "outside": []
+        }
+      ],
+      "downloads": [
+        "C:/Users/DELL/Documents/Codex/2026-10-31/nba-v100/qa/lebron-radar-panel-bref_compass.svg",
+        "C:/Users/DELL/Documents/Codex/2026-10-31/nba-v100/qa/lebron-radar-panel-nba_compass.svg"
+      ],
+      "keyboard": true,
+      "finiteMotion": true,
+      "reducedMotion": true,
+      "print": true,
+      "noScript": true,
+      "externalRequests": [],
+      "errors": []
+    }
+  },
+  "errors": [],
+  "status": "pass"
+}

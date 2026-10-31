@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.3.0",
+  "status": "ready",
+  "data_kind": "nba",
+  "identity": {
+    "player_id": 201939,
+    "season": "2015-16",
+    "season_type": "Regular Season"
+  },
+  "headline": "库里：大量出手，效率仍然突出",
+  "deck": "全票赛季常规赛研究。真实命中率综合两分、三分和罚球；高得分负荷、持球与接应价值一起看。",
+  "verdict": {
+    "text": "高产高效的得分核心；持球急停与接球投射都能参与进攻。",
+    "claim_ids": [
+      "C02",
+      "C06"
+    ]
+  },
+  "roles": {
+    "offense": {
+      "text": "得分主导，兼顾持球与接应",
+      "claim_ids": [
+        "C06",
+        "C19"
+      ]
+    },
+    "defense": {
+      "text": "不以团队失分给个人评分",
+      "claim_ids": [
+        "C15"
+      ]
+    }
+  },
+  "chart_notes": {
+    "efficiency": {
+      "takeaway": "高得分负荷下仍有明显效率优势，基准为同季联盟整体。",
+      "claim_ids": [
+        "C02",
+        "C03"
+      ]
+    },
+    "shot_mix": {
+      "takeaway": "三分是主要出手来源，比例分母不含罚球。",
+      "claim_ids": [
+        "C04"
+      ]
+    },
+    "scoring_mix": {
+      "takeaway": "结合三分出手与效率理解得分结构，不把它当作战术类型分布。",
+      "claim_ids": [
+        "C04"
+      ]
+    },
+    "creation": {
+      "takeaway": "同时阅读助攻与失误；同角色样本中助攻产量并非突出项。",
+      "claim_ids": [
+        "C07",
+        "C11"
+      ]
+    },
+    "assisted": {
+      "takeaway": "兼有受助攻与未受助攻命中，不能直接等同接球与单打。",
+      "claim_ids": [
+        "C08"
+      ]
+    },
+    "team_context": {
+      "takeaway": "这是阵容共同在场与全队背景，不能相减冒充真正的在场与不在场差。",
+      "claim_ids": [
+        "C13",
+        "C14",
+        "C15"
+      ]
+    }
+  },
+  "strength": {
+    "text": "三分大量出手仍保持准度，同角色比较也支持得分效率优势。",
+    "claim_ids": [
+      "C04",
+      "C10"
+    ]
+  },
+  "fit": {
+    "text": "由队友分担发起，交球后继续接应，需要可靠传球与掩护。",
+    "claim_ids": [
+      "C09",
+      "C19"
+    ]
+  },
+  "risk": {
+    "text": "助攻并未包办全队创造；在场收益不能全部归于个人，防守仍需对位录像。",
+    "claim_ids": [
+      "C11",
+      "C15"
+    ]
+  },
+  "portrait": null
+}

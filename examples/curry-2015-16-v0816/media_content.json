@@ -1,0 +1,36 @@
+{
+  "schema_version": "0.1.0",
+  "identity": {
+    "player_id": 201939,
+    "season": "2015-16",
+    "season_type": "Regular Season"
+  },
+  "items": [
+    {
+      "id": "curry-cover",
+      "slot": "cover",
+      "kind": "photo",
+      "path": "media/curry-cover.jpg",
+      "sha256": "28c30afbe29aa1ebbb7bf11f0cad491d0346589aeac551961068ec51d4b2ed6f",
+      "title": "库里 · 全明星周末人物照",
+      "alt": "库里在全明星周末活动中手持篮球，侧身面向左方",
+      "caption": "2016年2月13日，全明星周末活动中的库里。仅作人物展示，不是常规赛比赛画面；统计范围仍为2015–16常规赛。",
+      "source_ids": [
+        "EXT_MEDIA_24669856449"
+      ]
+    },
+    {
+      "id": "warriors-warmup",
+      "slot": "creation",
+      "kind": "photo",
+      "path": "media/warriors-warmup.jpg",
+      "sha256": "a683d88f3f342f377b5877206f8e9e23a0d7c9ba05950c5539cb456962c00c31",
+      "title": "勇士主场 · 赛前热身资料照",
+      "alt": "勇士主场热身全景，篮筐和球员位于场地中，观众陆续入场",
+      "caption": "原作者题为“Stephen Curry warmup!”；2016年3月10日上传，实际拍摄日期未确认。画面用于展示场馆与热身环境，不作为战术、比赛日期或常规赛表现的证据。",
+      "source_ids": [
+        "EXT_MEDIA_25659573835"
+      ]
+    }
+  ]
+}

@@ -4,10 +4,13 @@ from pathlib import Path
 from types import SimpleNamespace
 import sys
 import unittest
+from math import hypot
+from xml.etree import ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from common import DataError,digest,read_json
 from radar_visuals import profiles,svg,radar_entries,award,PROFILES
+from radar_geometry import CENTER,INNER,OUTER,RING_LEVELS
 from stat_leaders import maximum,unique_bref,context
 
 class RadarAndLeaders(unittest.TestCase):
@@ -67,6 +70,78 @@ class RadarAndLeaders(unittest.TestCase):
         a=self.analysis();s=svg(profiles(a)[0],a,{})
         self.assertIn('data-metric-id="PCTL_IMPACT_VORP"',s)
         self.assertNotIn('<script',s);self.assertNotIn('<image',s)
+
+    def geometry(self,values):
+        a=self.analysis()
+        for i,value in enumerate(values):
+            a['metrics'][i*2+1]['value']=value
+            a['percentile_context']['groups'][0]['entries'][i]['percentile']=value
+        tree=ET.fromstring(svg(profiles(a)[0],a,{}))
+        polygon=next(el for el in tree.iter() if el.get('class')=='radar-shape')
+        return tree,[tuple(map(float,point.split(','))) for point in polygon.get('points').split()]
+
+    def test_breakout_keeps_linear_percentile_distances(self):
+        values=[0,25,50,75,99.5,100]
+        tree,points=self.geometry(values)
+        for value,(x,y) in zip(values,points):
+            self.assertAlmostEqual(hypot(x-CENTER[0],y-CENTER[1]),INNER+(OUTER-INNER)*value/100,delta=.001)
+
+    def test_breakout_p50_frame_is_half_p100_on_same_axes(self):
+        tree,_=self.geometry([50]*6)
+        guide=next(el for el in tree.iter() if el.get('class')=='radar-grid' and el.get('data-level')=='50')
+        self.assertEqual(float(guide.get('r')),INNER+(OUTER-INNER)*.5)
+        self.assertEqual((float(guide.get('cx')),float(guide.get('cy'))),CENTER)
+
+    def test_ring_ticks_are_registered_real_quantiles(self):
+        a=self.analysis()
+        entries=a['percentile_context']['groups'][0]['entries']
+        for e in entries:e['ring_quantiles']={str(x):float(x) for x in (5,18,32,46,60,75,90)}
+        s=svg(profiles(a)[0],a,{})
+        self.assertIn('class="radar-ring-tick"',s)
+        self.assertIn('>5.00</text>',s)
+        self.assertIn('radar-ring-tick',radar_entries(a,{})['percentile_bref_radar']['svg'])
+
+    def test_breakout_extremes_stay_inside_p100_and_export_canvas(self):
+        for values in ([0]*6,[100]*6,[0,100,0,100,0,100]):
+            tree,points=self.geometry(values)
+            w,h=map(float,tree.get('viewBox').split()[2:])
+            for x,y in points:
+                self.assertLessEqual(hypot(x-CENTER[0],y-CENTER[1]),OUTER+.001)
+                self.assertTrue(0<=x<=w and 0<=y<=h)
+
+    def test_missing_quantiles_are_never_estimated(self):
+        a=self.analysis()
+        self.assertNotIn('class="radar-ring-tick"',svg(profiles(a)[0],a,{}))
+        a['data_kind']='observed'
+        self.assertNotIn('class="radar-ring-tick"',svg(profiles(a)[0],a,{}))
+
+    def test_invalid_quantile_ladder_is_omitted(self):
+        for bad in ({'5':1},{str(q):-q for q in RING_LEVELS},{str(q):float('nan') for q in RING_LEVELS}):
+            a=self.analysis()
+            for e in a['percentile_context']['groups'][0]['entries']:e['ring_quantiles']=bad
+            self.assertNotIn('class="radar-ring-tick"',svg(profiles(a)[0],a,{}))
+
+    def test_quantile_tick_uses_same_radial_mapping(self):
+        a=self.analysis()
+        for e in a['percentile_context']['groups'][0]['entries']:
+            e['ring_quantiles']={str(q):float(q) for q in RING_LEVELS}
+        tree=ET.fromstring(svg(profiles(a)[0],a,{}))
+        ticks=[el for el in tree.iter() if el.get('class')=='radar-ring-tick']
+        self.assertEqual(len(ticks),6*len(RING_LEVELS))
+        for el in ticks:
+            q=int(el.get('data-level'));x=float(el.get('x'));y=float(el.get('y'))
+            self.assertAlmostEqual(hypot(x-CENTER[0],y-CENTER[1]),INNER+(OUTER-INNER)*q/100,delta=.001)
+            self.assertEqual(float(el.get('data-quantile-value')),q)
+
+    def test_rich_profile_uses_same_population_and_falls_back(self):
+        a=self.analysis();g=a['percentile_context']['groups'][0]
+        for mid,label in PROFILES[3]['axes']:
+            if any(e['metric_id']==mid for e in g['entries']):continue
+            a['metrics'] += [dict(metric_id=mid,status='ok',value=3,display='3',unit='ratio'),dict(metric_id='PCTL_'+mid,status='ok',value=50)]
+            g['entries'].append(dict(metric_id=mid,status='ok',n=10,missing_count=0,target=3,percentile=50,source_ids=['EXT_TEST']))
+        self.assertEqual(len(profiles(a)[0]['axes']),11)
+        g['entries'][-1]['missing_count']=1
+        self.assertEqual(len(profiles(a)[0]['axes']),6)
 
     def test_unique_and_tied_maxima(self):
         rows=[dict(x=i) for i in range(8)]

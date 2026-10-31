@@ -1,0 +1,69 @@
+{
+  "poster_version": "0.3.0",
+  "renderer_version": "0.8.16",
+  "generated_at": "2026-10-22T08:29:12+00:00",
+  "data_kind": "nba",
+  "theme": {
+    "key": "GSW",
+    "primary": "#215BB9",
+    "accent": "#FFD348",
+    "on_primary": "#FFFFFF",
+    "on_accent": "#10141B",
+    "background": "#11151C",
+    "panel": "#1B2029",
+    "text": "#F3F5F8",
+    "muted": "#AAB4C2",
+    "grid": "#3D4655",
+    "selection_reason": "player_sample_or_reported_team_label",
+    "scope": "editorial_palette_only_not_a_team_membership_claim",
+    "official_brand_specification": false
+  },
+  "inputs": [
+    "data_bundle.json",
+    "analysis.json",
+    "sources.json",
+    "report.md",
+    "claims.json",
+    "book_content.json",
+    "poster_content.json"
+  ],
+  "generated": [
+    "player_poster.html",
+    "poster_metrics.json",
+    "poster_charts/efficiency.svg",
+    "poster_charts/shot_mix.svg",
+    "poster_charts/scoring_mix.svg",
+    "poster_charts/creation.svg",
+    "poster_charts/assisted.svg",
+    "poster_charts/team_context.svg"
+  ],
+  "sha256": {
+    "data_bundle.json": "0eadf9b919334d7b3c0bea14905098ee06bda2cc6d19839c6394d4a97b1ed94d",
+    "analysis.json": "8ddd6b6f0c2ac3cf9b3bd72c2247b192db64bf105b9c8f822f3dbd36e19c56a5",
+    "sources.json": "1967ca68214e2001138acb854e8fb598daf4f0bd75834c7671f3b2e75ca7fb03",
+    "report.md": "7e0c0733471a0e2972f3da6f2e05c2723811a60cfc4fff1eb1a69e426186c597",
+    "claims.json": "b893c11ff41fa9b6d27527c70c184d91c7062a02b33ab5ed4199731f540cfb01",
+    "book_content.json": "8c7b5f508445e070a6b37b588dfbd75b74c1283889ce3b4f792ecb163b96550a",
+    "poster_content.json": "fb64aafef2c6aec4683cff904cc33a60230316167c9af185a77e4a118d8456cf",
+    "player_poster.html": "5220c16d72b4d2f8e67d1cb33917e141f963085c760f41b603f5bd74652770ff",
+    "poster_metrics.json": "450954b9d5e7723e6ede0f955869e3b24477523e7a17a295ed40a91182ae16a6",
+    "poster_charts/efficiency.svg": "1e725c2cc84bdaab548dd6f366ac1cbe30002d7eee1d1bb441a78f1be2b608d2",
+    "poster_charts/shot_mix.svg": "67a01e98ba6c04b19b5c169bc71aa48105b0fd43b3bfa5215b57360385c7751c",
+    "poster_charts/scoring_mix.svg": "330d8ebce6a4e4ce2518ff66708dbccae2115d88914cb6ab52f1334dc97ae45b",
+    "poster_charts/creation.svg": "db47f073d36358161f76644bdcb98cb61eaf2b34176947a952b88a4043a11032",
+    "poster_charts/assisted.svg": "df60836a236df37e30982f630ebfcf2d9440382004fbf8567f03731b61b3961d",
+    "poster_charts/team_context.svg": "a8170b0c4287911ba68adcc2394a7c3a6f6a99af143006c07a346d2a1ded3883"
+  },
+  "recomputed_metrics": true,
+  "report_validation": {
+    "status": "pass",
+    "chinese_characters": 2269,
+    "claim_count": 21,
+    "numeric_fact_count": 86,
+    "errors": [],
+    "warnings": [
+      "Automated checks validate schema, quote presence, IDs and declared numeric facts only. Codex must manually audit EVERY numerical statement, each citation's support, inference wording, and factual claims not represented in claims.json."
+    ]
+  },
+  "manual_semantic_review_required": true
+}

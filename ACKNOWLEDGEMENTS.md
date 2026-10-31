@@ -37,3 +37,11 @@ The user supplied a basketball player infographic as a visual reference for team
 - https://mp.weixin.qq.com/s/ElaF_arPDZvEop5ddBKMpQ
 
 The v0.3 snapshot did not redistribute athlete photographs, team logos or font files. Starting with v0.6, the official case includes Erik Drost's 2022 Skills Challenge photographs under CC BY 2.0 and a clearly labeled slideshow derived from them. Original pages, dates, attribution, license links and changes are preserved in each case's sources.json and the research book. Team-inspired presets are editorial approximations, not official licensed branding.
+
+
+## v0.8.16 随包库里图片
+
+- lam_chihang，2016年2月13日库里全明星活动人物照：[Flickr原作](https://www.flickr.com/photos/lam_chihang/24669856449/)，[CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)。本例裁切并重新编码，仅作人物展示。
+- Jake Spurlock，Stephen Curry warmup!：[Flickr原作](https://www.flickr.com/photos/whyisjake/25659573835/)，[CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)。拍摄日期未确认，2016年3月10日上传；仅作热身场馆环境，不能作人物身份或战术证据。
+
+更详细获取时间、原文件/采用文件摘要、许可和改动保留在当前案例sources.json、media_content.json及media_research.json。

@@ -1,17 +1,13 @@
-# 分发与维护核验 · v0.8.14
+# 分发与维护核验 · v1.0.0 · V1.00
 
-本次2026-10-18仅整理文档，发布版本仍为v0.8.14。当前测试入口见 [TEST_REPORT.md](TEST_REPORT.md)，最近功能修复的实案证据见 [validation_v0814.md](documentation/validation_v0814.md)。
+发布号1.0.0，展示名V1.00；data/claims为0.1.0、book为0.2.0、poster为0.3.0，百分位方向协议和图片日志为0.2.0，新增radar_protocol为1.0.0。详细验证见 [validation_v100.md](documentation/validation_v100.md)。
 
-## 维护约定
+- `PACKAGE_INFO.json`记录当前版本、674项回归和随包库里V1.00案例；旧案例保留原路径与统计。
+- 恢复38个历史缺失文件，逐一匹配原v0.8.18的FILE_HASHES；另恢复库里原bundle与BR原页并匹配保留清单/来源哈希，未以新数据替代旧证据。
+- `FILE_HASHES.json`列出本目录逐文件SHA-256，排除自身、Git、缓存与环境。ZIP另附`DISTRIBUTION.json`，记录payload摘要和实际省略项；包内两清单不参与自身摘要。
+- full保留历史案例和回归；runtime保留相同运行代码/资源/方法文档、当前库里案例与合成结构示例，省略旧examples和tests。运行包文档中的历史路径需完整包。
+- 当前例为保留证据重放，沿用两张CC BY 2.0照片、文章记录和来源时间。全明星照片明确只作人物展示；不当作本季常规赛战术证据。
+- `epm_value_imported=false`及`official_case_epm_imported=false`仍表示当前随包库里案例未含真实EPM；不改变标志制造支持。不包含Kaggle历史EPM完整原表、凭证或Python环境。
+- 安装前对照本轮开始时的已安装文件哈希，冲突时停止覆盖；修改文件保存可恢复备份。分发使用新的ZIP路径并核验CRC、payload哈希及运行包解压后的研究册/长图。
 
-- `PACKAGE_INFO.json`记录发布版本与能力/案例状态；`check_release.py`核对README、SKILL标题和数据结构版本。
-- 数据/claims为0.1.0、研究册内容0.2.0、长图内容0.3.0；发布版本变动不改写旧输入结构。
-- `FILE_HASHES.json`记录分发文件的SHA-256，不包含其自身、Python缓存或Git目录。修改分发文件后重新生成并核对。
-- 保留`agents/`、`assets/`、`scripts/`、`references/`、`tests/`、`examples/`与`documentation/`原路径；历史案例被回归和参考链接使用，不按旧版本名随意删除。
-- 不把本机虚拟环境、缓存、凭证、临时输出或新实案照片混入Skill；原始研究数据按各自来源约束管理。
-
-## 状态解释
-
-Actual EPM的离线导入能力、Kaggle转引真实验收、官网直接导出验收，以及分发包是否携带真实案例分别记录。`epm_value_imported=false`不等于导入器不可用；历史归档的“口径待核验”也不能因导入成功而移除。
-
-完整Skill可按目录复制或打包，避免只上传SKILL.md而漏掉脚本和资源。是否公开案例数据及图片需检查其来源与使用条件；本次未发布到外部仓库。
+此文定义核验范围；具体安装/归档结果保存在交付目录的`installation.json`与`distribution-results.json`。本轮未发布GitHub。

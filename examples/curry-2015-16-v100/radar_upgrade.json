@@ -1,0 +1,11 @@
+{
+  "protocol": "1.0.0",
+  "upgraded_at": "2026-10-31T09:33:09+00:00",
+  "source": "C:\\Users\\DELL\\Documents\\Codex\\2026-10-31\\nba-v100\\nba-player-analyst\\examples\\curry-2015-16-v0816",
+  "original_bundle_sha256": "0eadf9b919334d7b3c0bea14905098ee06bda2cc6d19839c6394d4a97b1ed94d",
+  "previous_metric_count": 238,
+  "new_metric_count": 246,
+  "unchanged_existing_metrics": true,
+  "mode": "retained evidence replay; no network or new collection",
+  "book_validation": "pass"
+}

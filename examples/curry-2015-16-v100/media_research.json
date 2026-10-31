@@ -1,0 +1,123 @@
+{
+  "identity": {
+    "player_id": 201939,
+    "season": "2015-16",
+    "season_type": "Regular Season"
+  },
+  "status": "complete",
+  "reason": "离线重放此前真实检索与采用；本轮核对保留原页许可、署名、日期说明和最终文件，不声称重新联网搜索。",
+  "queries": [
+    {
+      "query": "Stephen Curry 2016 Wikimedia Commons photo",
+      "tool": "cua in-app browser / Google",
+      "searched_at": "2026-10-17T14:08:01+00:00"
+    },
+    {
+      "query": "Stephen Curry / photographer Keith Allison",
+      "tool": "requests / public Flickr search",
+      "searched_at": "2026-10-18T03:02:29.716006+00:00"
+    },
+    {
+      "query": "Stephen Curry 2016 / CC BY or CC BY-SA",
+      "tool": "requests / public Flickr search",
+      "searched_at": "2026-10-18T03:03:14.610844+00:00"
+    },
+    {
+      "query": "Stephen Curry 2015 / CC BY or CC BY-SA",
+      "tool": "requests / public Flickr search",
+      "searched_at": "2026-10-18T03:05:07.548333+00:00"
+    }
+  ],
+  "candidates": [
+    {
+      "page_url": "https://commons.wikimedia.org/wiki/File:Stephen_Curry_dribbling_2016.jpg",
+      "accessed_at": "2026-10-17T14:08:01+00:00",
+      "decision": "not_downloaded",
+      "reason": "原页说明为本赛季库里照片；作者Keith Allison，CC BY-SA 2.0。"
+    },
+    {
+      "page_url": "https://www.flickr.com/photos/lam_chihang/24669856449/",
+      "accessed_at": "2026-10-18T03:03:56.001751+00:00",
+      "decision": "adopted",
+      "reason": "实际核验原页姓名/题名、摄影者、CC BY 2.0链接和下载地址；文件HTTP200并实际查看。拍摄日期已核验。",
+      "source_id": "EXT_MEDIA_24669856449",
+      "media_id": "curry-cover",
+      "download": {
+        "url": "https://live.staticflickr.com/1604/24669856449_208edc1b2f_b.jpg",
+        "status": 200,
+        "accessed_at": "2026-10-18T03:04:31.675279+00:00",
+        "bytes": 195559,
+        "sha256": "6b447ef5cdca9a2c156bb66b86a5f98a911be74820d74232e4b750b0f685b2ed"
+      },
+      "page_snapshot": "raw/media/24669856449.html",
+      "verification": {
+        "identity": "verified",
+        "rights": "verified",
+        "visual": "verified",
+        "date": "capture_verified",
+        "season_relation": "other_event",
+        "event_type": "all_star"
+      },
+      "disclosure": "2016年2月13日，全明星周末活动中的库里。仅作人物展示，不是常规赛比赛画面；统计范围仍为2015–16常规赛。",
+      "retained_evidence_reviewed_at": "2026-10-22T08:20:44+00:00"
+    },
+    {
+      "page_url": "https://www.flickr.com/photos/whyisjake/25659573835/",
+      "accessed_at": "2026-10-18T03:03:55.752730+00:00",
+      "decision": "adopted",
+      "reason": "实际核验原页姓名/题名、摄影者、CC BY 2.0链接和下载地址；文件HTTP200并实际查看。拍摄日期未知，上传时间单独说明，作为场馆资料照使用。",
+      "source_id": "EXT_MEDIA_25659573835",
+      "media_id": "warriors-warmup",
+      "download": {
+        "url": "https://live.staticflickr.com/1687/25659573835_d90eeb0109_b.jpg",
+        "status": 200,
+        "accessed_at": "2026-10-18T03:04:33.422107+00:00",
+        "bytes": 372594,
+        "sha256": "a683d88f3f342f377b5877206f8e9e23a0d7c9ba05950c5539cb456962c00c31"
+      },
+      "page_snapshot": "raw/media/25659573835.html",
+      "verification": {
+        "identity": "environment_only",
+        "rights": "verified",
+        "visual": "verified",
+        "date": "upload_only",
+        "season_relation": "unknown",
+        "event_type": "warmup"
+      },
+      "disclosure": "原作者题为“Stephen Curry warmup!”；2016年3月10日上传，实际拍摄日期未确认。画面用于展示场馆与热身环境，不作为战术、比赛日期或常规赛表现的证据。",
+      "retained_evidence_reviewed_at": "2026-10-22T08:20:44+00:00"
+    }
+  ],
+  "schema_version": "0.2.0",
+  "replayed_at": "2026-10-22T08:20:44+00:00",
+  "needs": [
+    {
+      "slot": "cover",
+      "status": "covered",
+      "media_ids": [
+        "curry-cover"
+      ],
+      "reason": "已确认人物，明确注明全明星活动而非常规赛。"
+    },
+    {
+      "slot": "creation",
+      "status": "covered",
+      "media_ids": [
+        "warriors-warmup"
+      ],
+      "reason": "仅作场馆环境资料，不识别单个球员或战术。"
+    },
+    {
+      "slot": "scoring",
+      "status": "not_needed",
+      "media_ids": [],
+      "reason": "本章由投篮结构、逐次事件与效率图解释，不额外重复人物照。"
+    },
+    {
+      "slot": "defense",
+      "status": "not_needed",
+      "media_ids": [],
+      "reason": "本章明确防守证据边界，环境照不能补足对位证据。"
+    }
+  ]
+}

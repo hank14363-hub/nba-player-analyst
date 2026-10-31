@@ -108,11 +108,16 @@ def render_assets(out: Path, analysis: dict) -> None:
         write_json(out/'advanced_percentiles.json', analysis['percentile_context'])
         with (out/'writing_brief.md').open('a',encoding='utf-8') as handle:
             handle.write('\n## 高阶数值百分位\n\n读取advanced_percentiles.json；引用PCTL_指标并登记claims，说明各项N、门槛、同值处理及方向。百分位不是能力分；失误、球队失分和角色负荷高值不等于优势。历史EPM必须就近写“口径待核验”，说明混合记录日期、无GP/MIN门槛及归档样本限制。\n')
+            if analysis['request'].get('percentile_protocol')=='0.2.0':
+                handle.write('\n新协议逐项保留polarity/polarity_note，数值百分位不反转。引用lower_better或role_neutral百分位时，claims增加percentile_interpretations列表（metric_id、polarity、disclosure）；disclosure原文须出现在report_quote中，说明高失误/失分不是优势，职责/风格高值不等于能力。程序只审查方向声明，仍需人工读正文。\n')
     write_json(out / "claims.template.json", {"schema_version": VERSION, "data_kind": analysis["data_kind"], "claims": []})
     write_json(out / 'film_records.template.json', film_template(analysis))
     if analysis['request'].get('media_research_audit'):
+        if analysis['request'].get('media_research_protocol')=='0.2.0':
+            from plan_image_research import write_plan
+            write_plan(out,analysis,force=True)
         with (out/'writing_brief.md').open('a',encoding='utf-8') as handle:
-            handle.write('\n## 图片检索与落地\n\n按references/image_research.md实际查阅原页并保存media_research.json；单一下载403只停止该途径，继续正常可访问的独立素材或摄影者来源。采用后检查本地文件、署名、许可和media_content映射；运行scripts/media_research.py。不得只保存候选链接就标为配图完成。\n')
+            handle.write('\n## 图片检索与落地\n\n按references/image_research.md执行分层检索：先确定用途、跨年日期与历史球队，再查公开图库/摄影者，必要时扩展别名、事件及资料照。若生成media_search_plan.json/md，它们只是建议，未联网；以media_research.template.json为起点，实际执行后另存media_research.json，不把模板或建议冒充记录。逐用途说明covered/unavailable/not_needed；采用项核对身份、拍摄/上传日期、许可、实际画面及本地文件，历史/未知/非比赛图的限制放可见图注。单一403只停止该途径，换独立原始素材；同图尺寸或CDN重试不算新候选。保存署名、来源与media_content映射，运行scripts/media_research.py；无工具/无结果如实停止，不凑查询或配图数量。\n')
     from commentary_workflow import template as commentary_template
     write_json(out/'commentary_research.template.json',commentary_template(analysis))
 
@@ -176,9 +181,13 @@ def run(args: argparse.Namespace) -> Path:
                "input_mode": "import" if args.input else ("offline_cache" if args.offline else "nba_api")}
     request['impact_policy']='disabled' if not args.impact else 'retained_only' if args.input or args.offline else 'attempt_public'
     request['advanced_percentiles'] = args.advanced_percentiles
+    if args.advanced_percentiles:
+        request['percentile_protocol']='0.2.0'
+        request['radar_protocol']='1.0.0'
     request['stat_leaders'] = args.advanced_percentiles
     request['partial_shot_locations'] = True
     request['media_research_audit'] = True
+    request['media_research_protocol'] = '0.2.0'
     if args.on_off_team_id:
         request['on_off_team_id'] = args.on_off_team_id
     if args.comparisons:

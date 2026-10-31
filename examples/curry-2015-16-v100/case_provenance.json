@@ -1,0 +1,17 @@
+{
+  "release": "0.8.16",
+  "mode": "retained_evidence_replay",
+  "rebuilt_at": "2026-10-22T08:20:44+00:00",
+  "original_collected_at": "2026-10-17",
+  "media_original_retrieved_at": "2026-10-18",
+  "network_requests": 0,
+  "checks": [
+    "metrics_identical_to_original",
+    "raw_hashes",
+    "retained_license_pages",
+    "final_images_viewed",
+    "new_percentile_polarity",
+    "media_protocol_0.2.0"
+  ],
+  "note": "新版回放示例，非新一轮赛季取数或网络搜索；未导入EPM。"
+}

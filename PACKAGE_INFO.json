@@ -1,16 +1,16 @@
 {
   "skill_name": "nba-player-analyst",
-  "release_version": "0.8.14",
-  "released_on": "2026-10-18",
+  "release_version": "1.0.0",
+  "released_on": "2026-10-31",
   "data_schema": "0.1.0",
   "book_schema": "0.2.0",
   "poster_schema": "0.3.0",
-  "regression_tests": 595,
-  "official_case": "examples/cade-cunningham-2024-25-official-v081",
+  "regression_tests": 674,
+  "official_case": "examples/curry-2015-16-v100",
   "historical_snapshot": "documentation/history/v0.3.1",
   "film_schema": "0.1.0",
   "media_schema": "0.1.0",
-  "available_case_metrics": 141,
+  "available_case_metrics": 245,
   "comparison_cohort": 12,
   "epm_value_imported": false,
   "impact_families": [
@@ -59,9 +59,7 @@
   "epm_real_export_verified": false,
   "epm_validation_scope": "Real Kaggle Actual Quickley and historical LeBron archived reading imported and recomputed; historical scope unverified; no direct provider export verified",
   "real_case_impact_families": [
-    "BREF",
-    "LEBRON",
-    "DARKO"
+    "BREF"
   ],
   "kaggle_epm_read_supported": true,
   "kaggle_epm_adapter": "deocheng-epm-v1",
@@ -77,7 +75,7 @@
   "epm_historical_notes_required": true,
   "epm_historical_real_import_verified": true,
   "advanced_percentiles_default": true,
-  "advanced_percentiles_tests": 35,
+  "advanced_percentiles_tests": 40,
   "advanced_percentiles_method": "midrank_empirical_including_target",
   "advanced_percentiles_minimum_n": 8,
   "advanced_percentiles_scope": "same-provider numeric distributions; GP>=20, total MIN>=500 for eligible season samples; historical archives retain mixed-date/unverified-scope notes",
@@ -90,8 +88,8 @@
     "bref_n": 353,
     "historical_epm_n": 554
   },
-  "advanced_percentiles_actual_real_case": "Quickley retained export replay: only 2 reference-matched eligible players; no percentile emitted",
-  "radar_visual_tests": 24,
+  "advanced_percentiles_actual_real_case": "Quickley retained Kaggle v1 replay: strict legacy population 2; named background concordance policy 347/376 reference-eligible, 602 raw rows; target import unchanged",
+  "radar_visual_tests": 32,
   "percentile_radar_supported": true,
   "stat_leaders_full_population_verified": true,
   "stat_leader_real_case": {
@@ -104,10 +102,95 @@
     "full_n": 540,
     "radar_n": 353
   },
-  "radar_presentation": "poster composition; verified single-stat leader callout; finite entrance and sweep",
-  "radar_metrics_changed": false,
+  "radar_presentation": "Same-source annular percentile compass; seven retained-sample interpolated quantiles; tangential labels; finite entrance; SVG export",
+  "radar_metrics_changed": true,
   "partial_shot_locations_default": true,
   "partial_shot_locations_requires_complete_events": true,
   "media_research_audit_default": true,
-  "media_shot_recovery_tests": 29
+  "media_shot_recovery_tests": 29,
+  "image_search_plan_supported": true,
+  "media_research_protocol": "0.2.0",
+  "image_research_workflow_tests": 33,
+  "image_search_executor": "agent_with_available_search_browse_and_image_tools",
+  "image_search_plan_network_requests": 0,
+  "previous_official_case": "examples/curry-2015-16-v0816",
+  "percentile_protocol": "0.2.0",
+  "percentile_upgrade_tests": 14,
+  "season_window_tests": 8,
+  "distribution_tests": 4,
+  "archive_date_windows": "Reviewed nonoverlapping COVID-delayed archive label windows, not proof of regular-season scope",
+  "epm_population_policy": "kaggle-v1-reference-concordance-2min",
+  "epm_population_sensitivity": {
+    "0.25": 245,
+    "0.5": 331,
+    "1.0": 345,
+    "2.0": 347
+  },
+  "distribution_profiles": [
+    "full",
+    "runtime"
+  ],
+  "official_case_mode": "retained_evidence_replay_no_network",
+  "official_case_media_protocol": "0.2.0",
+  "official_case_epm_imported": false,
+  "completion_gate_tests": 3,
+  "completion_contract": "references/research_completion.md",
+  "default_radar_requires_explicit_bars": true,
+  "radar_reference_frame": 50,
+  "radar_scale_max": 100,
+  "display_version": "V1.00",
+  "radar_upgrade_tests": 4,
+  "radar_protocol": "1.0.0",
+  "radar_profiles": {
+    "BREF": 11,
+    "NBA": 10,
+    "fallback_per_source": 6
+  },
+  "radar_scale_inner_radius": 50,
+  "radar_scale_outer_radius": 330,
+  "radar_scale_formula": "radius=50+(330-50)*percentile/100; center disk has no data",
+  "radar_ring_levels": [
+    5,
+    18,
+    32,
+    46,
+    60,
+    75,
+    90
+  ],
+  "radar_ring_quantile_method": "linear interpolation at (N-1)*q/100 over exact retained eligible values",
+  "radar_existing_metrics_unchanged": true,
+  "radar_metric_changes": "New protocol adds two turnover complements and NBA FT_RATE distribution; legacy requests replay unchanged.",
+  "radar_v100_real_cases": {
+    "curry": {
+      "metrics": 246,
+      "profiles": [
+        {
+          "key": "bref_compass",
+          "axes": 11,
+          "n": 350
+        },
+        {
+          "key": "nba_compass",
+          "axes": 10,
+          "n": 350
+        }
+      ]
+    },
+    "lebron": {
+      "metrics": 238,
+      "profiles": [
+        {
+          "key": "bref_compass",
+          "axes": 11,
+          "n": 353
+        },
+        {
+          "key": "nba_compass",
+          "axes": 10,
+          "n": 353
+        }
+      ]
+    }
+  }
 }
